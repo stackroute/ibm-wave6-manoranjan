@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/stackroute/ibm-wave6-manoranjan.svg?branch=master)](https://travis-ci.org/stackroute/ibm-wave6-manoranjan)
+[![Build Status](https://travis-ci.org/stackroute/ibm-wave6-manoranjan.svg?branch=v1.0.0)](https://travis-ci.org/stackroute/ibm-wave6-manoranjan)
 [![codecov](https://codecov.io/gh/stackroute/ibm-wave6-manoranjan/branch/master/graph/badge.svg)](https://codecov.io/gh/stackroute/ibm-wave6-manoranjan)
 ![](https://img.shields.io/codecov/c/github/stackroute/ibm-wave6-manoranjan/master.svg?style=flat)
 
