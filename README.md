@@ -12,3 +12,9 @@
 
 ****Running the System****
 Run ```mvn clean compile package``` on all the services
+
+Manoranjan
+->Should be able to stream media content such as Movies, TV Episodes, Seasons and Series, Documentaries and Live Content
+->Subscription based model - Monthly, Quarterly, Half Yearly and Yearly.
+->Capabilities such as Watched History, Watch Later etc must be provisioned
+->Ability for offline viewing should be enabled for subscribed users
