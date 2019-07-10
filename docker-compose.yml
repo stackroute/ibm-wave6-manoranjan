@@ -8,7 +8,9 @@ services:
     hostname: localhost
     image: eureka-server
     ports:
-      - 8761:8761
+      - 8085:8085
+    expose:
+      - 8085
 
   config-service:
     build: config-server/
@@ -18,15 +20,102 @@ services:
     hostname: localhost
     ports:
       - 8888:8888
+    expose:
+      - 8888
 
   zuul-api:
     build: zuul-api/
     depends_on:
-      - config-service
       - eureka-server
     restart: always
     network_mode: "host"
     image: zuul-api
     hostname: localhost
     ports:
-      - 8080:8080
+      - 8011:8011
+    expose:
+      - 8011
+
+  zookeeper:
+    container_name: zookeeper
+    image: zookeeper:latest
+    ports:
+      - 2181:2181
+    expose:
+      - 2181
+    network_mode: "host"
+    hostname: localhost
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000000000
+
+  kafka:
+    container_name: kafka
+    image: wurstmeister/kafka:latest
+    ports:
+      - 9092:9092
+    expose:
+      - 9092
+    depends_on:
+      - zookeeper
+    network_mode: "host"
+    hostname: localhost
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: localhost:2181
+      KAFKA_MESSAGE_MAX_BYTES: 1000000000
+
+  userAuthentication:
+    image: user-authentication:1.0.0
+    build: UserAuthentication/
+    restart: always
+    network_mode: host
+    depends_on:
+      - mysql
+      - eureka-server
+      - zuul-api
+      - kafka
+    ports:
+      - 8091:8091
+    expose:
+      - 8091
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: LoginDb
+      MYSQL_USER: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "YES"
+    volumes:
+      - $HOME/data/datasql:/var/lib/mysql
+    network_mode: "host"
+    hostname: localhost
+    restart: always
+
+  mongo:
+    image: mongo:3.4-xenial
+    restart: always
+    network_mode: "host"
+    ports:
+      - 27017:27017
+    expose:
+      - 27017
+
+  userservice:
+      image: user-service:1.0.0
+      build: userservice/
+      restart: always
+      network_mode: "host"
+      depends_on:
+        - mongo
+        - eureka-server
+        - zuul-api
+        - kafka
+      ports:
+        - 8050:8050
+      expose:
+        - 8050
