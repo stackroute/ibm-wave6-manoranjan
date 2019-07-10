@@ -1,0 +1,27 @@
+<div id="container">
+    <h4 align="center">Episodes</h4>
+    <div ng2-carouselamos class="slides-wrapper"
+        [items]="items"
+        [width]="1060"
+        [$prev]="prev"
+        [$next]="next"
+        [$item]="item">
+    </div>
+        
+    <ng-template #prev id="prev1">
+        <img src="../../assets/left.png" id="left">
+    </ng-template>
+        
+    <ng-template #next>
+        <img src="../../assets/right.png" id="right">
+    </ng-template>
+        
+    <ng-template #item let-item let-i="index">
+        <div class="items">
+            <img class="latest" src="{{ item.name }}">
+            <div class="overlay">Bumm Bumm Bole is a Hindi film, starring Darsheel Safary, Ziyah Vastani, 
+                Atul Kulkarni and Rituparna ...</div>
+        </div>
+    </ng-template>
+</div>
+<app-episoderecommendation></app-episoderecommendation>

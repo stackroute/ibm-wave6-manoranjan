@@ -32,6 +32,12 @@ import { RegistrationComponent } from './registration/registration.component';
 import { NavNormComponent } from './nav-norm/nav-norm.component';
 import { NormcarousalComponent } from './normcarousal/normcarousal.component';
 import { MoviesComponent } from './movies/movies.component';
+import { MoviedescriptionComponent } from './moviedescription/moviedescription.component';
+import { TvComponent } from './tv/tv.component';
+import { WebComponent } from './web/web.component';
+import { ImageComponent } from './image/image.component';
+import { LikeCardComponent } from './like-card/like-card.component';
+import { EpisoderecommendationComponent } from './episoderecommendation/episoderecommendation.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +61,13 @@ import { MoviesComponent } from './movies/movies.component';
     RegistrationComponent,
     NavNormComponent,
     NormcarousalComponent,
-    MoviesComponent
+    MoviesComponent,
+    MoviedescriptionComponent,
+    TvComponent,
+    WebComponent,
+    ImageComponent,
+    EpisoderecommendationComponent,
+    LikeCardComponent
   ],
   imports: [
     BrowserModule,
