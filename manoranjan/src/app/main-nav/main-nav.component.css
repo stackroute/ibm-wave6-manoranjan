@@ -1,5 +1,5 @@
 .btn-group i{
-    color:rgb(26, 24, 24);
+    color:white;
 }
 nav {
     position: fixed;
@@ -29,4 +29,7 @@ li.menu-item {
  a.navbar-brand{
      font-family: Georgia, 'Times New Roman', Times, serif;
      font-size: 2em;
+ }
+ .dropdown-item i{
+   color: black;
  }
