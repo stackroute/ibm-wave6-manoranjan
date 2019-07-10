@@ -44,7 +44,7 @@ html {
   #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: #fff;
+    background:gray;
     padding: 30px;
     width: 90%;
     max-width: 450px;
@@ -59,7 +59,7 @@ html {
     background-color: #f6f6f6;
     border-top: 1px solid #dce8f1;
     padding: 25px;
-    text-align: center;
+   
     -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
   }
@@ -276,7 +276,9 @@ html {
   .underlineHover:hover:after{
     width: 100%;
   }
-  
+  .underlineHover{
+    color: #0d0d0d;
+  }
   /* OTHERS */
   
   *:focus {
