@@ -41,11 +41,14 @@ li.menu-item {
  }
  /* cards */
  img.card-img-top{
-    margin-top: 100px;
-    width: 10rem;
-    height: 15rem;
-    border: 5px solid black;
+    /* margin-top: 100px; */
+    width: 160px;
+    height: 180px;
+    border: 5px solid white;
     border-radius: 12px;
     position: absolute;
     margin-left: 17rem;
+ }
+ h4{
+     margin-top: 100px;
  }

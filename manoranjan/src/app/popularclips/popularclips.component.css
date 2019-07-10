@@ -1,8 +1,8 @@
 #container{
 	width:80%;
 	margin:3.5em auto;
-	padding:10;
-	background: #fff;
+	padding:20;
+	/* background: #fff; */
 	margin-bottom: 0%;
   }
   #container H4{
@@ -10,15 +10,14 @@
 	margin-bottom: 20px;
   }
   #left,#right{
-	margin: 40px;
+	margin: 5px;
   }
   .latest{
 	height: 180px;
 	width: 165px;
-	background: #ECECEC;
-	border: 4px solid white;
+	/* background: #ECECEC; */
 	border-radius: 14px;
-	margin-left: 12px;
+	margin: 6px;
 	margin-bottom:30px;
   }
   .items:hover img,
