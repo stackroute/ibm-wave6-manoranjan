@@ -1,0 +1,22 @@
+.btn-group i{
+    color:rgb(26, 24, 24);
+}
+nav {
+    position: absolute;
+    z-index: -1;
+}
+ a.navbar-brand{
+     font-family: Georgia, 'Times New Roman', Times, serif;
+     font-size: 2em;
+ }
+ button{
+	position: relative;
+	margin-left: 1280px;
+ }
+ .nav-item{
+    padding-right: 50px;
+ }
+ a.navbar-brand{
+     font-family: fantasy;
+     font-size: 2em;
+ }

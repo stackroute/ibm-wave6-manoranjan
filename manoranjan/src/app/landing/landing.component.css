@@ -1,0 +1,25 @@
+/* mainimage */
+div{
+    margin-top:20px;
+    text-align: center;
+    color: black;
+    border:0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+button{
+  width: 50%; 
+  align-self: center;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 12px;
+  height: 65px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  background: rgb(154, 160, 214);
+}
+h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 3em;
+}
+h5{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

@@ -1,0 +1,62 @@
+
+
+    <body >
+        <!-- use jumbotron to give back side gray color -->
+            <div class="container ">
+            <h1 class="heading jumbotron">Registration Form</h1>
+    <form>
+            <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control" #email placeholder="Email">
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label for="inputName" class="col-sm-3 col-form-label">Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" #name placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                        <label for="inputAge" class="col-sm-3 col-form-label">Age 
+                               
+                        </label>
+                        <div class="col-sm-9">
+                               
+                            <input type="text" class="form-control" #age placeholder="Age">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                            <label for="inputGender" class="col-sm-3 col-form-label">Gender</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" #gender placeholder="Gender">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="inputMobileNo" class="col-sm-3 col-form-label">Mobile No</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" #mobileno placeholder="MobileNo">
+                                </div>
+                            </div>
+         
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" #password placeholder="Password">
+                </div>
+            </div>
+        
+         
+            <div class="form-group row">
+                    <label for="inputGenre" class="col-sm-3 col-form-label">Interest</label>     
+                    <input type="text" class="form-control" #genre placeholder="Genre">
+            </div> 
+                <!-- genre div is closed-->
+            <div class="form-group row">
+                <div class="col-sm-7 offset-sm-5">
+                    <button type="submit" class="btn btn-primary" (click)="submit(email.value,name.value,age.value,gender.value,mobileno.value,password.value,genre.value)" routerLink="/nav">Submit</button>
+                </div>
+            </div>
+        </form>
+        </div>
+    </body>

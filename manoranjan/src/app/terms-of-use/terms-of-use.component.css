@@ -1,0 +1,42 @@
+div.about{
+    margin-top: 100px;
+    margin-left: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+/* header */
+.btn-group i{
+    color:rgb(26, 24, 24);
+}
+nav {
+    position: fixed;
+    z-index: -1;
+}
+li.menu-item {
+    margin:0 0 10px 0;
+    transform: translate(15px,-5px);
+    position: absolute;
+    padding-right: 15px;
+ }
+ .nav-item{
+    padding-right: 50px;
+ }
+ .navbar-brand{
+     padding-right: 20px;
+ }
+ .form-inline{
+     padding-left:200px; 
+     padding-right: 20px;
+
+ }
+ .form-inline i {
+     color:white;
+ }
+ a.navbar-brand{
+     font-family: fantasy;
+     font-size: 2em;
+ }
+ app-footer{
+     margin-top: 400px;
+     position: fixed;
+     width: 100%;
+ }

@@ -1,0 +1,11 @@
+div{
+    width: 80%;
+    margin-left: 10%;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.jumbotron{
+	background-image: url('../../assets/e3.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+} 

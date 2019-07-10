@@ -1,0 +1,40 @@
+
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* background-image:url("../../assets/img/Background.png"); */
+    /* this all below to give image to full page */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+  .bs-example{
+      margin: 20px;        
+  }
+  .heading{
+      text-align: center;
+  }
+  /* Customize container */
+  @media (min-width: 768px) {
+      .container {
+        max-width: 730px;
+      }
+    }
+  .container-narrow > hr {
+      margin: 30px 0;
+    }
+  button{
+    float:center;
+  }
+.card{
+      background-color: wheat;
+  }
+  .card-block .interest {
+  text-anchor: middle;
+    text-decoration: none;
+  }
+  .btn btn-primary{
+    margin-left: 100px;
+  }

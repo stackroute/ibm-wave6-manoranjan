@@ -1,0 +1,29 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <h2>LogIn Form</h2>
+      <button routerLink="/" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    </div>
+
+    <!-- Login Form -->
+    <form action="login">
+      <input type="text" #email class="fadeIn second" name="login" placeholder="Enter your email">
+      <input type="password" #password class="fadeIn third" name="login" placeholder="Password">
+      <input type="submit" (click)="submit(email.value,password.value)" class="fadeIn fourth" value="Log In">
+    </form>
+            
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" routerLink="/register" style="float: right;">Register Here</a> 
+      <a class="underlineHover" href="#" style="float: left;">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
