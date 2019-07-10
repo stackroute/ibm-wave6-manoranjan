@@ -2,7 +2,6 @@
   width:80%;
   margin:3.5em auto;
   padding:10;
-  background: #fff;
   margin-bottom: 0%;
 }
 #container H4{
@@ -10,24 +9,32 @@
   margin-bottom: 20px;
 }
 #left,#right{
-  margin: 40px;
+  margin:20px;
 }
+
 .latest{
   height: 180px;
   width: 165px;
-  background: #ECECEC;
-  border: 4px solid white;
   border-radius: 14px;
-  margin-left: 12px;
+  margin-left: 10px;
   margin-bottom:30px;
 }
 .items:hover img,
 .items.hover img {
- -webkit-transform: scale(1.3);
- transform: scale(1.3);
+ -webkit-transform: scale(1.1);
+ transform: scale(1.1);
 }
 h4{
-  text-align: center;
+  margin-left: 100px;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.textStyle{
+  color: white;
+  /* font-weight: bold; */
+  /* font-style: italic; */
+}
 
+.textStyle:hover{
+  color: #36c5ff;
+  font-size: 25px;
+}
