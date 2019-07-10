@@ -1,5 +1,8 @@
+.main{
+    background: black;
+}
 .btn-group i{
-    color:rgb(26, 24, 24);
+    color:white;
 }
 nav {
     position: absolute;

@@ -1,11 +1,24 @@
 div{
     width: 80%;
     margin-left: 10%;
-    color: black;
+    color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .jumbotron{
-	background-image: url('../../assets/e3.jpeg');
 	background-size: cover;
 	background-repeat: no-repeat;
 } 
+.one{
+    /* background-image: url('../../assets/j3.jpeg'); */
+    background-image: linear-gradient(to bottom right, rgb(92, 192, 218),black);
+}
+.two{
+    background-image: linear-gradient(to bottom right, rgb(92, 192, 218),black);
+}
+.three{
+    background-image: linear-gradient(to bottom right, rgb(92, 192, 218),black);
+}
+.btn{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 14px;
+}
