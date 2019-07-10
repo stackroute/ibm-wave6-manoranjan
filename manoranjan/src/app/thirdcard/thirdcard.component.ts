@@ -10,11 +10,11 @@ export class ThirdcardComponent implements OnInit {
   items:Array<any> =[];
   constructor() {
     this.items=[
-      {name:'../../assets/yghd.jpg'},
-      {name:'../../assets/prdp.jpg'},
-      {name:'../../assets/hddcs.jpg'},
-      {name:'../../assets/vivah.jpg'},
-      {name:'../../assets/mohabbatein.jpg'},
+      {name:'../../assets/tv1.webp'},
+      {name:'../../assets/tv2.webp'},
+      {name:'../../assets/tv3.webp'},
+      {name:'../../assets/tv4.webp'},
+      {name:'../../assets/tv5.webp'},
       {name:'../../assets/luka-chupi.jpg'},
       {name:'../../assets/rab-ne-bnad- jodi.jpg'},
       {name:'../../assets/ddlj.jpg'},

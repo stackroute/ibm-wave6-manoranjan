@@ -1,5 +1,8 @@
+.main{
+    background-color: black;
+}
 .btn-group i{
-    color:rgb(26, 24, 24);
+    color:rgb(20, 19, 19);
 }
 nav {
     position: fixed;

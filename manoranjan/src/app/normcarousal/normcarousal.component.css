@@ -4,8 +4,9 @@ img{
     max-width: 80%;
     width: 1150px;
     align-items: center;
-    border: 5px solid black;
+    /* border: 5px solid black; */
     vertical-align: middle;
+    border-radius: 10px;
 }
 .center {
     display: block;
