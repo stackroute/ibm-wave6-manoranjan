@@ -20,12 +20,20 @@ import { ImageComponent } from './image/image.component';
 import { LinknormviewComponent } from './linknormview/linknormview.component';
 import { LinkpriviewComponent } from './linkpriview/linkpriview.component';
 import { LinkpriviewloginComponent } from './linkpriviewlogin/linkpriviewlogin.component';
+import { LinkDocNorComponent } from './link-doc-nor/link-doc-nor.component';
+import { LinkDocPriComponent } from './link-doc-pri/link-doc-pri.component';
+import { LinkTvNorComponent } from './link-tv-nor/link-tv-nor.component';
+import { LinkTvPriComponent } from './link-tv-pri/link-tv-pri.component';
+import { LinkMovieNorComponent } from './link-movie-nor/link-movie-nor.component';
+import { LinkMoviePriComponent } from './link-movie-pri/link-movie-pri.component';
+import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
+import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
   {path :'feedback',component:FeedbackComponent},
   {path :'faq',component:FaqComponent},
-  {path: 'document',component:DocumentaryComponent}, 
+  {path: 'document',component:LinkDocNorComponent}, 
   {path: 'land',component:LandingComponent},
   {path: 'navland',component:NavLandComponent},
   {path: 'login',component:LoginComponent},
@@ -33,9 +41,9 @@ const routes: Routes = [
   {path: 'navnorm',component:NavNormComponent},
   {path: 'movie',component:MoviesComponent},
   {path: 'wish',component:WishlistComponent},
-  {path: 'moviedes',component:MoviedescriptionComponent},
-  {path: 'tv',component:TvComponent},
-  {path: 'web',component:WebComponent},
+  {path: 'moviedes',component:LinkMovieNorComponent},
+  {path: 'tv',component:LinkTvNorComponent},
+  {path: 'web',component:LinkWebNorComponent},
   {path: 'image',component:ImageComponent},
   {path: 'linknorm',component:LinknormviewComponent},
   {path: 'linkpri',component:LinkpriviewComponent},
