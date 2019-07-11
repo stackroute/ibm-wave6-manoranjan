@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatListModule} from '@angular/material';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatListModule,MatFormFieldModule, MatInputModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MainNavComponent } from './main-nav/main-nav.component';
@@ -38,6 +40,14 @@ import { WebComponent } from './web/web.component';
 import { ImageComponent } from './image/image.component';
 import { LikeCardComponent } from './like-card/like-card.component';
 import { EpisoderecommendationComponent } from './episoderecommendation/episoderecommendation.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { HindiserialsComponent } from './hindiserials/hindiserials.component';
+import { MarathiserialsComponent } from './marathiserials/marathiserials.component';
+import { TeluguserialsComponent } from './teluguserials/teluguserials.component';
+import { TamilserialsComponent } from './tamilserials/tamilserials.component';
+import { BengaliserialsComponent } from './bengaliserials/bengaliserials.component';
+import { EnglishserialsComponent } from './englishserials/englishserials.component';
+import { GujarathiserialsComponent } from './gujarathiserials/gujarathiserials.component';
 import { ActionmoviesComponent } from './actionmovies/actionmovies.component';
 import { HorrormoviesComponent } from './horrormovies/horrormovies.component';
 import { RomanticmoviesComponent } from './romanticmovies/romanticmovies.component';
@@ -56,6 +66,10 @@ import { LinkMovieNorComponent } from './link-movie-nor/link-movie-nor.component
 import { LinkMoviePriComponent } from './link-movie-pri/link-movie-pri.component';
 import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
 import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PackageComponent } from './package/package.component';
+
+
 
 @NgModule({
   declarations: [
@@ -86,6 +100,13 @@ import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
     ImageComponent,
     EpisoderecommendationComponent,
     LikeCardComponent,
+    HindiserialsComponent,
+    MarathiserialsComponent,
+    TeluguserialsComponent,
+    TamilserialsComponent,
+    BengaliserialsComponent,
+    EnglishserialsComponent,
+    GujarathiserialsComponent,
     ActionmoviesComponent,
     HorrormoviesComponent,
     RomanticmoviesComponent,
@@ -103,7 +124,9 @@ import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
     LinkMovieNorComponent,
     LinkMoviePriComponent,
     LinkWebNorComponent,
-    LinkWebPriComponent
+    LinkWebPriComponent,
+    PaymentComponent,
+    PackageComponent
   ],
   imports: [
     BrowserModule,
@@ -111,7 +134,6 @@ import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
     MatMenuModule,
@@ -120,7 +142,14 @@ import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    Ng2CarouselamosModule
+    Ng2CarouselamosModule,
+    MatStepperModule,
+    MatCardModule,
+    MatGridListModule,
+    MatRadioModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

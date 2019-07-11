@@ -1,5 +1,6 @@
 .total{
     background-color: black;
+    font-family: 'Neuton', serif;
   }
     .container{
       padding-top: 90px;
@@ -8,19 +9,25 @@
       top: 8px;
       left: 16px;
     }
-    h5{
-      font-family: Georgia, 'Times New Roman', Times, serif;
+    .container-fluid{
+      margin-top: -10px;
+    } 
+    h4{
+      font-family: 'Neuton', serif;
       color: white; 
+      margin-left: 30px;
+       margin-top: 20px;
     }
     .image {
       display: block;
       width: 165px;
       height: 180px;
       border-radius: 14px;
+      margin-left: 12px;
+      margin-top: 30px;
     }
     .col-2 {
       float: left;
-      padding: 10px;
     }
     .row::after {
       content: "";

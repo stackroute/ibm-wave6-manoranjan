@@ -11,7 +11,7 @@ li.menu-item {
     transform: translate(15px,-5px);
     position: absolute;
     padding-right: 15px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Neuton', serif;
  }
  .nav-item{
     padding-right: 50px;
@@ -28,6 +28,23 @@ li.menu-item {
      color:white;
  }
  a.navbar-brand{
-     font-family: Georgia, 'Times New Roman', Times, serif;
+     font-family: 'Neuton', serif;
      font-size: 2em;
+     color: white;
+ }
+ .nav-item a{
+    font-family: 'Neuton', serif;
+    color: white;
+ }
+
+ .nav-item a:hover{
+     background-color: #36c5ff;
+     border-radius: 5px;
+ }
+
+ .dropdown-menu{
+     background-color: #343a40;
+ }
+ .dropdown-item{
+    color: white;
  }

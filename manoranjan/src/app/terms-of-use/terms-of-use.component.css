@@ -1,7 +1,7 @@
 div.about{
     margin-top: 100px;
     margin-left: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Neuton', serif;
 }
 /* header */
 .btn-group i{
@@ -32,7 +32,7 @@ li.menu-item {
      color:white;
  }
  a.navbar-brand{
-     font-family: fantasy;
+     font-family: 'Neuton', serif;
      font-size: 2em;
  }
  app-footer{

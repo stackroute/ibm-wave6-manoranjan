@@ -17,6 +17,13 @@ import { MoviedescriptionComponent } from './moviedescription/moviedescription.c
 import { TvComponent } from './tv/tv.component';
 import { WebComponent } from './web/web.component';
 import { ImageComponent } from './image/image.component';
+import { HindiserialsComponent } from './hindiserials/hindiserials.component';
+import { TamilserialsComponent } from './tamilserials/tamilserials.component';
+import { MarathiserialsComponent } from './marathiserials/marathiserials.component';
+import { TeluguserialsComponent } from './teluguserials/teluguserials.component';
+import { BengaliserialsComponent } from './bengaliserials/bengaliserials.component';
+import { EnglishserialsComponent } from './englishserials/englishserials.component';
+import { GujarathiserialsComponent } from './gujarathiserials/gujarathiserials.component';
 import { LinknormviewComponent } from './linknormview/linknormview.component';
 import { LinkpriviewComponent } from './linkpriview/linkpriview.component';
 import { LinkpriviewloginComponent } from './linkpriviewlogin/linkpriviewlogin.component';
@@ -33,6 +40,9 @@ import { ComedymoviesComponent } from './comedymovies/comedymovies.component';
 import { ActionmoviesComponent } from './actionmovies/actionmovies.component';
 import { HorrormoviesComponent } from './horrormovies/horrormovies.component';
 import { RomanticmoviesComponent } from './romanticmovies/romanticmovies.component';
+import { MysterymoviesComponent } from './mysterymovies/mysterymovies.component';
+import{PackageComponent} from './package/package.component';
+import{PaymentComponent} from './payment/payment.component';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -53,9 +63,29 @@ const routes: Routes = [
   {path: 'linknorm',component:LinknormviewComponent},
   {path: 'linkpri',component:LinkpriviewComponent},
   {path: 'linkprilog',component:LinkpriviewloginComponent},
+  {path: 'linkdocpri',component:LinkDocPriComponent},
+  {path: 'linktvpri',component:LinkTvPriComponent},
+  {path: 'linkmoviepri',component:LinkMoviePriComponent},
+  {path: 'linkwebpri',component:LinkWebPriComponent},
+  {path: 'actionmovie',component:ActionmoviesComponent},
+  {path: 'horrormovie',component:HorrormoviesComponent},
+  {path: 'comedymovie',component:ComedymoviesComponent},
+  {path: 'thrillermovie',component:ThrillermoviesComponent},
+  {path: 'romanticmovie',component:RomanticmoviesComponent},
+  {path: 'mysterymovie',component:MysterymoviesComponent},
+  {path: 'hindiserial',component:HindiserialsComponent},
+  {path: 'englishserial',component:EnglishserialsComponent},
+  {path: 'marathiserial',component:MarathiserialsComponent},
+  {path: 'tamilserial',component:TamilserialsComponent},
+  {path: 'taluguserial',component:TeluguserialsComponent},
+  {path: 'gujarathiserial',component:GujarathiserialsComponent},
+  {path: 'bengaliserial',component:BengaliserialsComponent},
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
+  {path :'package',component:PackageComponent},
+  {path :'payment',component:PaymentComponent},
   {path: '**', redirectTo: '/navland'}
+
 ];
 
 @NgModule({

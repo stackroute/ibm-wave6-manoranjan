@@ -1,40 +1,87 @@
+.example-card {
+  max-width: 100%;
+    }
+ /* .card-container {
+      display: flex;
+      flex-flow: row wrap;
+      margin-left: 22%;
+    margin-right: 22%;
+    } */
+ img{
+   margin-top: 20px;
+ } 
+.mat-form-field-infix {
+  top: -0.25em;
+}
 
-/* Space out content a bit */
-body {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    /* background-image:url("../../assets/img/Background.png"); */
-    /* this all below to give image to full page */
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+.form-horizontal{
+    text-align: center;
+    margin-left: 22%;
+    margin-right: 22%;
+}
+
+.form-group{
+    text-align: center;
+}
+.image-card{
+   width: 40%;
+   height: 50%;
+   
+}
+.mat-card-sm-image{
+margin-right: 10px;
+}
+.column {
+  float: left;
+  width: 45%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
   }
-  .bs-example{
-      margin: 20px;        
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+.user-profile{
+  width: 50%;
+  margin-left: 24px;
+  margin-top: 10px;
+}
+  .person-icon{
+      width: 200px;
+      height: 200px;
   }
-  .heading{
-      text-align: center;
-  }
-  /* Customize container */
-  @media (min-width: 768px) {
-      .container {
-        max-width: 730px;
-      }
-    }
-  .container-narrow > hr {
-      margin: 30px 0;
-    }
-  button{
-    float:center;
-  }
-.card{
-      background-color: wheat;
-  }
-  .card-block .interest {
-  text-anchor: middle;
-    text-decoration: none;
-  }
-  .btn btn-primary{
-    margin-left: 100px;
-  }
+form{
+padding-top: 50px;
+border-block-start-color: black;
+border-block-end-color: black;
+border-block-start-width: 10px;
+}
+
+ /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+img{
+ width:80px;
+ height: 80px;
+}
