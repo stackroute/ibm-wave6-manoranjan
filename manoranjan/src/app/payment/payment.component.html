@@ -1,0 +1,81 @@
+
+        <div class="container ">
+            <div class="inner-container">
+        <h1 class=" heading" style="text-align: center ; font-family: Georgia, 'Times New Roman', Times, serif">Premium Payment</h1>
+   
+<form>
+        <div class="form-group row">
+                <label for="Account-Holder-Name" class="col-sm-12 col-form-label">Name on Card</label>
+                
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" name="Account-Holder-Name" />
+                
+                </div>
+            </div>
+        <div class="form-group row">
+                <label for="cardNumber" class="col-sm-7 col-form-label">Card Number</label>
+                <img class="col-sm-5 img-responsive pull-right" style="padding-left: 2px" src="http://i76.imgup.net/accepted_c22e0.png">
+                <div class="col-sm-12">
+                    <input type="tel" class="form-control" name="cardNumber" autocomplete="cc-number" required autofocus />
+                    <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                   
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="cardExpiry" class="col-sm-12 col-form-label">Expiry Date</label>
+                    
+                    <div class="col-sm-6">
+                        <select class="form-control"  >
+                            <option>MM</option>
+                            <option>01</option>
+                            <option>02</option>
+                            <option>03</option>
+                            <option>04</option>
+                            <option>05</option>
+                            <option>06</option>
+                            <option>07</option>
+                            <option>08</option>
+                            <option>09</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                          </select>  
+                    </div>
+                  
+                    <div class="col-sm-6">
+                          <select class="form-control"  >
+                              <option>YY</option>
+                              <option>19</option>
+                              <option>20</option>
+                              <option>21</option>
+                              <option>22</option>
+                              <option>23</option>
+                              <option>24</option>
+                              <option>25</option>
+                              <option>26</option>
+                              <option>27</option>
+                              <option>28</option>
+                              <option>29</option>
+                              <option>30</option>
+                            </select>  
+                        <!-- <input type="number" class="form-control" name="Expiry-Date"  required autofocus /> -->
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="cardExpiry" class="col-sm-12 col-form-label">CVV</label>
+                        
+                        <div class="col-sm-12">
+                               
+                            <input type="number" class="form-control" name="CVV"  required autofocus />
+                        </div>
+                    </div>
+     
+        <div class="form-group row">
+            <div class="col-sm-7 offset-sm-5">
+                <button type="submit" class="btn btn-primary" (click)="submit(email.value,name.value,age.value,gender.value,mobileno.value,password.value,genre.value)" routerLink="/nav">Submit</button>
+            </div>
+        </div>
+    </form>
+  </div>
+    </div>
+
