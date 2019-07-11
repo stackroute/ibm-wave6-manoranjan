@@ -42,7 +42,7 @@ import { SuspensemoviesComponent } from './suspensemovies/suspensemovies.compone
 import { ThrillermoviesComponent } from './thrillermovies/thrillermovies.component';
 import { RomanticmoviesComponent } from './romanticmovies/romanticmovies.component';
 import { MysterymoviesComponent } from './mysterymovies/mysterymovies.component';
-
+import{PackageComponent} from './package/package.component';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -83,6 +83,8 @@ const routes: Routes = [
   {path: 'bengaliserial',component:BengaliserialsComponent},
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
+  {path :'package',component:PackageComponent},
+
   {path: '**', redirectTo: '/navland'}
 
 ];

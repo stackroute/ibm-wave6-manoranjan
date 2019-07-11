@@ -69,6 +69,8 @@ import { LinkMoviePriComponent } from './link-movie-pri/link-movie-pri.component
 import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
 import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
 import { PaymentComponent } from './payment/payment.component';
+import { PackageComponent } from './package/package.component';
+
 
 
 @NgModule({
@@ -126,7 +128,8 @@ import { PaymentComponent } from './payment/payment.component';
     LinkMoviePriComponent,
     LinkWebNorComponent,
     LinkWebPriComponent,
-    PaymentComponent
+    PaymentComponent,
+    PackageComponent
   ],
   imports: [
     BrowserModule,
