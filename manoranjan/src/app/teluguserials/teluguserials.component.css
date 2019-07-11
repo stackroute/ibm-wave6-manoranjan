@@ -1,6 +1,6 @@
 .main{
     background-color: black;
-    font-family: 'Neuton', serif;
+      font-family: 'Merriweather', serif;
 }
 .btn-group i{
     color:rgb(20, 19, 19);
@@ -14,7 +14,7 @@ li.menu-item {
     transform: translate(15px,-5px);
     position: absolute;
     padding-right: 15px;
-    font-family: 'Neuton', serif;
+      font-family: 'Merriweather', serif;
  }
  .nav-item{
     padding-right: 50px;
@@ -31,11 +31,11 @@ li.menu-item {
      color:white;
  }
  a.navbar-brand{
-     font-family: 'Neuton', serif;
+       font-family: 'Merriweather', serif;
      font-size: 2em;
  }
  h4{
-     font-family: 'Neuton', serif;
+       font-family: 'Merriweather', serif;
      color: white;
      margin-left: 30px;
      margin-top: 20px;

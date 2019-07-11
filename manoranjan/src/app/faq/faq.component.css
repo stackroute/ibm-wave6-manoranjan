@@ -1,7 +1,7 @@
 div.about{
     margin-top: 100px;
     margin-left: 10px;
-    font-family: 'Neuton', serif;
+    font-family: 'Merriweather', serif;
 }
 /* header */
 .btn-group i{
@@ -32,7 +32,7 @@ li.menu-item {
      color:white;
  }
  a.navbar-brand{
-     font-family: 'Neuton', serif;
+    font-family: 'Merriweather', serif;
      font-size: 2em;
  }
  app-footer{

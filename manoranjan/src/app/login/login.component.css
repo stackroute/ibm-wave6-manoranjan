@@ -1,12 +1,9 @@
-
-/* BASIC */
-
-html {
+  html {
     background-color: #56baed;
   }
   
   body {
-    font-family: 'Neuton', serif;
+    font-family: 'Merriweather', serif;
     height: 100vh;
   }
   
@@ -26,9 +23,7 @@ html {
     margin: 40px 8px 10px 8px; 
     color: #cccccc;
   }
-  
-  
-  
+    
   /* STRUCTURE */
   
   .wrapper {

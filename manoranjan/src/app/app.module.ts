@@ -11,7 +11,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatListModule,MatFormFieldModule, MatInputModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
-
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -53,7 +52,6 @@ import { ActionmoviesComponent } from './actionmovies/actionmovies.component';
 import { HorrormoviesComponent } from './horrormovies/horrormovies.component';
 import { RomanticmoviesComponent } from './romanticmovies/romanticmovies.component';
 import { ThrillermoviesComponent } from './thrillermovies/thrillermovies.component';
-import { SuspensemoviesComponent } from './suspensemovies/suspensemovies.component';
 import { ComedymoviesComponent } from './comedymovies/comedymovies.component';
 import { MysterymoviesComponent } from './mysterymovies/mysterymovies.component';
 import { LinknormviewComponent } from './linknormview/linknormview.component';
@@ -70,6 +68,32 @@ import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
 import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PackageComponent } from './package/package.component';
+import { ActionmovienormComponent } from './actionmovienorm/actionmovienorm.component';
+import { HorrormovienormComponent } from './horrormovienorm/horrormovienorm.component';
+import { RomanticmovienormComponent } from './romanticmovienorm/romanticmovienorm.component';
+import { ThrillermovienormComponent } from './thrillermovienorm/thrillermovienorm.component';
+import { ComedymovienormComponent } from './comedymovienorm/comedymovienorm.component';
+import { MysterymovienormComponent } from './mysterymovienorm/mysterymovienorm.component';
+import { ActionmoviepriComponent } from './actionmoviepri/actionmoviepri.component';
+import { HorrormoviepriComponent } from './horrormoviepri/horrormoviepri.component';
+import { RomanticmoviepriComponent } from './romanticmoviepri/romanticmoviepri.component';
+import { ThrillermoviepriComponent } from './thrillermoviepri/thrillermoviepri.component';
+import { ComedymoviepriComponent } from './comedymoviepri/comedymoviepri.component';
+import { MysterymoviepriComponent } from './mysterymoviepri/mysterymoviepri.component';
+import { HindiserialnormComponent } from './hindiserialnorm/hindiserialnorm.component';
+import { EnglishserialnormComponent } from './englishserialnorm/englishserialnorm.component';
+import { MarathiserialnormComponent } from './marathiserialnorm/marathiserialnorm.component';
+import { TamilserialnormComponent } from './tamilserialnorm/tamilserialnorm.component';
+import { TeluguserialnormComponent } from './teluguserialnorm/teluguserialnorm.component';
+import { GujarathiserialnormComponent } from './gujarathiserialnorm/gujarathiserialnorm.component';
+import { BengaliserialnormComponent } from './bengaliserialnorm/bengaliserialnorm.component';
+import { BengaliserialpriComponent } from './bengaliserialpri/bengaliserialpri.component';
+import { GujarathiserialpriComponent } from './gujarathiserialpri/gujarathiserialpri.component';
+import { TeluguserialpriComponent } from './teluguserialpri/teluguserialpri.component';
+import { TamilserialpriComponent } from './tamilserialpri/tamilserialpri.component';
+import { MarathiserialpriComponent } from './marathiserialpri/marathiserialpri.component';
+import { EnglishserialpriComponent } from './englishserialpri/englishserialpri.component';
+import { HindiserialpriComponent } from './hindiserialpri/hindiserialpri.component';
 
 
 
@@ -113,7 +137,6 @@ import { PackageComponent } from './package/package.component';
     HorrormoviesComponent,
     RomanticmoviesComponent,
     ThrillermoviesComponent,
-    SuspensemoviesComponent,
     ComedymoviesComponent,
     MysterymoviesComponent,
     LinknormviewComponent,
@@ -129,7 +152,33 @@ import { PackageComponent } from './package/package.component';
     LinkWebNorComponent,
     LinkWebPriComponent,
     PaymentComponent,
-    PackageComponent
+    PackageComponent,
+    ActionmovienormComponent,
+    HorrormovienormComponent,
+    RomanticmovienormComponent,
+    ThrillermovienormComponent,
+    ComedymovienormComponent,
+    MysterymovienormComponent,
+    ActionmoviepriComponent,
+    HorrormoviepriComponent,
+    RomanticmoviepriComponent,
+    ThrillermoviepriComponent,
+    ComedymoviepriComponent,
+    MysterymoviepriComponent,
+    HindiserialnormComponent,
+    EnglishserialnormComponent,
+    MarathiserialnormComponent,
+    TamilserialnormComponent,
+    TeluguserialnormComponent,
+    GujarathiserialnormComponent,
+    BengaliserialnormComponent,
+    BengaliserialpriComponent,
+    GujarathiserialpriComponent,
+    TeluguserialpriComponent,
+    TamilserialpriComponent,
+    MarathiserialpriComponent,
+    EnglishserialpriComponent,
+    HindiserialpriComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,11 @@
    padding-top: 20px;
    margin-top: 130px;
         width: 30%;
+
+   margin-top: 50px;
+   font-family: 'Merriweather', serif;
+      width: 30%;
+
       border: 1px solid black;
       box-shadow: inset -5px -5px -5px -5px #bbb;
       border-radius: 5px;

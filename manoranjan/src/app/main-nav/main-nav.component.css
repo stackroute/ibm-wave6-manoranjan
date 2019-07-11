@@ -10,7 +10,7 @@ li.menu-item {
     transform: translate(15px,-5px);
     position: absolute;
     padding-right: 15px;
-    font-family: 'Neuton', serif;
+    font-family: 'Merriweather', serif;
  }
  .nav-item{
     padding-right: 50px;
@@ -30,12 +30,13 @@ li.menu-item {
    color: black;
  }
  a.navbar-brand{
-    font-family: 'Neuton', serif;
+    font-family: 'Merriweather', serif;
     font-size: 2em;
     color: white;
 }
 .nav-item a{
-   font-family: 'Neuton', serif;
+    font-family: 'Merriweather', serif;
+   color: white;
 }
 
  .nav-item a:hover{
@@ -47,4 +48,8 @@ li.menu-item {
 }
 .dropdown-item{
    color: white;
+}
+.btn-secondary{
+    background-color: #343a40;
+    border:0;
 }
