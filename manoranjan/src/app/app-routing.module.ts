@@ -12,6 +12,10 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { NavNormComponent } from './nav-norm/nav-norm.component';
 import { MoviesComponent } from './movies/movies.component';
+import { MoviedescriptionComponent } from './moviedescription/moviedescription.component';
+import { TvComponent } from './tv/tv.component';
+import { WebComponent } from './web/web.component';
+import { ImageComponent } from './image/image.component';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -24,6 +28,10 @@ const routes: Routes = [
   {path: 'register',component:RegistrationComponent},
   {path: 'navnorm',component:NavNormComponent},
   {path: 'movie',component:MoviesComponent},
+  {path: 'moviedes',component:MoviedescriptionComponent},
+  {path: 'tv',component:TvComponent},
+  {path: 'web',component:WebComponent},
+  {path: 'image',component:ImageComponent},
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
   {path: '**', redirectTo: '/navland'}
