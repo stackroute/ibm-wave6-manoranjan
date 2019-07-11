@@ -16,6 +16,9 @@ import { MoviedescriptionComponent } from './moviedescription/moviedescription.c
 import { TvComponent } from './tv/tv.component';
 import { WebComponent } from './web/web.component';
 import { ImageComponent } from './image/image.component';
+import { LinknormviewComponent } from './linknormview/linknormview.component';
+import { LinkpriviewComponent } from './linkpriview/linkpriview.component';
+import { LinkpriviewloginComponent } from './linkpriviewlogin/linkpriviewlogin.component';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -32,6 +35,9 @@ const routes: Routes = [
   {path: 'tv',component:TvComponent},
   {path: 'web',component:WebComponent},
   {path: 'image',component:ImageComponent},
+  {path: 'linknorm',component:LinknormviewComponent},
+  {path: 'linkpri',component:LinkpriviewComponent},
+  {path: 'linkprilog',component:LinkpriviewloginComponent},
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
   {path: '**', redirectTo: '/navland'}

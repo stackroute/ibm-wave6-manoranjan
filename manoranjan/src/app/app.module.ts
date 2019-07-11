@@ -38,6 +38,9 @@ import { WebComponent } from './web/web.component';
 import { ImageComponent } from './image/image.component';
 import { LikeCardComponent } from './like-card/like-card.component';
 import { EpisoderecommendationComponent } from './episoderecommendation/episoderecommendation.component';
+import { LinknormviewComponent } from './linknormview/linknormview.component';
+import { LinkpriviewComponent } from './linkpriview/linkpriview.component';
+import { LinkpriviewloginComponent } from './linkpriviewlogin/linkpriviewlogin.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +70,10 @@ import { EpisoderecommendationComponent } from './episoderecommendation/episoder
     WebComponent,
     ImageComponent,
     EpisoderecommendationComponent,
-    LikeCardComponent
+    LikeCardComponent,
+    LinknormviewComponent,
+    LinkpriviewComponent,
+    LinkpriviewloginComponent
   ],
   imports: [
     BrowserModule,
