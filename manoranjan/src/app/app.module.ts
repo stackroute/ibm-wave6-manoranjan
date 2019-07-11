@@ -38,6 +38,13 @@ import { WebComponent } from './web/web.component';
 import { ImageComponent } from './image/image.component';
 import { LikeCardComponent } from './like-card/like-card.component';
 import { EpisoderecommendationComponent } from './episoderecommendation/episoderecommendation.component';
+import { HindiserialsComponent } from './hindiserials/hindiserials.component';
+import { MarathiserialsComponent } from './marathiserials/marathiserials.component';
+import { TeluguserialsComponent } from './teluguserials/teluguserials.component';
+import { TamilserialsComponent } from './tamilserials/tamilserials.component';
+import { BengaliserialsComponent } from './bengaliserials/bengaliserials.component';
+import { EnglishserialsComponent } from './englishserials/englishserials.component';
+import { GujarathiserialsComponent } from './gujarathiserials/gujarathiserials.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +74,14 @@ import { EpisoderecommendationComponent } from './episoderecommendation/episoder
     WebComponent,
     ImageComponent,
     EpisoderecommendationComponent,
-    LikeCardComponent
+    LikeCardComponent,
+    HindiserialsComponent,
+    MarathiserialsComponent,
+    TeluguserialsComponent,
+    TamilserialsComponent,
+    BengaliserialsComponent,
+    EnglishserialsComponent,
+    GujarathiserialsComponent
   ],
   imports: [
     BrowserModule,

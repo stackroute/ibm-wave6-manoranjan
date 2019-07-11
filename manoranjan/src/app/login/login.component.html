@@ -2,7 +2,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<div class="wrapper fadeInDown">
+<div class="wrapper fadeInDown" >
   <div id="formContent">
     <!-- Tabs Titles -->
 
@@ -13,7 +13,7 @@
     </div>
 
     <!-- Login Form -->
-    <form action="login">
+    <form action="login" target="navland">
       <input type="text" #email class="fadeIn second" name="login" placeholder="Enter your email">
       <input type="password" #password class="fadeIn third" name="login" placeholder="Password">
       <input type="submit" (click)="submit(email.value,password.value)" class="fadeIn fourth" value="Log In">

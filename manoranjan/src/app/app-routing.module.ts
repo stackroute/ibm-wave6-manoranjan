@@ -16,6 +16,13 @@ import { MoviedescriptionComponent } from './moviedescription/moviedescription.c
 import { TvComponent } from './tv/tv.component';
 import { WebComponent } from './web/web.component';
 import { ImageComponent } from './image/image.component';
+import { HindiserialsComponent } from './hindiserials/hindiserials.component';
+import { TamilserialsComponent } from './tamilserials/tamilserials.component';
+import { MarathiserialsComponent } from './marathiserials/marathiserials.component';
+import { TeluguserialsComponent } from './teluguserials/teluguserials.component';
+import { BengaliserialsComponent } from './bengaliserials/bengaliserials.component';
+import { EnglishserialsComponent } from './englishserials/englishserials.component';
+import { GujarathiserialsComponent } from './gujarathiserials/gujarathiserials.component';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -35,6 +42,7 @@ const routes: Routes = [
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
   {path: '**', redirectTo: '/navland'}
+
 ];
 
 @NgModule({
