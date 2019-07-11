@@ -4,7 +4,7 @@ div{
     text-align: center;
     color: black;
     border:0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Neuton', serif;
     /* background-color: rgb(82, 245, 223); */
 }
 button{
@@ -13,17 +13,17 @@ button{
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 14px;
   height: 65px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Neuton', serif;
   font-size: 20px;
   /* background: rgb(154, 160, 214); */
 }
 h1{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Neuton', serif;
     font-size: 3em;
     color: white;
 }
 h5{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Neuton', serif;
     color:white;
 }
 .card-img-top{

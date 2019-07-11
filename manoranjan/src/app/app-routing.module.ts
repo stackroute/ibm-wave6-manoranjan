@@ -43,6 +43,7 @@ import { ThrillermoviesComponent } from './thrillermovies/thrillermovies.compone
 import { RomanticmoviesComponent } from './romanticmovies/romanticmovies.component';
 import { MysterymoviesComponent } from './mysterymovies/mysterymovies.component';
 import{PackageComponent} from './package/package.component';
+import{PaymentComponent} from './payment/payment.component';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -84,7 +85,7 @@ const routes: Routes = [
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
   {path :'package',component:PackageComponent},
-
+  {path :'payment',component:PaymentComponent},
   {path: '**', redirectTo: '/navland'}
 
 ];
