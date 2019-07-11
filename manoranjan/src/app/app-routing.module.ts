@@ -48,6 +48,10 @@ const routes: Routes = [
   {path: 'linknorm',component:LinknormviewComponent},
   {path: 'linkpri',component:LinkpriviewComponent},
   {path: 'linkprilog',component:LinkpriviewloginComponent},
+  {path: 'linkdocpri',component:LinkDocPriComponent},
+  {path: 'linktvpri',component:LinkTvPriComponent},
+  {path: 'linkmoviepri',component:LinkMoviePriComponent},
+  {path: 'linkwebpri',component:LinkWebPriComponent},
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
   {path: '**', redirectTo: '/navland'}
