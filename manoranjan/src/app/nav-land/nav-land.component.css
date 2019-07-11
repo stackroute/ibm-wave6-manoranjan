@@ -1,5 +1,6 @@
 .main{
     background: black;
+    font-family: 'Neuton', serif;
 }
 .btn-group i{
     color:white;
@@ -9,7 +10,7 @@ nav {
     z-index: -1;
 }
  a.navbar-brand{
-     font-family: Georgia, 'Times New Roman', Times, serif;
+     font-family: 'Neuton', serif;
      font-size: 2em;
  }
  button{
@@ -20,6 +21,6 @@ nav {
     padding-right: 50px;
  }
  a.navbar-brand{
-     font-family: fantasy;
+     font-family: 'Neuton', serif;
      font-size: 2em;
  }
