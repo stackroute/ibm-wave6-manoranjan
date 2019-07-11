@@ -1,0 +1,30 @@
+.total{
+    background-color: black;
+  }
+    .container{
+      padding-top: 90px;
+      padding-bottom: 200px;
+      margin-left: 180px;
+      top: 8px;
+      left: 16px;
+    }
+    h5{
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: white; 
+    }
+    .image {
+      display: block;
+      width: 165px;
+      height: 180px;
+      border-radius: 14px;
+    }
+    .col-2 {
+      float: left;
+      padding: 10px;
+    }
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    

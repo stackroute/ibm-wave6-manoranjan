@@ -1,3 +1,6 @@
+.main{
+    background-color: black;
+}
 .btn-group i{
     color:rgb(26, 24, 24);
 }
@@ -32,9 +35,10 @@ li.menu-item {
 
 
 .detail-page {
-    min-height: calc(100vh - 246px);
-    padding-top: 70px;
-    margin-top: 10px;
+    /* min-height: calc(100vh - 246px); */
+    min-height: calc(100vh - 300px);
+    padding-top: 100px;
+    /* margin-top: 10px; */
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .detail-page .masthead-container {

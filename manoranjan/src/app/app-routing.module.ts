@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { NavNormComponent } from './nav-norm/nav-norm.component';
 import { MoviesComponent } from './movies/movies.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 import { MoviedescriptionComponent } from './moviedescription/moviedescription.component';
 import { TvComponent } from './tv/tv.component';
 import { WebComponent } from './web/web.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'register',component:RegistrationComponent},
   {path: 'navnorm',component:NavNormComponent},
   {path: 'movie',component:MoviesComponent},
+  {path: 'wish',component:WishlistComponent},
   {path: 'moviedes',component:MoviedescriptionComponent},
   {path: 'tv',component:TvComponent},
   {path: 'web',component:WebComponent},

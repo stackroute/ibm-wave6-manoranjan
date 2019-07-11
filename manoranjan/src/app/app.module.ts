@@ -41,6 +41,7 @@ import { EpisoderecommendationComponent } from './episoderecommendation/episoder
 import { LinknormviewComponent } from './linknormview/linknormview.component';
 import { LinkpriviewComponent } from './linkpriview/linkpriview.component';
 import { LinkpriviewloginComponent } from './linkpriviewlogin/linkpriviewlogin.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { LinkpriviewloginComponent } from './linkpriviewlogin/linkpriviewlogin.c
     LikeCardComponent,
     LinknormviewComponent,
     LinkpriviewComponent,
-    LinkpriviewloginComponent
+    LinkpriviewloginComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,

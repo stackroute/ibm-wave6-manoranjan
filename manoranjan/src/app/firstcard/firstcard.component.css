@@ -16,13 +16,14 @@
   height: 180px;
   width: 165px;
   border-radius: 14px;
+  margin-top: 15px;
   margin-left: 10px;
   margin-bottom:30px;
 }
 .items:hover img,
 .items.hover img {
- -webkit-transform: scale(1.1);
- transform: scale(1.1);
+ -webkit-transform: scale(1.15);
+ transform: scale(1.15);
 }
 h4{
   margin-left: 100px;
