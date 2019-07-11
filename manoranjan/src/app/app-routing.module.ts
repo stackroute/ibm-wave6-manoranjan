@@ -24,6 +24,8 @@ import { TeluguserialsComponent } from './teluguserials/teluguserials.component'
 import { BengaliserialsComponent } from './bengaliserials/bengaliserials.component';
 import { EnglishserialsComponent } from './englishserials/englishserials.component';
 import { GujarathiserialsComponent } from './gujarathiserials/gujarathiserials.component';
+import { HorrormoviesComponent } from './horrormovies/horrormovies.component';
+import { ActionmoviesComponent } from './actionmovies/actionmovies.component';
 import { LinknormviewComponent } from './linknormview/linknormview.component';
 import { LinkpriviewComponent } from './linkpriview/linkpriview.component';
 import { LinkpriviewloginComponent } from './linkpriviewlogin/linkpriviewlogin.component';
@@ -35,6 +37,11 @@ import { LinkMovieNorComponent } from './link-movie-nor/link-movie-nor.component
 import { LinkMoviePriComponent } from './link-movie-pri/link-movie-pri.component';
 import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
 import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
+import { ComedymoviesComponent } from './comedymovies/comedymovies.component';
+import { SuspensemoviesComponent } from './suspensemovies/suspensemovies.component';
+import { ThrillermoviesComponent } from './thrillermovies/thrillermovies.component';
+import { RomanticmoviesComponent } from './romanticmovies/romanticmovies.component';
+import { MysterymoviesComponent } from './mysterymovies/mysterymovies.component';
 
 
 const routes: Routes = [
@@ -60,6 +67,13 @@ const routes: Routes = [
   {path: 'linktvpri',component:LinkTvPriComponent},
   {path: 'linkmoviepri',component:LinkMoviePriComponent},
   {path: 'linkwebpri',component:LinkWebPriComponent},
+  {path: 'actionmovie',component:ActionmoviesComponent},
+  {path: 'horrormovie',component:HorrormoviesComponent},
+  {path: 'comedymovie',component:ComedymoviesComponent},
+  {path: 'suspensemovie',component:SuspensemoviesComponent},
+  {path: 'thrillermovie',component:ThrillermoviesComponent},
+  {path: 'romanticmovie',component:RomanticmoviesComponent},
+  {path: 'mysterymovie',component:MysterymoviesComponent},
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
   {path: '**', redirectTo: '/navland'}
