@@ -68,6 +68,32 @@ import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
 import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PackageComponent } from './package/package.component';
+import { ActionmovienormComponent } from './actionmovienorm/actionmovienorm.component';
+import { HorrormovienormComponent } from './horrormovienorm/horrormovienorm.component';
+import { RomanticmovienormComponent } from './romanticmovienorm/romanticmovienorm.component';
+import { ThrillermovienormComponent } from './thrillermovienorm/thrillermovienorm.component';
+import { ComedymovienormComponent } from './comedymovienorm/comedymovienorm.component';
+import { MysterymovienormComponent } from './mysterymovienorm/mysterymovienorm.component';
+import { ActionmoviepriComponent } from './actionmoviepri/actionmoviepri.component';
+import { HorrormoviepriComponent } from './horrormoviepri/horrormoviepri.component';
+import { RomanticmoviepriComponent } from './romanticmoviepri/romanticmoviepri.component';
+import { ThrillermoviepriComponent } from './thrillermoviepri/thrillermoviepri.component';
+import { ComedymoviepriComponent } from './comedymoviepri/comedymoviepri.component';
+import { MysterymoviepriComponent } from './mysterymoviepri/mysterymoviepri.component';
+import { HindiserialnormComponent } from './hindiserialnorm/hindiserialnorm.component';
+import { EnglishserialnormComponent } from './englishserialnorm/englishserialnorm.component';
+import { MarathiserialnormComponent } from './marathiserialnorm/marathiserialnorm.component';
+import { TamilserialnormComponent } from './tamilserialnorm/tamilserialnorm.component';
+import { TeluguserialnormComponent } from './teluguserialnorm/teluguserialnorm.component';
+import { GujarathiserialnormComponent } from './gujarathiserialnorm/gujarathiserialnorm.component';
+import { BengaliserialnormComponent } from './bengaliserialnorm/bengaliserialnorm.component';
+import { BengaliserialpriComponent } from './bengaliserialpri/bengaliserialpri.component';
+import { GujarathiserialpriComponent } from './gujarathiserialpri/gujarathiserialpri.component';
+import { TeluguserialpriComponent } from './teluguserialpri/teluguserialpri.component';
+import { TamilserialpriComponent } from './tamilserialpri/tamilserialpri.component';
+import { MarathiserialpriComponent } from './marathiserialpri/marathiserialpri.component';
+import { EnglishserialpriComponent } from './englishserialpri/englishserialpri.component';
+import { HindiserialpriComponent } from './hindiserialpri/hindiserialpri.component';
 
 
 
@@ -126,7 +152,33 @@ import { PackageComponent } from './package/package.component';
     LinkWebNorComponent,
     LinkWebPriComponent,
     PaymentComponent,
-    PackageComponent
+    PackageComponent,
+    ActionmovienormComponent,
+    HorrormovienormComponent,
+    RomanticmovienormComponent,
+    ThrillermovienormComponent,
+    ComedymovienormComponent,
+    MysterymovienormComponent,
+    ActionmoviepriComponent,
+    HorrormoviepriComponent,
+    RomanticmoviepriComponent,
+    ThrillermoviepriComponent,
+    ComedymoviepriComponent,
+    MysterymoviepriComponent,
+    HindiserialnormComponent,
+    EnglishserialnormComponent,
+    MarathiserialnormComponent,
+    TamilserialnormComponent,
+    TeluguserialnormComponent,
+    GujarathiserialnormComponent,
+    BengaliserialnormComponent,
+    BengaliserialpriComponent,
+    GujarathiserialpriComponent,
+    TeluguserialpriComponent,
+    TamilserialpriComponent,
+    MarathiserialpriComponent,
+    EnglishserialpriComponent,
+    HindiserialpriComponent
   ],
   imports: [
     BrowserModule,
