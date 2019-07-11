@@ -29,7 +29,7 @@ li.menu-item {
      color:white;
  }
  a.navbar-brand{
-     font-family: Georgia, 'Times New Roman', Times, serif;
+     font-family: 'Neuton', serif;
      font-size: 2em;
  }
 
@@ -39,7 +39,7 @@ li.menu-item {
     min-height: calc(100vh - 300px);
     padding-top: 100px;
     /* margin-top: 10px; */
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Neuton', serif;
 }
 .detail-page .masthead-container {
     margin: 0 auto;
