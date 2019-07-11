@@ -95,7 +95,7 @@
   <label >Mobile</label></td>
       <mat-form-field>
             <!-- [(ngModel)]="viewer.mobile" -->
-             <td> <input class="form-control"  type="number" name="mobile"  matInput placeholder="Mobile"  required #mobileno></td>
+             <td> <input class="form-control"  type="text" name="mobile"  matInput placeholder="Mobile"  required #mobileno></td>
           </mat-form-field></tr>
                 <!-- mobile row is closed-->
                           </table>
@@ -172,23 +172,15 @@
                       </div>
                       </mat-grid-tile>
                     </mat-grid-list> 
-            <div class="form-group row">
-                    <label for="inputGenre" class="col-sm-3 col-form-label">Interest</label>     
-                    <input type="text" class="form-control" #genre placeholder="Genre">
-            </div> 
+           
                 <!-- genre div is closed-->
-            <div class="form-group row">
-                <div class="col-sm-7 offset-sm-5">
-                    <button type="submit" class="btn btn-primary" (click)="submit(email.value,name.value,age.value,gender.value,mobileno.value,password.value,genre.value)" routerLink="/linkprilog">Submit</button>
-                </div>
-             
-              </div>
+            
                 <!-- 2nd row of cards is close -->
               
               </mat-card-content>
         <div> 
             <button mat-stroked-button matStepperPrevious>Back</button>
-            <button type="submit" mat-stroked-button matStepperNext>Submit</button>
+            <button type="submit" routerLink="/package" mat-stroked-button matStepperNext>Submit</button>
           
         </div>
         </mat-card>
