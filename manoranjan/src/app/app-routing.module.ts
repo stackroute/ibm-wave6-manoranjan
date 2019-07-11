@@ -28,6 +28,11 @@ import { LinkMovieNorComponent } from './link-movie-nor/link-movie-nor.component
 import { LinkMoviePriComponent } from './link-movie-pri/link-movie-pri.component';
 import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
 import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
+import { ThrillermoviesComponent } from './thrillermovies/thrillermovies.component';
+import { ComedymoviesComponent } from './comedymovies/comedymovies.component';
+import { ActionmoviesComponent } from './actionmovies/actionmovies.component';
+import { HorrormoviesComponent } from './horrormovies/horrormovies.component';
+import { RomanticmoviesComponent } from './romanticmovies/romanticmovies.component';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},

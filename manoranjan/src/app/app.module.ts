@@ -42,7 +42,6 @@ import { ActionmoviesComponent } from './actionmovies/actionmovies.component';
 import { HorrormoviesComponent } from './horrormovies/horrormovies.component';
 import { RomanticmoviesComponent } from './romanticmovies/romanticmovies.component';
 import { ThrillermoviesComponent } from './thrillermovies/thrillermovies.component';
-import { SuspensemoviesComponent } from './suspensemovies/suspensemovies.component';
 import { ComedymoviesComponent } from './comedymovies/comedymovies.component';
 import { MysterymoviesComponent } from './mysterymovies/mysterymovies.component';
 import { LinknormviewComponent } from './linknormview/linknormview.component';
@@ -91,7 +90,6 @@ import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
     HorrormoviesComponent,
     RomanticmoviesComponent,
     ThrillermoviesComponent,
-    SuspensemoviesComponent,
     ComedymoviesComponent,
     MysterymoviesComponent,
     LinknormviewComponent,
