@@ -1,12 +1,10 @@
-
 #footer-main {
     /* position:fixed; */
     background:#343a40;
     color: white;
     font-size: 0.9rem;
     padding: 0rem 0; 
-    font-family: 'Neuton', serif;
-
+    font-family: 'Merriweather', serif;
 }
 i{
     padding: 10px;
@@ -23,7 +21,6 @@ div.col-lg-3 a{
 .move{
     padding-left: 15px;
     padding-top: 20px;
-    
 }
 .col-lg-3 
 .list-unstyled

@@ -1,6 +1,6 @@
 .total{
     background-color: black;
-    font-family: 'Neuton', serif;
+   font-family: 'Merriweather', serif;
   }
     .container{
       padding-top: 90px;
@@ -13,7 +13,7 @@
       margin-top: -10px;
     } 
     h4{
-      font-family: 'Neuton', serif;
+     font-family: 'Merriweather', serif;
       color: white; 
       margin-left: 30px;
        margin-top: 20px;

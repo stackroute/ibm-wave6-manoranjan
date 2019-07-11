@@ -1,6 +1,6 @@
 .main{
     background-color: black;
-    font-family: 'Neuton', serif;
+    font-family: 'Merriweather', serif;
 }
 .btn-group i{
     color:rgb(26, 24, 24);
@@ -30,7 +30,7 @@ li.menu-item {
      color:white;
  }
  a.navbar-brand{
-     font-family: 'Neuton', serif;
+    font-family: 'Merriweather', serif;
      font-size: 2em;
  }
 

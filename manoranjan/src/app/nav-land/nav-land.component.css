@@ -1,6 +1,6 @@
 .main{
     background: black;
-    font-family: 'Neuton', serif;
+    font-family: 'Merriweather', serif;
 }
 .btn-group i{
     color:white;
@@ -10,7 +10,7 @@ nav {
     z-index: -1;
 }
  a.navbar-brand{
-     font-family: 'Neuton', serif;
+     font-family: 'Merriweather', serif;
      font-size: 2em;
  }
  button{
@@ -21,6 +21,6 @@ nav {
     padding-right: 50px;
  }
  a.navbar-brand{
-     font-family: 'Neuton', serif;
+     font-family: 'Merriweather', serif;
      font-size: 2em;
  }
