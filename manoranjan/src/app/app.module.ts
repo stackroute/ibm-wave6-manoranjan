@@ -4,11 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatListModule} from '@angular/material';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatListModule,MatFormFieldModule, MatInputModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
+
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -38,6 +41,7 @@ import { WebComponent } from './web/web.component';
 import { ImageComponent } from './image/image.component';
 import { LikeCardComponent } from './like-card/like-card.component';
 import { EpisoderecommendationComponent } from './episoderecommendation/episoderecommendation.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -75,7 +79,6 @@ import { EpisoderecommendationComponent } from './episoderecommendation/episoder
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
     MatMenuModule,
@@ -84,7 +87,14 @@ import { EpisoderecommendationComponent } from './episoderecommendation/episoder
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    Ng2CarouselamosModule
+    Ng2CarouselamosModule,
+    MatStepperModule,
+    MatCardModule,
+    MatGridListModule,
+    MatRadioModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
