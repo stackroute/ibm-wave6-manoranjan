@@ -11,7 +11,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatListModule,MatFormFieldModule, MatInputModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
-
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -53,7 +52,6 @@ import { ActionmoviesComponent } from './actionmovies/actionmovies.component';
 import { HorrormoviesComponent } from './horrormovies/horrormovies.component';
 import { RomanticmoviesComponent } from './romanticmovies/romanticmovies.component';
 import { ThrillermoviesComponent } from './thrillermovies/thrillermovies.component';
-import { SuspensemoviesComponent } from './suspensemovies/suspensemovies.component';
 import { ComedymoviesComponent } from './comedymovies/comedymovies.component';
 import { MysterymoviesComponent } from './mysterymovies/mysterymovies.component';
 import { LinknormviewComponent } from './linknormview/linknormview.component';
@@ -68,7 +66,9 @@ import { LinkMovieNorComponent } from './link-movie-nor/link-movie-nor.component
 import { LinkMoviePriComponent } from './link-movie-pri/link-movie-pri.component';
 import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
 import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
+import { PaymentComponent } from './payment/payment.component';
 import { PackageComponent } from './package/package.component';
+
 
 
 @NgModule({
@@ -111,7 +111,6 @@ import { PackageComponent } from './package/package.component';
     HorrormoviesComponent,
     RomanticmoviesComponent,
     ThrillermoviesComponent,
-    SuspensemoviesComponent,
     ComedymoviesComponent,
     MysterymoviesComponent,
     LinknormviewComponent,
@@ -126,6 +125,7 @@ import { PackageComponent } from './package/package.component';
     LinkMoviePriComponent,
     LinkWebNorComponent,
     LinkWebPriComponent,
+    PaymentComponent,
     PackageComponent
   ],
   imports: [

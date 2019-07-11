@@ -1,5 +1,6 @@
 .main{
     background-color: black;
+    font-family: 'Merriweather', serif;
 }
 .btn-group i{
     color:rgb(26, 24, 24);
@@ -29,7 +30,7 @@ li.menu-item {
      color:white;
  }
  a.navbar-brand{
-     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Merriweather', serif;
      font-size: 2em;
  }
 

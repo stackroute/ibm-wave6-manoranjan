@@ -1,5 +1,5 @@
 #container{
-	width:80%;
+	width:90%;
 	margin:3.5em auto;
 	padding:20;
 	/* background: #fff; */
@@ -10,14 +10,14 @@
 	margin-bottom: 20px;
   }
   #left,#right{
-	margin: 5px;
+	margin: 50px;
   }
   .latest{
 	height: 180px;
 	width: 165px;
 	/* background: #ECECEC; */
 	border-radius: 14px;
-	margin: 6px;
+	padding: 5px;
 	margin-bottom:30px;
   }
   .items:hover img,
@@ -27,7 +27,7 @@
   }
   h4{
 	text-align: center;
-	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-family: 'Merriweather', serif;
   }
   
   
