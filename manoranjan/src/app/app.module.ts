@@ -38,6 +38,20 @@ import { WebComponent } from './web/web.component';
 import { ImageComponent } from './image/image.component';
 import { LikeCardComponent } from './like-card/like-card.component';
 import { EpisoderecommendationComponent } from './episoderecommendation/episoderecommendation.component';
+import { HindiserialsComponent } from './hindiserials/hindiserials.component';
+import { MarathiserialsComponent } from './marathiserials/marathiserials.component';
+import { TeluguserialsComponent } from './teluguserials/teluguserials.component';
+import { TamilserialsComponent } from './tamilserials/tamilserials.component';
+import { BengaliserialsComponent } from './bengaliserials/bengaliserials.component';
+import { EnglishserialsComponent } from './englishserials/englishserials.component';
+import { GujarathiserialsComponent } from './gujarathiserials/gujarathiserials.component';
+import { ActionmoviesComponent } from './actionmovies/actionmovies.component';
+import { HorrormoviesComponent } from './horrormovies/horrormovies.component';
+import { RomanticmoviesComponent } from './romanticmovies/romanticmovies.component';
+import { ThrillermoviesComponent } from './thrillermovies/thrillermovies.component';
+import { SuspensemoviesComponent } from './suspensemovies/suspensemovies.component';
+import { ComedymoviesComponent } from './comedymovies/comedymovies.component';
+import { MysterymoviesComponent } from './mysterymovies/mysterymovies.component';
 import { LinknormviewComponent } from './linknormview/linknormview.component';
 import { LinkpriviewComponent } from './linkpriview/linkpriview.component';
 import { LinkpriviewloginComponent } from './linkpriviewlogin/linkpriviewlogin.component';
@@ -50,6 +64,7 @@ import { LinkMovieNorComponent } from './link-movie-nor/link-movie-nor.component
 import { LinkMoviePriComponent } from './link-movie-pri/link-movie-pri.component';
 import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
 import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
+
 
 @NgModule({
   declarations: [
@@ -80,6 +95,20 @@ import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
     ImageComponent,
     EpisoderecommendationComponent,
     LikeCardComponent,
+    HindiserialsComponent,
+    MarathiserialsComponent,
+    TeluguserialsComponent,
+    TamilserialsComponent,
+    BengaliserialsComponent,
+    EnglishserialsComponent,
+    GujarathiserialsComponent,
+    ActionmoviesComponent,
+    HorrormoviesComponent,
+    RomanticmoviesComponent,
+    ThrillermoviesComponent,
+    SuspensemoviesComponent,
+    ComedymoviesComponent,
+    MysterymoviesComponent,
     LinknormviewComponent,
     LinkpriviewComponent,
     LinkpriviewloginComponent,

@@ -17,6 +17,13 @@ import { MoviedescriptionComponent } from './moviedescription/moviedescription.c
 import { TvComponent } from './tv/tv.component';
 import { WebComponent } from './web/web.component';
 import { ImageComponent } from './image/image.component';
+import { HindiserialsComponent } from './hindiserials/hindiserials.component';
+import { TamilserialsComponent } from './tamilserials/tamilserials.component';
+import { MarathiserialsComponent } from './marathiserials/marathiserials.component';
+import { TeluguserialsComponent } from './teluguserials/teluguserials.component';
+import { BengaliserialsComponent } from './bengaliserials/bengaliserials.component';
+import { EnglishserialsComponent } from './englishserials/englishserials.component';
+import { GujarathiserialsComponent } from './gujarathiserials/gujarathiserials.component';
 import { LinknormviewComponent } from './linknormview/linknormview.component';
 import { LinkpriviewComponent } from './linkpriview/linkpriview.component';
 import { LinkpriviewloginComponent } from './linkpriviewlogin/linkpriviewlogin.component';
@@ -28,6 +35,7 @@ import { LinkMovieNorComponent } from './link-movie-nor/link-movie-nor.component
 import { LinkMoviePriComponent } from './link-movie-pri/link-movie-pri.component';
 import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
 import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
+
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -55,6 +63,7 @@ const routes: Routes = [
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
   {path: '**', redirectTo: '/navland'}
+
 ];
 
 @NgModule({

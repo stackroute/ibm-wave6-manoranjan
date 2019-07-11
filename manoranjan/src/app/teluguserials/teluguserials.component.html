@@ -1,7 +1,60 @@
-
+<!--navbar section-->
+<div class="main">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="position: fixed;z-index: 1;width: 100%">	
+      <a class="navbar-brand" href="#"><img src="'../../assets/logo.png" width="100px"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/moviedes">
+              Movies</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" routerLink="/movie">Action</a>
+              <a class="dropdown-item" href="#">Horror</a>
+              <a class="dropdown-item" href="#">Romantic</a>
+              <a class="dropdown-item" href="#">Thriller</a>
+              <a class="dropdown-item" href="#">Suspence</a>
+              <a class="dropdown-item" href="#">Comedy</a>
+              <a class="dropdown-item" href="#">Mystery</a>
+            </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/tv">
+              TV</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Hindi</a>
+              <a class="dropdown-item" href="#">English</a>
+              <a class="dropdown-item" href="#">Marathi</a>
+              <a class="dropdown-item" href="#">Tamil</a>
+              <a class="dropdown-item" href="#">Telugu</a>
+              <a class="dropdown-item" href="#">Gujarathi</a>
+              <a class="dropdown-item" href="#">Bengoli</a>
+            </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"  routerLink="/document">Documenteries</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLink="/web">Web Series</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="/nav">Premium</a>
+            </li>  
+        </ul>
+      </div>
+      <form class="form-inline">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+      <button type="button" class="btn btn-default"><i class="fa fa-search fa-2x"></i></button>
+      </form>
+</nav>
+<!--end of nevbar section-->
 <!--documentry cards-->
 <div class="container">
-    <h4>TV Serials</h4>
+    <h5>Telugu Serials</h5>
     <div class="container-fluid">
         <div class="row">
                 <div class="col-sm-2">
@@ -153,3 +206,4 @@
 </div>
 <!-- endcard -->
 <br><br>
+<app-footer></app-footer>
