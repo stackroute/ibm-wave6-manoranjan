@@ -11,7 +11,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatListModule,MatFormFieldModule, MatInputModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
-
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -53,7 +52,6 @@ import { ActionmoviesComponent } from './actionmovies/actionmovies.component';
 import { HorrormoviesComponent } from './horrormovies/horrormovies.component';
 import { RomanticmoviesComponent } from './romanticmovies/romanticmovies.component';
 import { ThrillermoviesComponent } from './thrillermovies/thrillermovies.component';
-import { SuspensemoviesComponent } from './suspensemovies/suspensemovies.component';
 import { ComedymoviesComponent } from './comedymovies/comedymovies.component';
 import { MysterymoviesComponent } from './mysterymovies/mysterymovies.component';
 import { LinknormviewComponent } from './linknormview/linknormview.component';
@@ -113,7 +111,6 @@ import { PackageComponent } from './package/package.component';
     HorrormoviesComponent,
     RomanticmoviesComponent,
     ThrillermoviesComponent,
-    SuspensemoviesComponent,
     ComedymoviesComponent,
     MysterymoviesComponent,
     LinknormviewComponent,
