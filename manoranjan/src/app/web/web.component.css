@@ -33,9 +33,11 @@ li.menu-item {
      font-family: Georgia, 'Times New Roman', Times, serif;
      font-size: 2em;
  }
- h5{
+ h4{
      font-family: Georgia, 'Times New Roman', Times, serif;
      color: white;
+     margin-left: 30px;
+     margin-top: 20px;
  }
 .container{
     padding-top: 90px;
@@ -48,7 +50,7 @@ li.menu-item {
     height: 180px;
     border-radius: 14px;
     margin-left: 12px;
-    margin-top: 40px;
+    margin-top: 30px;
   }
   .overlay {
     position: absolute; 
@@ -64,6 +66,8 @@ li.menu-item {
     padding: 20px;
     text-align: center;
   }
-
+  .container-fluid{
+    margin-top: -10px;
+  }
 
   

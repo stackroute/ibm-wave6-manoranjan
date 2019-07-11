@@ -45,6 +45,18 @@ import { ThrillermoviesComponent } from './thrillermovies/thrillermovies.compone
 import { SuspensemoviesComponent } from './suspensemovies/suspensemovies.component';
 import { ComedymoviesComponent } from './comedymovies/comedymovies.component';
 import { MysterymoviesComponent } from './mysterymovies/mysterymovies.component';
+import { LinknormviewComponent } from './linknormview/linknormview.component';
+import { LinkpriviewComponent } from './linkpriview/linkpriview.component';
+import { LinkpriviewloginComponent } from './linkpriviewlogin/linkpriviewlogin.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { LinkDocNorComponent } from './link-doc-nor/link-doc-nor.component';
+import { LinkDocPriComponent } from './link-doc-pri/link-doc-pri.component';
+import { LinkTvNorComponent } from './link-tv-nor/link-tv-nor.component';
+import { LinkTvPriComponent } from './link-tv-pri/link-tv-pri.component';
+import { LinkMovieNorComponent } from './link-movie-nor/link-movie-nor.component';
+import { LinkMoviePriComponent } from './link-movie-pri/link-movie-pri.component';
+import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
+import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +93,19 @@ import { MysterymoviesComponent } from './mysterymovies/mysterymovies.component'
     ThrillermoviesComponent,
     SuspensemoviesComponent,
     ComedymoviesComponent,
-    MysterymoviesComponent
+    MysterymoviesComponent,
+    LinknormviewComponent,
+    LinkpriviewComponent,
+    LinkpriviewloginComponent,
+    WishlistComponent,
+    LinkDocNorComponent,
+    LinkDocPriComponent,
+    LinkTvNorComponent,
+    LinkTvPriComponent,
+    LinkMovieNorComponent,
+    LinkMoviePriComponent,
+    LinkWebNorComponent,
+    LinkWebPriComponent
   ],
   imports: [
     BrowserModule,
