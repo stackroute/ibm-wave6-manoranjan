@@ -31,3 +31,15 @@ li.menu-item {
      font-family: Georgia, 'Times New Roman', Times, serif;
      font-size: 2em;
  }
+
+ .nav-item a:hover{
+     background-color: #36c5ff;
+     border-radius: 5px;
+ }
+
+ .dropdown-menu{
+     background-color: #343a40;
+ }
+ .dropdown-item{
+    color: white;
+ }
