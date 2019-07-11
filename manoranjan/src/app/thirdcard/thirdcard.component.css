@@ -1,5 +1,5 @@
 #container{
-  width:80%;
+  width:90%;
   margin:3.5em auto;
   padding:10;
   margin-bottom: 0%;
@@ -9,14 +9,15 @@
   margin-bottom: 20px;
 }
 #left,#right{
-  margin: 20px;
+  margin: 50px;
 }
 .latest{
   height: 180px;
   width: 165px;
   border-radius: 14px;
   margin-top: 15px;
-  margin-left: 12px;
+  /* margin-left: 12px; */
+  padding: 5px;
   margin-bottom:30px;
 }
 .items:hover img {
@@ -29,9 +30,11 @@ h4{
 }
 .textStyle{
   color: white;
+  margin-left: 110px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.textStyle:hover{
+h4 span:hover{
   color: #36c5ff;
   font-size: 25px;
 }

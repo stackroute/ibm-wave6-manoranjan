@@ -41,6 +41,7 @@ li.menu-item {
  }
 .container{
     padding-top: 90px;
+    padding-bottom: 300px; 
     top: 8px;
   }
   .image {

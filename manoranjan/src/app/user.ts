@@ -1,11 +1,14 @@
 import { List } from 'lodash';
 
 export class User {
-    emailId:string;
-    name:string;
-    age:number;
-    gender:string;
-    mobileNo:string;
-    password:string;
-    genre:List<string>;
+    constructor(
+  public emailId?:string,
+  public  name?:string,
+  public  age?:number,
+  public gender?:string,
+  public mobileNo?:string,
+  public password?:string,
+  public genre?:List<string>
+    )
+    {}
 }
