@@ -1,62 +1,216 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center"  class="section">
+    <mat-card fxFlex="1000px" fxFlex.xs="50%">
 
+<mat-horizontal-stepper labelPosition="bottom" #stepper>
 
-    <body >
-        <!-- use jumbotron to give back side gray color -->
-            <div class="container ">
-            <h1 class="heading jumbotron">Registration Form</h1>
-    <form>
-            <div class="form-group row">
-                    <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
-                    <div class="col-sm-9">
-                        <input type="email" class="form-control" #email placeholder="Email">
-                    </div>
-                </div>
-            <div class="form-group row">
-                    <label for="inputName" class="col-sm-3 col-form-label">Name</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" #name placeholder="Name">
-                    </div>
-                </div>
-                <div class="form-group row">
-                        <label for="inputAge" class="col-sm-3 col-form-label">Age 
-                               
-                        </label>
-                        <div class="col-sm-9">
-                               
-                            <input type="text" class="form-control" #age placeholder="Age">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                            <label for="inputGender" class="col-sm-3 col-form-label">Gender</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" #gender placeholder="Gender">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="inputMobileNo" class="col-sm-3 col-form-label">Mobile No</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" #mobileno placeholder="MobileNo">
-                                </div>
-                            </div>
+<mat-step [stepControl]="firstFormGroup">
+    <form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
+  
+        <ng-template matStepLabel>Viewers Details</ng-template>
+
+        <mat-card class="example-card">
+            <mat-card-content class="content">
+                      <table> 
+    <div class="form-group">
+        <p style="margin-left: 180px; font-size: 14px"> 
+          <b>Enter Your Details</b></p>
+            </div>
+               <br/> 
+      <tr>
+         <td > <label > Name </label></td>
+        <mat-form-field>
+                <!-- [(ngModel)]="viewer.name" -->
+          <td >  <input class="form-control" type="text" name="firstName" #name  matInput placeholder="name"  required></td>
+        </mat-form-field></tr> 
+        <!-- name row is closed-->
+          <tr><td > <label>Email</label></td>
+                      <mat-form-field>
+                            <!-- [(ngModel)]="viewer.email" -->
+                           <td >  <input class="form-control"  type="text" name="email" #email  matInput placeholder="Enter your email"  required ></td>
+                            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                          </mat-form-field>
+                        </tr>
+                         <!-- age row is closed-->
+                               <tr><td > <label>Password</label>     </td>
+                                <mat-form-field>
+                                        <!-- [(ngModel)]="viewer.password" -->
+                                      <td >  <input  name="password" class="form-control"  type="text"  matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   required #number></td>
+                                        <td><button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                        </button></td>
+                                      </mat-form-field>
+                                     </tr>
+                                    <!-- password row is closed-->
+                                    
+                                </table>
+              </mat-card-content>
+                
+                                     
+            <button mat-stroked-button matStepperNext>Next</button>
+          </mat-card>   
+        
+    </form>
+</mat-step>
+
+<!-- 2nd stapper form here-->
+<mat-step [stepControl]="secondFormGroup">
+<form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
+
+  <ng-template matStepLabel>More Details</ng-template>
+
+  <mat-card class="example-card">
+
+      <mat-card-content class="content">
+          <table> 
          
-            <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
-                <div class="col-sm-9">
-                    <input type="password" class="form-control" #password placeholder="Password">
+        <div class="form-group">
+     <p style="margin-left: 180px; font-size: 14px"> <b>More Details</b></p>
+  </div>
+  <br/> 
+
+  <tr><td>
+      <label> Age </label></td>
+      <mat-form-field>
+            <!-- [(ngModel)]="viewer.age" -->
+        <td>  <input class="form-control" type="text" name="firstName" matInput placeholder="age"  required #age></td>
+      </mat-form-field></tr>
+      <tr><td><label>Gender</label></td>
+                    
+       <mat-radio-group>
+<td><div class="form-check">
+        <!-- [(ngModel)]="viewer.gender" -->
+<input class="form-check-input"  type="radio" name="gender"  value="male" #gender>
+<label class="form-check-label">Male</label>
+</div></td>
+<td>
+<div class="form-check">
+        <!-- [(ngModel)]="viewer.gender" -->
+<input class="form-check-input"  type="radio" name="gender"  value="female">
+<label class="form-check-label">Female</label>
+</div></td>
+</mat-radio-group>
+</tr>
+ <!-- gender row is closed-->
+      <tr><td>
+  <label >Mobile</label></td>
+      <mat-form-field>
+            <!-- [(ngModel)]="viewer.mobile" -->
+             <td> <input class="form-control"  type="text" name="mobile"  matInput placeholder="Mobile"  required #mobileno></td>
+          </mat-form-field></tr>
+                <!-- mobile row is closed-->
+                          </table>
+                           <!-- 2nd row is closed-->
+        </mat-card-content>
+        <button mat-stroked-button matStepperPrevious>Back</button>                      
+      <button mat-stroked-button matStepperNext>Next</button>
+    </mat-card>   
+  
+</form>
+</mat-step>
+
+<!-- 3rd form is start here -->
+<mat-step [stepControl]="thirdFormGroup" optional>
+    <form  class="form-horizontal" [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Interest</ng-template>
+        <mat-card class="example-card">
+          
+            <mat-card-content class="content">
+        
+              <mat-grid-list cols="4">
+                <mat-grid-tile>
+                  <div class="card">
+                    <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/romantic.png" alt="Physiotherapist"></a>
+                    <p>Romantic</p>
                 </div>
+                </mat-grid-tile>
+              
+                <mat-grid-tile>
+                  <div class="card">
+                    <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/suspense.png" alt="Cardiologist"></a>
+                    <p>Suspense</p>
+                </div>  
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <div class="card">
+                    <a href="#"><img  mat-button-toggle mat-card-sm-image src="/assets/images/comedy.png" alt="Dietician"></a>
+                    <p>Kid</p>
+                </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <div class="card">
+                    <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/thriller.jpeg" alt="Gynocologist"></a>
+                    <p>Thriller</p>
+                </div>
+
+                </mat-grid-tile>
+              </mat-grid-list>
+              <br>
+              <mat-grid-list cols="4">
+                <mat-grid-tile>
+                  <div class="card">
+                    <a mat-button-toggle href="#"><img  mat-card-sm-image src="/assets/images/mystery.jpeg" alt="Dermatologist"></a>
+                    <p>Mystery</p>
             </div>
         
-         
-            <div class="form-group row">
-                    <label for="inputGenre" class="col-sm-3 col-form-label">Interest</label>     
-                    <input type="text" class="form-control" #genre placeholder="Genre">
-            </div> 
-                <!-- genre div is closed-->
-            <div class="form-group row">
-                <div class="col-sm-7 offset-sm-5">
-                    <button type="submit" class="btn btn-primary" (click)="submit(email.value,name.value,age.value,gender.value,mobileno.value,password.value,genre.value)" routerLink="/linkprilog">Submit</button>
+        </mat-grid-tile>
+         <mat-grid-tile>
+                  <div class="card">
+                    <a mat-button-toggle href="#"><img mat-card-sm-image src="/assets/images/cartoon.jpeg" alt="Nephrologist"></a>
+                    <p>Cartoon</p>
                 </div>
-            </div>
-        </form>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                        <div class="card">
+                          <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/horror.png" alt="Horror"></a>
+                          <p>Horror</p>
+                      </div>
+                      </mat-grid-tile>
+                      <mat-grid-tile>
+                        <div class="card">
+                          <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/horror.png" alt="Horror"></a>
+                          <p>Horror</p>
+                      </div>
+                      </mat-grid-tile>
+                    </mat-grid-list> 
+           
+                <!-- genre div is closed-->
+            
+                <!-- 2nd row of cards is close -->
+              
+              </mat-card-content>
+        <div> 
+            <button mat-stroked-button matStepperPrevious>Back</button>
+            <button type="submit" routerLink="/package" mat-stroked-button matStepperNext>Submit</button>
+          
         </div>
-    </body>
+        </mat-card>
+    </form>
+</mat-step>
+<!-- form 3rd is closed-->
+<mat-step [stepControl]="fourthFormGroup">
+  <form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
+
+      <ng-template matStepLabel>See Status</ng-template>
+
+      <mat-card class="example-card">
+    
+          <mat-card-content class="content">
+
+           
+            
+            </mat-card-content>
+            <button mat-stroked-button matStepperPrevious>Back</button>
+            
+        </mat-card>   
+      
+  </form>
+</mat-step>
+</mat-horizontal-stepper>       
+
+</mat-card>
+</section>
+
+
+
+
+
