@@ -38,6 +38,13 @@ import { WebComponent } from './web/web.component';
 import { ImageComponent } from './image/image.component';
 import { LikeCardComponent } from './like-card/like-card.component';
 import { EpisoderecommendationComponent } from './episoderecommendation/episoderecommendation.component';
+import { ActionmoviesComponent } from './actionmovies/actionmovies.component';
+import { HorrormoviesComponent } from './horrormovies/horrormovies.component';
+import { RomanticmoviesComponent } from './romanticmovies/romanticmovies.component';
+import { ThrillermoviesComponent } from './thrillermovies/thrillermovies.component';
+import { SuspensemoviesComponent } from './suspensemovies/suspensemovies.component';
+import { ComedymoviesComponent } from './comedymovies/comedymovies.component';
+import { MysterymoviesComponent } from './mysterymovies/mysterymovies.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +74,14 @@ import { EpisoderecommendationComponent } from './episoderecommendation/episoder
     WebComponent,
     ImageComponent,
     EpisoderecommendationComponent,
-    LikeCardComponent
+    LikeCardComponent,
+    ActionmoviesComponent,
+    HorrormoviesComponent,
+    RomanticmoviesComponent,
+    ThrillermoviesComponent,
+    SuspensemoviesComponent,
+    ComedymoviesComponent,
+    MysterymoviesComponent
   ],
   imports: [
     BrowserModule,
