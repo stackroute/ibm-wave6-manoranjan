@@ -22,6 +22,7 @@
                 <!-- [(ngModel)]="viewer.name" -->
           <td >  <input class="form-control" type="text" name="firstName" #name  matInput placeholder="name"  required></td>
         </mat-form-field></tr> 
+        <!-- name row is closed-->
           <tr><td > <label>Email</label></td>
                       <mat-form-field>
                             <!-- [(ngModel)]="viewer.email" -->
@@ -29,6 +30,7 @@
                             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                           </mat-form-field>
                         </tr>
+                         <!-- age row is closed-->
                                <tr><td > <label>Password</label>     </td>
                                 <mat-form-field>
                                         <!-- [(ngModel)]="viewer.password" -->
@@ -38,7 +40,7 @@
                                         </button></td>
                                       </mat-form-field>
                                      </tr>
-                                   
+                                    <!-- password row is closed-->
                                     
                                 </table>
               </mat-card-content>
@@ -50,7 +52,7 @@
     </form>
 </mat-step>
 
-<!-- $$$$$$$$$$$$$$ -->
+<!-- 2nd stapper form here-->
 <mat-step [stepControl]="secondFormGroup">
 <form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
 
@@ -59,17 +61,13 @@
   <mat-card class="example-card">
 
       <mat-card-content class="content">
-
-                <table> 
-              
-<div class="form-group">
-   
-    <p style="margin-left: 180px; font-size: 14px"> <b>More Details</b></p>
-</div>
+          <table> 
+         
+        <div class="form-group">
+     <p style="margin-left: 180px; font-size: 14px"> <b>More Details</b></p>
+  </div>
   <br/> 
 
-  
-  
   <tr><td>
       <label> Age </label></td>
       <mat-form-field>
@@ -92,14 +90,16 @@
 </div></td>
 </mat-radio-group>
 </tr>
+ <!-- gender row is closed-->
       <tr><td>
   <label >Mobile</label></td>
       <mat-form-field>
             <!-- [(ngModel)]="viewer.mobile" -->
              <td> <input class="form-control"  type="number" name="mobile"  matInput placeholder="Mobile"  required #mobileno></td>
           </mat-form-field></tr>
-               
+                <!-- mobile row is closed-->
                           </table>
+                           <!-- 2nd row is closed-->
         </mat-card-content>
         <button mat-stroked-button matStepperPrevious>Back</button>                      
       <button mat-stroked-button matStepperNext>Next</button>
@@ -108,7 +108,7 @@
 </form>
 </mat-step>
 
-<!-- 444444444444444 -->
+<!-- 3rd form is start here -->
 <mat-step [stepControl]="thirdFormGroup" optional>
     <form  class="form-horizontal" [formGroup]="thirdFormGroup">
         <ng-template matStepLabel>Interest</ng-template>
@@ -152,7 +152,26 @@
                     <p>Mystery</p>
             </div>
         
-         
+        </mat-grid-tile>
+         <mat-grid-tile>
+                  <div class="card">
+                    <a mat-button-toggle href="#"><img mat-card-sm-image src="/assets/images/cartoon.jpeg" alt="Nephrologist"></a>
+                    <p>Cartoon</p>
+                </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                        <div class="card">
+                          <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/horror.png" alt="Horror"></a>
+                          <p>Horror</p>
+                      </div>
+                      </mat-grid-tile>
+                      <mat-grid-tile>
+                        <div class="card">
+                          <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/horror.png" alt="Horror"></a>
+                          <p>Horror</p>
+                      </div>
+                      </mat-grid-tile>
+                    </mat-grid-list> 
             <div class="form-group row">
                     <label for="inputGenre" class="col-sm-3 col-form-label">Interest</label>     
                     <input type="text" class="form-control" #genre placeholder="Genre">
@@ -162,26 +181,8 @@
                 <div class="col-sm-7 offset-sm-5">
                     <button type="submit" class="btn btn-primary" (click)="submit(email.value,name.value,age.value,gender.value,mobileno.value,password.value,genre.value)" routerLink="/linkprilog">Submit</button>
                 </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="card">
-                    <a mat-button-toggle href="#"><img mat-card-sm-image src="/assets/images/cartoon.jpeg" alt="Nephrologist"></a>
-                    <p>Cartoon</p>
-                </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="card">
-                    <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/horror.png" alt="Horror"></a>
-                    <p>Horror</p>
-                </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="card">
-                    <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/horror.png" alt="Horror"></a>
-                    <p>Horror</p>
-                </div>
-                </mat-grid-tile>
-              </mat-grid-list> 
+             
+              </div>
                 <!-- 2nd row of cards is close -->
               
               </mat-card-content>
@@ -221,5 +222,3 @@
 
 
 
-<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2-->
-<!-- <div class="normal"><article class="genre-card normal" style=""><a href="/genres/romance"><div class="card-overlay"></div><div class="thumbnail-container"><div class="card  card-img-container"><img class="lazy-img-loader loaded" src="https://secure-media1.hotstarext.com/t_web_hs_3x/r1/thumbs/PCTV/28/928/PCTV-928-hcdl.jpg"></div></div><div class="meta-center-desc"><div class="title ellipsize genre-title"><span class="content-title"> ROMANCE</span></div></div></a></article></div> -->
