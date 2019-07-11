@@ -38,6 +38,7 @@ import { WebComponent } from './web/web.component';
 import { ImageComponent } from './image/image.component';
 import { LikeCardComponent } from './like-card/like-card.component';
 import { EpisoderecommendationComponent } from './episoderecommendation/episoderecommendation.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { EpisoderecommendationComponent } from './episoderecommendation/episoder
     WebComponent,
     ImageComponent,
     EpisoderecommendationComponent,
-    LikeCardComponent
+    LikeCardComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
