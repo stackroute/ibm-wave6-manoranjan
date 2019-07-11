@@ -1,3 +1,6 @@
+.main{
+    background-color: black;
+}
 .btn-group i{
     color:rgb(26, 24, 24);
 }
@@ -32,8 +35,9 @@ li.menu-item {
 
 
 .detail-page {
-    min-height: calc(100vh - 246px);
-    padding-top: 70px;
+    /* min-height: calc(100vh - 246px); */
+    min-height: calc(100vh - 300px);
+    padding-top: 90px;
     margin-top: 10px;
 }
 .detail-page .masthead-container {
@@ -164,7 +168,6 @@ li.menu-item {
 .action-container .action-data .action-content {
      min-width: 215px; 
      margin-top: 90px;
-
 }
  .action-content .action-primary-txt {
     font-size: 20px;

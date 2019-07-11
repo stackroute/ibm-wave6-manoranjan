@@ -1,105 +1,53 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<!--navbar section-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="position: fixed;z-index: 1;width: 100%">	
-  <a class="navbar-brand" href="#"><img src="'../../assets/logo.png" width="100px"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-  <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/moviedes">
-          Movies</a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#" routerLink="/movie">Action</a>
-          <a class="dropdown-item" href="#">Horror</a>
-          <a class="dropdown-item" href="#">Romantic</a>
-          <a class="dropdown-item" href="#">Thriller</a>
-          <a class="dropdown-item" href="#">Suspence</a>
-          <a class="dropdown-item" href="#">Comedy</a>
-          <a class="dropdown-item" href="#">Mystery</a>
-        </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/tv">
-          TV</a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Hindi</a>
-          <a class="dropdown-item" href="#">English</a>
-          <a class="dropdown-item" href="#">Marathi</a>
-          <a class="dropdown-item" href="#">Tamil</a>
-          <a class="dropdown-item" href="#">Telugu</a>
-          <a class="dropdown-item" href="#">Gujarathi</a>
-          <a class="dropdown-item" href="#">Bengoli</a>
-        </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"  routerLink="/document">Documenteries</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#" routerLink="/web">Web Series</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/nav">Premium</a>
-        </li>  
-    </ul>
-  </div>
-  <form class="form-inline">
-  <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-  <button type="button" class="btn btn-default"><i class="fa fa-search fa-2x"></i></button>
-  </form>
-</nav>
-<!--end of nevbar section-->
-<div class="detail-page">
-    <div class="masthead-container">
-        <div class="masthead-card masthead-hover" style="background-color: rgb(59, 23, 25);">
-            <div class="content-holder">
-                <div class="badge-wrapper"></div>
-                <div class="toptitle clear-both">Nazar</div>
-                <div class="content-meta"> 
-                    <span>
-                       
-                        <span class="meta-data">65 Seasons</span>
-                        <span class="meta-data">2694 Episodes</span>
-                        <span class="meta-data">PG</span>
-                        <span class="meta-data">Hindi</span>
-                        <span class="meta-data">Drama</span>
-                    </span> 
-                </div>
-                <div class="description">
-                An evil entity who bewitches the Rathod family, and outlines the struggles faced by the family under her evil eye. It stars Antara Biswas, Harsh Rajput and Niyati Fatnani in lead roles, who portray Mohana Rathod.
-                </div>
-                <div class="container">
-                    <div class="action-holder">    
-                        <div class="action">
-                            <a class="action-container" href="/movies/2-states/1000034502/watch">
-                                <div class="action-data">
-                                    <div class="action-play">
-                                        <div class="play-btn">
-                                            <i class="fa fa-play" style="font-size:24px"></i>
+<div class="main">
+    <!-- navbar -->
+    <app-nav-norm></app-nav-norm>
+    <!--end of nevbar section-->
+    <div class="detail-page">
+        <div class="masthead-container">
+            <div class="masthead-card masthead-hover" style="background-color: rgb(59, 23, 25);">
+                <div class="content-holder">
+                    <div class="badge-wrapper"></div>
+                    <div class="toptitle clear-both">Nazar</div>
+                    <div class="content-meta"> 
+                        <span>
+                        
+                            <span class="meta-data">65 Seasons</span>
+                            <span class="meta-data">2694 Episodes</span>
+                            <span class="meta-data">PG</span>
+                            <span class="meta-data">Hindi</span>
+                            <span class="meta-data">Drama</span>
+                        </span> 
+                    </div>
+                    <div class="description">
+                    An evil entity who bewitches the Rathod family, and outlines the struggles faced by the family under her evil eye. It stars Antara Biswas, Harsh Rajput and Niyati Fatnani in lead roles, who portray Mohana Rathod.
+                    </div>
+                    <div class="container">
+                        <div class="action-holder">    
+                            <div class="action">
+                                <a class="action-container" href="/movies/2-states/1000034502/watch">
+                                    <div class="action-data">
+                                        <div class="action-play">
+                                            <div class="play-btn">
+                                                <i class="fa fa-play" style="font-size:24px"></i>
+                                            </div>
+                                        </div>
+                                        <div class="action-content">
+                                            <div class="action-primary-txt pull-left">
+                                                <div>Watch Episode</div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="action-content">
-                                        <div class="action-primary-txt pull-left">
-                                            <div>Watch Episode</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="image-holder">
-                <div class="imageloader loaded">
-                    <span class="imageloader loaded">
-                        <img src="https://img1.hotstarext.com/image/upload/f_auto,t_hcdl/sources/r1/cms/prod/1888/311888-h">
-                    </span>
-                </div>
+                <div class="image-holder">
+                    <div class="imageloader loaded">
+                        <span class="imageloader loaded">
+                            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_hcdl/sources/r1/cms/prod/1888/311888-h">
+                        </span>
+                    </div>
                     <div class="watch-share">
                         <div class="watchlist-holder ">
                             <div class="add-to-watchlist ">
@@ -142,5 +90,7 @@
             </div>
         </div>
     </div>
-
     <app-like-card></app-like-card>
+    <app-thirdcard></app-thirdcard>
+    <app-footer></app-footer>
+</div>

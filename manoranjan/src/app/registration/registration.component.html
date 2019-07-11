@@ -141,6 +141,7 @@
                     <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/thriller.jpeg" alt="Gynocologist"></a>
                     <p>Thriller</p>
                 </div>
+
                 </mat-grid-tile>
               </mat-grid-list>
               <br>
@@ -149,6 +150,17 @@
                   <div class="card">
                     <a mat-button-toggle href="#"><img  mat-card-sm-image src="/assets/images/mystery.jpeg" alt="Dermatologist"></a>
                     <p>Mystery</p>
+            </div>
+        
+         
+            <div class="form-group row">
+                    <label for="inputGenre" class="col-sm-3 col-form-label">Interest</label>     
+                    <input type="text" class="form-control" #genre placeholder="Genre">
+            </div> 
+                <!-- genre div is closed-->
+            <div class="form-group row">
+                <div class="col-sm-7 offset-sm-5">
+                    <button type="submit" class="btn btn-primary" (click)="submit(email.value,name.value,age.value,gender.value,mobileno.value,password.value,genre.value)" routerLink="/linkprilog">Submit</button>
                 </div>
                 </mat-grid-tile>
                 <mat-grid-tile>
