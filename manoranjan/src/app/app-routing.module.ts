@@ -74,6 +74,13 @@ const routes: Routes = [
   {path: 'thrillermovie',component:ThrillermoviesComponent},
   {path: 'romanticmovie',component:RomanticmoviesComponent},
   {path: 'mysterymovie',component:MysterymoviesComponent},
+  {path: 'hindiserial',component:HindiserialsComponent},
+  {path: 'englishserial',component:EnglishserialsComponent},
+  {path: 'marathiserial',component:MarathiserialsComponent},
+  {path: 'tamilserial',component:TamilserialsComponent},
+  {path: 'taluguserial',component:TeluguserialsComponent},
+  {path: 'gujarathiserial',component:GujarathiserialsComponent},
+  {path: 'bengaliserial',component:BengaliserialsComponent},
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
   {path: '**', redirectTo: '/navland'}
