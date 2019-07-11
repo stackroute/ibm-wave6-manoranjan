@@ -13,17 +13,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { NavNormComponent } from './nav-norm/nav-norm.component';
 import { MoviesComponent } from './movies/movies.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-import { MoviedescriptionComponent } from './moviedescription/moviedescription.component';
-import { TvComponent } from './tv/tv.component';
-import { WebComponent } from './web/web.component';
 import { ImageComponent } from './image/image.component';
-import { HindiserialsComponent } from './hindiserials/hindiserials.component';
-import { TamilserialsComponent } from './tamilserials/tamilserials.component';
-import { MarathiserialsComponent } from './marathiserials/marathiserials.component';
-import { TeluguserialsComponent } from './teluguserials/teluguserials.component';
-import { BengaliserialsComponent } from './bengaliserials/bengaliserials.component';
-import { EnglishserialsComponent } from './englishserials/englishserials.component';
-import { GujarathiserialsComponent } from './gujarathiserials/gujarathiserials.component';
 import { LinknormviewComponent } from './linknormview/linknormview.component';
 import { LinkpriviewComponent } from './linkpriview/linkpriview.component';
 import { LinkpriviewloginComponent } from './linkpriviewlogin/linkpriviewlogin.component';
@@ -35,14 +25,34 @@ import { LinkMovieNorComponent } from './link-movie-nor/link-movie-nor.component
 import { LinkMoviePriComponent } from './link-movie-pri/link-movie-pri.component';
 import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
 import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
-import { ThrillermoviesComponent } from './thrillermovies/thrillermovies.component';
-import { ComedymoviesComponent } from './comedymovies/comedymovies.component';
-import { ActionmoviesComponent } from './actionmovies/actionmovies.component';
-import { HorrormoviesComponent } from './horrormovies/horrormovies.component';
-import { RomanticmoviesComponent } from './romanticmovies/romanticmovies.component';
-import { MysterymoviesComponent } from './mysterymovies/mysterymovies.component';
 import{PackageComponent} from './package/package.component';
 import{PaymentComponent} from './payment/payment.component';
+import { ActionmovienormComponent } from './actionmovienorm/actionmovienorm.component';
+import { HorrormovienormComponent } from './horrormovienorm/horrormovienorm.component';
+import { RomanticmovienormComponent } from './romanticmovienorm/romanticmovienorm.component';
+import { ThrillermovienormComponent } from './thrillermovienorm/thrillermovienorm.component';
+import { ComedymovienormComponent } from './comedymovienorm/comedymovienorm.component';
+import { MysterymovienormComponent } from './mysterymovienorm/mysterymovienorm.component';
+import { HindiserialnormComponent } from './hindiserialnorm/hindiserialnorm.component';
+import { EnglishserialnormComponent } from './englishserialnorm/englishserialnorm.component';
+import { MarathiserialnormComponent } from './marathiserialnorm/marathiserialnorm.component';
+import { TamilserialnormComponent } from './tamilserialnorm/tamilserialnorm.component';
+import { TeluguserialnormComponent } from './teluguserialnorm/teluguserialnorm.component';
+import { GujarathiserialnormComponent } from './gujarathiserialnorm/gujarathiserialnorm.component';
+import { BengaliserialnormComponent } from './bengaliserialnorm/bengaliserialnorm.component';
+import { ActionmoviepriComponent } from './actionmoviepri/actionmoviepri.component';
+import { HorrormoviepriComponent } from './horrormoviepri/horrormoviepri.component';
+import { ComedymoviepriComponent } from './comedymoviepri/comedymoviepri.component';
+import { ThrillermoviepriComponent } from './thrillermoviepri/thrillermoviepri.component';
+import { RomanticmoviepriComponent } from './romanticmoviepri/romanticmoviepri.component';
+import { MysterymoviepriComponent } from './mysterymoviepri/mysterymoviepri.component';
+import { HindiserialpriComponent } from './hindiserialpri/hindiserialpri.component';
+import { EnglishserialpriComponent } from './englishserialpri/englishserialpri.component';
+import { MarathiserialpriComponent } from './marathiserialpri/marathiserialpri.component';
+import { TamilserialpriComponent } from './tamilserialpri/tamilserialpri.component';
+import { TeluguserialpriComponent } from './teluguserialpri/teluguserialpri.component';
+import { GujarathiserialpriComponent } from './gujarathiserialpri/gujarathiserialpri.component';
+import { BengaliserialpriComponent } from './bengaliserialpri/bengaliserialpri.component';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -67,19 +77,32 @@ const routes: Routes = [
   {path: 'linktvpri',component:LinkTvPriComponent},
   {path: 'linkmoviepri',component:LinkMoviePriComponent},
   {path: 'linkwebpri',component:LinkWebPriComponent},
-  {path: 'actionmovie',component:ActionmoviesComponent},
-  {path: 'horrormovie',component:HorrormoviesComponent},
-  {path: 'comedymovie',component:ComedymoviesComponent},
-  {path: 'thrillermovie',component:ThrillermoviesComponent},
-  {path: 'romanticmovie',component:RomanticmoviesComponent},
-  {path: 'mysterymovie',component:MysterymoviesComponent},
-  {path: 'hindiserial',component:HindiserialsComponent},
-  {path: 'englishserial',component:EnglishserialsComponent},
-  {path: 'marathiserial',component:MarathiserialsComponent},
-  {path: 'tamilserial',component:TamilserialsComponent},
-  {path: 'taluguserial',component:TeluguserialsComponent},
-  {path: 'gujarathiserial',component:GujarathiserialsComponent},
-  {path: 'bengaliserial',component:BengaliserialsComponent},
+  {path: 'actionmovie',component:ActionmovienormComponent},
+  {path: 'horrormovie',component:HorrormovienormComponent},
+  {path: 'comedymovie',component:ComedymovienormComponent},
+  {path: 'thrillermovie',component:ThrillermovienormComponent},
+  {path: 'romanticmovie',component:RomanticmovienormComponent},
+  {path: 'mysterymovie',component:MysterymovienormComponent},
+  {path: 'hindiserial',component:HindiserialnormComponent},
+  {path: 'englishserial',component:EnglishserialnormComponent},
+  {path: 'marathiserial',component:MarathiserialnormComponent},
+  {path: 'tamilserial',component:TamilserialnormComponent},
+  {path: 'taluguserial',component:TeluguserialnormComponent},
+  {path: 'gujarathiserial',component:GujarathiserialnormComponent},
+  {path: 'bengaliserial',component:BengaliserialnormComponent},
+  {path: 'actionmoviepri',component:ActionmoviepriComponent},
+  {path: 'horrormoviepri',component:HorrormoviepriComponent},
+  {path: 'comedymoviepri',component:ComedymoviepriComponent},
+  {path: 'thrillermoviepri',component:ThrillermoviepriComponent},
+  {path: 'romanticmoviepri',component:RomanticmoviepriComponent},
+  {path: 'mysterymoviepri',component:MysterymoviepriComponent},
+  {path: 'hindiserialpri',component:HindiserialpriComponent},
+  {path: 'englishserialpri',component:EnglishserialpriComponent},
+  {path: 'marathiserialpri',component:MarathiserialpriComponent},
+  {path: 'tamilserialpri',component:TamilserialpriComponent},
+  {path: 'taluguserialpri',component:TeluguserialpriComponent},
+  {path: 'gujarathiserialpri',component:GujarathiserialpriComponent},
+  {path: 'bengaliserialpri',component:BengaliserialpriComponent},
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
   {path :'package',component:PackageComponent},
