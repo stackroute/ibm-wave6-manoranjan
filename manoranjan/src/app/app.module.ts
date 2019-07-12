@@ -94,9 +94,17 @@ import { TamilserialpriComponent } from './tamilserialpri/tamilserialpri.compone
 import { MarathiserialpriComponent } from './marathiserialpri/marathiserialpri.component';
 import { EnglishserialpriComponent } from './englishserialpri/englishserialpri.component';
 import { HindiserialpriComponent } from './hindiserialpri/hindiserialpri.component';
+import { MythologymoviepriComponent } from './mythologymoviepri/mythologymoviepri.component';
+import { MythologymovienormComponent } from './mythologymovienorm/mythologymovienorm.component';
+import { BiopicmoviepriComponent } from './biopicmoviepri/biopicmoviepri.component';
+import { BiopicmovienormComponent } from './biopicmovienorm/biopicmovienorm.component';
+import { SciencefictionmoviepriComponent } from './sciencefictionmoviepri/sciencefictionmoviepri.component';
+import { SciencefictionmovienormComponent } from './sciencefictionmovienorm/sciencefictionmovienorm.component';
+import { MythologymoviesComponent } from './mythologymovies/mythologymovies.component';
+import { BiopicmoviesComponent } from './biopicmovies/biopicmovies.component';
+import { SciencefictionmoviesComponent } from './sciencefictionmovies/sciencefictionmovies.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { HistoryComponent } from './history/history.component';
-
 
 @NgModule({
   declarations: [
@@ -180,7 +188,16 @@ import { HistoryComponent } from './history/history.component';
     MarathiserialpriComponent,
     EnglishserialpriComponent,
     HindiserialpriComponent,
-    HistoryComponent
+    HistoryComponent,
+    MythologymoviepriComponent,
+    MythologymovienormComponent,
+    BiopicmoviepriComponent,
+    BiopicmovienormComponent,
+    SciencefictionmoviepriComponent,
+    SciencefictionmovienormComponent,
+    MythologymoviesComponent,
+    BiopicmoviesComponent,
+    SciencefictionmoviesComponent
   ],
   imports: [
     BrowserModule,

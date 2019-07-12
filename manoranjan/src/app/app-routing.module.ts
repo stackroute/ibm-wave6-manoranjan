@@ -54,6 +54,11 @@ import { TeluguserialpriComponent } from './teluguserialpri/teluguserialpri.comp
 import { GujarathiserialpriComponent } from './gujarathiserialpri/gujarathiserialpri.component';
 import { BengaliserialpriComponent } from './bengaliserialpri/bengaliserialpri.component';
 import { HistoryComponent } from './history/history.component';
+import { MythologymovienormComponent } from './mythologymovienorm/mythologymovienorm.component';
+import { BiopicmovienormComponent } from './biopicmovienorm/biopicmovienorm.component';
+import { SciencefictionmovienormComponent } from './sciencefictionmovienorm/sciencefictionmovienorm.component';
+import { BiopicmoviepriComponent } from './biopicmoviepri/biopicmoviepri.component';
+import { SciencefictionmoviepriComponent } from './sciencefictionmoviepri/sciencefictionmoviepri.component';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -84,6 +89,9 @@ const routes: Routes = [
   {path: 'thrillermovie',component:ThrillermovienormComponent},
   {path: 'romanticmovie',component:RomanticmovienormComponent},
   {path: 'mysterymovie',component:MysterymovienormComponent},
+  {path: 'mythologymovie',component:MythologymovienormComponent},
+  {path: 'biopicmovie',component:BiopicmovienormComponent},
+  {path: 'sciencefictionmovie',component:SciencefictionmovienormComponent},
   {path: 'hindiserial',component:HindiserialnormComponent},
   {path: 'englishserial',component:EnglishserialnormComponent},
   {path: 'marathiserial',component:MarathiserialnormComponent},
@@ -97,6 +105,9 @@ const routes: Routes = [
   {path: 'thrillermoviepri',component:ThrillermoviepriComponent},
   {path: 'romanticmoviepri',component:RomanticmoviepriComponent},
   {path: 'mysterymoviepri',component:MysterymoviepriComponent},
+  {path: 'mythologymoviepri',component:MysterymoviepriComponent},
+  {path: 'biopicmoviepri',component:BiopicmoviepriComponent},
+  {path: 'sciencefictionmoviepri',component:SciencefictionmoviepriComponent},
   {path: 'hindiserialpri',component:HindiserialpriComponent},
   {path: 'englishserialpri',component:EnglishserialpriComponent},
   {path: 'marathiserialpri',component:MarathiserialpriComponent},
