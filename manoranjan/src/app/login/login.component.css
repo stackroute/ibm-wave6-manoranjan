@@ -7,6 +7,11 @@
     height: 100vh;
   }
   
+
+  h2,a,h6,input{
+    font-family: 'Merriweather', serif;
+  }
+
   a {
     color: #92badd;
     display:inline-block;

@@ -1,8 +1,19 @@
+div.main{
+    background-color: black;
+    color: white;
+}
+h3{
+    color:#36c5ff;
+}
+span{
+    font-size: 18px;
+    color:#36c5ff;
+}
 div.about{
     margin-top: 100px;
     margin-left: 10px;
     font-family: 'Merriweather', serif;
-    font-size:18px;
+    font-size:16px;
 }
 /* header */
 .btn-group i{
@@ -34,11 +45,12 @@ li.menu-item {
  }
  a.navbar-brand{
     font-family: 'Merriweather', serif;
-    font-size:18px;
+    font-size:16px;
  }
 
  app-footer{
-    margin-top: -32px;
-     position: fixed;
+    margin-top: -115px;
+    position: fixed;
      width: 100%;
+     margin-bottom: 0;
  }
