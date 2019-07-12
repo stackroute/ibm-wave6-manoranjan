@@ -26,11 +26,12 @@
 }
 h4{
   color: white;
+  font-size: 22px;
   margin-left: 110px;
- font-family: 'Merriweather', serif;
+  font-family: 'Merriweather', serif;
 }
 
 h4 span:hover{
   color: #36c5ff;
-  font-size: 25px;
+  /* font-size: 25px; */
 }

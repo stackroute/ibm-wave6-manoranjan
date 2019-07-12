@@ -16,7 +16,9 @@ nav {
  }
  button{
 	position: relative;
-	margin-left: 1280px;
+    margin-left: 1280px;
+    font-size: 1em;
+    padding: 5px 10px;
  }
  .nav-item{
     padding-right: 50px;

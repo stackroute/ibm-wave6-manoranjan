@@ -6,7 +6,7 @@
 <mat-step [stepControl]="firstFormGroup">
     <form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
   
-        <ng-template matStepLabel>Viewers Details</ng-template>
+        <ng-template matStepLabel><span class="headingStyle">Viewers Details</span></ng-template>
 
         <mat-card class="example-card">
             <mat-card-content class="content">
@@ -56,7 +56,7 @@
 <mat-step [stepControl]="secondFormGroup">
 <form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
 
-  <ng-template matStepLabel>More Details</ng-template>
+  <ng-template matStepLabel><span class="headingStyle">More Details</span></ng-template>
 
   <mat-card class="example-card">
 
@@ -111,7 +111,7 @@
 <!-- 3rd form is start here -->
 <mat-step [stepControl]="thirdFormGroup" optional>
     <form  class="form-horizontal" [formGroup]="thirdFormGroup">
-        <ng-template matStepLabel>Interest</ng-template>
+        <ng-template matStepLabel><span class="headingStyle">Interest</span></ng-template>
         <mat-card class="example-card">
           
             <mat-card-content class="content">
@@ -190,7 +190,7 @@
 <mat-step [stepControl]="fourthFormGroup">
   <form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
 
-      <ng-template matStepLabel>See Status</ng-template>
+      <ng-template matStepLabel><span class="headingStyle">See Status</span></ng-template>
 
       <mat-card class="example-card">
     
