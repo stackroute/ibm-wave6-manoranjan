@@ -9,7 +9,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatRadioModule} from '@angular/material/radio';
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatListModule,MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatToolbarModule, MatListModule,MatFormFieldModule, MatInputModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MainNavComponent } from './main-nav/main-nav.component';
@@ -94,6 +98,7 @@ import { TamilserialpriComponent } from './tamilserialpri/tamilserialpri.compone
 import { MarathiserialpriComponent } from './marathiserialpri/marathiserialpri.component';
 import { EnglishserialpriComponent } from './englishserialpri/englishserialpri.component';
 import { HindiserialpriComponent } from './hindiserialpri/hindiserialpri.component';
+
 import { MythologymoviepriComponent } from './mythologymoviepri/mythologymoviepri.component';
 import { MythologymovienormComponent } from './mythologymovienorm/mythologymovienorm.component';
 import { BiopicmoviepriComponent } from './biopicmoviepri/biopicmoviepri.component';
@@ -103,8 +108,8 @@ import { SciencefictionmovienormComponent } from './sciencefictionmovienorm/scie
 import { MythologymoviesComponent } from './mythologymovies/mythologymovies.component';
 import { BiopicmoviesComponent } from './biopicmovies/biopicmovies.component';
 import { SciencefictionmoviesComponent } from './sciencefictionmovies/sciencefictionmovies.component';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { HistoryComponent } from './history/history.component';
+
 
 @NgModule({
   declarations: [
