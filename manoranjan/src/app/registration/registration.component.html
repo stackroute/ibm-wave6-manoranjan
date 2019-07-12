@@ -19,13 +19,11 @@
       <tr>
          <td > <label > Name </label></td>
         <mat-form-field>
-                <!-- [(ngModel)]="viewer.name" -->
           <td >  <input class="form-control" type="text" name="firstName" #name  matInput placeholder="name"  required></td>
         </mat-form-field></tr> 
         <!-- name row is closed-->
           <tr><td > <label>Email</label></td>
                       <mat-form-field>
-                            <!-- [(ngModel)]="viewer.email" -->
                            <td >  <input class="form-control"  type="text" name="email" #email  matInput placeholder="Enter your email"  required ></td>
                             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                           </mat-form-field>
@@ -33,7 +31,6 @@
                          <!-- age row is closed-->
                                <tr><td > <label>Password</label>     </td>
                                 <mat-form-field>
-                                        <!-- [(ngModel)]="viewer.password" -->
                                       <td >  <input  name="password" class="form-control"  type="text"  matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   required #number></td>
                                         <td><button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -71,20 +68,17 @@
   <tr><td>
       <label> Age </label></td>
       <mat-form-field>
-            <!-- [(ngModel)]="viewer.age" -->
         <td>  <input class="form-control" type="text" name="firstName" matInput placeholder="age"  required #age></td>
       </mat-form-field></tr>
       <tr><td><label>Gender</label></td>
                     
        <mat-radio-group>
 <td><div class="form-check">
-        <!-- [(ngModel)]="viewer.gender" -->
 <input class="form-check-input"  type="radio" name="gender"  value="male" #gender>
 <label class="form-check-label">Male</label>
 </div></td>
 <td>
 <div class="form-check">
-        <!-- [(ngModel)]="viewer.gender" -->
 <input class="form-check-input"  type="radio" name="gender"  value="female">
 <label class="form-check-label">Female</label>
 </div></td>
@@ -94,7 +88,6 @@
       <tr><td>
   <label >Mobile</label></td>
       <mat-form-field>
-            <!-- [(ngModel)]="viewer.mobile" -->
              <td> <input class="form-control"  type="text" name="mobile"  matInput placeholder="Mobile"  required #mobileno></td>
           </mat-form-field></tr>
                 <!-- mobile row is closed-->

@@ -7,12 +7,6 @@ p,tr td, .form-control,button,.headingStyle{
 .example-card {
   max-width: 100%;
     }
- /* .card-container {
-      display: flex;
-      flex-flow: row wrap;
-      margin-left: 22%;
-    margin-right: 22%;
-    } */
  img{
    margin-top: 20px;
  } 
@@ -86,7 +80,6 @@ border-block-end-color: black;
 border-block-start-width: 10px;
 }
 
- /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 img{
  width:80px;
  height: 80px;
