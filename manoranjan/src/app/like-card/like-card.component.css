@@ -1,5 +1,5 @@
 #container{
-  width:80%;
+  width:90%;
   padding:10;
   font-family: 'Merriweather', serif;
   margin:3.5em auto;
@@ -9,7 +9,6 @@
  #container H4{
    margin-bottom: 20px;
    padding-top: 0;
-   margin-left: 100px;
  }
  .items:hover img,
 .items.hover img {
@@ -17,14 +16,14 @@
   transform: scale(1.15);
 }
  #left,#right{
-  margin: 20px;
+  margin: 50px;
  }
  .latest{
   height: 180px;
   width: 165px;
   border-radius: 14px;
   margin-top: 15px;
-  margin-left: 12px;
+  padding: 5px;
   margin-bottom:30px;
  }
  .overlay {
@@ -44,11 +43,13 @@
 .container:hover .overlay {
   opacity: 1;
 }
-.textStyle{
-  color: white;
-}
 
-.textStyle:hover{
+h4{
+  color: white;
+  font-size: 22px;
+  margin-left: 110px;
+  font-family: 'Merriweather', serif;
+}
+h4 span:hover{
   color: #36c5ff;
-  font-size: 25px;
 }

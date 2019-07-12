@@ -1,5 +1,6 @@
-<section fxLayout="row wrap" fxLayoutAlign="center center"  class="section"  >
-    <mat-card fxFlex="1000px" fxFlex.xs="50%">
+
+<section fxLayout="row wrap" fxLayoutAlign="center center"  class="section"   >
+    <mat-card fxFlex="1000px" fxFlex.xs="50%" style="background-color: black">
 
 <mat-horizontal-stepper labelPosition="bottom" #stepper>
 
@@ -19,22 +20,18 @@
       <tr>
          <td > <label > Name <span class="mark">*</span></label></td>
         <mat-form-field>
-
                 <!-- [(ngModel)]="viewer.name" -->
-          <td >  <input class="form-control" type="text" name="Name" #name  matInput   ></td>
-
-          <td >  <input class="form-control" type="text" name="Name" #name  matInput  required></td>
+         
+          <td >  <input class="form-control" type="text" name="firstName" #name  matInput   required></td>
 
         </mat-form-field></tr> 
         <!-- name row is closed-->
           <tr><td > <label>Email <span class="mark">*</span></label></td>
                       <mat-form-field>
-
                             <!-- [(ngModel)]="viewer.email" -->
-                           <td >  <input class="form-control"  type="text" name="email" #email  matInput  ></td>
+                     
 
-                           <td >  <input class="form-control"  type="text" name="email" #email  matInput placeholder="Enter your email"  required ></td>
-
+                           <td >  <input class="form-control"  type="text" name="email" #email  matInput  required ></td>
                             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                           </mat-form-field>
                         </tr>
@@ -45,8 +42,7 @@
                                         <!-- [(ngModel)]="viewer.password" -->
                                       <td >  <input  name="password" class="form-control"  type="text"  matInput  [type]="hide ? 'password' : 'text'"   required #number></td>
 
-                                      <td >  <input  name="password" class="form-control"  type="text"  matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   required #number></td>
-
+                                     
                                         <td><button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                         </button></td>
@@ -86,7 +82,7 @@
             <!-- [(ngModel)]="viewer.age" -->
         <td>  <input class="form-control" type="text" name="firstName" matInput  required #age></td>
 
-        <td>  <input class="form-control" type="text" name="firstName" matInput placeholder="age"  required #age></td>
+        
 
       </mat-form-field></tr>
       <tr><td><label>Gender<span class="mark">*</span></label></td>
@@ -109,7 +105,6 @@
       <mat-form-field>
 
             <!-- [(ngModel)]="viewer.mobile" -->
-             <td> <input class="form-control"  type="text" name="mobile"  matInput required #mobileno></td>
 
              <td> <input class="form-control"  type="text" name="mobile"  matInput placeholder="Mobile"  required #mobileno></td>
 
@@ -120,7 +115,8 @@
         </mat-card-content>
         <button mat-stroked-button matStepperPrevious>Back</button>                      
       <button mat-stroked-button matStepperNext>Next</button>
-    </mat-card>   
+    </mat-card> 
+    
   
 </form>
 </mat-step>
@@ -137,7 +133,7 @@
                 <mat-grid-tile>
                   <div class="card">
                     <mat-button-toggle>
-                    <img  mat-card-sm-image src="/assets/images/romantic.png" alt="romantic">
+                    <img  mat-card-sm-image src="/assets/images/romantic.jpeg" alt="romantic">
                     </mat-button-toggle>
                     <p>Romantic</p>
                 </div>
@@ -146,7 +142,7 @@
                 <mat-grid-tile>
                   <div class="card">
                       <mat-button-toggle>
-                    <img  mat-button-toggle mat-card-sm-image src="/assets/images/comedy.png" alt="comedy">
+                    <img  mat-card-sm-image src="/assets/images/kid.jpeg" alt="kid">
                       </mat-button-toggle>
                     <p>Kid</p>
 
@@ -155,75 +151,77 @@
                 <mat-grid-tile>
                   <div class="card">
                       <mat-button-toggle>
-                    <img mat-button-toggle mat-card-sm-image src="/assets/images/thriller.jpeg" alt="thriller">
+                    <img  mat-card-sm-image src="/assets/images/action.jpeg" alt="action">
                       </mat-button-toggle>
-                    <p>Thriller</p>
+                    <p>action</p>
                 </div>
                 </mat-grid-tile>
-                <mat-grid-tile>
-                    <div class="card">
-                        <mat-button-toggle>
-                     <img  mat-card-sm-image src="/assets/images/mystery.jpeg" alt="mystery">
-                        </mat-button-toggle>
-                      <p>Mystery</p>
-              </div>
-          
-          </mat-grid-tile>
-           <mat-grid-tile>
-                    <div class="card">
-                        <mat-button-toggle>
-                      <img mat-card-sm-image src="/assets/images/cartoon.jpeg" alt="cartoon">
-                        </mat-button-toggle>
-                      <p>Cartoon</p>
-                  </div>
-                  </mat-grid-tile>
-                  <mat-grid-tile>
-                          <div class="card">
-                              <mat-button-toggle>
-                            <img mat-button-toggle mat-card-sm-image src="/assets/images/horror.png" alt="Horror">
-                              </mat-button-toggle>
-                            <p>Horror</p>
-                        </div>
-                        </mat-grid-tile>
+            
               </mat-grid-list>
+                <!-- 1st row of cards is close -->
               <br>
               <mat-grid-list cols="3">
-                <mat-grid-tile>
-                  <div class="card">
-                      <mat-button-toggle>
-                   <img  mat-card-sm-image src="/assets/images/mystery.jpeg" alt="mystery">
-                      </mat-button-toggle>
-                    <p>Mystery</p>
-            </div>
-        
-        </mat-grid-tile>
-         <mat-grid-tile>
-                  <div class="card">
-                      <mat-button-toggle>
-                    <img mat-card-sm-image src="/assets/images/cartoon.jpeg" alt="cartoon">
-                      </mat-button-toggle>
-                    <p>Cartoon</p>
+                  <mat-grid-tile>
+                      <div class="card">
+                          <mat-button-toggle>
+                       <img  mat-card-sm-image src="/assets/images/mystery.jpeg" alt="mystery">
+                          </mat-button-toggle>
+                        <p>Mystery</p>
                 </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
+            </mat-grid-tile>
+       
+        <mat-grid-tile>
+                 <div class="card">
+                     <mat-button-toggle>
+                   <img mat-card-sm-image src="/assets/images/mythology.jpeg" alt="mythology">
+                     </mat-button-toggle>
+                   <p>mythology</p>
+               </div>
+               </mat-grid-tile>
+               <mat-grid-tile>
+                   <div class="card">
+                       <mat-button-toggle>
+                     <img mat-card-sm-image src="/assets/images/comedy.jpeg" alt="comedy">
+                       </mat-button-toggle>
+                     <p>comedy</p>
+                 </div>
+                 </mat-grid-tile>
+              </mat-grid-list>
+                <!-- 2nd row of cards is close -->
+              <br>
+              <mat-grid-list cols="3">
+                  <mat-grid-tile>
+                      <div class="card">
+                          <mat-button-toggle>
+                            <img  mat-card-sm-image src="/assets/images/horror.jpeg" alt="Horror">
+                          </mat-button-toggle>
+                        <p>Horror</p>
+                     </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
                         <div class="card">
                             <mat-button-toggle>
-                          <img mat-button-toggle mat-card-sm-image src="/assets/images/horror.png" alt="Horror">
+                         <img  mat-card-sm-image src="/assets/images/biopic.jpeg" alt="biopic">
                             </mat-button-toggle>
-                          <p>Horror</p>
-                      </div>
-                      </mat-grid-tile>
-                     
+                          <p>Mystery</p>
+                       </div>      
+                   </mat-grid-tile>
+                <mat-grid-tile>
+                  <div class="card">
+                      <mat-button-toggle>
+                   <img  mat-card-sm-image src="/assets/images/science-fiction.jpeg" alt="science-fiction">
+                      </mat-button-toggle>
+                    <p>science fiction </p>
+            </div>
+       </mat-grid-tile>
                     </mat-grid-list> 
            
-                <!-- genre div is closed-->
-            
-                <!-- 2nd row of cards is close -->
-              
-              </mat-card-content>
+                <!-- 3rd row of cards is close -->
+                      </mat-card-content>
         <div> 
             <button mat-stroked-button matStepperPrevious>Back</button>
-            <button type="submit" routerLink="/package" mat-stroked-button matStepperNext>Submit</button>
+            <button mat-stroked-button matStepperNext>Next</button>
+         
           
         </div>
         </mat-card>
@@ -243,7 +241,7 @@
             
             </mat-card-content>
             <button mat-stroked-button matStepperPrevious>Back</button>
-            
+            <button type="submit" routerLink="/package" mat-stroked-button matStepperNext>Submit</button>
         </mat-card>   
       
   </form>

@@ -99,6 +99,16 @@ import { MarathiserialpriComponent } from './marathiserialpri/marathiserialpri.c
 import { EnglishserialpriComponent } from './englishserialpri/englishserialpri.component';
 import { HindiserialpriComponent } from './hindiserialpri/hindiserialpri.component';
 
+import { MythologymoviepriComponent } from './mythologymoviepri/mythologymoviepri.component';
+import { MythologymovienormComponent } from './mythologymovienorm/mythologymovienorm.component';
+import { BiopicmoviepriComponent } from './biopicmoviepri/biopicmoviepri.component';
+import { BiopicmovienormComponent } from './biopicmovienorm/biopicmovienorm.component';
+import { SciencefictionmoviepriComponent } from './sciencefictionmoviepri/sciencefictionmoviepri.component';
+import { SciencefictionmovienormComponent } from './sciencefictionmovienorm/sciencefictionmovienorm.component';
+import { MythologymoviesComponent } from './mythologymovies/mythologymovies.component';
+import { BiopicmoviesComponent } from './biopicmovies/biopicmovies.component';
+import { SciencefictionmoviesComponent } from './sciencefictionmovies/sciencefictionmovies.component';
+import { HistoryComponent } from './history/history.component';
 
 
 @NgModule({
@@ -182,7 +192,17 @@ import { HindiserialpriComponent } from './hindiserialpri/hindiserialpri.compone
     TamilserialpriComponent,
     MarathiserialpriComponent,
     EnglishserialpriComponent,
-    HindiserialpriComponent
+    HindiserialpriComponent,
+    HistoryComponent,
+    MythologymoviepriComponent,
+    MythologymovienormComponent,
+    BiopicmoviepriComponent,
+    BiopicmovienormComponent,
+    SciencefictionmoviepriComponent,
+    SciencefictionmovienormComponent,
+    MythologymoviesComponent,
+    BiopicmoviesComponent,
+    SciencefictionmoviesComponent
   ],
   imports: [
     BrowserModule,
