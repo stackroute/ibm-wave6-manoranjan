@@ -28,6 +28,7 @@
                       <mat-form-field>
                             <!-- [(ngModel)]="viewer.email" -->
                            <td >  <input class="form-control"  type="text" name="email" #email  matInput  ></td>
+
                            <td >  <input class="form-control"  type="text" name="email" #email  matInput placeholder="Enter your email"  required ></td>
                             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                           </mat-form-field>
@@ -38,6 +39,7 @@
 
                                         <!-- [(ngModel)]="viewer.password" -->
                                       <td >  <input  name="password" class="form-control"  type="text"  matInput  [type]="hide ? 'password' : 'text'"   required #number></td>
+
                                       <td >  <input  name="password" class="form-control"  type="text"  matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   required #number></td>
                                         <td><button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
