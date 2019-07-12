@@ -95,6 +95,7 @@ import { MarathiserialpriComponent } from './marathiserialpri/marathiserialpri.c
 import { EnglishserialpriComponent } from './englishserialpri/englishserialpri.component';
 import { HindiserialpriComponent } from './hindiserialpri/hindiserialpri.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { HistoryComponent } from './history/history.component';
 
 
 @NgModule({
@@ -178,7 +179,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     TamilserialpriComponent,
     MarathiserialpriComponent,
     EnglishserialpriComponent,
-    HindiserialpriComponent
+    HindiserialpriComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
