@@ -19,13 +19,12 @@ user:Userauthen=new Userauthen();
     this.userService.login(this.user).
     subscribe(
         data => {
-        alert("Login Successful")
-        this.router.navigate(["/nav"],{relativeTo:this.route});
+        this.router.navigate(["/linkprilog"],{relativeTo:this.route});
           console.log("POST Request is successful ", data);},
           
         error => {
-          alert("Login Unsuccessful, try again")
-          this.router.navigate(["/navland"],{relativeTo:this.route});
+          alert("Login Unsuccessful, tryagain")
+          this.router.navigate(["/login"],{relativeTo:this.route});
           console.log("Error", error);}
           
   );
