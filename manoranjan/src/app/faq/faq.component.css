@@ -2,14 +2,26 @@ div.about{
     margin-top: 100px;
     margin-left: 10px;
     font-family: 'Merriweather', serif;
+    color: white;
 }
 /* header */
 .btn-group i{
     color:rgb(26, 24, 24);
 }
+h3{
+    color:#36c5ff;
+}
 nav {
     position: fixed;
     z-index: -1;
+}
+div.dropdown-menu,div.dropdown-menu:hover{
+    background-color: #343a40;
+    color: white;
+}
+a.dropdown-item,a.dropdown-item:hover{
+    color: white;
+    background-color: #343a40;
 }
 li.menu-item {
     margin:0 0 10px 0;
@@ -36,7 +48,7 @@ li.menu-item {
      font-size: 2em;
  }
  app-footer{
-     margin-top: 490px;
+     margin-top: 498px;
      position: fixed;
      width: 100%;
  }
