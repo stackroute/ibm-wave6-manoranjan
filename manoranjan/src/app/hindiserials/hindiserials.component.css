@@ -34,8 +34,9 @@ li.menu-item {
      font-size: 2em;
  }
  h4{
-    font-family: 'Merriweather', serif;
+     font-family: 'Merriweather', serif;
      color: white;
+     font-size: 22px;
      margin-left: 30px;
      margin-top: 20px;
  }
@@ -44,7 +45,6 @@ li.menu-item {
     top: 8px;
   }
   .image {
-    /* padding-top: 30px; */
     display: block;
     width: 165px;
     height: 180px;
@@ -52,20 +52,60 @@ li.menu-item {
     margin-left: 12px;
     margin-top: 30px;
   }
-  .overlay {
-    position: absolute; 
-    bottom: 0; 
-    background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.5);
-    color: #f1f1f1; 
-    width: 165px;
-    transition: .5s ease;
-    opacity:0;
-    color: white;
-    font-size: 10px;
-    padding: 20px;
-    text-align: center;
-  }
   .container-fluid{
     margin-top: -10px;
+  }
+  .box{
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5); 
+    transition: .5s;
+  }
+  .box .imgbox{
+    position: relative;
+  }
+  .box .imgbox img{
+    transition: .5s;
+  }
+  .box:hover .imgbox img{
+    opacity: .5;
+    /* transform: translateY(-40px); */
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+  }
+  .box .content{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-left: 10px;
+    padding-top: 20px;
+    box-sizing: border-box;
+    transition: .5s;
+    opacity: 0;
+  }
+  .box:hover .content{
+    opacity: 1;
+  }
+  .box .content h3{
+    font-size: 14px;
+    color: white;
+    font-weight: 700; 
+  }
+  .box .content p{
+    font-size: 10px;
+    color: white;
+    font-weight: 400; 
+  }
+  .box .content btnD{
+    border: none;
+    background: #fe1b70;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .5s;
+  }
+  .box .content .btnD:hover{
+    color: white;
   }

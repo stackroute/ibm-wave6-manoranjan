@@ -6,7 +6,7 @@
 <mat-step [stepControl]="firstFormGroup">
     <form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
   
-        <ng-template matStepLabel>Viewers Details</ng-template>
+        <ng-template matStepLabel><span class="headingStyle">Viewers Details</span></ng-template>
 
         <mat-card class="example-card">
             <mat-card-content class="content">
@@ -19,22 +19,34 @@
       <tr>
          <td > <label > Name <span class="mark">*</span></label></td>
         <mat-form-field>
+<<<<<<< HEAD
                 <!-- [(ngModel)]="viewer.name" -->
           <td >  <input class="form-control" type="text" name="firstName" #name  matInput   ></td>
+=======
+          <td >  <input class="form-control" type="text" name="firstName" #name  matInput placeholder="name"  required></td>
+>>>>>>> 92e435f52f9b890d5143b093bd057d404094a41c
         </mat-form-field></tr> 
         <!-- name row is closed-->
           <tr><td > <label>Email <span class="mark">*</span></label></td>
                       <mat-form-field>
+<<<<<<< HEAD
                             <!-- [(ngModel)]="viewer.email" -->
                            <td >  <input class="form-control"  type="text" name="email" #email  matInput  ></td>
+=======
+                           <td >  <input class="form-control"  type="text" name="email" #email  matInput placeholder="Enter your email"  required ></td>
+>>>>>>> 92e435f52f9b890d5143b093bd057d404094a41c
                             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                           </mat-form-field>
                         </tr>
                          <!-- age row is closed-->
                                <tr><td > <label>Password <span class="mark">*</span></label>     </td>
                                 <mat-form-field>
+<<<<<<< HEAD
                                         <!-- [(ngModel)]="viewer.password" -->
                                       <td >  <input  name="password" class="form-control"  type="text"  matInput  [type]="hide ? 'password' : 'text'"   required #number></td>
+=======
+                                      <td >  <input  name="password" class="form-control"  type="text"  matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   required #number></td>
+>>>>>>> 92e435f52f9b890d5143b093bd057d404094a41c
                                         <td><button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                         </button></td>
@@ -56,7 +68,7 @@
 <mat-step [stepControl]="secondFormGroup">
 <form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
 
-  <ng-template matStepLabel>More Details</ng-template>
+  <ng-template matStepLabel><span class="headingStyle">More Details</span></ng-template>
 
   <mat-card class="example-card">
 
@@ -71,20 +83,22 @@
   <tr><td>
       <label> Age <span class="mark">*</span></label></td>
       <mat-form-field>
+
             <!-- [(ngModel)]="viewer.age" -->
         <td>  <input class="form-control" type="text" name="firstName" matInput  required #age></td>
+
+        <td>  <input class="form-control" type="text" name="firstName" matInput placeholder="age"  required #age></td>
+
       </mat-form-field></tr>
       <tr><td><label>Gender<span class="mark">*</span></label></td>
                     
        <mat-radio-group>
 <td><div class="form-check">
-        <!-- [(ngModel)]="viewer.gender" -->
 <input class="form-check-input"  type="radio" name="gender"  value="male" #gender>
 <label class="form-check-label">Male</label>
 </div></td>
 <td>
 <div class="form-check">
-        <!-- [(ngModel)]="viewer.gender" -->
 <input class="form-check-input"  type="radio" name="gender"  value="female">
 <label class="form-check-label">Female</label>
 </div></td>
@@ -94,8 +108,12 @@
       <tr><td>
   <label >Mobile <span class="mark">*</span></label></td>
       <mat-form-field>
+
             <!-- [(ngModel)]="viewer.mobile" -->
              <td> <input class="form-control"  type="text" name="mobile"  matInput required #mobileno></td>
+
+             <td> <input class="form-control"  type="text" name="mobile"  matInput placeholder="Mobile"  required #mobileno></td>
+
           </mat-form-field></tr>
                 <!-- mobile row is closed-->
                           </table>
@@ -111,7 +129,7 @@
 <!-- 3rd form is start here -->
 <mat-step [stepControl]="thirdFormGroup" optional>
     <form  class="form-horizontal" [formGroup]="thirdFormGroup">
-        <ng-template matStepLabel>Interest</ng-template>
+        <ng-template matStepLabel><span class="headingStyle">Interest</span></ng-template>
         <mat-card class="example-card">
           
             <mat-card-content class="content">
@@ -192,7 +210,7 @@
 <mat-step [stepControl]="fourthFormGroup">
   <form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
 
-      <ng-template matStepLabel>See Status</ng-template>
+      <ng-template matStepLabel><span class="headingStyle">See Status</span></ng-template>
 
       <mat-card class="example-card">
     

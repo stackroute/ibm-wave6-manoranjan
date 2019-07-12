@@ -12,9 +12,5 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
   }
-  // onSelect(){
-  //   // this.router.navigate(['about'],{relativeTo:this.route});
-  //   this.router.navigateByUrl("/about1");
-  // }
 
 }

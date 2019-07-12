@@ -1,6 +1,5 @@
 #container{
   width:80%;
-  /* margin:0em auto; */
   padding:10;
   font-family: 'Merriweather', serif;
   margin:3.5em auto;
@@ -8,9 +7,7 @@
   
  }
  #container H4{
-   /* margin-top: 15px; */
    margin-bottom: 20px;
-   /* font-weight:bold; */
    padding-top: 0;
    margin-left: 100px;
  }
@@ -18,7 +15,6 @@
 .items.hover img {
   -webkit-transform: scale(1.15);
   transform: scale(1.15);
-  /* border-radius: 5px; */
 }
  #left,#right{
   margin: 20px;
