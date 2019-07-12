@@ -53,6 +53,7 @@ import { TamilserialpriComponent } from './tamilserialpri/tamilserialpri.compone
 import { TeluguserialpriComponent } from './teluguserialpri/teluguserialpri.component';
 import { GujarathiserialpriComponent } from './gujarathiserialpri/gujarathiserialpri.component';
 import { BengaliserialpriComponent } from './bengaliserialpri/bengaliserialpri.component';
+import { HistoryComponent } from './history/history.component';
 import { MythologymovienormComponent } from './mythologymovienorm/mythologymovienorm.component';
 import { BiopicmovienormComponent } from './biopicmovienorm/biopicmovienorm.component';
 import { SciencefictionmovienormComponent } from './sciencefictionmovienorm/sciencefictionmovienorm.component';
@@ -114,6 +115,7 @@ const routes: Routes = [
   {path: 'taluguserialpri',component:TeluguserialpriComponent},
   {path: 'gujarathiserialpri',component:GujarathiserialpriComponent},
   {path: 'bengaliserialpri',component:BengaliserialpriComponent},
+  {path: 'history',component:HistoryComponent},
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
   {path :'package',component:PackageComponent},

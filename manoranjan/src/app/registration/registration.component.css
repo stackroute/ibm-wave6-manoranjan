@@ -1,6 +1,7 @@
 section{
   font-family: 'Merriweather', serif;
   height: 100%;
+  background-color: black;
 }
 
 mat-card{

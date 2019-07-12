@@ -104,6 +104,7 @@ import { MythologymoviesComponent } from './mythologymovies/mythologymovies.comp
 import { BiopicmoviesComponent } from './biopicmovies/biopicmovies.component';
 import { SciencefictionmoviesComponent } from './sciencefictionmovies/sciencefictionmovies.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
@@ -187,6 +188,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MarathiserialpriComponent,
     EnglishserialpriComponent,
     HindiserialpriComponent,
+    HistoryComponent,
     MythologymoviepriComponent,
     MythologymovienormComponent,
     BiopicmoviepriComponent,
