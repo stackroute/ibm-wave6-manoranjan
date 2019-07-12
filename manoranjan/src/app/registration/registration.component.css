@@ -14,12 +14,18 @@ p,tr td, .form-control,button,.headingStyle{
   top: -0.25em;
 }
 
+.mark{
+  color: red;
+}
 .form-horizontal{
     text-align: center;
     margin-left: 22%;
     margin-right: 22%;
 }
-
+label.required::after {
+  content: "*";
+  color: red;
+}
 .form-group{
     text-align: center;
 }
