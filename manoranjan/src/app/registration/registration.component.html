@@ -19,34 +19,34 @@
       <tr>
          <td > <label > Name <span class="mark">*</span></label></td>
         <mat-form-field>
-<<<<<<< HEAD
+
                 <!-- [(ngModel)]="viewer.name" -->
           <td >  <input class="form-control" type="text" name="firstName" #name  matInput   ></td>
-=======
+
           <td >  <input class="form-control" type="text" name="firstName" #name  matInput placeholder="name"  required></td>
->>>>>>> 92e435f52f9b890d5143b093bd057d404094a41c
+
         </mat-form-field></tr> 
         <!-- name row is closed-->
           <tr><td > <label>Email <span class="mark">*</span></label></td>
                       <mat-form-field>
-<<<<<<< HEAD
+
                             <!-- [(ngModel)]="viewer.email" -->
                            <td >  <input class="form-control"  type="text" name="email" #email  matInput  ></td>
-=======
+
                            <td >  <input class="form-control"  type="text" name="email" #email  matInput placeholder="Enter your email"  required ></td>
->>>>>>> 92e435f52f9b890d5143b093bd057d404094a41c
+
                             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                           </mat-form-field>
                         </tr>
                          <!-- age row is closed-->
                                <tr><td > <label>Password <span class="mark">*</span></label>     </td>
                                 <mat-form-field>
-<<<<<<< HEAD
+
                                         <!-- [(ngModel)]="viewer.password" -->
                                       <td >  <input  name="password" class="form-control"  type="text"  matInput  [type]="hide ? 'password' : 'text'"   required #number></td>
-=======
+
                                       <td >  <input  name="password" class="form-control"  type="text"  matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   required #number></td>
->>>>>>> 92e435f52f9b890d5143b093bd057d404094a41c
+
                                         <td><button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                         </button></td>
