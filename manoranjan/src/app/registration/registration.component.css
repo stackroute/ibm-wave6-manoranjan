@@ -1,5 +1,6 @@
 section{
   font-family: 'Merriweather', serif;
+  height: 100%;
 }
 
 mat-card{
@@ -13,7 +14,7 @@ p,tr td, .form-control,button,.headingStyle{
     }
  img{
    margin-top: 20px;
- } 
+ }
 .mat-form-field-infix {
   top: -0.25em;
 }
