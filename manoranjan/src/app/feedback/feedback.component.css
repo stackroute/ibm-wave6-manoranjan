@@ -1,7 +1,11 @@
 div.about{
     margin-top: 100px;
     margin-left: 10px;
+    color: white;
     font-family: 'Merriweather', serif;
+}
+h3{
+    color:#36c5ff;
 }
 /* header */
 .btn-group i{
@@ -36,7 +40,7 @@ li.menu-item {
      font-size: 2em;
  }
  app-footer{
-     margin-top: 422px;
+     margin-top: 410px;
      position: fixed;
      width: 100%;
  }
