@@ -103,6 +103,7 @@ import { SciencefictionmovienormComponent } from './sciencefictionmovienorm/scie
 import { MythologymoviesComponent } from './mythologymovies/mythologymovies.component';
 import { BiopicmoviesComponent } from './biopicmovies/biopicmovies.component';
 import { SciencefictionmoviesComponent } from './sciencefictionmovies/sciencefictionmovies.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -217,6 +218,7 @@ import { SciencefictionmoviesComponent } from './sciencefictionmovies/sciencefic
     MatRadioModule,
     MatFormFieldModule, 
     MatInputModule,
+    MatButtonToggleModule,
     ReactiveFormsModule
   ],
   providers: [],

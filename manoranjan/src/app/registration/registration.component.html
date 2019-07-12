@@ -17,20 +17,29 @@
             </div>
                <br/> 
       <tr>
-         <td > <label > Name </label></td>
+         <td > <label > Name <span class="mark">*</span></label></td>
         <mat-form-field>
+                <!-- [(ngModel)]="viewer.name" -->
+          <td >  <input class="form-control" type="text" name="firstName" #name  matInput   ></td>
           <td >  <input class="form-control" type="text" name="firstName" #name  matInput placeholder="name"  required></td>
         </mat-form-field></tr> 
         <!-- name row is closed-->
-          <tr><td > <label>Email</label></td>
+          <tr><td > <label>Email <span class="mark">*</span></label></td>
                       <mat-form-field>
+                            <!-- [(ngModel)]="viewer.email" -->
+                           <td >  <input class="form-control"  type="text" name="email" #email  matInput  ></td>
+
                            <td >  <input class="form-control"  type="text" name="email" #email  matInput placeholder="Enter your email"  required ></td>
                             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                           </mat-form-field>
                         </tr>
                          <!-- age row is closed-->
-                               <tr><td > <label>Password</label>     </td>
+                               <tr><td > <label>Password <span class="mark">*</span></label>     </td>
                                 <mat-form-field>
+
+                                        <!-- [(ngModel)]="viewer.password" -->
+                                      <td >  <input  name="password" class="form-control"  type="text"  matInput  [type]="hide ? 'password' : 'text'"   required #number></td>
+
                                       <td >  <input  name="password" class="form-control"  type="text"  matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"   required #number></td>
                                         <td><button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -66,11 +75,16 @@
   <br/> 
 
   <tr><td>
-      <label> Age </label></td>
+      <label> Age <span class="mark">*</span></label></td>
       <mat-form-field>
+
+            <!-- [(ngModel)]="viewer.age" -->
+        <td>  <input class="form-control" type="text" name="firstName" matInput  required #age></td>
+
         <td>  <input class="form-control" type="text" name="firstName" matInput placeholder="age"  required #age></td>
+
       </mat-form-field></tr>
-      <tr><td><label>Gender</label></td>
+      <tr><td><label>Gender<span class="mark">*</span></label></td>
                     
        <mat-radio-group>
 <td><div class="form-check">
@@ -86,9 +100,13 @@
 </tr>
  <!-- gender row is closed-->
       <tr><td>
-  <label >Mobile</label></td>
+  <label >Mobile <span class="mark">*</span></label></td>
       <mat-form-field>
+
+            <!-- [(ngModel)]="viewer.mobile" -->
+
              <td> <input class="form-control"  type="text" name="mobile"  matInput placeholder="Mobile"  required #mobileno></td>
+
           </mat-form-field></tr>
                 <!-- mobile row is closed-->
                           </table>
@@ -96,7 +114,8 @@
         </mat-card-content>
         <button mat-stroked-button matStepperPrevious>Back</button>                      
       <button mat-stroked-button matStepperNext>Next</button>
-    </mat-card>   
+    </mat-card> 
+    
   
 </form>
 </mat-step>
@@ -109,61 +128,62 @@
           
             <mat-card-content class="content">
         
-              <mat-grid-list cols="4">
+              <mat-grid-list cols="3">
                 <mat-grid-tile>
                   <div class="card">
-                    <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/romantic.png" alt="Physiotherapist"></a>
+                    <mat-button-toggle>
+                    <img  mat-card-sm-image src="/assets/images/romantic.png" alt="romantic">
+                    </mat-button-toggle>
                     <p>Romantic</p>
                 </div>
                 </mat-grid-tile>
-              
+             
                 <mat-grid-tile>
                   <div class="card">
-                    <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/suspense.png" alt="Cardiologist"></a>
-                    <p>Suspense</p>
-                </div>  
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="card">
-                    <a href="#"><img  mat-button-toggle mat-card-sm-image src="/assets/images/comedy.png" alt="Dietician"></a>
+                      <mat-button-toggle>
+                    <img  mat-button-toggle mat-card-sm-image src="/assets/images/comedy.png" alt="comedy">
+                      </mat-button-toggle>
                     <p>Kid</p>
+
                 </div>
                 </mat-grid-tile>
                 <mat-grid-tile>
                   <div class="card">
-                    <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/thriller.jpeg" alt="Gynocologist"></a>
+                      <mat-button-toggle>
+                    <img mat-button-toggle mat-card-sm-image src="/assets/images/thriller.jpeg" alt="thriller">
+                      </mat-button-toggle>
                     <p>Thriller</p>
                 </div>
 
                 </mat-grid-tile>
               </mat-grid-list>
               <br>
-              <mat-grid-list cols="4">
+              <mat-grid-list cols="3">
                 <mat-grid-tile>
                   <div class="card">
-                    <a mat-button-toggle href="#"><img  mat-card-sm-image src="/assets/images/mystery.jpeg" alt="Dermatologist"></a>
+                      <mat-button-toggle>
+                   <img  mat-card-sm-image src="/assets/images/mystery.jpeg" alt="mystery">
+                      </mat-button-toggle>
                     <p>Mystery</p>
             </div>
         
         </mat-grid-tile>
          <mat-grid-tile>
                   <div class="card">
-                    <a mat-button-toggle href="#"><img mat-card-sm-image src="/assets/images/cartoon.jpeg" alt="Nephrologist"></a>
+                      <mat-button-toggle>
+                    <img mat-card-sm-image src="/assets/images/cartoon.jpeg" alt="cartoon">
+                      </mat-button-toggle>
                     <p>Cartoon</p>
                 </div>
                 </mat-grid-tile>
                 <mat-grid-tile>
                         <div class="card">
                           <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/horror.png" alt="Horror"></a>
-                          <p>Horror</p>
+                          <p>Horror</p> 
+                          <!-- 2nd row is closed-->
                       </div>
-                      </mat-grid-tile>
-                      <mat-grid-tile>
-                        <div class="card">
-                          <a href="#"><img mat-button-toggle mat-card-sm-image src="/assets/images/horror.png" alt="Horror"></a>
-                          <p>Horror</p>
-                      </div>
-                      </mat-grid-tile>
+                </mat-grid-tile>
+                     
                     </mat-grid-list> 
            
                 <!-- genre div is closed-->
