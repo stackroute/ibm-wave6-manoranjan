@@ -94,7 +94,7 @@ import { TamilserialpriComponent } from './tamilserialpri/tamilserialpri.compone
 import { MarathiserialpriComponent } from './marathiserialpri/marathiserialpri.component';
 import { EnglishserialpriComponent } from './englishserialpri/englishserialpri.component';
 import { HindiserialpriComponent } from './hindiserialpri/hindiserialpri.component';
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -201,6 +201,7 @@ import { HindiserialpriComponent } from './hindiserialpri/hindiserialpri.compone
     MatRadioModule,
     MatFormFieldModule, 
     MatInputModule,
+    MatButtonToggleModule,
     ReactiveFormsModule
   ],
   providers: [],
