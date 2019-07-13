@@ -25,8 +25,8 @@ import { LinkMovieNorComponent } from './link-movie-nor/link-movie-nor.component
 import { LinkMoviePriComponent } from './link-movie-pri/link-movie-pri.component';
 import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
 import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
-import{PackageComponent} from './package/package.component';
-import{PaymentComponent} from './payment/payment.component';
+import {PackageComponent} from './package/package.component';
+import {PaymentComponent} from './payment/payment.component';
 import { ActionmovienormComponent } from './actionmovienorm/actionmovienorm.component';
 import { HorrormovienormComponent } from './horrormovienorm/horrormovienorm.component';
 import { RomanticmovienormComponent } from './romanticmovienorm/romanticmovienorm.component';
@@ -53,6 +53,12 @@ import { TamilserialpriComponent } from './tamilserialpri/tamilserialpri.compone
 import { TeluguserialpriComponent } from './teluguserialpri/teluguserialpri.component';
 import { GujarathiserialpriComponent } from './gujarathiserialpri/gujarathiserialpri.component';
 import { BengaliserialpriComponent } from './bengaliserialpri/bengaliserialpri.component';
+import { HistoryComponent } from './history/history.component';
+import { MythologymovienormComponent } from './mythologymovienorm/mythologymovienorm.component';
+import { BiopicmovienormComponent } from './biopicmovienorm/biopicmovienorm.component';
+import { SciencefictionmovienormComponent } from './sciencefictionmovienorm/sciencefictionmovienorm.component';
+import { BiopicmoviepriComponent } from './biopicmoviepri/biopicmoviepri.component';
+import { SciencefictionmoviepriComponent } from './sciencefictionmoviepri/sciencefictionmoviepri.component';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -83,6 +89,9 @@ const routes: Routes = [
   {path: 'thrillermovie',component:ThrillermovienormComponent},
   {path: 'romanticmovie',component:RomanticmovienormComponent},
   {path: 'mysterymovie',component:MysterymovienormComponent},
+  {path: 'mythologymovie',component:MythologymovienormComponent},
+  {path: 'biopicmovie',component:BiopicmovienormComponent},
+  {path: 'sciencefictionmovie',component:SciencefictionmovienormComponent},
   {path: 'hindiserial',component:HindiserialnormComponent},
   {path: 'englishserial',component:EnglishserialnormComponent},
   {path: 'marathiserial',component:MarathiserialnormComponent},
@@ -96,6 +105,9 @@ const routes: Routes = [
   {path: 'thrillermoviepri',component:ThrillermoviepriComponent},
   {path: 'romanticmoviepri',component:RomanticmoviepriComponent},
   {path: 'mysterymoviepri',component:MysterymoviepriComponent},
+  {path: 'mythologymoviepri',component:MysterymoviepriComponent},
+  {path: 'biopicmoviepri',component:BiopicmoviepriComponent},
+  {path: 'sciencefictionmoviepri',component:SciencefictionmoviepriComponent},
   {path: 'hindiserialpri',component:HindiserialpriComponent},
   {path: 'englishserialpri',component:EnglishserialpriComponent},
   {path: 'marathiserialpri',component:MarathiserialpriComponent},
@@ -103,6 +115,7 @@ const routes: Routes = [
   {path: 'taluguserialpri',component:TeluguserialpriComponent},
   {path: 'gujarathiserialpri',component:GujarathiserialpriComponent},
   {path: 'bengaliserialpri',component:BengaliserialpriComponent},
+  {path: 'history',component:HistoryComponent},
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
   {path :'package',component:PackageComponent},

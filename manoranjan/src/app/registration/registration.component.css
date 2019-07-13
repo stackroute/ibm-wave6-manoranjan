@@ -1,9 +1,14 @@
 section{
   font-family: 'Merriweather', serif;
-  height: 100%;
-}
-mat-card{
   height:100%;
+  /* width: 100%; */
+}
+
+mat-card{
+  margin-left: 10%;
+margin-right: 10%;
+margin-top: 4%;
+background-color: white;
 }
 p,tr td, .form-control,button,.headingStyle{
   font-family: 'Merriweather', serif;
