@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FirstcardComponent implements OnInit {
 
   items:Array<any> =[];
+
   constructor() {
     this.items=[
       {name:'../../assets/mov1.webp'},
@@ -27,8 +28,6 @@ export class FirstcardComponent implements OnInit {
       {name:'../../assets/ddlj.jpeg'},
     ];
    }
-
   ngOnInit() {
   }
-
 }
