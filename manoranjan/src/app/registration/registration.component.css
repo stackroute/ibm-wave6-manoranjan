@@ -1,40 +1,19 @@
-section{
-  font-family: 'Merriweather', serif;
-  height:100%;
-  /* width: 100%; */
-}
-
-mat-card{
-  margin-left: 10%;
-margin-right: 10%;
-margin-top: 4%;
-background-color: white;
-}
-p,tr td, .form-control,button,.headingStyle{
-  font-family: 'Merriweather', serif;
-}
 .example-card {
   max-width: 100%;
     }
+
  img{
    margin-top: 20px;
  } 
 .mat-form-field-infix {
   top: -0.25em;
 }
-
-.mark{
-  color: red;
-}
 .form-horizontal{
     text-align: center;
     margin-left: 22%;
     margin-right: 22%;
 }
-label.required::after {
-  content: "*";
-  color: red;
-}
+
 .form-group{
     text-align: center;
 }
@@ -76,7 +55,7 @@ margin-right: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
-  background-color: gray;
+  background-color: #f1f1f1;
 }
 
 .user-profile{
@@ -95,6 +74,7 @@ border-block-end-color: black;
 border-block-start-width: 10px;
 }
 
+ 
 img{
  width:80px;
  height: 80px;
