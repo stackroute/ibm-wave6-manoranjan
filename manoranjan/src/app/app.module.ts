@@ -109,6 +109,8 @@ import { MythologymoviesComponent } from './mythologymovies/mythologymovies.comp
 import { BiopicmoviesComponent } from './biopicmovies/biopicmovies.component';
 import { SciencefictionmoviesComponent } from './sciencefictionmovies/sciencefictionmovies.component';
 import { HistoryComponent } from './history/history.component';
+import { MyaccountComponent } from './myaccount/myaccount.component';
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
@@ -202,7 +204,9 @@ import { HistoryComponent } from './history/history.component';
     SciencefictionmovienormComponent,
     MythologymoviesComponent,
     BiopicmoviesComponent,
-    SciencefictionmoviesComponent
+    SciencefictionmoviesComponent,
+    MyaccountComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

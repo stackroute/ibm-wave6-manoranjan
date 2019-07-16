@@ -59,6 +59,9 @@ import { BiopicmovienormComponent } from './biopicmovienorm/biopicmovienorm.comp
 import { SciencefictionmovienormComponent } from './sciencefictionmovienorm/sciencefictionmovienorm.component';
 import { BiopicmoviepriComponent } from './biopicmoviepri/biopicmoviepri.component';
 import { SciencefictionmoviepriComponent } from './sciencefictionmoviepri/sciencefictionmoviepri.component';
+import { MyaccountComponent } from './myaccount/myaccount.component';
+import { EditComponent } from './edit/edit.component';
+
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -119,8 +122,10 @@ const routes: Routes = [
   {path: 'nav',component:MainNavComponent},
   {path :'about1',component:AboutComponent},
   {path :'package',component:PackageComponent},
+  {path:'myaccount',component:MyaccountComponent},
+  {path:'edit',component:EditComponent},
   {path :'payment',component:PaymentComponent},
-  {path: '**', redirectTo: '/navland'}
+  {path: '**', redirectTo: '/navland'},
 
 ];
 
