@@ -109,6 +109,11 @@ import { MythologymoviesComponent } from './mythologymovies/mythologymovies.comp
 import { BiopicmoviesComponent } from './biopicmovies/biopicmovies.component';
 import { SciencefictionmoviesComponent } from './sciencefictionmovies/sciencefictionmovies.component';
 import { HistoryComponent } from './history/history.component';
+import { MyaccountComponent } from './myaccount/myaccount.component';
+import { EditComponent } from './edit/edit.component';
+import { ProducerprofileComponent } from './producerprofile/producerprofile.component';
+import { EditproducerprofileComponent } from './editproducerprofile/editproducerprofile.component';
+import { UploadedvideosComponent } from './uploadedvideos/uploadedvideos.component';
 
 
 @NgModule({
@@ -202,7 +207,12 @@ import { HistoryComponent } from './history/history.component';
     SciencefictionmovienormComponent,
     MythologymoviesComponent,
     BiopicmoviesComponent,
-    SciencefictionmoviesComponent
+    SciencefictionmoviesComponent,
+    MyaccountComponent,
+    EditComponent,
+    ProducerprofileComponent,
+    EditproducerprofileComponent,
+    UploadedvideosComponent
   ],
   imports: [
     BrowserModule,
