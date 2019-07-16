@@ -4,13 +4,10 @@ section{
 }
 
 mat-card{
-margin-left: 10%;
+  margin-left: 10%;
 margin-right: 10%;
 margin-top: 4%;
 background-color: white;
-}
-mat-button-toggle{
-color: #000;
 }
 p,tr td, .form-control,button,.headingStyle{
   font-family: 'Merriweather', serif;
@@ -78,7 +75,7 @@ margin-right: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
- 
+  background-color: gray;
 }
 
 .user-profile{

@@ -1,45 +1,13 @@
 .main{
     background-color: black;
 }
-.btn-group i{
-    color:rgb(20, 19, 19);
-}
-nav {
-    position: fixed;
-    z-index: -1;
-}
-li.menu-item {
-    margin:0 0 10px 0;
-    transform: translate(15px,-5px);
-    position: absolute;
-    padding-right: 15px;
-    font-family: 'Merriweather', serif;
- }
- .nav-item{
-    padding-right: 50px;
- }
- .navbar-brand{
-     padding-right: 20px;
- }
- .form-inline{
-     padding-left:200px; 
-     padding-right: 20px;
-
- }
- .form-inline i {
-     color:white;
- }
- a.navbar-brand{
-    font-family: 'Merriweather', serif;
-     font-size: 2em;
- }
- h4{
+h4{
      font-family: 'Merriweather', serif;
      color: white;
      font-size: 22px;
      margin-left: 30px;
      margin-top: 20px;
- }
+}
 .container{
     padding-top: 90px;
     top: 8px;
@@ -49,7 +17,7 @@ li.menu-item {
     width: 165px;
     height: 180px;
     border-radius: 14px;
-    margin-left: 12px;
+    /* margin-left: 12px; */
     margin-top: 30px;
   }
   .container-fluid{
@@ -57,7 +25,7 @@ li.menu-item {
   }
   .box{
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     border-radius: 10px;
     background: #000;
     box-shadow: 0 5px 15px rgba(0,0,0,.5); 
@@ -70,17 +38,17 @@ li.menu-item {
     transition: .5s;
   }
   .box:hover .imgbox img{
-    opacity: .5;
+    opacity: .8;
     /* transform: translateY(-40px); */
-    -webkit-transform: scale(1.15);
-    transform: scale(1.15);
+    -webkit-transform: scale(1.22);
+    transform: scale(1.22);
   }
   .box .content{
     position: absolute;
     bottom: 0;
     left: 0;
     padding-left: 10px;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     box-sizing: border-box;
     transition: .5s;
     opacity: 0;
@@ -89,18 +57,18 @@ li.menu-item {
     opacity: 1;
   }
   .box .content h3{
-    font-size: 14px;
+    /* padding-top: 20px; */
+    font-size: 15px;
     color: white;
     font-weight: 700; 
   }
   .box .content p{
-    font-size: 10px;
+    font-size: 12px;
     color: white;
-    font-weight: 400; 
+    font-weight: 600; 
   }
   .box .content btnD{
     border: none;
-    background: #fe1b70;
     color: white;
     font-size: 13px;
     font-weight: 700;
