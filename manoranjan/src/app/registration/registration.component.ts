@@ -9,6 +9,8 @@ import {ActivatedRoute,Router} from '@angular/router';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
+  genres:Array<string>=new Array<string>();
   user:User=new User();
   // isLinear = true;
    firstFormGroup: FormGroup
@@ -28,14 +30,16 @@ export class RegistrationComponent implements OnInit {
           Validators.minLength(10),Validators.pattern("^[0-9]*$")])]
     });
       }
-      onSubmitDetails(email,name,age,gender,mobileno,password,genre){
+      onSubmitDetails(email,name,age,gender,mobileno,password,interest){
         this.user.emailId = email;
           this.user.name = name;
           this.user.age = age;
           this.user.gender= gender;
           this.user.mobileNo = mobileno;
           this.user.password = password;
-          this.user.genre =genre;
+
+          this.user.genre =this.genres;
+
         this._userService.saveUser(this.user)
         .subscribe(
           data => {console.log('success',data);},
@@ -74,8 +78,10 @@ export class RegistrationComponent implements OnInit {
     onSubmInterest(interest) {
       this.user.genre = interest;
       console.log(this.user.genre);
+      this.genres.push(interest);
      
     }
-  constructor(private _formBuilder: FormBuilder,private _userService:UserService) {}
+  
+    constructor(private _formBuilder: FormBuilder,private _userService:UserService) {}
  }
         
