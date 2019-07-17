@@ -11,6 +11,10 @@ import {ActivatedRoute,Router} from '@angular/router';
 export class RegistrationComponent implements OnInit {
   user:User=new User();
   // isLinear = true;
+  hide:true;
+  completeDetails = []
+  genre = []
+  msg;
    firstFormGroup: FormGroup
    secondFormGroup: FormGroup
     
@@ -25,9 +29,51 @@ export class RegistrationComponent implements OnInit {
       age: ["", Validators.compose([Validators.required])],
       gender: ["" , Validators.compose([Validators.required])],
       mobileNo:["", Validators.compose([ Validators.maxLength(10),Validators.required,
-          Validators.minLength(10),Validators.pattern("^[0-9]*$")])]
+          Validators.minLength(10),Validators.pattern("^[0-9]+")])]
     });
+    
+
       }
+      // ng oninit closed
+
+      // submit details is in oninit
+    submitDetails() {
+      var m = {
+        'name': this.completeDetails[0].name,
+        'emailId': this.completeDetails[0].emailId,
+        'password': this.completeDetails[0].password,
+        'age': this.completeDetails[1].age,
+        'gender': this.completeDetails[1].gender,
+        'mobileNo': this.completeDetails[1].mobileNo,
+        'genre': this.genre,
+       
+      }
+    
+      // this.userService.saveUser(m).subscribe(com => {
+      //   console.log("saved");
+      //   this.msg = "saved successfully";
+        
+      // }
+    }
+      onSubmitViewerDetails(value) {
+        console.log(value)
+        this.completeDetails.push(value)
+      }
+      onSubmitMoreDetails(value) {
+        console.log(value)
+        this.completeDetails.push(value)
+        console.log(this.completeDetails[1])
+    
+      }
+
+
+      onSubmInterest(interest) {
+        console.log(interest)
+        this.completeDetails.push(interest)
+       
+       
+      }
+
       onSubmitDetails(email,name,age,gender,mobileno,password,genre){
         this.user.emailId = email;
           this.user.name = name;
@@ -44,8 +90,8 @@ export class RegistrationComponent implements OnInit {
             console.log("Error", error);} 
          );
       }
-    hide:true;
-
+  //  onsubmit details closed
+//validation is inside oninit
   validation_messages = {
     'name': [
       { type: 'required', message: 'Username is required' },
@@ -70,12 +116,7 @@ export class RegistrationComponent implements OnInit {
     ]
 
     }
-
-    onSubmInterest(interest) {
-      this.user.genre = interest;
-      console.log(this.user.genre);
-     
-    }
-  constructor(private _formBuilder: FormBuilder,private _userService:UserService) {}
+  
+  constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService) {}
  }
         
