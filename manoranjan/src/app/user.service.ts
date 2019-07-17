@@ -12,6 +12,6 @@ export class UserService {
   constructor(private http:HttpClient) { }
   
   saveUser(user:User){
-   return this.http.post<User>("http://localhost:8011/userservice/users",user);
+   return this.http.post<User>("http://localhost:8011/userservice/user",user);
   }
 }

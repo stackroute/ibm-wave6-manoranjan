@@ -6,15 +6,15 @@
           <span style="margin-top: 35px"> Your Details </span>
           <span class="fill-remaining-space"></span>
         </mat-toolbar>
-        <!-- [linear]="isLinear"//////// -->
+        <!-- [linear]="isLinear" -->
 <mat-horizontal-stepper labelPosition="bottom" linear style="height: 100%">
 <mat-step [stepControl]="firstForm"  >
     <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal" (ngSubmit)="onSubmitViewerDetails(firstFormGroup.value)">
        <ng-template matStepLabel><span class="headingStyle">Viewers Details</span></ng-template>
           <mat-card class="example-card first-card" style="padding-bottom: 20px;" >
             <mat-card-content class="content" >
-               <table > 
-                   <tr><td > <label > Name</label></td>
+               <table> 
+                   <tr><td > <label > Name </label></td>
                      <mat-form-field>
                       <td >  <input class="form-control" type="text" name="name" formControlName="name" [(ngModel)]="name"  matInput   required></td>
                       <mat-error *ngFor="let validation of validation_messages.name">
@@ -46,7 +46,7 @@
            <!-- password row is closed-->
                  </table>
                </mat-card-content>      
-            <button mat-stroked-button matStepperNext  [disabled]="!firstFormGroup.valid">Next</button>
+            <button mat-stroked-button matStepperNext  [disabled]="!firstFormGroup.valid" >Next</button>
          </mat-card>   
     </form>
 </mat-step>
@@ -64,7 +64,7 @@
               <mat-error class="error-message" *ngIf="secondFormGroup.get('age').hasError(validation.type) && (secondFormGroup.get('age').dirty || secondFormGroup.get('age').touched)">{{validation.message}}
               </mat-error>
             </mat-error>
-          </mat-form-field></tr>
+          </mat-form-field></tr><br><br>
          <tr><td><label>Gender</label></td>
           <mat-radio-group  class="genderradio" formControlName="gender" [(ngModel)]="gender"> 
             <mat-radio-button value="male" style="margin-right: 20px">Male </mat-radio-button>
@@ -115,7 +115,7 @@
                </mat-grid-tile>
               <mat-grid-tile>
                   <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="action">
-                    <img  mat-card-lg-image src="/assets/images/action.jpg" alt="action">
+                    <img  mat-card-lg-image src="/assets/images/action1.jpeg" alt="action">
                       
                   </mat-button-toggle>
               </mat-grid-tile>

@@ -52,14 +52,17 @@ export class RegistrationComponent implements OnInit {
         'genre': this.genre,
        
       }
-    
-      // this.userService.saveUser(m).subscribe(com => {
-      //   console.log("saved");
-      //   this.msg = "saved successfully";
-      //   this.router.navigate([
-      //     'login'
-      //   ] );
-      // }
+      
+      this.userService.saveUser(m).subscribe(com => {
+        console.log("saved");
+        alert("registration successful!!!");
+        this.router.navigate([
+          'payment'
+        ] );
+      },
+      error=>{
+        console.log("error");
+      })
     }
       onSubmitViewerDetails(value) {
         console.log(value)
@@ -71,18 +74,14 @@ export class RegistrationComponent implements OnInit {
         console.log(this.completeDetails[1])
     
       }
-
-
-
-
-      onSubmitInterest(interest) {
+      onSubmInterest(interest) {
         console.log(interest)
-        this.completeDetails.push(interest)
-       
-       
+        this.completeDetails.push(interest) 
+        this.genre.push(interest);
+        console.log(this.genre);
       }
 
-      onSubmitDetails(email,name,age,gender,mobileno,password){
+      onSubmitDetails(email,name,age,gender,mobileno,password,genre){
 
         this.user.emailId = email;
           this.user.name = name;
@@ -90,7 +89,7 @@ export class RegistrationComponent implements OnInit {
           this.user.gender= gender;
           this.user.mobileNo = mobileno;
           this.user.password = password;
-       
+          this.user.genre=genre;
 
         this._userService.saveUser(this.user)
         .subscribe(
@@ -100,8 +99,6 @@ export class RegistrationComponent implements OnInit {
             console.log("Error", error);} 
          );
       }
-  //  onsubmit details closed
-//validation is inside oninit
   validation_messages = {
     'name': [
       { type: 'required', message: 'Username is required' },
@@ -128,12 +125,12 @@ export class RegistrationComponent implements OnInit {
     }
 
 
-    onSubmInterest(interest) {
-      this.user.genre = interest;
-      console.log(this.user.genre);
-      this.genre.push(interest);
+    // onSubmInterest(interest) {
+    //   this.user.genre = interest;
+    //   console.log(this.user.genre);
+    //   this.genre.push(interest);
      
-    }
+    // }
   
 
   constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService, private router: Router) {}
