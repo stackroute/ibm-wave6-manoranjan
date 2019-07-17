@@ -114,6 +114,10 @@ import { EditComponent } from './edit/edit.component';
 import { ProducerprofileComponent } from './producerprofile/producerprofile.component';
 import { EditproducerprofileComponent } from './editproducerprofile/editproducerprofile.component';
 import { UploadedvideosComponent } from './uploadedvideos/uploadedvideos.component';
+import { StandaloneStepperComponent } from './standalone-stepper/standalone-stepper.component';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-episodic.component';
 
 
 @NgModule({
@@ -212,7 +216,9 @@ import { UploadedvideosComponent } from './uploadedvideos/uploadedvideos.compone
     EditComponent,
     ProducerprofileComponent,
     EditproducerprofileComponent,
-    UploadedvideosComponent
+    UploadedvideosComponent,
+    StandaloneStepperComponent,
+    StandaloneEpisodicComponent
   ],
   imports: [
     BrowserModule,
@@ -236,7 +242,9 @@ import { UploadedvideosComponent } from './uploadedvideos/uploadedvideos.compone
     MatFormFieldModule, 
     MatInputModule,
     MatButtonToggleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent],
