@@ -8,7 +8,8 @@ export class User {
   public gender?:string,
   public mobileNo?:string,
   public password?:string,
-  public genre?:List<string>
+  public genre?:string
+  // public genre?:List<string>
     )
     {}
 }

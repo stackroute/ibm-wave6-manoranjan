@@ -9,46 +9,73 @@ import {ActivatedRoute,Router} from '@angular/router';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  [x: string]: any;
   user:User=new User();
-  email = new FormControl('', [Validators.required, Validators.email]);
-  onSubmit(){
-    this._userService.saveUser(this.user)
-    .subscribe(
-      data => console.log('success',data)
-      
-    )
-  }
-
+  // isLinear = true;
+   firstFormGroup: FormGroup
+   secondFormGroup: FormGroup
+    
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+       name: ['', Validators.compose([Validators.required,Validators.maxLength(20)])],
+          emailId:[ '',Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$')])],
+      password:['',Validators.compose([ Validators.minLength(5), Validators.required,Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')])]
+     
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      age: ["", Validators.compose([Validators.required])],
+      gender: ["" , Validators.compose([Validators.required])],
+      mobileNo:["", Validators.compose([ Validators.maxLength(10),Validators.required,
+          Validators.minLength(10),Validators.pattern("^[0-9]*$")])]
     });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
-    });
-  }
-  // submit(email,name,age,gender,mobileno,password,genre){
-  //   this.user.emailId = email;
-  //   this.user.name = name;
-  //   this.user.age = age;
-  //   this.user.gender= gender;
-  //   this.user.mobileNo = mobileno;
-  //   this.user.password = password;
-  //   this.user.genre =genre;
-  //   this.userService.saveUser(this.user).
- 
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-  hide:true;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
+      }
+      onSubmitDetails(email,name,age,gender,mobileno,password,genre){
+        this.user.emailId = email;
+          this.user.name = name;
+          this.user.age = age;
+          this.user.gender= gender;
+          this.user.mobileNo = mobileno;
+          this.user.password = password;
+          this.user.genre =genre;
+        this._userService.saveUser(this.user)
+        .subscribe(
+          data => {console.log('success',data);},
+          error => {
+            alert("Invalid")
+            console.log("Error", error);} 
+         );
+      }
+    hide:true;
+
+  validation_messages = {
+    'name': [
+      { type: 'required', message: 'Username is required' },
+      { type: 'maxlength', message: 'Username cannot be more than 25 characters long' },
+      { type: 'pattern', message: 'Your username must contain only numbers and letters' },
+      { type: 'validUsername', message: 'Your username has already been taken' }
+    ],
+    'emailId': [
+      { type: 'required', message: 'Email is required' },
+      { type: 'pattern', message: 'Enter a valid email' }
+    ],
+    
+    'password': [
+      { type: 'required', message: 'Password is required' },
+      { type: 'minlength', message: 'Password must be at least 5 characters long' },
+      { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number' }
+    ],
+    'mobileNo': [
+      { type: 'required', message: 'mobileNo is required' },
+      { type: 'minlength', message: 'mobileNo must be at 10 characters long' },
+      { type: 'pattern', message: 'Your mobileNo must contain one number' }
+    ]
+
+    }
+
+    onSubmInterest(interest) {
+      this.user.genre = interest;
+      console.log(this.user.genre);
+     
+    }
   constructor(private _formBuilder: FormBuilder,private _userService:UserService) {}
  }
         

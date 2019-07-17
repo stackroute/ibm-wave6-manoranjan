@@ -111,6 +111,9 @@ import { SciencefictionmoviesComponent } from './sciencefictionmovies/sciencefic
 import { HistoryComponent } from './history/history.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { EditComponent } from './edit/edit.component';
+import { ProducerprofileComponent } from './producerprofile/producerprofile.component';
+import { EditproducerprofileComponent } from './editproducerprofile/editproducerprofile.component';
+import { UploadedvideosComponent } from './uploadedvideos/uploadedvideos.component';
 
 
 @NgModule({
@@ -206,7 +209,10 @@ import { EditComponent } from './edit/edit.component';
     BiopicmoviesComponent,
     SciencefictionmoviesComponent,
     MyaccountComponent,
-    EditComponent
+    EditComponent,
+    ProducerprofileComponent,
+    EditproducerprofileComponent,
+    UploadedvideosComponent
   ],
   imports: [
     BrowserModule,

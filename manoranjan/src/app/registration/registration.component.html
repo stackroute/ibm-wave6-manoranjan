@@ -1,249 +1,199 @@
 
 <section fxLayout="row wrap" fxLayoutAlign="center center"  class="section"   >
     <mat-card fxFlex="1000px" fxFlex.xs="50%" style="background-color: black">
-
-<mat-horizontal-stepper labelPosition="bottom" #stepper>
-
-<mat-step [stepControl]="firstFormGroup">
-    <form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
-  
-        <ng-template matStepLabel><span class="headingStyle">Viewers Details</span></ng-template>
-
-        <mat-card class="example-card">
-            <mat-card-content class="content">
-                      <table> 
-    <div class="form-group">
-        <p style="margin-left: 180px; font-size: 14px"> 
-          <b>Enter Your Details</b></p>
-            </div>
-               <br/> 
-      <tr>
-         <td > <label > Name <span class="mark">*</span></label></td>
-        <mat-form-field>
-                <!-- [(ngModel)]="viewer.name" -->
-         
-          <td >  <input class="form-control" type="text" name="firstName" #name  matInput   required></td>
-
-        </mat-form-field></tr> 
+        <mat-toolbar >
+          <span class="fill-remaining-space"></span>
+          <span style="margin-top: 35px"> Your Details </span>
+          <span class="fill-remaining-space"></span>
+        </mat-toolbar>
+        <!-- [linear]="isLinear"//////// -->
+<mat-horizontal-stepper labelPosition="bottom" linear style="height: 100%">
+<mat-step [stepControl]="firstForm"  >
+    <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal" >
+       <ng-template matStepLabel><span class="headingStyle">Viewers Details</span></ng-template>
+          <mat-card class="example-card first-card" style="padding-bottom: 20px;" >
+            <mat-card-content class="content" >
+               <table > 
+                   <tr><td > <label > Name</label></td>
+                     <mat-form-field>
+                      <td >  <input class="form-control" type="text" name="name" formControlName="name"  matInput   required></td>
+                      <mat-error *ngFor="let validation of validation_messages.name">
+                          <mat-error class="error-message" *ngIf="firstFormGroup.get('name').hasError(validation.type) && (firstFormGroup.get('name').dirty || firstFormGroup.get('name').touched)">{{validation.message}}
+                          </mat-error>
+                       </mat-error>
+                    </mat-form-field></tr> 
         <!-- name row is closed-->
-          <tr><td > <label>Email <span class="mark">*</span></label></td>
+                   <tr><td > <label>Email</label></td>
                       <mat-form-field>
-                            <!-- [(ngModel)]="viewer.email" -->
-                     
-
-                           <td >  <input class="form-control"  type="text" name="email" #email  matInput  required ></td>
-                            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-                          </mat-form-field>
-                        </tr>
-                         <!-- age row is closed-->
-                               <tr><td > <label>Password <span class="mark">*</span></label>     </td>
-                                <mat-form-field>
-
-                                        <!-- [(ngModel)]="viewer.password" -->
-                                      <td >  <input  name="password" class="form-control"  type="text"  matInput  [type]="hide ? 'password' : 'text'"   required #number></td>
-
-                                     
-                                        <td><button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                        </button></td>
-                                      </mat-form-field>
-                                     </tr>
-                                    <!-- password row is closed-->
-                                    
-                                </table>
-              </mat-card-content>
-                
-                                     
-            <button mat-stroked-button matStepperNext>Next</button>
-          </mat-card>   
-        
+                        <td > <input class="form-control"  type="text" name="emailId" formControlName="emailId"   matInput  required ></td>
+                         <mat-error *ngFor="let validation of validation_messages.emailId">
+                            <mat-error class="error-message" *ngIf="firstFormGroup.get('emailId').hasError(validation.type) && (firstFormGroup.get('emailId').dirty || firstFormGroup.get('emailId').touched)">{{validation.message}}
+                            </mat-error>
+                         </mat-error>
+                      </mat-form-field> </tr>
+           <!-- age row is closed-->
+                    <tr><td > <label>Password </label> </td>
+                       <mat-form-field>
+                           <td ><input  name="password" class="form-control"  type="text"  formControlName="password"  matInput  [type]="hide ? 'password' : 'text'"   required ></td>
+                             <td><button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                              </button></td>
+                              <mat-error *ngFor="let validation of validation_messages.password">
+                                  <mat-error class="error-message" *ngIf="firstFormGroup.get('password').hasError(validation.type) && (firstFormGroup.get('password').dirty || firstFormGroup.get('password').touched)">{{validation.message}}
+                                  </mat-error>
+                              </mat-error>
+                       </mat-form-field></tr>
+           <!-- password row is closed-->
+                 </table>
+               </mat-card-content>      
+            <button mat-stroked-button matStepperNext (ngSubmit)="onSubmitDetails(firstFormGroup.value)">Next</button>
+         </mat-card>   
     </form>
 </mat-step>
-
 <!-- 2nd stapper form here-->
-<mat-step [stepControl]="secondFormGroup">
-<form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
-
+<mat-step [stepControl]="secondForm">
+<form #viewerForm="ngForm" [formGroup]="secondFormGroup"  class="form-horizontal" >
   <ng-template matStepLabel><span class="headingStyle">More Details</span></ng-template>
-
-  <mat-card class="example-card">
-<mat-card-content class="content">
-          <table> 
-         
-        <div class="form-group">
-     <p style="margin-left: 180px; font-size: 14px"> <b>More Details</b></p>
-  </div>
-  <br/> 
-
-  <tr><td>
-      <label> Age <span class="mark">*</span></label></td>
-      <mat-form-field>
-
-            <!-- [(ngModel)]="viewer.age" -->
-        <td>  <input class="form-control" type="text" name="firstName" matInput  required #age></td>
-
-        
-
-      </mat-form-field></tr>
-      <tr><td><label>Gender<span class="mark">*</span></label></td>
-                    
-       <mat-radio-group>
-<td><div class="form-check">
-<input class="form-check-input"  type="radio" name="gender"  value="male" #gender>
-<label class="form-check-label">Male</label>
-</div></td>
-<td>
-<div class="form-check">
-<input class="form-check-input"  type="radio" name="gender"  value="female">
-<label class="form-check-label">Female</label>
-</div></td>
-</mat-radio-group>
-</tr>
- <!-- gender row is closed-->
-      <tr><td>
-  <label >Mobile <span class="mark">*</span></label></td>
-      <mat-form-field>
-
-            <!-- [(ngModel)]="viewer.mobile" -->
-
-             <td> <input class="form-control"  type="text" name="mobile"  matInput placeholder="Mobile"  required #mobileno></td>
-
+    <mat-card class="example-card">
+      <mat-card-content class="content">
+        <table> 
+         <tr><td> <label> Age </label></td>
+          <mat-form-field>
+            <td>  <input class="form-control" type="text" name="firstName"  formControlName="age" #age  matInput  required ></td>
+             <mat-error *ngFor="let validation of validation_messages.age">
+              <mat-error class="error-message" *ngIf="secondFormGroup.get('age').hasError(validation.type) && (secondFormGroup.get('age').dirty || secondFormGroup.get('age').touched)">{{validation.message}}
+              </mat-error>
+            </mat-error>
           </mat-form-field></tr>
+         <tr><td><label>Gender</label></td>
+          <mat-radio-group  class="genderradio" formControlName="gender"> 
+            <mat-radio-button value="male" style="margin-right: 20px">Male </mat-radio-button>
+             <mat-radio-button   value="female"> Female</mat-radio-button>
+              <mat-error *ngFor="let validation of validation_messages.age">
+                <mat-error class="error-message" *ngIf="secondFormGroup.get('gender').hasError(validation.type) && (secondFormGroup.get('gender').dirty || secondFormGroup.get('gender').touched)">{{validation.message}}
+                </mat-error>
+              </mat-error>  
+           </mat-radio-group>   
+         </tr>
+ <!-- gender row is closed-->
+       <tr><td> <label >Mobile </label></td>
+         <mat-form-field>
+           <td> <input class="form-control"  type="number" name="mobile"  matInput required formControlName="mobileNo" ></td>
+            <mat-error *ngFor="let validation of validation_messages.age">
+             <mat-error class="error-message" *ngIf="secondFormGroup.get('mobileNo').hasError(validation.type) && (secondFormGroup.get('mobileNo').dirty || secondFormGroup.get('mobileNo').touched)">{{validation.message}}
+             </mat-error>
+           </mat-error>
+      </mat-form-field></tr>
                 <!-- mobile row is closed-->
-                          </table>
-                           <!-- 2nd row is closed-->
+     </table>
         </mat-card-content>
-        <button mat-stroked-button matStepperPrevious>Back</button>                      
-      <button mat-stroked-button matStepperNext>Next</button>
+        <button mat-stroked-button matStepperPrevious  (ngSubmit)="onSubmitDetails(firstFormGroup.value)">Back</button>                      
+      <button mat-stroked-button matStepperNext (ngSubmit)="onSubmitDetails(secondFormGroup.value)">Next</button>
     </mat-card> 
-    
-  
-</form>
+   </form>
 </mat-step>
-
 <!-- 3rd form is start here -->
-<mat-step [stepControl]="thirdFormGroup" optional>
-    <form  class="form-horizontal" [formGroup]="thirdFormGroup">
-        <ng-template matStepLabel><span class="headingStyle">Interest</span></ng-template>
-        <mat-card class="example-card">
-          
-            <mat-card-content class="content">
-        
-              <mat-grid-list cols="3">
+<mat-step [stepControl]="thirdForm" >
+    <ng-template matStepLabel><span class="headingStyle">Interest</span></ng-template>
+       <mat-card class="example-card">
+          <mat-card-content class="content">
+             <!-- <mat-button-toggle-group class="example-card" name="fontStyle" aria-label="Font Style" multiple> -->
+      
+             <mat-grid-list cols="3" style="margin-top:-50px">
                 <mat-grid-tile>
-                  <div class="card">
-                    <mat-button-toggle>
-                    <img  mat-card-sm-image src="/assets/images/romantic.jpeg" alt="romantic">
-                    </mat-button-toggle>
-                    <p>Romantic</p>
-                </div>
+                    <mat-button-toggle class="imageCard"  (change)="onSubmInterest($event.value)" value="romantic">
+                      <img  mat-card-lg-image src="/assets/images/romantic.jpg" alt="romantic">
+                        <p>Romantic</p>
+                  </mat-button-toggle>
                 </mat-grid-tile>
-             
-                <mat-grid-tile>
-                  <div class="card">
-                      <mat-button-toggle>
-                    <img  mat-card-sm-image src="/assets/images/kid.jpeg" alt="kid">
-                      </mat-button-toggle>
+                <mat-grid-tile>   
+                  <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="kid">
+                   <img mat-card-lg-image src="/assets/images/kid.jpg" alt="kid">
                     <p>Kid</p>
-
-                </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="card">
-                      <mat-button-toggle>
-                    <img  mat-card-sm-image src="/assets/images/action.jpeg" alt="action">
-                      </mat-button-toggle>
-                    <p>action</p>
-                </div>
-                </mat-grid-tile>
-            
-              </mat-grid-list>
-                <!-- 1st row of cards is close -->
-              <br>
-              <mat-grid-list cols="3">
-                  <mat-grid-tile>
-                      <div class="card">
-                          <mat-button-toggle>
-                       <img  mat-card-sm-image src="/assets/images/mystery.jpeg" alt="mystery">
-                          </mat-button-toggle>
-                        <p>Mystery</p>
-                </div>
-            </mat-grid-tile>
-       
-        <mat-grid-tile>
-                 <div class="card">
-                     <mat-button-toggle>
-                   <img mat-card-sm-image src="/assets/images/mythology.jpeg" alt="mythology">
-                     </mat-button-toggle>
-                   <p>mythology</p>
-               </div>
+                  </mat-button-toggle>
                </mat-grid-tile>
-               <mat-grid-tile>
-                   <div class="card">
-                       <mat-button-toggle>
-                     <img mat-card-sm-image src="/assets/images/comedy.jpeg" alt="comedy">
-                       </mat-button-toggle>
-                     <p>comedy</p>
-                 </div>
-                 </mat-grid-tile>
-              </mat-grid-list>
-                <!-- 2nd row of cards is close -->
-              <br>
-              <mat-grid-list cols="3">
-                  <mat-grid-tile>
-                      <div class="card">
-                          <mat-button-toggle>
-                            <img  mat-card-sm-image src="/assets/images/horror.jpeg" alt="Horror">
-                          </mat-button-toggle>
-                        <p>Horror</p>
-                     </div>
-                    </mat-grid-tile>
-                    <mat-grid-tile>
-                        <div class="card">
-                            <mat-button-toggle>
-                         <img  mat-card-sm-image src="/assets/images/biopic.jpeg" alt="biopic">
-                            </mat-button-toggle>
-                          <p>Mystery</p>
-                       </div>      
-                   </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="card">
-                      <mat-button-toggle>
-                   <img  mat-card-sm-image src="/assets/images/science-fiction.jpeg" alt="science-fiction">
-                      </mat-button-toggle>
-                    <p>science fiction </p>
-            </div>
-       </mat-grid-tile>
-                    </mat-grid-list> 
-           
-                <!-- 3rd row of cards is close -->
-                      </mat-card-content>
-        <div> 
+              <mat-grid-tile>
+                  <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="action">
+                    <img  mat-card-lg-image src="/assets/images/action.jpg" alt="action">
+                      <p>Action</p>
+                  </mat-button-toggle>
+              </mat-grid-tile>
+           </mat-grid-list>
+           <mat-grid-list cols="3">
+             <mat-grid-tile>
+              <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="mystery">
+                <img  mat-card-lg-image src="/assets/images/mystery.jpg" alt="mystery">
+                <p>Mystery</p>
+              </mat-button-toggle>
+           </mat-grid-tile>
+          <mat-grid-tile>
+                <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="mythology">
+              <img mat-card-lg-image src="/assets/images/mythology.jpg" alt="mythology">
+              <p>mythology</p>
+                </mat-button-toggle>
+          </mat-grid-tile>
+          <mat-grid-tile>
+                  <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="comedy">
+                    <img mat-card-lg-image src="/assets/images/comedy.jpg" alt="comedy">
+                    <p>comedy</p>
+                  </mat-button-toggle>
+          </mat-grid-tile>
+       </mat-grid-list>
+
+<mat-grid-list cols="3">
+    <mat-grid-tile>
+            <mat-button-toggle (change)="onSubmInterest($event.value)"  value="horror">
+              <img  mat-card-lg-image src="/assets/images/horror.jpg" alt="Horror">
+              <p>Horror</p>
+            </mat-button-toggle>
+      </mat-grid-tile>
+      <mat-grid-tile>
+              <mat-button-toggle (change)="onSubmInterest($event.value)" value="biopic">
+               <img  mat-card-lg-image src="/assets/images/biopic.jpg" alt="biopic">
+               <p>Biopic</p>
+              </mat-button-toggle>
+     </mat-grid-tile>
+     <mat-grid-tile>
+        <mat-button-toggle (change)="onSubmInterest($event.value)"  value="science">
+         <img  mat-card-lg-image src="/assets/images/science.jpg" alt="science">
+         <p>science fiction </p>
+        </mat-button-toggle>
+   </mat-grid-tile>
+ </mat-grid-list> 
+
+  <!-- 3rd row of cards is close -->
+<!-- </mat-button-toggle-group> -->   
+      </mat-card-content>
+        <div style="margin-top: -50px; margin-left: 43%"> 
             <button mat-stroked-button matStepperPrevious>Back</button>
             <button mat-stroked-button matStepperNext>Next</button>
-         
-          
         </div>
         </mat-card>
-    </form>
 </mat-step>
 <!-- form 3rd is closed-->
-<mat-step [stepControl]="fourthFormGroup">
-  <form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
+         
+         <mat-step [stepControl]="fourthForm">
+          <form #viewerForm="ngForm"  (ngSubmit)="onSubmit()" class="form-horizontal" >
+               <ng-template matStepLabel><span class="headingStyle">See Status</span></ng-template>
+               <mat-card class="example-card">
+                <mat-card-content class="content">
 
-      <ng-template matStepLabel><span class="headingStyle">See Status</span></ng-template>
-
-      <mat-card class="example-card">
-    
-          <mat-card-content class="content">
-
-           
-            
-            </mat-card-content>
-            <button mat-stroked-button matStepperPrevious>Back</button>
-            <button type="submit" routerLink="/package" mat-stroked-button matStepperNext>Submit</button>
-        </mat-card>   
-      
+                    <div style="margin-left: -50px">
+                    <img src="https://img.icons8.com/color/96/000000/ok.png" width=50 height=50>
+        
+                    <h3>
+                        Thank you!
+                    </h3>
+                    <br>
+                    <p >You are successfully Registered here!</p>
+                  </div>
+                  <br>
+                 </mat-card-content>
+                 <div style="margin-top: -10px">
+                    <button mat-stroked-button matStepperPrevious>Back</button>
+                    <button type="submit" routerLink="/package" mat-stroked-button matStepperNext>Submit</button>
+                 </div>
+             </mat-card>   
   </form>
 </mat-step>
 </mat-horizontal-stepper>       
