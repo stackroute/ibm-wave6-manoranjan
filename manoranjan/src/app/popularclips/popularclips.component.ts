@@ -12,12 +12,12 @@ export class PopularclipsComponent implements OnInit {
   constructor() {
     this.items=[
       {name:'./assets/j1.jpg'},
-      {name:'./assets/12.jpeg'},
+      {name:'./assets/caro/5.jpg'},
       {name:'./assets/13.jpeg'},
-      {name:'./assets/a1.jpeg'},
-      {name:'./assets/a2.jpeg'},
-      {name:'./assets/a3.jpeg'},
-      {name:'./assets/a4.jpeg'},
+      {name:'./assets/caro/2.jpg'},
+      {name:'./assets/caro/4.jpg'},
+      {name:'./assets/12.jpeg'},
+      {name:'./assets/caro/1.jpg'},
       {name:'./assets/a5.jpeg'},
     ];
    }
