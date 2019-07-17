@@ -12,9 +12,7 @@ import {ActivatedRoute,Router} from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
 
-  // genres:Array<string>=new Array<string>();
   user:User=new User();
-  // isLinear = true;
   hide:true;
   completeDetails = []
   genre =[]
@@ -37,10 +35,7 @@ export class RegistrationComponent implements OnInit {
     });
     
 
-      }
-      // ng oninit closed
-
-      // submit details is in oninit
+  }
     submitDetails() {
       var m = {
         'name': this.completeDetails[0].name,
@@ -124,14 +119,6 @@ export class RegistrationComponent implements OnInit {
 
     }
 
-
-    // onSubmInterest(interest) {
-    //   this.user.genre = interest;
-    //   console.log(this.user.genre);
-    //   this.genre.push(interest);
-     
-    // }
-  
 
   constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService, private router: Router) {}
 
