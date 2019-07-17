@@ -3,6 +3,8 @@ import {User} from '../user';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { UserService } from '../user.service';
 import {ActivatedRoute,Router} from '@angular/router';
+
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -13,7 +15,7 @@ export class RegistrationComponent implements OnInit {
   // isLinear = true;
   hide:true;
   completeDetails = []
-  genre = []
+  genre =[]
   msg;
    firstFormGroup: FormGroup
    secondFormGroup: FormGroup
@@ -52,7 +54,9 @@ export class RegistrationComponent implements OnInit {
       // this.userService.saveUser(m).subscribe(com => {
       //   console.log("saved");
       //   this.msg = "saved successfully";
-        
+      //   this.router.navigate([
+      //     'login'
+      //   ] );
       // }
     }
       onSubmitViewerDetails(value) {
@@ -117,6 +121,6 @@ export class RegistrationComponent implements OnInit {
 
     }
   
-  constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService) {}
+  constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService, private router: Router) {}
  }
         
