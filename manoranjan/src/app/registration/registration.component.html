@@ -16,7 +16,7 @@
                <table > 
                    <tr><td > <label > Name</label></td>
                      <mat-form-field>
-                      <td >  <input class="form-control" type="text" name="name" formControlName="name"  matInput   required></td>
+                      <td >  <input class="form-control" type="text" name="name" formControlName="name" [(ngModel)]="name"  matInput   required></td>
                       <mat-error *ngFor="let validation of validation_messages.name">
                           <mat-error class="error-message" *ngIf="firstFormGroup.get('name').hasError(validation.type) && (firstFormGroup.get('name').dirty || firstFormGroup.get('name').touched)">{{validation.message}}
                           </mat-error>
@@ -25,7 +25,7 @@
         <!-- name row is closed-->
                    <tr><td > <label>Email</label></td>
                       <mat-form-field>
-                        <td > <input class="form-control"  type="text" name="emailId" formControlName="emailId"   matInput  required ></td>
+                        <td > <input class="form-control"  type="text" name="emailId" formControlName="emailId" [(ngModel)]="emailId"  matInput  required ></td>
                          <mat-error *ngFor="let validation of validation_messages.emailId">
                             <mat-error class="error-message" *ngIf="firstFormGroup.get('emailId').hasError(validation.type) && (firstFormGroup.get('emailId').dirty || firstFormGroup.get('emailId').touched)">{{validation.message}}
                             </mat-error>
@@ -34,7 +34,7 @@
            <!-- age row is closed-->
                     <tr><td > <label>Password </label> </td>
                        <mat-form-field>
-                           <td ><input  name="password" class="form-control"  type="text"  formControlName="password"  matInput  [type]="hide ? 'password' : 'text'"   required ></td>
+                           <td ><input  name="password" class="form-control"  type="text"  formControlName="password"  matInput  [type]="hide ? 'password' : 'text'" [(ngModel)]="password"  required ></td>
                              <td><button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                               </button></td>
@@ -59,14 +59,14 @@
         <table> 
          <tr><td> <label> Age </label></td>
           <mat-form-field>
-            <td>  <input class="form-control" type="text" name="age"  formControlName="age" #age  matInput  required ></td>
+            <td>  <input class="form-control" type="text" name="age"  formControlName="age" [(ngModel)]="age" matInput  required ></td>
              <mat-error *ngFor="let validation of validation_messages.age">
               <mat-error class="error-message" *ngIf="secondFormGroup.get('age').hasError(validation.type) && (secondFormGroup.get('age').dirty || secondFormGroup.get('age').touched)">{{validation.message}}
               </mat-error>
             </mat-error>
           </mat-form-field></tr>
          <tr><td><label>Gender</label></td>
-          <mat-radio-group  class="genderradio" formControlName="gender"> 
+          <mat-radio-group  class="genderradio" formControlName="gender" [(ngModel)]="gender"> 
             <mat-radio-button value="male" style="margin-right: 20px">Male </mat-radio-button>
              <mat-radio-button   value="female"> Female</mat-radio-button>
               <mat-error *ngFor="let validation of validation_messages.age">
@@ -78,7 +78,7 @@
  <!-- gender row is closed-->
        <tr><td> <label >Mobile </label></td>
          <mat-form-field>
-           <td> <input class="form-control"  type="text" name="mobile"  matInput required formControlName="mobileNo" ></td>
+           <td> <input class="form-control"  type="number" name="mobile"  matInput required formControlName="mobileNo" [(ngModel)]="mobileNo" ></td>
             <mat-error *ngFor="let validation of validation_messages.age">
              <mat-error class="error-message" *ngIf="secondFormGroup.get('mobileNo').hasError(validation.type) && (secondFormGroup.get('mobileNo').dirty || secondFormGroup.get('mobileNo').touched)">{{validation.message}}
              </mat-error>
@@ -93,15 +93,15 @@
    </form>
 </mat-step>
 <!-- 3rd form is start here -->
+
 <mat-step [stepControl]="thirdForm" >
-    
     <ng-template matStepLabel><span class="headingStyle">Interest</span></ng-template>
        <mat-card class="example-card">
-          <mat-card-content class="content">
+          <mat-card-content class="content" >
              <!-- <mat-button-toggle-group class="example-card" name="fontStyle" aria-label="Font Style" multiple> -->
       
              <mat-grid-list cols="3" style="margin-top:-50px">
-                <mat-grid-tile>
+                <mat-grid-tile >
                     <mat-button-toggle class="imageCard"  (change)="onSubmInterest($event.value)" value="romantic">
                       <img  mat-card-lg-image src="/assets/images/romantic.jpg" alt="romantic">
                      

@@ -11,6 +11,8 @@ import {ActivatedRoute,Router} from '@angular/router';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
+  // genres:Array<string>=new Array<string>();
   user:User=new User();
   // isLinear = true;
   hide:true;
@@ -71,21 +73,25 @@ export class RegistrationComponent implements OnInit {
       }
 
 
-      onSubmInterest(interest) {
+
+
+      onSubmitInterest(interest) {
         console.log(interest)
         this.completeDetails.push(interest)
        
        
       }
 
-      onSubmitDetails(email,name,age,gender,mobileno,password,genre){
+      onSubmitDetails(email,name,age,gender,mobileno,password){
+
         this.user.emailId = email;
           this.user.name = name;
           this.user.age = age;
           this.user.gender= gender;
           this.user.mobileNo = mobileno;
           this.user.password = password;
-          this.user.genre =genre;
+       
+
         this._userService.saveUser(this.user)
         .subscribe(
           data => {console.log('success',data);},
@@ -120,7 +126,19 @@ export class RegistrationComponent implements OnInit {
     ]
 
     }
+
+
+    onSubmInterest(interest) {
+      this.user.genre = interest;
+      console.log(this.user.genre);
+      this.genre.push(interest);
+     
+    }
   
+
   constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService, private router: Router) {}
+
+  
+
  }
         
