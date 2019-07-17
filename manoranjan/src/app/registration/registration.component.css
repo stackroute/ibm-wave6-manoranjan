@@ -52,10 +52,6 @@ margin-right: 10px;
   color: red;
 }
 
-
- img{
-   margin-top: 20px;
- } 
 .mat-form-field-infix {
   top: -0.25em;
 }
@@ -69,9 +65,6 @@ margin-right: 10px;
     text-align: center;
 }
 
-/* .mat-card-sm-image{
-margin-right: 10px;
-} */
 .column {
   float: left;
   width: 45%;

@@ -39,7 +39,6 @@
   }
   .box:hover .imgbox img{
     opacity: .8;
-    /* transform: translateY(-40px); */
     -webkit-transform: scale(1.22);
     transform: scale(1.22);
   }
@@ -48,7 +47,6 @@
     bottom: 0;
     left: 0;
     padding-left: 10px;
-    /* padding-top: 20px; */
     box-sizing: border-box;
     transition: .5s;
     opacity: 0;
