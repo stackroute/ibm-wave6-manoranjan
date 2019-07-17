@@ -3,14 +3,22 @@ import {User} from '../user';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { UserService } from '../user.service';
 import {ActivatedRoute,Router} from '@angular/router';
+
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
+  // genres:Array<string>=new Array<string>();
   user:User=new User();
   // isLinear = true;
+  hide:true;
+  completeDetails = []
+  genre =[]
+  msg;
    firstFormGroup: FormGroup
    secondFormGroup: FormGroup
     
@@ -25,17 +33,64 @@ export class RegistrationComponent implements OnInit {
       age: ["", Validators.compose([Validators.required])],
       gender: ["" , Validators.compose([Validators.required])],
       mobileNo:["", Validators.compose([ Validators.maxLength(10),Validators.required,
-          Validators.minLength(10),Validators.pattern("^[0-9]*$")])]
+          Validators.minLength(10),Validators.pattern("^[0-9]+")])]
     });
+    
+
       }
+      // ng oninit closed
+
+      // submit details is in oninit
+    submitDetails() {
+      var m = {
+        'name': this.completeDetails[0].name,
+        'emailId': this.completeDetails[0].emailId,
+        'password': this.completeDetails[0].password,
+        'age': this.completeDetails[1].age,
+        'gender': this.completeDetails[1].gender,
+        'mobileNo': this.completeDetails[1].mobileNo,
+        'genre': this.genre,
+       
+      }
+      
+      this.userService.saveUser(m).subscribe(com => {
+        console.log("saved");
+        alert("registration successful!!!");
+        this.router.navigate([
+          'payment'
+        ] );
+      },
+      error=>{
+        console.log("error");
+      })
+    }
+      onSubmitViewerDetails(value) {
+        console.log(value)
+        this.completeDetails.push(value)
+      }
+      onSubmitMoreDetails(value) {
+        console.log(value)
+        this.completeDetails.push(value)
+        console.log(this.completeDetails[1])
+    
+      }
+      onSubmInterest(interest) {
+        console.log(interest)
+        this.completeDetails.push(interest) 
+        this.genre.push(interest);
+        console.log(this.genre);
+      }
+
       onSubmitDetails(email,name,age,gender,mobileno,password,genre){
+
         this.user.emailId = email;
           this.user.name = name;
           this.user.age = age;
           this.user.gender= gender;
           this.user.mobileNo = mobileno;
           this.user.password = password;
-          this.user.genre =genre;
+          this.user.genre=genre;
+
         this._userService.saveUser(this.user)
         .subscribe(
           data => {console.log('success',data);},
@@ -44,8 +99,6 @@ export class RegistrationComponent implements OnInit {
             console.log("Error", error);} 
          );
       }
-    hide:true;
-
   validation_messages = {
     'name': [
       { type: 'required', message: 'Username is required' },
@@ -71,11 +124,18 @@ export class RegistrationComponent implements OnInit {
 
     }
 
-    onSubmInterest(interest) {
-      this.user.genre = interest;
-      console.log(this.user.genre);
+
+    // onSubmInterest(interest) {
+    //   this.user.genre = interest;
+    //   console.log(this.user.genre);
+    //   this.genre.push(interest);
      
-    }
-  constructor(private _formBuilder: FormBuilder,private _userService:UserService) {}
+    // }
+  
+
+  constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService, private router: Router) {}
+
+  
+
  }
         
