@@ -14,6 +14,7 @@ import java.util.List;
 @RequestMapping(value="api/v1")
 public class UserController {
     private UserService userService;
+
     public UserController(UserService userService)
     {
         this.userService=userService;
@@ -24,7 +25,7 @@ public class UserController {
         ResponseEntity responseEntity;
         try {
             userService.saveUser(user);
-            responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.CREATED);
+            responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.OK);
         }
         catch (UserAllReadyExistException e){
             responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);
@@ -39,12 +40,20 @@ public class UserController {
     public ResponseEntity<?> getAllUsers(){
         return new ResponseEntity<List<User>>(userService.getAllUsers(),HttpStatus.OK);
     }
-    @DeleteMapping("user/{emailId}")
+    @GetMapping("/users/{emailId}")
+    public ResponseEntity<?> getById(@PathVariable("emailId") String emailId){
+        ResponseEntity responseEntity;
+        User user=null;
+        user=userService.getById(emailId);
+        responseEntity=new ResponseEntity<User>(user, HttpStatus.CREATED);
+        return responseEntity;
+    }
+    @DeleteMapping("/user/{emailId}")
     public ResponseEntity<?> deleteUser(@PathVariable String emailId)
     {
         ResponseEntity responseEntity;
         userService.deleteUser(emailId);
-        responseEntity=new ResponseEntity<String>("Deleted Successfully", HttpStatus.CREATED);
+        responseEntity=new ResponseEntity<String>("", HttpStatus.CREATED);
         return responseEntity;
     }
     @PutMapping("/user/{emailId}")

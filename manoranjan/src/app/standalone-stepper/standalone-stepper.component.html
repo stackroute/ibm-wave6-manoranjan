@@ -134,7 +134,7 @@
                               <label>Language:</label>
                           </div>
                           <div class="col-sm-10">
-                                        <select class="selectpicker" data-width="fit">
+                                        <select class="selectpicker" data-width="fit" [(ngModel)]="language" [ngModelOptions]="{standalone: true}">
                                             <option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
                                           <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Telugu</option>
                                           <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Tamil</option>

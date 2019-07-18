@@ -13,12 +13,13 @@ import {ActivatedRoute,Router} from '@angular/router';
 export class RegistrationComponent implements OnInit {
 
   user:User=new User();
-  hide:true;
   completeDetails = []
   genre =[]
-  msg;
-   firstFormGroup: FormGroup
-   secondFormGroup: FormGroup
+
+  firstFormGroup: FormGroup
+  secondFormGroup: FormGroup
+
+  constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService, private router: Router) {}
     
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -33,10 +34,27 @@ export class RegistrationComponent implements OnInit {
       mobileNo:["", Validators.compose([ Validators.maxLength(10),Validators.required,
           Validators.minLength(10),Validators.pattern("^[0-9]+")])]
     });
-    
+  }
+
+  onSubmitViewerDetails(value) {
+    console.log(value)
+    this.completeDetails.push(value)
+  }
+  onSubmitMoreDetails(value) {
+    console.log(value)
+    this.completeDetails.push(value)
+    console.log(this.completeDetails[1])
 
   }
-    submitDetails() {
+  onSubmInterest(interest) {
+    console.log(interest)
+    this.completeDetails.push(interest) 
+    this.genre.push(interest);
+    console.log(this.genre);
+  }
+
+
+  submitDetails() {
       var m = {
         'name': this.completeDetails[0].name,
         'emailId': this.completeDetails[0].emailId,
@@ -48,52 +66,15 @@ export class RegistrationComponent implements OnInit {
        
       }
       
-      this.userService.saveUser(m).subscribe(com => {
-        console.log("saved");
-        alert("registration successful!!!");
-        this.router.navigate([
-          'payment'
-        ] );
-      },
-      error=>{
-        console.log("error");
-      })
+      this.userService.saveUser(m).subscribe(data => {
+        alert("valid")
+        console.log("POST Request is successful ", data);},
+        error => {
+          alert("Invalid")
+          console.log("Error", error);}
+          );
     }
-      onSubmitViewerDetails(value) {
-        console.log(value)
-        this.completeDetails.push(value)
-      }
-      onSubmitMoreDetails(value) {
-        console.log(value)
-        this.completeDetails.push(value)
-        console.log(this.completeDetails[1])
-    
-      }
-      onSubmInterest(interest) {
-        console.log(interest)
-        this.completeDetails.push(interest) 
-        this.genre.push(interest);
-        console.log(this.genre);
-      }
-
-      onSubmitDetails(email,name,age,gender,mobileno,password,genre){
-
-        this.user.emailId = email;
-          this.user.name = name;
-          this.user.age = age;
-          this.user.gender= gender;
-          this.user.mobileNo = mobileno;
-          this.user.password = password;
-          this.user.genre=genre;
-
-        this._userService.saveUser(this.user)
-        .subscribe(
-          data => {console.log('success',data);},
-          error => {
-            alert("Invalid")
-            console.log("Error", error);} 
-         );
-      }
+     
   validation_messages = {
     'name': [
       { type: 'required', message: 'Username is required' },
@@ -117,12 +98,7 @@ export class RegistrationComponent implements OnInit {
       { type: 'pattern', message: 'Your mobileNo must contain one number' }
     ]
 
-    }
-
-
-  constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService, private router: Router) {}
-
-  
+  }
 
  }
         
