@@ -21,7 +21,7 @@
                     <mat-grid-list cols="4">
                       <mat-grid-tile>
                         <div class="card">
-                          <mat-button-toggle>
+                          <mat-button-toggle (change)="onGenreSubmit($event.value)" value="romantic">
                             <div class="img1">
                           <img  mat-card-sm-image src="../../assets/images/romantic.png" alt="romantic">
                          <div class="hover">
@@ -33,7 +33,7 @@
                       </mat-grid-tile>
                       <mat-grid-tile>
                         <div class="card">
-                            <mat-button-toggle>
+                            <mat-button-toggle (change)="onGenreSubmit($event.value)" value="action">
                               <div class="img2">
                           <img  mat-card-sm-image src="../../assets/images/action.jpeg" alt="action">
                           <div class="hover">
@@ -45,7 +45,7 @@
                       </mat-grid-tile>
                           <mat-grid-tile>
                               <div class="card">
-                                  <mat-button-toggle>
+                                  <mat-button-toggle (change)="onGenreSubmit($event.value)" value="mystery">
                                     <div class="img3">
                                <img  mat-card-sm-image src="../../assets/images/mystery.jpeg" alt="mystery">
                                  <div class="hover">
@@ -58,7 +58,7 @@
                     </mat-grid-tile>
                     <mat-grid-tile>
                         <div class="card">
-                            <mat-button-toggle>
+                            <mat-button-toggle (change)="onGenreSubmit($event.value)" value="mythology">
                               <div class="img4">
                           <img mat-card-sm-image src="../../assets/images/mythology.jpeg" alt="mythology">
                          <div class="hover">
@@ -75,7 +75,7 @@
              
                      <mat-grid-tile>
                          <div class="card">
-                             <mat-button-toggle>
+                             <mat-button-toggle (change)="onGenreSubmit($event.value)" value="comedy">
                                <div class="img5">
                            <img mat-card-sm-image src="../../assets/images/comedy.jpeg" alt="comedy">
                             <div class="hover">
@@ -87,7 +87,7 @@
                        </mat-grid-tile>
                        <mat-grid-tile>
                           <div class="card">
-                              <mat-button-toggle>
+                              <mat-button-toggle (change)="onGenreSubmit($event.value)" value="horror">
                                 <div class="img6">
                                 <img  mat-card-sm-image src="../../assets/images/horror.jpeg" alt="Horror">
                               <div class="hover">
@@ -99,7 +99,7 @@
                         </mat-grid-tile>
                         <mat-grid-tile>
                             <div class="card">
-                                <mat-button-toggle>
+                                <mat-button-toggle (change)="onGenreSubmit($event.value)" value="biopic">
                                   <div class="img7">
                              <img  mat-card-sm-image src="../../assets/images/biopic.jpeg" alt="biopic">
                               <div class="hover">
@@ -111,7 +111,7 @@
                        </mat-grid-tile>
                     <mat-grid-tile>
                       <div class="card">
-                          <mat-button-toggle>
+                          <mat-button-toggle (change)="onGenreSubmit($event.value)" value="science">
                             <div class="img8">
                        <img  mat-card-sm-image src="../../assets/images/science-fiction.jpeg" alt="science-fiction">
                        <div class="hover">
@@ -134,14 +134,14 @@
                               <label>Language:</label>
                           </div>
                           <div class="col-sm-10">
-                                        <select class="selectpicker" data-width="fit" [(ngModel)]="language" [ngModelOptions]="{standalone: true}">
-                                            <option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
-                                          <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Telugu</option>
-                                          <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Tamil</option>
-                                          <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Marati</option>
-                                          <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Hindi</option>
-                                          <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Gujarathi</option>
-                                          <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Bengali</option>
+                                        <select class="form-control"  matNativeControl name="language" formControlName="language" data-width="fit" [(ngModel)]="language">
+                                          <option value="English">English</option>
+                                          <option value="Hindi">Hindi</option>
+                                          <option value="Tamil">Tamil</option>
+                                          <option value="Marathi">Marati</option>
+                                          <option value="Telugu">Telugu</option>
+                                          <option value="Gujarathi">Gujarathi</option>
+                                          <option value="Bengali">Bengali</option>
                                          </select>
                           </div>
                       </div><br>
@@ -151,7 +151,7 @@
                         </div>
                         <div class="col-sm-10">
                         <mat-form-field >
-                            <input matInput [(ngModel)]="date" [matDatepicker]="picker" placeholder="  " [ngModelOptions]="{standalone: true}">
+                            <input class="form-control" name="date" formControlName="date" matInput [(ngModel)]="date" [matDatepicker]="picker" placeholder="  ">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                            </mat-form-field>
@@ -235,12 +235,6 @@
 </div>
 
 <div class="col-sm-6">
-  <!-- <select class="selectpicker" data-width="fit">
-    <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Hero</option>
-  <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Heroine</option>
-  <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Vilan</option>
-  <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Comedian</option>
- </select> -->
  <textarea rows="1" cols="20" [(ngModel)]="realName" [ngModelOptions]="{standalone: true}"></textarea>
 
 </div>
@@ -275,36 +269,16 @@
                       <label>Video File:</label>
                   </div>
                   <div class="col-sm-2">
-                    <input type="file" class="form-control" [(ngModel)]="media" [ngModelOptions]="{standalone: true}">
+                    <input type="file" class="form-control" >
                     <button mat-stroked-button>Upload</button>
                   </div>
               </div>
-              <!-- <div class="row">
-                      <div class="col-sm-2">
-                          <label>Captions:</label>
-                      </div>
-                      <div class="col-sm-2">
-                        <input type="file" class="form-control">Upload
-                      </div>
-                  </div> -->
-                  <!-- <div class="row"> -->
-                    <!-- <div class="col-sm-2">
-                      <label>Language:</label>
-                    </div>
-                    <div class="col-sm-10">
-                      <select class="selectpicker" data-width="fit">
-                        <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Hindi</option>
-                      <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>English</option>
-                      <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Tamil</option>
-                      <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Telugu</option>
-                     </select>
-                    </div> -->
                     <div class="row">
                       <div class="col-sm-2">
                           <label>Trailer(optional):</label>
                       </div>
                       <div class="col-sm-2">
-                        <input type="file" class="form-control" [(ngModel)]="media" [ngModelOptions]="{standalone: true}">
+                        <input type="file" class="form-control" >
                         <button mat-stroked-button>Upload</button>
                       </div>
                   <!-- </div> -->
@@ -331,7 +305,7 @@
 </mat-step>
 <!-- form 3rd is closed-->
 <mat-step [stepControl]="fourthForm">
-<form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
+<form #viewerForm="ngForm" (ngSubmit)="onFourthSubmit()" class="form-horizontal" >
 
     <ng-template matStepLabel><span class="headingStyle">Status</span></ng-template>
 
@@ -342,45 +316,16 @@
               <h3>Thank you!</h3>
               <br>
               <p>Successfully uploaded</p>
-                
-                <!-- <div class="row">
-                        <div class="col-sm-2">
-                            <label>Pricing Model:</label>
-                        </div>
-                        <div class="col-sm-10">
-                          <div class="radio">
-                            <label><input type="radio" name="optradio" checked>3months</label>
-                            <label><input type="radio" name="optradio1" >6months</label>
-                          </div>
-                        </div>
-                    </div> -->
               </div>
              </mat-card-content>
           <button mat-stroked-button matStepperPrevious>Back</button>
-          <button mat-stroked-button matStepperNext>Publish</button>
+          <button type="submit" (click)="saveMedia()" mat-stroked-button matStepperNext>Publish</button>
       </mat-card>   
     
 </form>
 </mat-step>
 <!-- form 4th is closed-->
-<!-- <mat-step [stepControl]="fifthFormGroup">
-<form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
 
-    <ng-template matStepLabel><span class="headingStyle">See Status</span></ng-template>
-
-    <mat-card class="example-card">
-  
-        <mat-card-content class="content">
-
-         
-          
-          </mat-card-content>
-          <button mat-stroked-button matStepperPrevious>Back</button>
-          <button type="submit" routerLink="/package" mat-stroked-button matStepperNext>Submit</button>
-      </mat-card>   
-    
-</form>
-</mat-step> -->
 </mat-horizontal-stepper>       
 
 </mat-card>

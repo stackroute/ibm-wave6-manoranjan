@@ -127,7 +127,7 @@ const routes: Routes = [
   {path:'edit',component:EditComponent},
   {path :'payment',component:PaymentComponent},
   {path:'standaloneepisodic',component:StandaloneEpisodicComponent},
-  {path:'standalonestepper',component:StandaloneStepperComponent},
+  {path:'standalonestepper/:title/:category/:synopsis',component:StandaloneStepperComponent},
   {path: '**', redirectTo: '/navland'},
 
 ];
