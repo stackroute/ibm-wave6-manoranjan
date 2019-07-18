@@ -1,9 +1,35 @@
 .example-card {
     max-width: 100%;
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
       }
-  
+
+  .card{
+    height: 150px;
+    width: 150px;
+  }
+  img:hover{
+    opacity: 0.5; 
+   }
+   .example-card {
+    max-width: 100%;
+    margin-top: -10px;
+      }
+   .mat-button-toggle-checked {
+     border: 3px solid black;
+     background-color: rgb(177, 208, 238); 
+   }
+   mat-card{
+    margin-top:3px;
+    width:95%; 
+    height: 100%;
+    }
+   mat-grid-list{
+     margin:-30px;
+   }
    img{
-     margin-top: 20px;
+     margin-top: 10px;
+     margin-bottom: 10px;
    } 
   .mat-form-field-infix {
     top: -0.25em;
@@ -13,6 +39,14 @@
       margin-left: 22%;
       margin-right: 22%;
   }
+ /* .col-sm-2{
+   margin-left: 20px;
+ }  */
+ .col-sm-10{
+   float: left;
+   margin-top: -25px;
+   margin-left: 10px;
+ }
   
   .form-group{
       text-align: center;
@@ -74,8 +108,220 @@
   border-block-start-width: 10px;
   }
   
-   
-  img{
-   width:80px;
-   height: 80px;
+    /* img {
+      vertical-align: middle;
+      border-style: none;
+      height: 80px;
+      width: 80px;
+      border-radius: 10px;
   }
+  
+   .img1 :hover {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  .img2 :hover {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  .img3 :hover {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  .img4 :hover {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  .img5 :hover {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  .img6 :hover {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  .img7 :hover {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  .img8 :hover {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+   .img1 .hover {
+    position: absolute;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 24px;
+    margin-left: 10px;
+    height: 35%;
+    color: azure;
+    top: 0;
+    opacity: 0;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+   }
+   /* New overlay appearance on hover */
+   /* .img1:hover .hover {
+    opacity: 1;
+   }
+   .img2 .hover {
+    position: absolute;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 24px;
+    margin-left: 30px;
+    height: 35%;
+    color: azure;
+    top: 0;
+    opacity: 0;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+   }
+   /* New overlay appearance on hover */
+   /* .img2:hover .hover {
+    opacity: 1;
+   }
+   
+   .img3 .hover {
+    position: absolute;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 24px;
+    margin-left: 20px;
+    height: 35%;
+    color: azure;
+    top: 0;
+    opacity: 0;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+   } */
+   /* New overlay appearance on hover */
+   /* .img3:hover .hover {
+    opacity: 1;
+   }
+   .img4 .hover {
+    position: absolute;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 24px;
+    margin-left: 3px;
+    height: 35%;
+    color: azure;
+    top: 0;
+    opacity: 0;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+   } */
+   /* New overlay appearance on hover */
+   /* .img4:hover .hover {
+    opacity: 1;
+   }
+   .img5 .hover {
+    position: absolute;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 24px;
+    margin-left: 20px;
+    height: 35%;
+    color: azure;
+    top: 0;
+    opacity: 0;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+   } */
+   /* New overlay appearance on hover */
+   /* .img5:hover .hover {
+    opacity: 1;
+   }
+   .img6 .hover {
+    position: absolute;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 24px;
+    margin-left: 30px;
+    height: 35%;
+    color: azure;
+    top: 0;
+    opacity: 0;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+   } */
+   /* New overlay appearance on hover */
+   /* .img6:hover .hover {
+    opacity: 1;
+   }
+   .img7 .hover {
+    position: absolute;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 24px;
+    margin-left: 30px;
+    height: 35%;
+    color: azure;
+    top: 0;
+    opacity: 0;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+   } */
+   /* New overlay appearance on hover */
+   /* .img7:hover .hover {
+    opacity: 1;
+   }
+   .img8 .hover {
+    position: absolute;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 24px;
+    margin-left: 20px;
+    height: 60%;
+    color: azure;
+    top: 0;
+    opacity: 0;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+   } */ 
+   /* New overlay appearance on hover */
+   /* .img8:hover .hover {
+    opacity: 1;
+   } */ 
