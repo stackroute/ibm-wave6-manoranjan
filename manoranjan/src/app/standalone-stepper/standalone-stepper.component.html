@@ -1,15 +1,16 @@
 
-<section fxLayout="row wrap" fxLayoutAlign="center center"  class="section"   >
-  <mat-card fxFlex="1000px" fxFlex.xs="50%" style="background-color: black">
+<section fxLayout="row wrap" fxLayoutAlign="center center"  class="section"  style="background-color: black" >
+  <mat-card fxFlex="1000px" fxFlex.xs="50%" >
 
-<mat-horizontal-stepper labelPosition="bottom" #stepper>
+<mat-horizontal-stepper labelPosition="bottom" #stepper >
+
 
 <mat-step [stepControl]="firstForm">
-  <form #viewerForm="ngForm" [formGroup]="firstFormGroup" (ngSubmit)="onFirstSubmit(firstFormGroup.value)" class="form-horizontal" >
+  <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal" (ngSubmit)="onFirstSubmit(firstFormGroup.value)" >
       <ng-template matStepLabel><span class="headingStyle">Catalog</span></ng-template>
 
-      <mat-card class="example-card">
-          <mat-card-content class="content">
+      <mat-card class="example-card"  style="margin-top:-70px" >
+          <mat-card-content class="content" >
             <div class="container2">
               <div class="row">
                   <h3>Genre</h3>
@@ -18,112 +19,64 @@
         
                   <mat-card-content class="content">
               
-                    <mat-grid-list cols="4">
-                      <mat-grid-tile>
-                        <div class="card">
-                          <mat-button-toggle (change)="onGenreSubmit($event.value)" value="romantic">
-                            <div class="img1">
-                          <img  mat-card-sm-image src="../../assets/images/romantic.png" alt="romantic">
-                         <div class="hover">
-                          <p>Romantic</p>
-                      </div>
-                      </div>
-                    </mat-button-toggle>
-                    </div>
+                    <mat-grid-list cols="3" style="margin-top:-20px">
+                      <mat-grid-tile >
+                          <mat-button-toggle class="imageCard"  (change)="onSubmInterest($event.value)" value="romantic">
+                            <img  mat-card-md-image src="/assets/images/romantic.jpg" alt="romantic">
+                           
+                        </mat-button-toggle>
                       </mat-grid-tile>
-                      <mat-grid-tile>
-                        <div class="card">
-                            <mat-button-toggle (change)="onGenreSubmit($event.value)" value="action">
-                              <div class="img2">
-                          <img  mat-card-sm-image src="../../assets/images/action.jpeg" alt="action">
-                          <div class="hover">
-                          <p>action</p>
-                          </div>
-                      </div>
-                    </mat-button-toggle>
-                    </div>
-                      </mat-grid-tile>
-                          <mat-grid-tile>
-                              <div class="card">
-                                  <mat-button-toggle (change)="onGenreSubmit($event.value)" value="mystery">
-                                    <div class="img3">
-                               <img  mat-card-sm-image src="../../assets/images/mystery.jpeg" alt="mystery">
-                                 <div class="hover">
-                                <p>Mystery</p>
-                                </div>
-                        </div>
-                      </mat-button-toggle>
-                      </div>
-
-                    </mat-grid-tile>
-                    <mat-grid-tile>
-                        <div class="card">
-                            <mat-button-toggle (change)="onGenreSubmit($event.value)" value="mythology">
-                              <div class="img4">
-                          <img mat-card-sm-image src="../../assets/images/mythology.jpeg" alt="mythology">
-                         <div class="hover">
-                          <p>mythology</p>
-                      </div>   
-                      </div>
-                    </mat-button-toggle>
-                    </div>            
+                      <mat-grid-tile>   
+                        <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="kid">
+                         <img mat-card-md-image src="/assets/images/kid.jpg" alt="kid">
+                          <!-- <p>Kid</p> -->
+                        </mat-button-toggle>
                      </mat-grid-tile>
-                  
-                    </mat-grid-list>
-                      <!-- 1st row of cards is close -->
-                    <mat-grid-list cols="4">
-             
-                     <mat-grid-tile>
-                         <div class="card">
-                             <mat-button-toggle (change)="onGenreSubmit($event.value)" value="comedy">
-                               <div class="img5">
-                           <img mat-card-sm-image src="../../assets/images/comedy.jpeg" alt="comedy">
-                            <div class="hover">
-                           <p>comedy</p>
-                       </div>
-                       </div>
-                      </mat-button-toggle>
-                      </div>
-                       </mat-grid-tile>
-                       <mat-grid-tile>
-                          <div class="card">
-                              <mat-button-toggle (change)="onGenreSubmit($event.value)" value="horror">
-                                <div class="img6">
-                                <img  mat-card-sm-image src="../../assets/images/horror.jpeg" alt="Horror">
-                              <div class="hover">
-                            <p>Horror</p>
-                            </div>
-                            </div>
-                          </mat-button-toggle>
-                          </div>
-                        </mat-grid-tile>
-                        <mat-grid-tile>
-                            <div class="card">
-                                <mat-button-toggle (change)="onGenreSubmit($event.value)" value="biopic">
-                                  <div class="img7">
-                             <img  mat-card-sm-image src="../../assets/images/biopic.jpeg" alt="biopic">
-                              <div class="hover">
-                              <p>Biopic</p>
-                              </div>
-                           </div>  
-                          </mat-button-toggle>
-                          </div>    
-                       </mat-grid-tile>
                     <mat-grid-tile>
-                      <div class="card">
-                          <mat-button-toggle (change)="onGenreSubmit($event.value)" value="science">
-                            <div class="img8">
-                       <img  mat-card-sm-image src="../../assets/images/science-fiction.jpeg" alt="science-fiction">
-                       <div class="hover">
-                        <p>science<br>fiction </p>
-                        </div>
-                            </div>
+                        <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="action">
+                          <img  mat-card-md-image src="/assets/images/action1.jpeg" alt="action">
+                            
+                        </mat-button-toggle>
+                    </mat-grid-tile>
+                 </mat-grid-list>
+                 <mat-grid-list cols="3">
+                   <mat-grid-tile>
+                    <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="mystery">
+                      <img  mat-card-md-image src="/assets/images/mystery.jpg" alt="mystery">
+                    </mat-button-toggle>
+                 </mat-grid-tile>
+                <mat-grid-tile>
+                      <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="mythology">
+                    <img mat-card-md-image src="/assets/images/mythology.jpg" alt="mythology">
                       </mat-button-toggle>
-                      </div>
-                   </mat-grid-tile>
-                    </mat-grid-list>
-                      <!-- 2nd row of cards is close -->
-              </mat-card-content>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                        <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="comedy">
+                          <img mat-card-md-image src="/assets/images/comedy.jpg" alt="comedy">
+                        </mat-button-toggle>
+                </mat-grid-tile>
+             </mat-grid-list>
+      <mat-grid-list cols="3">
+          <mat-grid-tile>
+                  <mat-button-toggle (change)="onSubmInterest($event.value)"  value="horror">
+                    <img  mat-card-md-image src="/assets/images/horror.jpg" alt="Horror">
+                  </mat-button-toggle>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                    <mat-button-toggle (change)="onSubmInterest($event.value)" value="biopic">
+                     <img  mat-card-md-image src="/assets/images/biopic.jpg" alt="biopic">
+                    </mat-button-toggle>
+           </mat-grid-tile>
+           <mat-grid-tile>
+              <mat-button-toggle (change)="onSubmInterest($event.value)"  value="science">
+               <img  mat-card-md-image src="/assets/images/science.jpg" alt="science">
+              </mat-button-toggle>
+         </mat-grid-tile>
+       </mat-grid-list> 
+      
+        <!-- 3rd row of cards is close -->
+      <!-- </mat-button-toggle-group> -->   
+            </mat-card-content>
             </mat-card>
             </div>
             <br>
@@ -131,17 +84,18 @@
                         
                   <div class="row">
                           <div class="col-sm-2">
-                              <label>Language:</label>
+                              <label style="margin-left:-20px">Language:</label>
                           </div>
                           <div class="col-sm-10">
-                                        <select class="form-control"  matNativeControl name="language" formControlName="language" data-width="fit" [(ngModel)]="language">
-                                          <option value="English">English</option>
-                                          <option value="Hindi">Hindi</option>
-                                          <option value="Tamil">Tamil</option>
-                                          <option value="Marathi">Marati</option>
-                                          <option value="Telugu">Telugu</option>
-                                          <option value="Gujarathi">Gujarathi</option>
-                                          <option value="Bengali">Bengali</option>
+                                       
+                                          <select  class="selectpicker form-control" formControlName="language" placeholder="select" data-width="fit">
+                                            <option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+                                          <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Telugu</option>
+                                          <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Tamil</option>
+                                          <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Marati</option>
+                                          <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Hindi</option>
+                                          <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Gujarathi</option>
+                                          <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Bengali</option>
                                          </select>
                           </div>
                       </div><br>
@@ -151,7 +105,7 @@
                         </div>
                         <div class="col-sm-10">
                         <mat-form-field >
-                            <input class="form-control" name="date" formControlName="date" matInput [(ngModel)]="date" [matDatepicker]="picker" placeholder="  ">
+                            <input class="form-control" matInput formControlName="date" [matDatepicker]="picker" placeholder="  ">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                            </mat-form-field>
@@ -179,7 +133,7 @@
           <label>Studio Name:</label>
       </div>
       <div class="col-sm-10">
-          <textarea rows="1" cols="30" [(ngModel)]="studio" [ngModelOptions]="{standalone: true}"></textarea>
+          <textarea rows="1" cols="30" formControlName="studio"></textarea>
       </div>
   </div>
   <div class="row">
@@ -200,11 +154,11 @@
       <div class="row">
 
         <div class="col-sm-6">
-          <textarea rows="1" cols="20" [(ngModel)]="crewName" [ngModelOptions]="{standalone: true}"></textarea>
+          <textarea rows="1" cols="20" formControlName="crewName"></textarea>
       </div>
 
       <div class="col-sm-6">
-        <select class="selectpicker" [(ngModel)]="crewRole" data-width="fit" [ngModelOptions]="{standalone: true}">
+        <select class="selectpicker" formControlName="crewRole" data-width="fit">
           <option data-content='<span class="flag-icon flag-icon-us"></span> English'>producer</option>
         <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Director</option>
         <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Music</option>
@@ -231,11 +185,11 @@
 <div class="row">
 
   <div class="col-sm-6">
-    <textarea rows="1" cols="20" [(ngModel)]="screenName" [ngModelOptions]="{standalone: true}"></textarea>
+    <textarea rows="1" cols="20" formControlName="screenName"></textarea>
 </div>
 
 <div class="col-sm-6">
- <textarea rows="1" cols="20" [(ngModel)]="realName" [ngModelOptions]="{standalone: true}"></textarea>
+ <textarea rows="1" cols="20" formControlName="realName"></textarea>
 
 </div>
 </div>
@@ -261,25 +215,25 @@
                         <label>Poster Image:</label>
                     </div>
                     <div class="col-sm-10">
-                      <textarea rows="1" cols="30" [(ngModel)]="poster" [ngModelOptions]="{standalone: true}"></textarea> 
+                      <textarea rows="1" cols="30" formControlName="poster"></textarea> 
                      </div>
                 </div>
               <div class="row">
                   <div class="col-sm-2">
                       <label>Video File:</label>
                   </div>
-                  <div class="col-sm-2">
-                    <input type="file" class="form-control" >
-                    <button mat-stroked-button>Upload</button>
+                  <div class="col-sm-10">
+                    <input type="file" class="form-control" formControlName="video" (change)="selectVideo($event)">
+                    <button mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo">Upload</button>
                   </div>
               </div>
                     <div class="row">
                       <div class="col-sm-2">
                           <label>Trailer(optional):</label>
                       </div>
-                      <div class="col-sm-2">
-                        <input type="file" class="form-control" >
-                        <button mat-stroked-button>Upload</button>
+                      <div class="col-sm-10">
+                        <input type="file" class="form-control" formControlName="trailer" (change)="selectTrailer($event)">
+                        <button mat-raised-button (click)="uploadTrailer()" [disabled]="!selectedTrailer">Upload</button>
                       </div>
                   <!-- </div> -->
 
@@ -289,7 +243,7 @@
                           <label>How will users watch this video:</label>
                       </div>
                       <div class="col-sm-10">
-                          <select class="selectpicker" [(ngModel)]="type" data-width="fit" [ngModelOptions]="{standalone: true}">
+                          <select class="selectpicker" formControlName="type" data-width="fit">
                             <option value='free'>Free</option>
                           <option  value="premium">Premium</option>
                          </select>
@@ -305,7 +259,7 @@
 </mat-step>
 <!-- form 3rd is closed-->
 <mat-step [stepControl]="fourthForm">
-<form #viewerForm="ngForm" (ngSubmit)="onFourthSubmit()" class="form-horizontal" >
+<form #viewerForm="ngForm" class="form-horizontal" >
 
     <ng-template matStepLabel><span class="headingStyle">Status</span></ng-template>
 
