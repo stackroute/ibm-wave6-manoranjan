@@ -12,17 +12,17 @@ export class SecondcardComponent implements OnInit {
       {name:'../../assets/m1.jpeg'},
       {name:'../../assets/m2.jpeg'},
       {name:'../../assets/m3.jpg'},
-      {name:'../../assets/m4.jpeg'},
+      {name:'../../assets/caro/3.jpg'},
       {name:'../../assets/m5.jpg'},
       {name:'../../assets/m6.jpg'},
       {name:'../../assets/m7.jpg'},
       {name:'../../assets/m8.jpg'},
       {name:'../../assets/m9.jpg'},
       {name:'../../assets/m10.jpg'},
-      {name:'../../assets/lagan.jpeg'},
+      {name:'../../assets/m4.jpeg'},
       {name:'../../assets/three idiots.jpeg'},
       {name:'../../assets/dch.jpeg'},
-      {name:'../../assets/kahani.jpeg'},
+      {name:'../../assets/caro/1.jpg'},
     ];
    }
 

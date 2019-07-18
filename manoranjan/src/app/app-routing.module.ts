@@ -61,7 +61,8 @@ import { BiopicmoviepriComponent } from './biopicmoviepri/biopicmoviepri.compone
 import { SciencefictionmoviepriComponent } from './sciencefictionmoviepri/sciencefictionmoviepri.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { EditComponent } from './edit/edit.component';
-
+import { StandaloneStepperComponent } from './standalone-stepper/standalone-stepper.component';
+import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-episodic.component';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -125,6 +126,8 @@ const routes: Routes = [
   {path:'myaccount',component:MyaccountComponent},
   {path:'edit',component:EditComponent},
   {path :'payment',component:PaymentComponent},
+  {path:'standaloneepisodic',component:StandaloneEpisodicComponent},
+  {path:'standalonestepper',component:StandaloneStepperComponent},
   {path: '**', redirectTo: '/navland'},
 
 ];
