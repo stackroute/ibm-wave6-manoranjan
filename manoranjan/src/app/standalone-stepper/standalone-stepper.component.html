@@ -2,14 +2,14 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center"  class="section"   >
   <mat-card fxFlex="1000px" fxFlex.xs="50%" style="background-color: black">
 
-<mat-horizontal-stepper labelPosition="bottom" #stepper>
+<mat-horizontal-stepper labelPosition="bottom" #stepper >
 
-<mat-step [stepControl]="firstFormGroup">
-  <form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
+<mat-step [stepControl]="firstFormGroup" >
+  <form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal"  >
       <ng-template matStepLabel><span class="headingStyle">Catalog</span></ng-template>
 
-      <mat-card class="example-card">
-          <mat-card-content class="content">
+      <mat-card class="example-card"  style="margin-top:-70px" >
+          <mat-card-content class="content" >
             <div class="container2">
               <div class="row">
                   <h3>Genre</h3>
@@ -23,7 +23,7 @@
                         <div class="card">
                           <mat-button-toggle>
                             <div class="img1">
-                          <img  mat-card-sm-image src="../../assets/images/romantic.png" alt="romantic">
+                          <img  mat-card-lg-image src="../../assets/images/romantic.jpg" alt="romantic">
                          <div class="hover">
                           <p>Romantic</p>
                       </div>
@@ -35,7 +35,7 @@
                         <div class="card">
                             <mat-button-toggle>
                               <div class="img2">
-                          <img  mat-card-sm-image src="../../assets/images/action.jpeg" alt="action">
+                          <img  mat-card-lg-image src="../../assets/images/action1.jpeg" alt="action">
                           <div class="hover">
                           <p>action</p>
                           </div>
@@ -47,7 +47,7 @@
                               <div class="card">
                                   <mat-button-toggle>
                                     <div class="img3">
-                               <img  mat-card-sm-image src="../../assets/images/mystery.jpeg" alt="mystery">
+                               <img  mat-card-lg-image src="../../assets/images/mystery.jpeg" alt="mystery">
                                  <div class="hover">
                                 <p>Mystery</p>
                                 </div>
@@ -60,7 +60,7 @@
                         <div class="card">
                             <mat-button-toggle>
                               <div class="img4">
-                          <img mat-card-sm-image src="../../assets/images/mythology.jpeg" alt="mythology">
+                          <img mat-card-lg-image src="../../assets/images/mythology.jpg" alt="mythology">
                          <div class="hover">
                           <p>mythology</p>
                       </div>   
@@ -77,7 +77,7 @@
                          <div class="card">
                              <mat-button-toggle>
                                <div class="img5">
-                           <img mat-card-sm-image src="../../assets/images/comedy.jpeg" alt="comedy">
+                           <img mat-card-lg-image src="../../assets/images/comedy.jpeg" alt="comedy">
                             <div class="hover">
                            <p>comedy</p>
                        </div>
@@ -89,7 +89,7 @@
                           <div class="card">
                               <mat-button-toggle>
                                 <div class="img6">
-                                <img  mat-card-sm-image src="../../assets/images/horror.jpeg" alt="Horror">
+                                <img  mat-card-lg-image src="../../assets/images/horror.jpeg" alt="Horror">
                               <div class="hover">
                             <p>Horror</p>
                             </div>
@@ -101,7 +101,7 @@
                             <div class="card">
                                 <mat-button-toggle>
                                   <div class="img7">
-                             <img  mat-card-sm-image src="../../assets/images/biopic.jpeg" alt="biopic">
+                             <img  mat-card-lg-image src="../../assets/images/biopic.jpeg" alt="biopic">
                               <div class="hover">
                               <p>Biopic</p>
                               </div>
@@ -113,7 +113,7 @@
                       <div class="card">
                           <mat-button-toggle>
                             <div class="img8">
-                       <img  mat-card-sm-image src="../../assets/images/science-fiction.jpeg" alt="science-fiction">
+                       <img  mat-card-lg-image src="../../assets/images/science.jpg" alt="science-fiction">
                        <div class="hover">
                         <p>science<br>fiction </p>
                         </div>
