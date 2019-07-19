@@ -14,14 +14,27 @@ import { Cast } from '../cast';
   styleUrls: ['./standalone-stepper.component.css']
 })
 export class StandaloneStepperComponent implements OnInit {
+
+  crewList=[];
+  crewName;
+  crewRole;
+
+  castList=[];
+  screenName;
+  realName;
+
+  myGroup: FormGroup;
   [x: string]: any;
-  
+  user:User=new User();
+
   mediaDetails=[];
   
   hide:true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
+  sixthFormGroup: FormGroup;
+  seventhFormGroup: FormGroup;
 
   title;
   category;
@@ -62,6 +75,7 @@ export class StandaloneStepperComponent implements OnInit {
 
     });
     this.secondFormGroup = this._formBuilder.group({
+      // name: ['', Validators.compose([Validators.required,Validators.maxLength(20)])],
       studio:new FormControl(),
       crewName:new FormControl(),
       crewRole:new FormControl(),
@@ -74,6 +88,48 @@ export class StandaloneStepperComponent implements OnInit {
       trailer:new FormControl(),
       type:new FormControl()
     });
+    this.sixthFormGroup = this._formBuilder.group({
+      crewName:new FormControl(),
+      crewRole:new FormControl(),
+    });
+    this.seventhFormGroup = this._formBuilder.group({
+      screenName:new FormControl(),
+      realName:new FormControl(),
+    });
+  }
+
+  addCrew(name,role){ 
+    this.crewList.push(
+      {crewName:name,crewRole:role}
+    )
+    console.log(this.crewList);
+  }
+  deleteCrew(crewName,crewRole){
+    console.log(crewName,crewRole);
+    for(var i=0;i<this.crewList.length;i++)
+    {
+      if(this.crewList[i]["crewName"]==crewName)
+      {
+        this.crewList.splice(i,1);
+      }
+    }
+  }
+
+  addCast(screen,real){ 
+    this.castList.push(
+      {screenName:screen,realName:real}
+    )
+    console.log(this.castList);
+  }
+  deleteCast(screenName,realName){
+    console.log(screenName,realName);
+    for(var i=0;i<this.castList.length;i++)
+    {
+      if(this.castList[i]["screenName"]==screenName)
+      {
+        this.castList.splice(i,1);
+      }
+    }
   }
 
   getErrorMessage() {
@@ -154,8 +210,8 @@ export class StandaloneStepperComponent implements OnInit {
       'mediaLanguage':this.mediaDetails[0].language,
       'mediaReleaseDate':this.mediaDetails[0].date,
       'mediaStudioName':this.mediaDetails[1].studio,
-      'mediaCrew':this.listCrew,
-      'mediaCast':this.listCast,
+      'mediaCrew':this.crewList,
+      'mediaCast':this.castList,
       'mediaPosterUrl':this.mediaDetails[2].poster,
       'mediaType':this.mediaDetails[2].type,
       'mediaUrl':this.mediaName,
@@ -171,7 +227,5 @@ export class StandaloneStepperComponent implements OnInit {
       console.log(error)
     });
   }
+  
  }
-        
-
-

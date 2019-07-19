@@ -11,6 +11,10 @@
   img:hover{
     opacity: 0.5; 
    }
+   .col-sm-4{
+     margin-left: -45px;
+     margin-bottom: 5px;
+   }
    .example-card {
     max-width: 100%;
     margin-top: -10px;
@@ -19,17 +23,72 @@
      border: 3px solid black;
      background-color: rgb(177, 208, 238); 
    }
+   .container{
+     margin-left: 15px;
+   }
+   #videoFile{
+     margin-left: -55px;
+   }
+   #chooseFile1{
+     margin-left: 10px;
+   }
+   #trailer{
+     margin-left: -30px;
+   }
+   #chooseFile{
+     margin-left: -15px;
+   }
+   #watchType{
+     margin-left: -30px;
+   }
+   #select1{
+     margin-left: -130px;
+   }
    mat-card{
-    margin-top:3px;
+    margin-top:2%;
     width:95%; 
-    height: 100%;
+    height: 90%;
+    margin-left: 3%;
     }
    mat-grid-list{
-     margin:-30px;
+     margin-top:-60px;
+     margin-bottom: -20px;
+   }
+   #crew{
+     margin-left: -70px;
+   }
+   #name{
+     margin-left: 70px;
+   }
+   #role{
+     margin-left: 50px;
+   }
+   #input{
+     margin-left: 120px;
+   }
+   #select{
+     margin-left: 25px;
+   }
+   #cast{
+     margin-left: -72px;
+   }
+   #screenName{
+     margin-left: 96px;
+   }
+   #realName{
+     margin-left: 60px;
+   }
+   #input1{
+     margin-left: 120px;
+   }
+   #input2{
+     margin-left: 40px;
    }
    img{
      margin-top: 10px;
      margin-bottom: 10px;
+     height:70px;
+     width: 70px;
    } 
   .mat-form-field-infix {
     top: -0.25em;
@@ -39,15 +98,25 @@
       margin-left: 22%;
       margin-right: 22%;
   }
- /* .col-sm-2{
-   margin-left: 20px;
- }  */
- .col-sm-10{
-   float: left;
-   margin-top: -25px;
-   margin-left: 10px;
+  section{
+    margin-top: 50px;
+    margin-left: 120px;
+    margin-right: 60px;
+  }
+ mat-horizontal-stepper{
+   margin-left: 60px;
+   margin-right: 60px;
  }
-  
+ .col-sm-8{
+   float: left;
+   margin-left: -90px;
+ }
+  #date{
+    margin-top: 5px;
+  }
+  #date1{
+    margin-top: -10px;
+  }
   .form-group{
       text-align: center;
   }
@@ -106,6 +175,10 @@
   border-block-start-color: black;
   border-block-end-color: black;
   border-block-start-width: 10px;
+  }
+  mat-grid-list mat-grid-tile{
+    height:100px;
+    width:100px
   }
   
     /* img {
