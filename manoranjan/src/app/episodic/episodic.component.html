@@ -1,0 +1,240 @@
+
+<section fxLayout="row wrap" fxLayoutAlign="center center"  class="section" >
+  <mat-card fxFlex="1000px" fxFlex.xs="50%" style="background-color: black">
+           
+    <mat-horizontal-stepper labelPosition="bottom" linear style="height: 100%">
+         <mat-step [stepControl]="firstForm"  >
+             <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal" (ngSubmit)="onSubmitViewerDetails(firstFormGroup.value)">
+                  <ng-template matStepLabel><span class="headingStyle">Viewers Details</span></ng-template>
+                     <mat-card class="example-card first-card" style="padding-bottom: 20px;" >
+                       <mat-card-content class="content" >
+                          <table>         
+                            <div class="row">
+                               <div class="col-sm-3">
+                                 <label>Episode Language</label> 
+                               </div> 
+                                <div class="col-sm-9">
+                                    <mat-form-field>
+                                       <select matNativeControl formControlName="episodeLanguage" class="form-control">
+                                           <option value="Hindi">Hindi</option>
+                                           <option value="Telugu">Telugu</option>
+                                           <option value="Tamil">Tamil</option>
+                                           <option value="Marati">Marati</option>
+                                           <option value="English">English</option>
+                                           <option value="Gujarathi">Gujarathi</option>
+                                          <option value="Bengali">Bengali</option>
+                                        </select>  
+                                   </mat-form-field>   
+                                 </div> 
+                            </div>
+                            <div class="row">
+                               <div class="col-sm-3">
+                                 <label>Episode Poster</label> 
+                               </div> 
+                                    <div class="col-sm-9">
+                                     <input class="aligns" type="file" [(ngModel)]="episodePoster" formControlName="episodePoster" accept="image/*">       
+                                    </div> 
+                            </div>          
+                            <div class="row">
+                               <div class="col-sm-3">
+                                  <label >Episode Type</label>
+                               </div> 
+                               <div class="col-sm-9">
+                                <mat-form-field>
+                                  <select matNativeControl required formControlName="episodeType" [(ngModel)]="episodeType" >
+                                     <option value="free">Free</option>
+                                     <option value="payable">Payable</option>
+                                  </select>
+                                </mat-form-field>   
+                               </div> 
+                             </div> 
+                            <div class="row">
+                               <div class="col-sm-3">
+                                 <label >Screen Name</label> 
+                               </div> 
+                               <div class="col-sm-9">  
+                                  <mat-form-field>  
+                                       <input class="form-control" type="text" name="name" formControlName="screenName" [(ngModel)]="screenName"  matInput   required>
+                                          <mat-error *ngFor="let validation of validation_messages.screenName">
+                                          <mat-error class="error-message" *ngIf="firstFormGroup.get('screenName').hasError(validation.type) && (firstFormGroup.get('screenName').dirty ||firstFormGroup.get('screenName').touched)">{{validation.message}}
+                                          </mat-error>
+                                          </mat-error>
+                                 </mat-form-field>
+                              </div> 
+                           </div>    
+                         </table>
+                      </mat-card-content>      
+                      <!-- [disabled]="!firstFormGroup.valid" -->
+                    <button mat-stroked-button matStepperNext  >Next</button>
+                  </mat-card>   
+                </form>
+            </mat-step>
+    <mat-step [stepControl]="secondForm"  >
+        <form #viewerForm="ngForm" [formGroup]="secondFormGroup"  class="form-horizontal" (ngSubmit)="onSubmitViewerDetails(secondFormGroup.value)">
+           <ng-template matStepLabel><span class="headingStyle">Viewers Details</span></ng-template>
+              <mat-card class="example-card first-card" style="padding-bottom: 20px;" >
+                <mat-card-content class="content" >
+                  <p style="margin-left: -340px;font-weight: bold ">Episode Crew</p>
+                    <table >
+                      <div class="row">
+                         <div class="col-sm-3">
+                            <label >Crew Name</label> 
+                         </div> 
+                         <div class="col-sm-9">
+                            <mat-form-field>
+                                  <input class="form-control" type="text" name="name" formControlName="crewName" [(ngModel)]="crewName"  matInput   required>
+               
+                                  <mat-error *ngFor="let validation of validation_messages.crewName">
+                                  <mat-error class="error-message" *ngIf="secondFormGroup.get('crewName').hasError(validation.type) && (secondFormGroup.get('crewName').dirty || secondFormGroup.get('crewName').touched)">{{validation.message}}
+                                  </mat-error>
+                                  </mat-error>
+                            </mat-form-field>
+                         </div> 
+                      </div> 
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <label >Crew Role</label>
+                        </div> 
+                        <div class="col-sm-9">
+                           <mat-form-field>
+                               <input class="form-control" type="text" name="name" formControlName="crewRole" [(ngModel)]="crewRole"  matInput   required>
+                                    <mat-error *ngFor="let validation of validation_messages.crewRole">
+                                       <mat-error class="error-message" *ngIf="secondFormGroup.get('crewRole').hasError(validation.type) && (secondFormGroup.get('crewRole').dirty || secondFormGroup.get('crewRole').touched)">{{validation.message}}
+                                       </mat-error>
+                                    </mat-error>
+                          </mat-form-field>
+                       </div> 
+                     </div> 
+                         <p style="margin-left: -170px; font-weight: bold ; ">Episode Cast</p>
+                     <div class="row">
+                       <div class="col-sm-3">
+                           <label >Screen Name</label>
+                       </div> 
+                       <div class="col-sm-9">
+                          <mat-form-field>  
+                            <input class="form-control" type="text" name="name" formControlName="screenName" [(ngModel)]="screenName"  matInput   required>
+                                 <mat-error *ngFor="let validation of validation_messages.screenName">
+                                 <mat-error class="error-message" *ngIf="secondFormGroup.get('screenName').hasError(validation.type) && (secondFormGroup.get('screenName').dirty ||secondFormGroup.get('screenName').touched)">{{validation.message}}
+                                 </mat-error>
+                                 </mat-error>
+                          </mat-form-field>
+                       </div> 
+                     </div> 
+                     <div class="row">
+                       <div class="col-sm-3">
+                             <label >Real Name</label> 
+                       </div> 
+                       <div class="col-sm-9">
+                         <mat-form-field>
+                               <input class="form-control" type="text" name="name" formControlName="realName" [(ngModel)]="realName"  matInput   required>
+                          
+                              <mat-error *ngFor="let validation of validation_messages.realName">
+                               <mat-error class="error-message" *ngIf="secondFormGroup.get('realName').hasError(validation.type) && (secondFormGroup.get('realName').dirty || secondFormGroup.get('realName').touched)">{{validation.message}}
+                               </mat-error>
+                               </mat-error>
+                         </mat-form-field>
+                       </div> 
+                     </div> 
+                   </table>
+                 </mat-card-content>      
+               <button mat-stroked-button matStepperNext  [disabled]="!secondFormGroup.valid" >Next</button>
+             </mat-card>   
+        </form>
+    </mat-step>
+    <!-- 2nd stapper form here-->
+    <mat-step [stepControl]="thirdForm">
+    <form #viewerForm="ngForm" [formGroup]="thirdFormGroup"  class="form-horizontal"  (ngSubmit)="onSubmitMoreDetails(thirdFormGroup.value)">
+      <ng-template matStepLabel><span class="headingStyle">More Details</span></ng-template>
+        <mat-card class="example-card">
+          <mat-card-content class="content">
+            <p>Episode List</p>
+               <table >
+                   <div class="row">
+                     <div class="col-sm-3">
+                       <label >Episode Number</label> </div> 
+                    <div class="col-sm-9">
+                       <mat-form-field>
+                          <input class="form-control" type="text" name="episodeNo" formControlName="episodeNo" [(ngModel)]="episodeNo"  matInput   required>
+                            <mat-error *ngFor="let validation of validation_messages.episodeNo">
+                            <mat-error class="error-message" *ngIf="thirdFormGroup.get('episodeNo').hasError(validation.type) && (thirdFormGroup.get('episodeNo').dirty || thirdFormGroup.get('episodeNo').touched)">{{validation.message}}
+                            </mat-error>
+                            </mat-error>
+                       </mat-form-field> 
+                     </div> 
+                   </div> 
+                   <div class="row">
+                      <div class="col-sm-3">
+                         <label >Episode Url</label>
+                      </div> 
+                      <div class="col-sm-9">
+                        <mat-form-field>
+                          <input class="form-control" type="text" name="name" formControlName="episodeUrl" [(ngModel)]="episodeNo"  matInput   required>
+                             
+                              <mat-error *ngFor="let validation of validation_messages.episodeUrl">
+                                 <mat-error class="error-message" *ngIf="thirdFormGroup.get('episodeUrl').hasError(validation.type) && (thirdFormGroup.get('episodeUrl').dirty || thirdFormGroup.get('episodeUrl').touched)">{{validation.message}}
+                                 </mat-error>
+                              </mat-error>
+                       </mat-form-field> 
+                     </div> 
+                  </div>  
+     <!-- gender row is closed-->
+                     <div class="row">
+                         <div class="col-sm-3">
+                            <label >Poster Description</label>
+                         </div> 
+                             <div class="col-sm-9">
+                               <mat-form-field>
+                                <input class="form-control" type="text" name="posterDescription" formControlName="posterDescription" [(ngModel)]="posterDescription"  matInput   required>
+                           
+                                 <mat-error *ngFor="let validation of validation_messages.posterDescription">
+                                 <mat-error class="error-message" *ngIf="thirdFormGroup.get('posterDescription').hasError(validation.type) && (thirdFormGroup.get('posterDescription').dirty || thirdFormGroup.get('posterDescription').touched)">{{validation.message}}
+                                 </mat-error>
+                                 </mat-error>
+                          </mat-form-field>
+                        </div> 
+                     </div> 
+                     <div class="row">
+                        <div class="col-sm-3">
+                         <label >Poster Url</label>
+                        </div> 
+                        <div class="col-sm-9">
+                        <mat-form-field> 
+                            <input class="form-control" type="text" name="posterUrl" formControlName="posterUrl" [(ngModel)]="name"  matInput   required>
+                           
+                           <mat-error *ngFor="let validation of validation_messages.posterUrl">
+                              <mat-error class="error-message" *ngIf="thirdFormGroup.get('posterUrl').hasError(validation.type) && (thirdFormGroup.get('posterUrl').dirty || thirdFormGroup.get('posterUrl').touched)">{{validation.message}}
+                              </mat-error>
+                           </mat-error>
+                         </mat-form-field>
+                     </div>  
+                  </div> 
+<!-- name row is closed-->
+
+                     <div class="row">
+                        <div class="col-sm-3">
+                           <label >Release Date</label> 
+                        </div> 
+                        <div class="col-sm-9">
+                        <mat-form-field>
+                              <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="releaseDate" [(ngModel)]="releaseDate">
+                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                              <mat-datepicker #picker></mat-datepicker>
+                         </mat-form-field>
+                         </div> 
+                         </div>
+                   </table>
+               </mat-card-content>
+              <button mat-stroked-button matStepperPrevious  >Back</button>&nbsp;                      
+            <button mat-stroked-button matStepperNext  [disabled]="!thirdFormGroup.valid">Publish</button>
+           </mat-card> 
+         </form>
+       </mat-step>        
+     </mat-horizontal-stepper>       
+    </mat-card>
+  </section>
+    
+    
+    
+    
+    
+    

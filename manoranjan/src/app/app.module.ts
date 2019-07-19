@@ -118,6 +118,7 @@ import { StandaloneStepperComponent } from './standalone-stepper/standalone-step
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-episodic.component';
+import { EpisodicComponent } from './episodic/episodic.component';
 
 
 @NgModule({
@@ -218,7 +219,8 @@ import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-ep
     EditproducerprofileComponent,
     UploadedvideosComponent,
     StandaloneStepperComponent,
-    StandaloneEpisodicComponent
+    StandaloneEpisodicComponent,
+    EpisodicComponent
   ],
   imports: [
     BrowserModule,
