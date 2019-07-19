@@ -6,14 +6,14 @@
 
 
 <mat-step [stepControl]="firstForm">
-  <form #viewerForm="ngForm" [formGroup]="firstFormGroup" (ngSubmit)="onFirstSubmit(firstFormGroup.value)" class="form-horizontal" >
+  <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal" (ngSubmit)="onFirstSubmit(firstFormGroup.value)" >
       <ng-template matStepLabel><span class="headingStyle">Catalog</span></ng-template>
 
       <mat-card class="example-card"  style="margin-top:-70px" >
           <mat-card-content class="content" >
             <div class="container2">
-              <div class="row" style="margin-bottom: 2%">
-                  <label>Genre</label>
+              <div class="row">
+                  <h3>Genre</h3>
               </div>
               <mat-card class="example-card">
         
@@ -79,15 +79,16 @@
             </mat-card-content>
             </mat-card>
             </div>
-            <br><br>
+            <br>
                 
                         
                   <div class="row">
-                          <div class="col-sm-4">
+                          <div class="col-sm-2">
                               <label style="margin-left:-20px">Language:</label>
                           </div>
-                          <div class="col-sm-8">
-                                        <select class="selectpicker" placeholder="select" data-width="fit" [(ngModel)]="language" [ngModelOptions]="{standalone: true}">
+                          <div class="col-sm-10">
+                                       
+                                          <select  class="selectpicker form-control" formControlName="language" placeholder="select" data-width="fit">
                                             <option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
                                           <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Telugu</option>
                                           <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Tamil</option>
@@ -99,12 +100,12 @@
                           </div>
                       </div><br>
                       <div class="row">
-                        <div class="col-sm-4" id="date">
+                        <div class="col-sm-2">
                           <label>Release Date:</label>
                         </div>
-                        <div class="col-sm-8" id="date1">
+                        <div class="col-sm-10">
                         <mat-form-field >
-                            <input matInput [(ngModel)]="date" [matDatepicker]="picker" placeholder="  " [ngModelOptions]="{standalone: true}">
+                            <input class="form-control" matInput formControlName="date" [matDatepicker]="picker" placeholder="  ">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                            </mat-form-field>
@@ -126,78 +127,69 @@
 
 <mat-card class="example-card">
 <mat-card-content class="content">
-<div class="container">
+<div class="container1">
   <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-2">
           <label>Studio Name:</label>
       </div>
-      <div class="col-sm-8">
-          <textarea rows="1" cols="15" formControlName="studio"></textarea>
+      <div class="col-sm-10">
+          <textarea rows="1" cols="30" formControlName="studio"></textarea>
       </div>
   </div>
   <div class="row">
-          <div class="col-sm-4" id="crew">
-              <label>Crew</label>
+          <div class="col-sm-2">
+              <label>Crew:</label>
           </div>
   </div>
   <div class="row">
 
-            <div class="col-sm-4" id="name">
+            <div class="col-sm-6">
               <label>Name:</label>
           </div>
 
-          <div class="col-sm-4" id="role">
+          <div class="col-sm-6">
             <label>Role:</label>
           </div>
-
-    </div>
-
-
+      </div>
       <div class="row">
 
-        <div class="col-sm-4" id="input">
-          <textarea rows="1" cols="15" [(ngModel)]="crewName" [ngModelOptions]="{standalone: true}"></textarea>
+        <div class="col-sm-6">
+          <textarea rows="1" cols="20" formControlName="crewName"></textarea>
       </div>
 
-      <div class="col-sm-4" id="select">
-        <select class="selectpicker" [(ngModel)]="crewRole" data-width="fit" [ngModelOptions]="{standalone: true}">
+      <div class="col-sm-6">
+        <select class="selectpicker" formControlName="crewRole" data-width="fit">
           <option data-content='<span class="flag-icon flag-icon-us"></span> English'>producer</option>
         <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Director</option>
         <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Music</option>
         <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Fights</option>
        </select>
       </div>
-  </div><br>
+  </div>
 
   <div class="row">
-    <div class="col-sm-4" id="cast">
-        <label>Cast</label>
+    <div class="col-sm-2">
+        <label>Cast:</label>
     </div>
 </div>
 <div class="row">
 
-      <div class="col-sm-4" id="screenName">
+      <div class="col-sm-6">
         <label>Screen Name:</label>
     </div>
 
-    <div class="col-sm-4" id="realName">
+    <div class="col-sm-6">
       <label>Real Name:</label>
     </div>
 </div>
 <div class="row">
 
-  <div class="col-sm-4" id="input1">
-    <textarea rows="1" cols="15" [(ngModel)]="screenName" [ngModelOptions]="{standalone: true}"></textarea>
+  <div class="col-sm-6">
+    <textarea rows="1" cols="20" formControlName="screenName"></textarea>
 </div>
 
-<div class="col-sm-4" id="input2">
-  <!-- <select class="selectpicker" data-width="fit">
-    <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Hero</option>
-  <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Heroine</option>
-  <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Vilan</option>
-  <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Comedian</option>
- </select> -->
- <textarea rows="1" cols="15" [(ngModel)]="realName" [ngModelOptions]="{standalone: true}"></textarea>
+<div class="col-sm-6">
+ <textarea rows="1" cols="20" formControlName="realName"></textarea>
 
 </div>
 </div>
@@ -217,69 +209,41 @@
         
           <mat-card-content class="content">
       
-            <div class="container">
+            <div class="container1">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-2">
                         <label>Poster Image:</label>
                     </div>
-                    <div class="col-sm-6">
-                      <textarea rows="1" cols="30" [(ngModel)]="poster" [ngModelOptions]="{standalone: true}"></textarea> 
+                    <div class="col-sm-10">
+                      <textarea rows="1" cols="30" formControlName="poster"></textarea> 
                      </div>
                 </div>
-                <br>
               <div class="row">
-                  <div class="col-sm-4" id="videoFile">
+                  <div class="col-sm-2">
                       <label>Video File:</label>
                   </div>
-                  <div class="col-sm-6" id="chooseFile1">
-                    <input type="file" class="form-control" [(ngModel)]="media" [ngModelOptions]="{standalone: true}">
-                    </div>
-                    <div class="col-sm-2" id="upload">
-                    <button mat-flat-button color="primary">Upload</button>
-                    </div>
-                  
+                  <div class="col-sm-10">
+                    <input type="file" class="form-control" formControlName="video" (change)="selectVideo($event)">
+                    <button mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo">Upload</button>
+                  </div>
               </div>
-              <br>
-              <!-- <div class="row">
-                      <div class="col-sm-2">
-                          <label>Captions:</label>
-                      </div>
-                      <div class="col-sm-2">
-                        <input type="file" class="form-control">Upload
-                      </div>
-                  </div> -->
-                  <!-- <div class="row"> -->
-                    <!-- <div class="col-sm-2">
-                      <label>Language:</label>
-                    </div>
-                    <div class="col-sm-10">
-                      <select class="selectpicker" data-width="fit">
-                        <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Hindi</option>
-                      <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>English</option>
-                      <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Tamil</option>
-                      <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Telugu</option>
-                     </select>
-                    </div> -->
                     <div class="row">
-                      <div class="col-sm-4" id="trailer">
+                      <div class="col-sm-2">
                           <label>Trailer(optional):</label>
                       </div>
-                      <div class="col-sm-6" id="chooseFile">
-                        <input type="file" class="form-control" [(ngModel)]="media" [ngModelOptions]="{standalone: true}">
-                       </div>
-                       <div class="col-sm-2">
-                        <button mat-flat-button color="primary">Upload</button>
-                       </div>
+                      <div class="col-sm-10">
+                        <input type="file" class="form-control" formControlName="trailer" (change)="selectTrailer($event)">
+                        <button mat-raised-button (click)="uploadTrailer()" [disabled]="!selectedTrailer">Upload</button>
+                      </div>
                   <!-- </div> -->
 
                   </div>
-                  <br>
                   <div class="row">
-                      <div class="col-sm-4" id="watchType">
+                      <div class="col-sm-2">
                           <label>How will users watch this video:</label>
                       </div>
-                      <div class="col-sm-8" id="select1">
-                          <select class="selectpicker" [(ngModel)]="type" data-width="fit" [ngModelOptions]="{standalone: true}">
+                      <div class="col-sm-10">
+                          <select class="selectpicker" formControlName="type" data-width="fit">
                             <option value='free'>Free</option>
                           <option  value="premium">Premium</option>
                          </select>
@@ -295,7 +259,7 @@
 </mat-step>
 <!-- form 3rd is closed-->
 <mat-step [stepControl]="fourthForm">
-<form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
+<form #viewerForm="ngForm" class="form-horizontal" >
 
     <ng-template matStepLabel><span class="headingStyle">Status</span></ng-template>
 
@@ -306,50 +270,20 @@
               <h3>Thank you!</h3>
               <br>
               <p>Successfully uploaded</p>
-                
-                <!-- <div class="row">
-                        <div class="col-sm-2">
-                            <label>Pricing Model:</label>
-                        </div>
-                        <div class="col-sm-10">
-                          <div class="radio">
-                            <label><input type="radio" name="optradio" checked>3months</label>
-                            <label><input type="radio" name="optradio1" >6months</label>
-                          </div>
-                        </div>
-                    </div> -->
               </div>
              </mat-card-content>
           <button mat-stroked-button matStepperPrevious>Back</button>
-          <button mat-stroked-button matStepperNext>Publish</button>
+          <button type="submit" (click)="saveMedia()" mat-stroked-button matStepperNext>Publish</button>
       </mat-card>   
     
 </form>
 </mat-step>
 <!-- form 4th is closed-->
-<!-- <mat-step [stepControl]="fifthFormGroup">
-<form #viewerForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
 
-    <ng-template matStepLabel><span class="headingStyle">See Status</span></ng-template>
-
-    <mat-card class="example-card">
-  
-        <mat-card-content class="content">
-
-         
-          
-          </mat-card-content>
-          <button mat-stroked-button matStepperPrevious>Back</button>
-          <button type="submit" routerLink="/package" mat-stroked-button matStepperNext>Submit</button>
-      </mat-card>   
-    
-</form>
-</mat-step> -->
 </mat-horizontal-stepper>       
 
 </mat-card>
 </section>
-
 
 
 

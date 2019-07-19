@@ -73,7 +73,7 @@ export class StandaloneStepperComponent implements OnInit {
 
     });
     this.secondFormGroup = this._formBuilder.group({
-      name: ['', Validators.compose([Validators.required,Validators.maxLength(20)])],
+      // name: ['', Validators.compose([Validators.required,Validators.maxLength(20)])],
       studio:new FormControl(),
       crewName:new FormControl(),
       crewRole:new FormControl(),
