@@ -13,7 +13,11 @@ export class StandaloneEpisodicComponent implements OnInit {
   ngOnInit() {
   }
 
-  sendDetails(title,category,synopsis){
+  sendStandalone(title,category,synopsis){
     this.router.navigateByUrl('/standalonestepper/'+title+'/'+category+'/'+synopsis);
+  }
+
+  sendEpisodic(title1,category1,synopsis1){
+    this.router.navigateByUrl('/episodic/'+title1+'/'+category1+'/'+synopsis1);
   }
 }

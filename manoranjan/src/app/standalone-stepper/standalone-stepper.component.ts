@@ -29,8 +29,6 @@ export class StandaloneStepperComponent implements OnInit {
 
   mediaDetails=[];
   
-  email = new FormControl('', [Validators.required, Validators.email]);
-  
   hide:true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -59,9 +57,10 @@ export class StandaloneStepperComponent implements OnInit {
 
   genres:Array<string>=new Array<string>();
 
-  constructor(private _formBuilder: FormBuilder,private _userService:UserService,
-    private router:Router,private mediaService:MediaService,private activatedRoute:ActivatedRoute) {}
-    
+
+  constructor(private _formBuilder: FormBuilder,private router:Router,
+    private mediaService:MediaService,private activatedRoute:ActivatedRoute) {}
+  
   ngOnInit() {
 
     this.activatedRoute.paramMap.subscribe(params=>{
