@@ -35,7 +35,7 @@ public class MediaServiceImpl implements MediaService {
 
 
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
-    private final Path rootLocation = Paths.get("../../../../../../../../red5-server-1.1.0/red5-server/webapps/vod/streams");
+    private final Path rootLocation = Paths.get("../../../../../red5-server-1.1.0/red5-server/webapps/vod/streams");
 
     @Override
     public List<Media> getAllMedia() throws MediaNotFoundException{

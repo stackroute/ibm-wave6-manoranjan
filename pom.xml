@@ -33,6 +33,7 @@
 		<module>zuul-api</module>
 		<module>userservice</module>
 		<module>UserAuthentication</module>
+		<module>mediaManagerService</module>
 	</modules>
 
 	<dependencies>
