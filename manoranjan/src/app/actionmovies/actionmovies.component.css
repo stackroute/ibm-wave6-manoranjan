@@ -44,6 +44,7 @@
     /* transform: translateY(-40px); */
     -webkit-transform: scale(1.22);
     transform: scale(1.22);
+    
   }
   .box .content{
     position: absolute;

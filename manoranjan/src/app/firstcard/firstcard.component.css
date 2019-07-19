@@ -8,8 +8,13 @@
   padding-top: 0;
   margin-bottom: 20px;
 }
+img-clicked{
+  border: 0;
+}
+
 #left,#right{
   margin:50px;
+ 
 }
 .latest{
   height: 180px;
