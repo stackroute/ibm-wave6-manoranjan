@@ -46,10 +46,6 @@ mat-grid-list{
 p,tr td, .form-control,button,.headingStyle,mat-radio-button {
   font-family: 'Merriweather', serif;
 }
-.example-card {
-  max-width: 100%;
-  margin-top: -10px;
-    }
 
 .mat-form-field-infix {
   top: -0.25em;

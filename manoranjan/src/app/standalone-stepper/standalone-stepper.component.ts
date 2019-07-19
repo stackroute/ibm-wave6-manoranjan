@@ -8,8 +8,14 @@ import { UserService } from '../user.service';
   styleUrls: ['./standalone-stepper.component.css']
 })
 export class StandaloneStepperComponent implements OnInit {
+  myGroup: FormGroup;
   [x: string]: any;
   user:User=new User();
+  task: string;
+  task1:string;
+  tasks = [];
+  tasks1=[];
+  
   email = new FormControl('', [Validators.required, Validators.email]);
   onSubmit(){
     this._userService.saveUser(this.user)
@@ -18,13 +24,22 @@ export class StandaloneStepperComponent implements OnInit {
       
     )
   }
-
+  
+  onClick(){
+    this.tasks.push({name: this.task});
+    this.tasks.push({role: this.task1});
+console.log('tasks'+this.tasks);
+console.log('tasks'+this.task1);
+console.log('tasks'+this.task);
+  this.task = '';
+  this.task1 = '';
+}
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      name: ['', Validators.compose([Validators.required,Validators.maxLength(20)])],
     });
     this.thirdFormGroup = this._formBuilder.group({
       thirdCtrl: ['', Validators.required]
