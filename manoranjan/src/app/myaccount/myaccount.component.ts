@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../user';
+import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { UserService } from '../user.service';
+
 
 @Component({
   selector: 'app-myaccount',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyaccountComponent implements OnInit {
 
-  constructor() { }
+  users:User[];
+  emailId;
+  constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getById(this.emailId).subscribe(data => {
+      this.users = data;
+    });
   }
 
 }

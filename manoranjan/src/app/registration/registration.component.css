@@ -25,10 +25,9 @@ img:hover{
  opacity: 0.5; 
 }
 .mat-button-toggle-checked {
-  border: 3px solid black;
+  border: 2px solid black;
   background-color: rgb(177, 208, 238); 
 }
-
 mat-card{
 margin-left: 10%;
 margin-right: 10%;

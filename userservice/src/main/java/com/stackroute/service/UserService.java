@@ -10,4 +10,5 @@ public interface UserService {
     public List<User> getAllUsers();
     public User deleteUser(String emailId);
     public User updateUser(User user);
+    public User getById(String emailId);
 }
