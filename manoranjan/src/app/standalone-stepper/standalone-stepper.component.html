@@ -128,77 +128,95 @@
 <mat-card class="example-card">
 <mat-card-content class="content">
 <div class="container1">
-  <div class="row">
-      <div class="col-sm-2">
+      <div class="row">
+        <div class="col-sm-2">
           <label>Studio Name:</label>
-      </div>
-      <div class="col-sm-10">
+        </div>
+        <div class="col-sm-10">
           <textarea rows="1" cols="30" formControlName="studio"></textarea>
-      </div>
-  </div>
-  <div class="row">
-          <div class="col-sm-2">
-              <label>Crew:</label>
-          </div>
-  </div>
-  <div class="row">
-
-            <div class="col-sm-6">
-              <label>Name:</label>
-          </div>
-
-          <div class="col-sm-6">
-            <label>Role:</label>
-          </div>
+        </div>
       </div>
       <div class="row">
+        <div class="col-sm-2">
+          <label>Crew:</label>
+        </div>
+      </div>
+      <ul>
+        <li *ngFor="let crew of crewList">
+          {{crew.crewName}}  {{crew.crewRole}} 
+          <button (click)="deleteCrew(crew.crewName,crew.crewRole)">Delete</button>
+        </li>
+      </ul>
+      <div class="row">
+        <div class="col-sm-4">
+          <label>Name:</label>
+        </div>
+
+        <div class="col-sm-4">
+          <label>Role:</label>
+        </div>
+      </div>
+
+      <form #viewerForm="ngForm" [formGroup]="sixthFormGroup"  class="form-horizontal" >
+      <div class="row">
+        <div class="col-sm-6">
+            <input type="text" rows="1" cols="20" #crewName formControlName="crewName">
+        </div>
+        <div class="col-sm-6">
+          <select class="selectpicker" #crewRole formControlName="crewRole" data-width="fit">
+            <option data-content='<span class="flag-icon flag-icon-us"></span> English'>producer</option>
+            <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Director</option>
+            <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Music</option>
+            <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Fights</option>
+          </select>
+        </div>
+        <div class="col-sm-6">
+            <button type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
+        </div>
+      </div>
+      </form>
+
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Cast:</label>
+        </div>
+      </div>
+      <ul>
+          <li *ngFor="let cast of castList">
+            {{cast.screenName}}  {{cast.realName}} 
+            <button (click)="deleteCast(cast.screenName,cast.realName)">Delete</button>
+          </li>
+        </ul>
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Screen Name:</label>
+        </div>
 
         <div class="col-sm-6">
-          <textarea rows="1" cols="20" formControlName="crewName"></textarea>
+          <label>Real Name:</label>
+        </div>
       </div>
+      <form #viewerForm="ngForm" [formGroup]="seventhFormGroup"  class="form-horizontal" >
+      <div class="row">
+        <div class="col-sm-6">
+            <input type="text" rows="1" cols="20" #screenName formControlName="screenName">
+        </div>
 
-      <div class="col-sm-6">
-        <select class="selectpicker" formControlName="crewRole" data-width="fit">
-          <option data-content='<span class="flag-icon flag-icon-us"></span> English'>producer</option>
-        <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Director</option>
-        <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Music</option>
-        <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Fights</option>
-       </select>
+        <div class="col-sm-6">
+            <input type="text" rows="1" cols="20" #realName formControlName="realName">
+        </div>
+
+        <div class="col-sm-6">
+            <button type="submit" (click)="addCast(screenName.value,realName.value)">Add</button>
+        </div>
       </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-2">
-        <label>Cast:</label>
+      </form>
     </div>
-</div>
-<div class="row">
-
-      <div class="col-sm-6">
-        <label>Screen Name:</label>
-    </div>
-
-    <div class="col-sm-6">
-      <label>Real Name:</label>
-    </div>
-</div>
-<div class="row">
-
-  <div class="col-sm-6">
-    <textarea rows="1" cols="20" formControlName="screenName"></textarea>
-</div>
-
-<div class="col-sm-6">
- <textarea rows="1" cols="20" formControlName="realName"></textarea>
-
-</div>
-</div>
-</div>
-</mat-card-content>
-<button mat-stroked-button matStepperPrevious >Back</button>
-<button mat-stroked-button matStepperNext [disabled]="!secondFormGroup.valid">Next</button>
-</mat-card> 
-</form>
+    </mat-card-content>
+      <button mat-stroked-button matStepperPrevious >Back</button>
+      <button mat-stroked-button matStepperNext [disabled]="!secondFormGroup.valid">Next</button>
+    </mat-card> 
+  </form>
 </mat-step>
 
 <!-- 3rd form is start here -->
