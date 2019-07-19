@@ -2,7 +2,7 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center"  class="section"  style="background-color: black" >
   <mat-card fxFlex="1000px" fxFlex.xs="50%" >
 
-<mat-horizontal-stepper labelPosition="bottom" #stepper >
+<mat-horizontal-stepper labelPosition="bottom" #stepper linear>
 
 
 <mat-step [stepControl]="firstForm">
@@ -133,6 +133,10 @@
       </div>
       <div class="col-sm-8">
           <textarea rows="1" cols="15" formControlName="studio"></textarea>
+          <mat-error *ngFor="let validation of validation_messages.studio">
+              <mat-error class="error-message" *ngIf="secondFormGroup.get('studio').hasError(validation.type) && (secondFormGroup.get('studio').dirty || secondFormGroup.get('studio').touched)">{{validation.message}}
+              </mat-error>
+           </mat-error>
       </div>
   </div>
   <div class="row">
@@ -156,16 +160,27 @@
       <div class="row">
 
         <div class="col-sm-4" id="input">
-          <textarea rows="1" cols="15" [(ngModel)]="crewName" [ngModelOptions]="{standalone: true}"></textarea>
+          <textarea rows="1" cols="15" [(ngModel)]="crewName" formControlName="crewname"></textarea>
+          <mat-error *ngFor="let validation of validation_messages.crewname">
+              <mat-error class="error-message" *ngIf="secondFormGroup.get('crewname').hasError(validation.type) && (secondFormGroup.get('crewname').dirty || secondFormGroup.get('crewname').touched)">{{validation.message}}
+              </mat-error>
+           </mat-error>
       </div>
 
       <div class="col-sm-4" id="select">
-        <select class="selectpicker" [(ngModel)]="crewRole" data-width="fit" [ngModelOptions]="{standalone: true}">
+        <select class="selectpicker" [(ngModel)]="crewRole" data-width="fit" formControlName="crewrole" >
           <option data-content='<span class="flag-icon flag-icon-us"></span> English'>producer</option>
         <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Director</option>
         <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Music</option>
         <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Fights</option>
        </select>
+       <mat-error>
+        <span *ngIf="!secondFormGroup.get('crewrole').valid && secondFormGroup.get('crewrole').touched">Please select any item !!!</span>
+    </mat-error>
+       <mat-error *ngFor="let validation of validation_messages.crewrole">
+          <mat-error class="error-message" *ngIf="secondFormGroup.get('crewrole').hasError(validation.type) && (secondFormGroup.get('crewrole').dirty || secondFormGroup.get('crewrole').touched)">{{validation.message}}
+          </mat-error>
+       </mat-error>
       </div>
   </div><br>
 
@@ -187,7 +202,11 @@
 <div class="row">
 
   <div class="col-sm-4" id="input1">
-    <textarea rows="1" cols="15" [(ngModel)]="screenName" [ngModelOptions]="{standalone: true}"></textarea>
+    <textarea rows="1" cols="15"   formControlName="screenname"></textarea>
+    <mat-error *ngFor="let validation of validation_messages.screenname">
+      <mat-error class="error-message" *ngIf="secondFormGroup.get('screenname').hasError(validation.type) && (secondFormGroup.get('screenname').dirty || secondFormGroup.get('screenname').touched)">{{validation.message}}
+      </mat-error>
+   </mat-error>
 </div>
 
 <div class="col-sm-4" id="input2">
@@ -197,8 +216,11 @@
   <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Vilan</option>
   <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Comedian</option>
  </select> -->
- <textarea rows="1" cols="15" [(ngModel)]="realName" [ngModelOptions]="{standalone: true}"></textarea>
-
+ <textarea rows="1" cols="15"   formControlName="realname"></textarea>
+ <mat-error *ngFor="let validation of validation_messages.realname">
+  <mat-error class="error-message" *ngIf="secondFormGroup.get('realname').hasError(validation.type) && (secondFormGroup.get('realname').dirty || secondFormGroup.get('realname').touched)">{{validation.message}}
+  </mat-error>
+</mat-error>
 </div>
 </div>
 </div>

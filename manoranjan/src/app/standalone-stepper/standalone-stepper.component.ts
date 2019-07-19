@@ -17,7 +17,7 @@ export class StandaloneStepperComponent implements OnInit {
   myGroup: FormGroup;
   [x: string]: any;
   user:User=new User();
-
+  crewRole:Array<any>;
   mediaDetails=[];
   
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -74,11 +74,11 @@ export class StandaloneStepperComponent implements OnInit {
     });
     this.secondFormGroup = this._formBuilder.group({
       name: ['', Validators.compose([Validators.required,Validators.maxLength(20)])],
-      studio:new FormControl(),
-      crewName:new FormControl(),
-      crewRole:new FormControl(),
-      screenName:new FormControl(),
-      realName:new FormControl(),
+      studio:new FormControl('', [Validators.required,Validators.maxLength(20)]),
+      crewname:new FormControl('', [Validators.required,Validators.maxLength(20)]),
+      crewrole:new FormControl('', [Validators.required,Validators.maxLength(20)]),
+      screenname:new FormControl('', [Validators.required,Validators.maxLength(20)]),
+      realname:new FormControl('', [Validators.required,Validators.maxLength(20)]),
     });
     this.thirdFormGroup = this._formBuilder.group({
       poster:new FormControl(),
@@ -86,6 +86,12 @@ export class StandaloneStepperComponent implements OnInit {
       trailer:new FormControl(),
       type:new FormControl()
     });
+    // this.crewRole=[
+    //   {value:'1',label:'producer'},
+    //   {value:'1',label:'producer'},
+    //   {value:'1',label:'producer'},
+    //   {value:'1',label:'producer'}
+    // ]
   }
 
   getErrorMessage() {
@@ -183,6 +189,28 @@ export class StandaloneStepperComponent implements OnInit {
       console.log(error)
     });
   }
+  validation_messages = {
+    'studio': [
+      { type: 'required', message: 'Studio name is required' },
+      { type: 'validUsername', message: 'Your username has already been taken' }
+    ],
+    'crewname': [
+      { type: 'required', message: 'Crew Name is required' },
+      { type: 'pattern', message: 'Enter a valid email' }
+    ],
+    
+    'crewrole': [
+      { type: 'required', message: 'crew role should be selected' },
+    ],
+    'screenname': [
+      { type: 'required', message: 'Screen Name is required' },
+    ],
+    'realname': [
+      { type: 'required', message: 'real name Name is required' },
+    ]
+
+  }
+
  }
         
 
