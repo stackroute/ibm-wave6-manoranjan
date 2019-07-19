@@ -63,6 +63,7 @@ import { MyaccountComponent } from './myaccount/myaccount.component';
 import { EditComponent } from './edit/edit.component';
 import { StandaloneStepperComponent } from './standalone-stepper/standalone-stepper.component';
 import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-episodic.component';
+import { EpisodicComponent } from './episodic/episodic.component';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -128,6 +129,7 @@ const routes: Routes = [
   {path :'payment',component:PaymentComponent},
   {path:'standaloneepisodic',component:StandaloneEpisodicComponent},
   {path:'standalonestepper',component:StandaloneStepperComponent},
+  {path:'episodic',component:EpisodicComponent},
   {path: '**', redirectTo: '/navland'},
 
 ];
