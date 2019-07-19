@@ -61,14 +61,7 @@ export class StandaloneStepperComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder,private _userService:UserService,
     private router:Router,private mediaService:MediaService,private activatedRoute:ActivatedRoute) {}
-  
-  onSubmit(){
-    this._userService.saveUser(this.user)
-    .subscribe(
-      data => console.log('success',data)
-      
-    )
-  }
+    
   ngOnInit() {
 
     this.activatedRoute.paramMap.subscribe(params=>{
