@@ -9,10 +9,10 @@
                      <mat-card class="example-card first-card" style="padding-bottom: 20px;" >
                        <mat-card-content class="content" >
                             <div class="row">
-                               <div class="col-sm-3">
+                               <div class="col-4">
                                  <label>Language</label> 
                                </div> 
-                                <div class="col-sm-9">
+                                <div class="col-8">
                                   <mat-form-field>
                                       <select matNativeControl class="form-control" formControlName="episodeLanguage" data-width="fit">
                                           <option value="Hindi">Hindi</option>
@@ -27,22 +27,23 @@
     
                                  </div> 
                             </div>
+                        
                             <div class="row">
-                               <div class="col-sm-3">
-                                 <label>Poster</label> 
+                               <div class="col-4">
+                                 <label >Poster</label> 
                                </div> 
-                                    <div class="col-sm-9">
-                                      <mat-form-field>
+                                    <div class="col-8">
+                                      <mat-form-field >
                                           <input class="form-control" type="text" formControlName="episodePoster"  matInput >                       
                                          
                                       </mat-form-field>
                                     </div>
                             </div>
                             <div class="row">
-                               <div class="col-sm-3">
+                               <div class="col-4">
                                   <label >Type</label>
                                </div> 
-                               <div class="col-sm-9">
+                               <div class="col-8">
                                 <mat-form-field>
                                   <select class="form-control" matNativeControl required formControlName="episodeType" >
                                      <option value="free">Free</option>
@@ -62,16 +63,19 @@
 <!-- Second form group-->
 Pooja Patil 3:39 PM
 <mat-step [stepControl]="secondForm">
+    <!-- style="background-color: rgb(223, 91, 135)" -->
 <form #viewerForm="ngForm" [formGroup]="secondFormGroup" (ngSubmit)="onSecondSubmit(secondFormGroup.value)" class="form-horizontal" >
 <ng-template matStepLabel><span class="headingStyle">Cast & Crew</span></ng-template>
-<mat-card class="example-card">
-<mat-card-content class="content">
+<!-- style="background-color: rgb(121, 207, 142)" -->
+<mat-card class="example-card" >
+  <!-- style="background-color: rgb(236, 136, 78)" -->
+<mat-card-content class="content"  >
 <div class="container1">
      <div class="row">
-       <div class="col-sm-2">
+       <div class="col-4">
          <label>Studio Name:</label>
        </div>
-       <div class="col-sm-10">
+       <div class="col-6">
         <mat-form-field>  
           <input class="form-control" type="text" formControlName="EpisodeStudioName"  matInput   required>
              <mat-error *ngFor="let validation of validation_messages.EpisodeStudioName">
@@ -82,7 +86,7 @@ Pooja Patil 3:39 PM
        </div>
      </div>
      <div class="row">
-       <div class="col-sm-2">
+       <div class="col-4">
          <label>Crew:</label>
        </div>
      </div>
@@ -93,26 +97,27 @@ Pooja Patil 3:39 PM
        </li>
      </ul>
      <div class="row">
-       <div class="col-sm-4">
+       <div class="col-5">
          <label>Name:</label>
        </div>
-       <div class="col-sm-4">
+       <div class="col-5">
          <label>Role:</label>
        </div>
      </div>
-     <form #viewerForm="ngForm" [formGroup]="sixthFormGroup"  class="form-horizontal" >
+     <!-- background-color: rgb(216, 157, 228); -->
+     <form #viewerForm="ngForm" [formGroup]="sixthFormGroup"  class="form-horizontal" style="  margin: 0px"  >
      <div class="row">
-       <div class="col-sm-6">
+       <div class="col-5">
         <mat-form-field>
           <input class="form-control" type="text" #crewName formControlName="crewName" matInput>
-
+         
           <mat-error *ngFor="let validation of validation_messages.crewName">
           <mat-error class="error-message" *ngIf="secondFormGroup.get('crewName').hasError(validation.type) && (secondFormGroup.get('crewName').dirty || secondFormGroup.get('crewName').touched)">{{validation.message}}
           </mat-error>
           </mat-error>
         </mat-form-field>       
       </div>
-       <div class="col-sm-6">
+       <div class="col-5">
         <mat-form-field>
           <select matNativeControl #crewRole class="form-control" formControlName="crewRole" data-width="fit">
               <option value="director">Director</option>
@@ -122,13 +127,13 @@ Pooja Patil 3:39 PM
            </select>
         </mat-form-field>
        </div>
-       <div class="col-sm-6">
+       <div class="col-2">
            <button type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
        </div>
      </div>
      </form>
      <div class="row">
-       <div class="col-sm-2">
+       <div class="col-4">
          <label>Cast:</label>
        </div>
      </div>
@@ -139,16 +144,18 @@ Pooja Patil 3:39 PM
          </li>
        </ul>
      <div class="row">
-       <div class="col-sm-6">
+       <div class="col-5">
          <label>Screen Name:</label>
        </div>
-       <div class="col-sm-6">
+      
+       <div class="col-5">
          <label>Real Name:</label>
        </div>
      </div>
-     <form #viewerForm="ngForm" [formGroup]="seventhFormGroup"  class="form-horizontal" >
+     <!-- background-color: rgb(104, 230, 230);  -->
+     <form #viewerForm="ngForm" [formGroup]="seventhFormGroup"  class="form-horizontal"  style=" margin: 0px">
      <div class="row">
-       <div class="col-sm-6">
+       <div class="col-5">
         <mat-form-field>  
           <input class="form-control" type="text" #screenName formControlName="screenName" matInput>
                <mat-error *ngFor="let validation of validation_messages.screenName">
@@ -157,7 +164,7 @@ Pooja Patil 3:39 PM
                </mat-error>
         </mat-form-field>
       </div>
-       <div class="col-sm-6">
+       <div class="col-5">
         <mat-form-field>
           <input class="form-control" type="text" #realName formControlName="realName" matInput   required>
      
@@ -167,7 +174,7 @@ Pooja Patil 3:39 PM
           </mat-error>
         </mat-form-field>    
      </div>
-       <div class="col-sm-6">
+       <div class="col-2">
            <button type="submit" (click)="addCast(screenName.value,realName.value)">Add</button>
        </div>
      </div>
@@ -181,72 +188,17 @@ Pooja Patil 3:39 PM
 </mat-step>
 <!--end second form group-->
 
-
-    <!-- <mat-step [stepControl]="secondForm"  >
-        <form #viewerForm="ngForm" [formGroup]="secondFormGroup"  class="form-horizontal" (ngSubmit)="onSecondSubmit(secondFormGroup.value)">
-           <ng-template matStepLabel><span class="headingStyle">Cast & Crew</span></ng-template>
-              <mat-card class="example-card first-card" style="padding-bottom: 20px;" >
-                <mat-card-content class="content" >
-                  <p style="margin-left: -340px;font-weight: bold ">Episode Crew</p>
-                        <div class="row">
-                            <div class="col-sm-3">
-                              <label >Studio Name</label> 
-                            </div> 
-                            <div class="col-sm-9">  
-                               
-                           </div> 
-                        </div>    
-                      <div class="row">
-                         <div class="col-sm-3">
-                            <label >Name</label> 
-                         </div> 
-                         <div class="col-sm-9">
-
-                         </div> 
-                      </div> 
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <label >Role</label>
-                        </div> 
-                        <div class="col-sm-9">
-
-                            </div> 
-                     </div> 
-                         <p style="margin-left: -170px; font-weight: bold ; ">Episode Cast</p>
-                     <div class="row">
-                       <div class="col-sm-3">
-                           <label >Screen Name</label>
-                       </div> 
-                       <div class="col-sm-9">
-
-                       </div> 
-                     </div> 
-                     <div class="row">
-                       <div class="col-sm-3">
-                             <label >Real Name</label> 
-                       </div> 
-                       <div class="col-sm-9">
-
-                       </div> 
-                     </div> 
-                 </mat-card-content>
-                 <button mat-stroked-button matStepperPrevious >Back</button>
-               <button mat-stroked-button matStepperNext  [disabled]="!secondFormGroup.valid" >Next</button>
-             </mat-card>   
-        </form>
-    </mat-step> -->
-    <!-- 2nd stapper form here-->
     <mat-step [stepControl]="thirdForm">
     <form #viewerForm="ngForm" [formGroup]="thirdFormGroup"  class="form-horizontal"  (ngSubmit)="onThirdSubmit(thirdFormGroup.value)">
       <ng-template matStepLabel><span class="headingStyle">Episode Details</span></ng-template>
         <mat-card class="example-card">
           <mat-card-content class="content">
             <p>Episode List</p>
-               <table >
+               <!-- <table > -->
                    <div class="row">
-                     <div class="col-sm-3">
+                     <div class="col-5">
                        <label >Episode Number</label> </div> 
-                    <div class="col-sm-9">
+                    <div class="col-7">
                        <mat-form-field>
                           <input class="form-control" type="number" name="episodeNo" formControlName="episodeNo"  matInput   required>
                             <!-- <mat-error *ngFor="let validation of validation_messages.episodeNo">
@@ -257,20 +209,20 @@ Pooja Patil 3:39 PM
                      </div> 
                    </div> 
                    <div class="row">
-                      <div class="col-sm-3">
+                      <div class="col-5">
                          <label >Video File</label>
                       </div> 
-                      <div class="col-sm-9">
+                      <div class="col-7">
                             <input type="file" class="form-control" formControlName="episodeUrl" (change)="selectVideo($event)">
                             <button mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo">Upload</button>
                      </div> 
                   </div>  
      <!-- gender row is closed-->
                      <div class="row">
-                         <div class="col-sm-3">
+                         <div class="col-5">
                             <label >Description</label>
                          </div> 
-                             <div class="col-sm-9">
+                             <div class="col-7">
                                <mat-form-field>
                                 <input class="form-control" type="text" name="posterDescription" formControlName="posterDescription"  matInput   required>
 <!--                            
@@ -282,10 +234,10 @@ Pooja Patil 3:39 PM
                         </div> 
                      </div> 
                      <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-5">
                          <label >Poster</label>
                         </div> 
-                        <div class="col-sm-9">
+                        <div class="col-7">
                         <mat-form-field> 
                             <input class="form-control" type="text" name="posterUrl" formControlName="posterUrl"  matInput   required>
                            
@@ -295,10 +247,10 @@ Pooja Patil 3:39 PM
 <!-- name row is closed-->
 
                      <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-5">
                            <label >Release Date</label> 
                         </div> 
-                        <div class="col-sm-9">
+                        <div class="col-7">
                         <mat-form-field>
                               <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="releaseDate" >
                               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -306,7 +258,7 @@ Pooja Patil 3:39 PM
                          </mat-form-field>
                          </div> 
                          </div>
-                   </table>
+                   <!-- </table> -->
                </mat-card-content>
               <button mat-stroked-button matStepperPrevious  >Back</button>&nbsp;                      
             <button mat-stroked-button matStepperNext  [disabled]="!thirdFormGroup.valid">Next</button>
@@ -315,7 +267,7 @@ Pooja Patil 3:39 PM
        </mat-step>        
 
        <mat-step [stepControl]="fourthForm">
-          <form #viewerForm="ngForm" class="form-horizontal" >
+          <form #viewerForm="ngForm" class="form-horizontal" style="height: 100%">
           
               <ng-template matStepLabel><span class="headingStyle">Status</span></ng-template>
           
