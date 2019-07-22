@@ -68,23 +68,23 @@ export class StandaloneStepperComponent implements OnInit {
     });
 
     this.firstFormGroup = this._formBuilder.group({
-      language: new FormControl(),
+      language: new FormControl('', [Validators.required]),
       date:new FormControl()
 
     });
     this.secondFormGroup = this._formBuilder.group({
-      name: ['', Validators.compose([Validators.required,Validators.maxLength(20)])],
-      studio:new FormControl('', [Validators.required,Validators.maxLength(20)]),
-      crewname:new FormControl('', [Validators.required,Validators.maxLength(20)]),
-      crewrole:new FormControl('', [Validators.required,Validators.maxLength(20)]),
-      screenname:new FormControl('', [Validators.required,Validators.maxLength(20)]),
-      realname:new FormControl('', [Validators.required,Validators.maxLength(20)]),
+      // name: ['', Validators.compose([Validators.required,Validators.maxLength(20)])],
+      studio:new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      crewName:new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      crewRole:new FormControl('', [Validators.required]),
+      screenName:new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      realName:new FormControl('', [Validators.required, Validators.maxLength(10)]),
     });
     this.thirdFormGroup = this._formBuilder.group({
-      poster:new FormControl(),
+      posterurl:new FormControl('', [Validators.required]),
       video:new FormControl(),
       trailer:new FormControl(),
-      type:new FormControl()
+      type:new FormControl('', [Validators.required])
     });
     // this.crewRole=[
     //   {value:'1',label:'producer'},
@@ -194,19 +194,22 @@ export class StandaloneStepperComponent implements OnInit {
       { type: 'required', message: 'Studio name is required' },
       { type: 'validUsername', message: 'Your username has already been taken' }
     ],
-    'crewname': [
+    'crewName': [
       { type: 'required', message: 'Crew Name is required' },
       { type: 'pattern', message: 'Enter a valid email' }
     ],
     
-    'crewrole': [
+    'crewRole': [
       { type: 'required', message: 'crew role should be selected' },
     ],
-    'screenname': [
+    'screenName': [
       { type: 'required', message: 'Screen Name is required' },
     ],
-    'realname': [
-      { type: 'required', message: 'real name Name is required' },
+    'realName': [
+      { type: 'required', message: 'real name  is required' },
+    ],
+    'posterurl': [
+      { type: 'required', message: 'poster url is required' },
     ]
 
   }
