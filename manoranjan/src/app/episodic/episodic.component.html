@@ -4,17 +4,18 @@
            
     <mat-horizontal-stepper labelPosition="bottom" linear style="height: 100%">
          <mat-step [stepControl]="firstForm" >
-             <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal" (ngSubmit)="onFirstSubmit(firstFormGroup.value)">
+             <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal form1" (ngSubmit)="onFirstSubmit(firstFormGroup.value)">
                   <ng-template matStepLabel><span class="headingStyle">Series Details</span></ng-template>
                      <mat-card class="example-card first-card" style="padding-bottom: 20px;" >
-                       <mat-card-content class="content" >
-                            <div class="row">
-                               <div class="col-4">
+                       <mat-card-content class="content"  >
+                            <div class="row" style="margin-top: 30px">
+                               <div class="col-5">
                                  <label>Language</label> 
                                </div> 
-                                <div class="col-8">
-                                  <mat-form-field>
-                                      <select matNativeControl class="form-control" formControlName="episodeLanguage" data-width="fit">
+                                <div class="col-7">
+                                  <!-- <mat-form-field> -->
+                                      <!-- matNativeControl -->
+                                      <select class="selectpicker" class="form-control" #crewRole formControlName="episodeLanguage" width="150px" data-size="5" data-width="fit">
                                           <option value="Hindi">Hindi</option>
                                           <option value="Telugu">Telugu</option>
                                           <option value="Tamil">Tamil</option>
@@ -23,33 +24,36 @@
                                           <option value="Gujarathi">Gujarathi</option>
                                          <option value="Bengali">Bengali</option>
                                        </select>
-                                  </mat-form-field>
+                                  <!-- </mat-form-field> -->
     
                                  </div> 
                             </div>
-                        
+                        <br>
                             <div class="row">
-                               <div class="col-4">
+                               <div class="col-5">
                                  <label >Poster</label> 
                                </div> 
-                                    <div class="col-8">
-                                      <mat-form-field >
-                                          <input class="form-control" type="text" formControlName="episodePoster"  matInput >                       
-                                         
-                                      </mat-form-field>
+                                    <div class="col-7">
+                                      <!-- <mat-form-field > -->
+                                          
+                                          <input type="text" rows="1" cols="20" class="form-control" #episodePoster formControlName="episodePoster">                    
+                                      
+                                      <!-- </mat-form-field> -->
                                     </div>
                             </div>
+                            <br>
                             <div class="row">
-                               <div class="col-4">
+                               <div class="col-5">
                                   <label >Type</label>
                                </div> 
-                               <div class="col-8">
-                                <mat-form-field>
-                                  <select class="form-control" matNativeControl required formControlName="episodeType" >
+                               <div class="col-7">
+                                <!-- <mat-form-field> -->
+                                    <!-- matNativeControl -->
+                                  <select class="form-control"  required formControlName="episodeType" >
                                      <option value="free">Free</option>
                                      <option value="premium">Premium</option>
                                   </select>
-                                </mat-form-field>   
+                                <!-- </mat-form-field>    -->
                                </div> 
                              </div> 
 
@@ -61,7 +65,6 @@
             </mat-step>
 
 <!-- Second form group-->
-Pooja Patil 3:39 PM
 <mat-step [stepControl]="secondForm">
     <!-- style="background-color: rgb(223, 91, 135)" -->
 <form #viewerForm="ngForm" [formGroup]="secondFormGroup" (ngSubmit)="onSecondSubmit(secondFormGroup.value)" class="form-horizontal" >
@@ -72,23 +75,23 @@ Pooja Patil 3:39 PM
 <mat-card-content class="content"  >
 <div class="container1">
      <div class="row">
-       <div class="col-4">
-         <label>Studio Name:</label>
+       <div class="col-3">
+         <label>Studio Name</label>
        </div>
-       <div class="col-6">
-        <mat-form-field>  
-          <input class="form-control" type="text" formControlName="EpisodeStudioName"  matInput   required>
+       <div class="col-8">
+        <!-- <mat-form-field>   -->
+          <input class="form-control" type="text" formControlName="EpisodeStudioName"   required>
              <mat-error *ngFor="let validation of validation_messages.EpisodeStudioName">
              <mat-error class="error-message" *ngIf="firstFormGroup.get('EpisodeStudioName').hasError(validation.type) && (firstFormGroup.get('EpisodeStudioName').dirty ||firstFormGroup.get('EpisodeStudioName').touched)">{{validation.message}}
              </mat-error>
              </mat-error>
-    </mat-form-field>
+    <!-- </mat-form-field> -->
        </div>
      </div>
      <div class="row">
-       <div class="col-4">
-         <label>Crew:</label>
-       </div>
+       
+         <label style="font-weight: bold; margin-left:30px; margin-top: 5px">Crew:</label>
+       
      </div>
      <ul>
        <li *ngFor="let crew of crewList">
@@ -97,45 +100,51 @@ Pooja Patil 3:39 PM
        </li>
      </ul>
      <div class="row">
-       <div class="col-5">
-         <label>Name:</label>
-       </div>
-       <div class="col-5">
-         <label>Role:</label>
-       </div>
-     </div>
+        <div class="col-2"></div>
+   <div class="col-4 name">
+     <label>Name:</label>
+   </div>
+   <div class="col-5 role">
+     <label>Role:</label>
+   </div>
+ </div>
      <!-- background-color: rgb(216, 157, 228); -->
-     <form #viewerForm="ngForm" [formGroup]="sixthFormGroup"  class="form-horizontal" style="  margin: 0px"  >
+     <form #viewerForm="ngForm" [formGroup]="sixthFormGroup"  class="form-horizontal sixseven" style="margin-left: 0px; margin-right: 0px; margin-top: -50px"  >
+       
      <div class="row">
-       <div class="col-5">
-        <mat-form-field>
-          <input class="form-control" type="text" #crewName formControlName="crewName" matInput>
-         
+        <div class="col-3"></div>
+       <div class="col-4">
+        <!-- <mat-form-field> -->
+          <!-- <input class="form-control" type="text" #crewName formControlName="crewName" placeholder="new" matInput> -->
+          <input type="text" rows="1" cols="20" class="form-control" #crewName formControlName="crewName">
           <mat-error *ngFor="let validation of validation_messages.crewName">
           <mat-error class="error-message" *ngIf="secondFormGroup.get('crewName').hasError(validation.type) && (secondFormGroup.get('crewName').dirty || secondFormGroup.get('crewName').touched)">{{validation.message}}
           </mat-error>
           </mat-error>
-        </mat-form-field>       
+        <!-- </mat-form-field>        -->
       </div>
-       <div class="col-5">
-        <mat-form-field>
-          <select matNativeControl #crewRole class="form-control" formControlName="crewRole" data-width="fit">
+       <div class="col-4">
+        <!-- <mat-form-field> -->
+          <!-- <select matNativeControl #crewRole class="form-control" formControlName="crewRole" data-width="fit"> -->
+              <select class="selectpicker" class="form-control" #crewRole formControlName="crewRole" width="150px" data-size="5" data-width="fit">
               <option value="director">Director</option>
               <option value="producer">Producer</option>
               <option value="writer">Writer</option>
               <option value="music">Music</option>
            </select>
-        </mat-form-field>
+        <!-- </mat-form-field> -->
        </div>
-       <div class="col-2">
-           <button type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
+      </div>
+       <div class="row">
+           <button type="submit" (click)="addCrew(crewName.value,crewRole.value)" class="addButton"
+           >Add</button>
        </div>
-     </div>
+    
      </form>
      <div class="row">
-       <div class="col-4">
-         <label>Cast:</label>
-       </div>
+     
+         <label style="font-weight: bold; margin-left:30px; margin-top: 5px ">Cast:</label>
+     
      </div>
      <ul>
          <li *ngFor="let cast of castList">
@@ -144,40 +153,44 @@ Pooja Patil 3:39 PM
          </li>
        </ul>
      <div class="row">
-       <div class="col-5">
+
+        <div class="col-2"></div>
+       <div class="col-5 screenName">
          <label>Screen Name:</label>
        </div>
       
-       <div class="col-5">
+       <div class="col-3 realName">
          <label>Real Name:</label>
        </div>
      </div>
      <!-- background-color: rgb(104, 230, 230);  -->
-     <form #viewerForm="ngForm" [formGroup]="seventhFormGroup"  class="form-horizontal"  style=" margin: 0px">
+     <form #viewerForm="ngForm" [formGroup]="seventhFormGroup"  class="form-horizontal sixseven"  style="margin-left: 0px; margin-right: 0px; margin-top: -50px" >
      <div class="row">
-       <div class="col-5">
-        <mat-form-field>  
-          <input class="form-control" type="text" #screenName formControlName="screenName" matInput>
+        <div class="col-3"></div>
+       <div class="col-4">
+        <!-- <mat-form-field>   -->
+          <input class="form-control" type="text" rows="1" cols="20" #screenName formControlName="screenName" >
                <mat-error *ngFor="let validation of validation_messages.screenName">
                <mat-error class="error-message" *ngIf="secondFormGroup.get('screenName').hasError(validation.type) && (secondFormGroup.get('screenName').dirty ||secondFormGroup.get('screenName').touched)">{{validation.message}}
                </mat-error>
                </mat-error>
-        </mat-form-field>
+        <!-- </mat-form-field> -->
       </div>
-       <div class="col-5">
-        <mat-form-field>
-          <input class="form-control" type="text" #realName formControlName="realName" matInput   required>
+       <div class="col-4">
+        <!-- <mat-form-field> -->
+          <input class="form-control" type="text" #realName formControlName="realName"  required>
      
          <mat-error *ngFor="let validation of validation_messages.realName">
           <mat-error class="error-message" *ngIf="secondFormGroup.get('realName').hasError(validation.type) && (secondFormGroup.get('realName').dirty || secondFormGroup.get('realName').touched)">{{validation.message}}
           </mat-error>
           </mat-error>
-        </mat-form-field>    
+        <!-- </mat-form-field>     -->
      </div>
-       <div class="col-2">
-           <button type="submit" (click)="addCast(screenName.value,realName.value)">Add</button>
+    </div>
+       <div class="row">
+           <button type="submit" (click)="addCast(screenName.value,realName.value)" class="addButton">Add</button>
        </div>
-     </div>
+    
      </form>
    </div>
    </mat-card-content>
