@@ -13,7 +13,7 @@
           <mat-card-content class="content" >
             <div class="container2">
               <div class="row">
-                  <h3>Genre</h3>
+                  <p>Genre</p>
               </div>
               <mat-card class="example-card">
         
@@ -83,10 +83,10 @@
                 
                         
                   <div class="row">
-                          <div class="col-sm-2">
-                              <label style="margin-left:-20px">Language:</label>
+                          <div class="col-sm-4" id="language">
+                              <label>Language:</label>
                           </div>
-                          <div class="col-sm-10">
+                          <div class="col-sm-6" id="select2">
                                        
                                           <select  class="selectpicker form-control" formControlName="language" placeholder="select" data-width="fit">
                                             <option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
@@ -101,12 +101,12 @@
                                           <span *ngIf="!firstFormGroup.get('language').valid && firstFormGroup.get('language').touched">Please select language !!!</span>
                                       </mat-error>
                           </div>
-                      </div><br>
+                      </div><br><br>
                       <div class="row">
-                        <div class="col-sm-2">
+                        <div class="col-sm-4" id="realeaseDate">
                           <label>Release Date:</label>
                         </div>
-                        <div class="col-sm-10">
+                        <div class="col-sm-8" id="date" style="margin-top: -40px">
                         <mat-form-field >
                             <input class="form-control" matInput formControlName="date" [matDatepicker]="picker" placeholder="  ">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -132,97 +132,102 @@
 
 <mat-card class="example-card">
 <mat-card-content class="content">
-<div class="container1">
-  <div class="row">
-      <div class="col-sm-2">
+<div class="container2">
+      <div class="row">
+        <div class="col-sm-4">
           <label>Studio Name:</label>
-      </div>
-      <div class="col-sm-10">
-          <textarea rows="1" cols="30" formControlName="studio"></textarea>
+        </div>
+        <div class="col-sm-6" id="input3">
+          <input type="text" rows="1" cols="20" formControlName="studio">
           <mat-error *ngFor="let validation of validation_messages.studio">
             <mat-error class="error-message" *ngIf="secondFormGroup.get('studio').hasError(validation.type) && (secondFormGroup.get('studio').dirty || secondFormGroup.get('studio').touched)">{{validation.message}}
             </mat-error>
          </mat-error>
-      </div>
-  </div>
-  <div class="row">
-          <div class="col-sm-2">
-              <label>Crew:</label>
-          </div>
-  </div>
-  <div class="row">
 
-            <div class="col-sm-6">
-              <label>Name:</label>
-          </div>
-
-          <div class="col-sm-6">
-            <label>Role:</label>
-          </div>
+        </div>
       </div>
       <div class="row">
+        <div class="col-sm-2" id="crew">
+          <label>Crew</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4" id="name">
+          <label>Name:</label>
+        </div>
 
-        <div class="col-sm-6">
-          <textarea rows="1" cols="20" formControlName="crewName"></textarea>
-          <mat-error *ngFor="let validation of validation_messages.crewName">
-            <mat-error class="error-message" *ngIf="secondFormGroup.get('crewName').hasError(validation.type) && (secondFormGroup.get('crewName').dirty || secondFormGroup.get('crewName').touched)">{{validation.message}}
-            </mat-error>
-         </mat-error>
+        <div class="col-sm-4" id="role">
+          <label>Role:</label>
+        </div>
       </div>
 
-      <div class="col-sm-6">
-        <select class="selectpicker" formControlName="crewRole" data-width="fit">
-          <option data-content='<span class="flag-icon flag-icon-us"></span> English'>producer</option>
-        <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Director</option>
-        <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Music</option>
-        <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Fights</option>
-       </select>
-       <mat-error>
-        <span *ngIf="!secondFormGroup.get('crewRole').valid && secondFormGroup.get('crewRole').touched">Please select role !!!</span>
-    </mat-error>
+      <form #viewerForm="ngForm" [formGroup]="sixthFormGroup"  class="form-horizontal" >
+      <div class="row">
+        <div class="col-sm-4" id="input">
+            <input type="text" rows="1" cols="20" #crewName formControlName="crewName">
+        </div>
+        <div class="col-sm-6" id="select">
+
+          <select class="selectpicker" #crewRole formControlName="crewRole" width="150px" data-size="5" data-width="fit">
+            <option data-content='<span class="flag-icon flag-icon-us"></span> English'>producer </option>
+            <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Director </option>
+            <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Music   </option>
+            <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Fights  </option>
+          </select>
+        </div>
+        <div class="col-sm-2" id="submit">
+            <button type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
+        </div>
       </div>
-  </div>
+      </form>
+      <ul>
+        <li *ngFor="let crew of crewList">
+          {{crew.crewName}} --> {{crew.crewRole}} 
+          <button (click)="deleteCrew(crew.crewName,crew.crewRole)" id="delete">Delete</button>
+        </li>
+      </ul>
 
-  <div class="row">
-    <div class="col-sm-2">
-        <label>Cast:</label>
+      <div class="row">
+        <div class="col-sm-2" id="cast">
+          <label>Cast</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4" id="screenName">
+          <label>Screen Name:</label>
+        </div>
+
+        <div class="col-sm-6" id="realName">
+          <label>Real Name:</label>
+        </div>
+      </div>
+      <form #viewerForm="ngForm" [formGroup]="seventhFormGroup"  class="form-horizontal" >
+      <div class="row">
+        <div class="col-sm-4" id="input1">
+            <input type="text" rows="1" cols="20" #screenName formControlName="screenName">
+        </div>
+
+        <div class="col-sm-6" id="input2">
+            <input type="text" rows="1" cols="20" #realName formControlName="realName">
+        </div>
+
+        <div class="col-sm-2" id="submit1">
+            <button type="submit" (click)="addCast(screenName.value,realName.value)">Add</button>
+        </div>
+      </div>
+      </form>
     </div>
-</div>
-<div class="row">
-
-      <div class="col-sm-6">
-        <label>Screen Name:</label>
-    </div>
-
-    <div class="col-sm-6">
-      <label>Real Name:</label>
-    </div>
-</div>
-<div class="row">
-
-  <div class="col-sm-6">
-    <textarea rows="1" cols="20" formControlName="screenName"></textarea>
-    <mat-error *ngFor="let validation of validation_messages.screenName">
-      <mat-error class="error-message" *ngIf="secondFormGroup.get('screenName').hasError(validation.type) && (secondFormGroup.get('screenName').dirty || secondFormGroup.get('screenName').touched)">{{validation.message}}
-      </mat-error>
-   </mat-error>
-</div>
-
-<div class="col-sm-6">
- <textarea rows="1" cols="20" formControlName="realName"></textarea>
- <mat-error *ngFor="let validation of validation_messages.realName">
-  <mat-error class="error-message" *ngIf="secondFormGroup.get('realName').hasError(validation.type) && (secondFormGroup.get('realName').dirty || secondFormGroup.get('realName').touched)">{{validation.message}}
-  </mat-error>
-</mat-error>
-
-</div>
-</div>
-</div>
-</mat-card-content>
-<button mat-stroked-button matStepperPrevious >Back</button>
-<button mat-stroked-button matStepperNext [disabled]="!secondFormGroup.valid">Next</button>
-</mat-card> 
-</form>
+    <ul style="margin-top: 10px;color:blue">
+        <li *ngFor="let cast of castList">
+            {{cast.realName}}  As  {{cast.screenName}}  
+          <button (click)="deleteCast(cast.screenName,cast.realName)" id="delete">Delete</button>
+        </li>
+      </ul>
+    </mat-card-content>
+      <button mat-stroked-button matStepperPrevious >Back</button>
+      <button mat-stroked-button matStepperNext [disabled]="!secondFormGroup.valid">Next</button>
+    </mat-card> 
+  </form>
 </mat-step>
 
 <!-- 3rd form is start here -->
@@ -235,46 +240,50 @@
       
             <div class="container1">
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                         <label>Poster Image:</label>
                     </div>
-                    <div class="col-sm-10">
-                       <textarea rows="1" cols="30" formControlName="posterurl"></textarea>
+                    <div class="col-sm-8" id="input4">
+                       <input type="text" rows="1" cols="20" formControlName="posterurl">
                        <mat-error *ngFor="let validation of validation_messages.posterurl">
                         <mat-error class="error-message" *ngIf="thirdFormGroup.get('posterurl').hasError(validation.type) && (thirdFormGroup.get('posterurl').dirty || thirdFormGroup.get('posterurl').touched)">{{validation.message}}
                         </mat-error>
                         </mat-error>
                      </div>
-                </div>
+                </div><br>
               <div class="row">
-                  <div class="col-sm-2">
+                  <div class="col-sm-4" id="videoFile">
                       <label>Video File:</label>
                   </div>
-                  <div class="col-sm-10">
+                  <div class="col-sm-8" id="chooseFile">
                       <input class="aligns" type="file" [(ngModel)]="video" formControlName="video" (change)="selectVideo($event)"
                       accept="video/*">
+                      <div id="upload">
                     <!-- <input type="file" class="form-control" formControlName="video" (change)="selectVideo($event)"> -->
                     <button mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo">Upload</button>
                   </div>
-              </div>
+                  </div>
+              </div><br>
                     <div class="row">
-                      <div class="col-sm-2">
+                      <div class="col-sm-4" id="trailer">
                           <label>Trailer(optional):</label>
                       </div>
-                      <div class="col-sm-10">
+                      <div class="col-sm-8" id="chooseFile1">
                           <input class="aligns" type="file" [(ngModel)]="trailer" formControlName="trailer" (change)="selectTrailer($event)"
                           accept="video/*">
+                          <div id="upload1">
                         <!-- <input type="file" class="form-control" formControlName="trailer" (change)="selectTrailer($event)"> -->
                         <button mat-raised-button (click)="uploadTrailer()" [disabled]="!selectedTrailer">Upload</button>
                       </div>
+                      </div>
                   <!-- </div> -->
 
-                  </div>
+                  </div><br>
                   <div class="row">
-                      <div class="col-sm-2">
+                      <div class="col-sm-4" id="userWatch">
                           <label>How will users watch this video:</label>
                       </div>
-                      <div class="col-sm-10">
+                      <div class="col-sm-8" id="select1">
                           <select class="selectpicker" formControlName="type" data-width="fit">
                             <option value='free'>Free</option>
                           <option  value="premium">Premium</option>
