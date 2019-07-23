@@ -149,7 +149,7 @@
      <ul>
          <li *ngFor="let cast of castList">
            {{cast.screenName}}  {{cast.realName}}
-           <button (click)="deleteCast(cast.screen,cast.real)">Delete</button>
+           <button (click)="deleteCast(cast.screenName,cast.realName)">Delete</button>
          </li>
        </ul>
      <div class="row">
