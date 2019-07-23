@@ -134,11 +134,11 @@
 <mat-card-content class="content">
 <div class="container2">
       <div class="row">
-        <div class="col-sm-4">
-          <label>Studio Name:</label>
-        </div>
-        <div class="col-sm-6" id="input3">
-          <input type="text" rows="1" cols="20" formControlName="studio">
+          <div class="col-3">
+              <label>Studio Name</label>
+            </div>
+        <div class="col-8" id="input3">
+          <input  class="form-control" type="text" rows="1" cols="20" formControlName="studio">
           <mat-error *ngFor="let validation of validation_messages.studio">
             <mat-error class="error-message" *ngIf="secondFormGroup.get('studio').hasError(validation.type) && (secondFormGroup.get('studio').dirty || secondFormGroup.get('studio').touched)">{{validation.message}}
             </mat-error>
@@ -152,75 +152,106 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-4" id="name">
+          <div class="col-2"></div>
+        <div class="col-4" id="name">
           <label>Name:</label>
         </div>
 
-        <div class="col-sm-4" id="role">
+        <div class="col-4" id="role">
           <label>Role:</label>
         </div>
       </div>
 
-      <form #viewerForm="ngForm" [formGroup]="sixthFormGroup"  class="form-horizontal" >
-      <div class="row">
-        <div class="col-sm-4" id="input">
-            <input type="text" rows="1" cols="20" #crewName formControlName="crewName">
-        </div>
-        <div class="col-sm-6" id="select">
+              <form #viewerForm="ngForm" [formGroup]="sixthFormGroup"  class="form-horizontal " style="margin-left: 0px; margin-right: 0px; margin-top: -50px"  >
+       
+                  <div class="row">
+                     <div class="col-3"></div>
+                    <div class="col-4">
+                 
+                       <!-- <input class="form-control" type="text" #crewName formControlName="crewName" placeholder="new" matInput> -->
+                       <input type="text" rows="1" cols="20" class="form-control" #crewName formControlName="crewName">
+                     
+                
+                   </div>
+                    <div class="col-4">
+                 
+                      
+                           <select class="selectpicker" class="form-control" #crewRole formControlName="crewRole" width="150px" data-size="5" data-width="fit">
+                           <option value="director">Director</option>
+                           <option value="producer">Producer</option>
+                           <option value="writer">Writer</option>
+                           <option value="music">Music</option>
+                        </select>
+                     <!-- </mat-form-field> -->
+                    </div>
+                   </div>
 
-          <select class="selectpicker" #crewRole formControlName="crewRole" width="150px" data-size="5" data-width="fit">
-            <option data-content='<span class="flag-icon flag-icon-us"></span> English'>producer </option>
-            <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Director </option>
-            <option data-content='<span class="flag-icon flag-icon-us"></span> English'>Music   </option>
-            <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Fights  </option>
-          </select>
-        </div>
-        <div class="col-sm-2" id="submit">
+     
+        <div class="row" id="submit">
             <button type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
         </div>
-      </div>
-      </form>
+      </form><br>
       <ul>
-        <li *ngFor="let crew of crewList">
+        <li>
+          <table  *ngFor="let crew of crewList">
+            <tr>
+            <td width="300px">
           {{crew.crewName}} --> {{crew.crewRole}} 
+          </td>
+          <td width="115px">
           <button (click)="deleteCrew(crew.crewName,crew.crewRole)" id="delete">Delete</button>
+          </td>
+          </tr>
+          </table>
         </li>
       </ul>
 
       <div class="row">
+        
         <div class="col-sm-2" id="cast">
           <label>Cast</label>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-4" id="screenName">
+
+          <div class="col-2"></div>
+        <div class="col-5" id="screenName">
           <label>Screen Name:</label>
         </div>
 
-        <div class="col-sm-6" id="realName">
+        <div class="col-3" id="realName">
           <label>Real Name:</label>
         </div>
       </div>
-      <form #viewerForm="ngForm" [formGroup]="seventhFormGroup"  class="form-horizontal" >
+      <form #viewerForm="ngForm" [formGroup]="seventhFormGroup"  class="form-horizontal"  style="margin-left: 0px; margin-right: 0px; margin-top: -50px">
       <div class="row">
-        <div class="col-sm-4" id="input1">
-            <input type="text" rows="1" cols="20" #screenName formControlName="screenName">
+          <div class="col-3"></div>
+        <div class="col-4" id="input1">
+            <input class="form-control" type="text" rows="1" cols="20" #screenName formControlName="screenName">
         </div>
 
-        <div class="col-sm-6" id="input2">
-            <input type="text" rows="1" cols="20" #realName formControlName="realName">
-        </div>
-
-        <div class="col-sm-2" id="submit1">
-            <button type="submit" (click)="addCast(screenName.value,realName.value)">Add</button>
+        <div class="col-4" id="input2">
+            <input class="form-control" type="text" rows="1" cols="20" #realName formControlName="realName">
         </div>
       </div>
+        <div class="row" id="submit1">
+            <button type="submit" (click)="addCast(screenName.value,realName.value)">Add</button>
+        </div>
+      
       </form>
-    </div>
-    <ul style="margin-top: 10px;color:blue">
-        <li *ngFor="let cast of castList">
+    </div><br>
+    <ul>
+        <li>
+          <table  *ngFor="let cast of castList">
+            <tr>
+            <td width="300px">
             {{cast.realName}}  As  {{cast.screenName}}  
+            </td>
+            <td width="115px">
           <button (click)="deleteCast(cast.screenName,cast.realName)" id="delete">Delete</button>
+          </td>
+            </tr>
+          </table>
         </li>
       </ul>
     </mat-card-content>
@@ -256,7 +287,7 @@
                       <label>Video File:</label>
                   </div>
                   <div class="col-sm-8" id="chooseFile">
-                      <input class="aligns" type="file" [(ngModel)]="video" formControlName="video" (change)="selectVideo($event)"
+                      <input class="aligns" type="file" formControlName="video" (change)="selectVideo($event)"
                       accept="video/*">
                       <div id="upload">
                     <!-- <input type="file" class="form-control" formControlName="video" (change)="selectVideo($event)"> -->
@@ -269,7 +300,7 @@
                           <label>Trailer(optional):</label>
                       </div>
                       <div class="col-sm-8" id="chooseFile1">
-                          <input class="aligns" type="file" [(ngModel)]="trailer" formControlName="trailer" (change)="selectTrailer($event)"
+                          <input class="aligns" type="file" formControlName="trailer" (change)="selectTrailer($event)"
                           accept="video/*">
                           <div id="upload1">
                         <!-- <input type="file" class="form-control" formControlName="trailer" (change)="selectTrailer($event)"> -->

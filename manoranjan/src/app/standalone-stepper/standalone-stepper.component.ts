@@ -77,7 +77,7 @@ export class StandaloneStepperComponent implements OnInit {
     });
     this.secondFormGroup = this._formBuilder.group({
       // name: ['', Validators.compose([Validators.required,Validators.maxLength(20)])],
-      studio:new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      studio:new FormControl('', [Validators.required, Validators.maxLength(30)]),
       // crewName:new FormControl('', [Validators.required, Validators.maxLength(10)]),
       // crewRole:new FormControl('', [Validators.required]),
       // screenName:new FormControl('', [Validators.required, Validators.maxLength(10)]),
@@ -214,7 +214,7 @@ export class StandaloneStepperComponent implements OnInit {
       'mediaStudioName':this.mediaDetails[1].studio,
       'mediaCrew':this.crewList,
       'mediaCast':this.castList,
-      'mediaPosterUrl':this.mediaDetails[2].poster,
+      'mediaPosterUrl':this.mediaDetails[2].posterurl,
       'mediaType':this.mediaDetails[2].type,
       'mediaUrl':this.mediaName,
       'mediaTrailerUrl':this.trailerName,
@@ -233,20 +233,6 @@ export class StandaloneStepperComponent implements OnInit {
     'studio': [
       { type: 'required', message: 'Studio name is required' },
       { type: 'validUsername', message: 'Your username has already been taken' }
-    ],
-    'crewName': [
-      { type: 'required', message: 'Crew Name is required' },
-      { type: 'pattern', message: 'Enter a valid email' }
-    ],
-    
-    'crewRole': [
-      { type: 'required', message: 'crew role should be selected' },
-    ],
-    'screenName': [
-      { type: 'required', message: 'Screen Name is required' },
-    ],
-    'realName': [
-      { type: 'required', message: 'real name  is required' },
     ],
     'posterurl': [
       { type: 'required', message: 'poster url is required' },

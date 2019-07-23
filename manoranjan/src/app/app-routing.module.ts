@@ -134,11 +134,8 @@ const routes: Routes = [
   {path :'producer',component:ProducerprofileComponent},
   {path:'standaloneepisodic',component:StandaloneEpisodicComponent},
   {path:'episodic/:title/:category/:synopsis',component:EpisodicComponent},
-
   {path:'standalonestepper/:title/:category/:synopsis',component:StandaloneStepperComponent},
-
   {path: '**', redirectTo: '/navland'},
-
 ];
 
 @NgModule({

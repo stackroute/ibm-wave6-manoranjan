@@ -94,9 +94,17 @@
        
      </div>
      <ul>
-       <li *ngFor="let crew of crewList">
-         {{crew.crewName}}  {{crew.crewRole}}
-         <button (click)="deleteCrew(crew.crewName,crew.crewRole)">Delete</button>
+       <li>
+         <table  *ngFor="let crew of crewList">
+           <tr>
+              <td width="300px">
+                {{crew.crewName}}  {{crew.crewRole}}
+              </td>
+              <td width="115px">
+                <button (click)="deleteCrew(crew.crewName,crew.crewRole)">Delete</button>
+              </td>
+            </tr>
+         </table>
        </li>
      </ul>
      <div class="row">
@@ -147,9 +155,17 @@
      
      </div>
      <ul>
-         <li *ngFor="let cast of castList">
-           {{cast.screenName}}  {{cast.realName}}
-           <button (click)="deleteCast(cast.screen,cast.real)">Delete</button>
+         <li>
+           <table *ngFor="let cast of castList">
+             <tr>
+               <td width="300px">
+                {{cast.screenName}}  {{cast.realName}}
+              </td>
+           <td width="115px">
+           <button (click)="deleteCast(cast.screenName,cast.realName)">Delete</button>
+           </td>
+           </tr>
+           </table>
          </li>
        </ul>
      <div class="row">
@@ -178,7 +194,7 @@
       </div>
        <div class="col-4">
         <!-- <mat-form-field> -->
-          <input class="form-control" type="text" #realName formControlName="realName"  required>
+          <input class="form-control" type="text" #realName formControlName="realName" >
      
          <mat-error *ngFor="let validation of validation_messages.realName">
           <mat-error class="error-message" *ngIf="secondFormGroup.get('realName').hasError(validation.type) && (secondFormGroup.get('realName').dirty || secondFormGroup.get('realName').touched)">{{validation.message}}
@@ -202,66 +218,73 @@
 <!--end second form group-->
 
     <mat-step [stepControl]="thirdForm">
-    <form #viewerForm="ngForm" [formGroup]="thirdFormGroup"  class="form-horizontal"  (ngSubmit)="onThirdSubmit(thirdFormGroup.value)">
+    <form #viewerForm="ngForm" [formGroup]="thirdFormGroup"  class="form-horizontal form3"  (ngSubmit)="onThirdSubmit(thirdFormGroup.value)">
       <ng-template matStepLabel><span class="headingStyle">Episode Details</span></ng-template>
         <mat-card class="example-card">
           <mat-card-content class="content">
-            <p>Episode List</p>
+            <p class="form3-heading">Episode List</p>
                <!-- <table > -->
                    <div class="row">
                      <div class="col-5">
                        <label >Episode Number</label> </div> 
                     <div class="col-7">
-                       <mat-form-field>
-                          <input class="form-control" type="number" name="episodeNo" formControlName="episodeNo"  matInput   required>
+                       <!-- <mat-form-field> -->
+                          <input class="form-control" type="number" name="episodeNo" formControlName="episodeNo" required>
                             <!-- <mat-error *ngFor="let validation of validation_messages.episodeNo">
                             <mat-error class="error-message" *ngIf="thirdFormGroup.get('episodeNo').hasError(validation.type) && (thirdFormGroup.get('episodeNo').dirty || thirdFormGroup.get('episodeNo').touched)">{{validation.message}}
                             </mat-error>
                             </mat-error> -->
-                       </mat-form-field> 
+                       <!-- </mat-form-field>  -->
                      </div> 
                    </div> 
+                   <br>
                    <div class="row">
                       <div class="col-5">
-                         <label >Video File</label>
+                         <label class="videoFile">Video File</label>
                       </div> 
-                      <div class="col-7">
-                            <input type="file" class="form-control" formControlName="episodeUrl" (change)="selectVideo($event)">
-                            <button mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo">Upload</button>
+                      <div class="col-4">
+                          <input class="aligns" type="file" formControlName="episodeUrl" (change)="selectVideo($event)"
+                          accept="image/*">
+                           
+                          </div>
+                          <div class="col-3">
+                            <button mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo" style="margin-right: 0px;">Upload</button>
                      </div> 
                   </div>  
+                  <br>
      <!-- gender row is closed-->
                      <div class="row">
                          <div class="col-5">
-                            <label >Description</label>
+                            <label class="description" >Description</label>
                          </div> 
                              <div class="col-7">
-                               <mat-form-field>
-                                <input class="form-control" type="text" name="posterDescription" formControlName="posterDescription"  matInput   required>
+                               <!-- <mat-form-field> -->
+                                <input class="form-control" type="text" name="posterDescription" formControlName="posterDescription" required>
 <!--                            
                                  <mat-error *ngFor="let validation of validation_messages.posterDescription">
                                  <mat-error class="error-message" *ngIf="thirdFormGroup.get('posterDescription').hasError(validation.type) && (thirdFormGroup.get('posterDescription').dirty || thirdFormGroup.get('posterDescription').touched)">{{validation.message}}
                                  </mat-error>
                                  </mat-error> -->
-                          </mat-form-field>
+                          <!-- </mat-form-field> -->
                         </div> 
                      </div> 
+                     <br><br>
                      <div class="row">
                         <div class="col-5">
-                         <label >Poster</label>
+                         <label class="poster">Poster   </label>
                         </div> 
                         <div class="col-7">
-                        <mat-form-field> 
-                            <input class="form-control" type="text" name="posterUrl" formControlName="posterUrl"  matInput   required>
+                        <!-- <mat-form-field>  -->
+                            <input class="form-control" type="text" name="posterUrl" formControlName="posterUrl" required>
                            
-                         </mat-form-field>
+                         <!-- </mat-form-field> -->
                      </div>  
                   </div> 
 <!-- name row is closed-->
-
+<br>
                      <div class="row">
                         <div class="col-5">
-                           <label >Release Date</label> 
+                           <label class="releaseDate">Release Date</label> 
                         </div> 
                         <div class="col-7">
                         <mat-form-field>
