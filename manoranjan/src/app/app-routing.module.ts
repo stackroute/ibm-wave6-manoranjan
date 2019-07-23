@@ -87,7 +87,7 @@ const routes: Routes = [
   {path: 'image',component:ImageComponent},
   {path: 'linknorm',component:LinknormviewComponent},
   {path: 'linkpri',component:LinkpriviewComponent},
-  {path: 'linkprilog',component:LinkpriviewloginComponent},
+  {path: 'linkprilog/:email',component:LinkpriviewloginComponent},
   {path: 'linkdocpri',component:LinkDocPriComponent},
   {path: 'linktvpri',component:LinkTvPriComponent},
   {path: 'linkmoviepri',component:LinkMoviePriComponent},
