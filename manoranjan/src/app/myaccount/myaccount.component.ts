@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../user';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { UserService } from '../user.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Userauthen } from '../userauthen';
 
 
 @Component({
@@ -11,14 +13,25 @@ import { UserService } from '../user.service';
 })
 export class MyaccountComponent implements OnInit {
 
-  users:User[];
+  users:User;
+  user=new User();
   emailId;
-  constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService) { }
+  constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
-    this.userService.getById(this.emailId).subscribe(data => {
-      this.users = data;
-    });
-  }
 
+    // this.activatedRoute.paramMap.subscribe(params=>{
+    //   this.emailId=params.get('email');
+      
+      this.user.emailId=sessionStorage.getItem('emailId');
+      console.log(this.user.emailId)
+      this.userService.getById(this.user.emailId).subscribe(data => {
+        this.users = data;
+        console.log("POST Request is successful ", data);},
+        error => {
+          alert("Login Unsuccessful, tryagain")
+          console.log("Error", error);}
+      );
+    // });
+   }
 }
