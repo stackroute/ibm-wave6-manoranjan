@@ -14,25 +14,37 @@ section{
   flex: 1 1 auto;
   margin-top: 10px;
   }
+
    mat-toolbar {
      margin-top: 10px;
    background-color: white;
   }
+  mat-horizontal-stepper form{
+  margin-left: 17%; 
+  margin-right: 16%;   
+}
+
+.addButton{
+  margin-top: 10px;
+  margin-left: 28%;
+}
   table{
     margin: auto;
   }
-  .mat-button-toggle {
-    /* border: 1px solid black; */
-    /* border-radius: 4px; */
-  border: 0;
-  }
-  img:hover{
-   opacity: 0.5; 
-  }
-  .mat-button-toggle-checked {
-    border: 2px solid black;
-    background-color: rgb(177, 208, 238); 
-  }
+
+ .name{
+   margin-left: -10px;
+ }
+ .role{
+  margin-left: -5px;
+ }
+
+ .screenName{
+  margin-left: -10px;
+}
+.realName{
+  margin-left: -5px;  
+}
   mat-card{
   margin-left: 10%;
   margin-right: 10%;
