@@ -100,6 +100,8 @@ services:
     image: mongo:3.4-xenial
     restart: always
     network_mode: "host"
+    volumes:
+      - $HOME/data/datamongo:/data/db
     ports:
       - 27017:27017
     expose:
@@ -119,3 +121,17 @@ services:
         - 8050:8050
       expose:
         - 8050
+
+  mediaManagerService:
+    image: media-manager:1.0.0
+    build: mediaManagerService/
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - mongo
+      - eureka-server
+      - zuul-api
+    ports:
+      - 8060:8060
+    expose:
+      - 8060

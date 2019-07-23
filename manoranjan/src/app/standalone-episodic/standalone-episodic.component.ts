@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-standalone-episodic',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StandaloneEpisodicComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
+  sendStandalone(title,category,synopsis){
+    this.router.navigateByUrl('/standalonestepper/'+title+'/'+category+'/'+synopsis);
+  }
+
+  sendEpisodic(title1,category1,synopsis1){
+    this.router.navigateByUrl('/episodic/'+title1+'/'+category1+'/'+synopsis1);
+  }
 }

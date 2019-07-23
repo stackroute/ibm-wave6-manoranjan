@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Media } from './media';
+import { Episodic } from './episodic';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class MediaService {
    let formdata: FormData = new FormData();
 
    formdata.append('file', file);
-   const req = new HttpRequest('POST', 'http://localhost:8080/stream/v1/post', formdata, {
+   const req = new HttpRequest('POST', 'http://localhost:8060/stream/v1/post', formdata, {
     
      reportProgress: true,
      responseType: 'text'
@@ -27,7 +28,7 @@ export class MediaService {
  }
 
  saveMedia(media:Media){
-   return this.http.post<Media>("http://localhost:8080/stream/v1/media",media);
+   return this.http.post<Media>("http://localhost:8060/stream/v1/media",media);
  }
 
  getAllMedia(){
@@ -44,6 +45,10 @@ export class MediaService {
         'Access-Control-Allow-Origin' : '*'
       })
     });
+  }
+
+  saveSerial(serial:Episodic){
+    return this.http.post<Episodic>("http://localhost:8080/stream/v1/serial",serial);
   }
 
 }

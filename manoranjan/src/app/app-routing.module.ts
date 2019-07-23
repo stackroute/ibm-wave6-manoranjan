@@ -64,6 +64,11 @@ import { EditComponent } from './edit/edit.component';
 import { StandaloneStepperComponent } from './standalone-stepper/standalone-stepper.component';
 import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-episodic.component';
 
+import{ProducerprofileComponent} from './producerprofile/producerprofile.component';
+
+import { EpisodicComponent } from './episodic/episodic.component';
+
+
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
   {path :'feedback',component:FeedbackComponent},
@@ -126,8 +131,12 @@ const routes: Routes = [
   {path:'myaccount',component:MyaccountComponent},
   {path:'edit',component:EditComponent},
   {path :'payment',component:PaymentComponent},
+  {path :'producer',component:ProducerprofileComponent},
   {path:'standaloneepisodic',component:StandaloneEpisodicComponent},
-  {path:'standalonestepper',component:StandaloneStepperComponent},
+  {path:'episodic/:title/:category/:synopsis',component:EpisodicComponent},
+
+  {path:'standalonestepper/:title/:category/:synopsis',component:StandaloneStepperComponent},
+
   {path: '**', redirectTo: '/navland'},
 
 ];

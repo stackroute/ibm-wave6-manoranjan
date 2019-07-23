@@ -14,4 +14,7 @@ export class UserService {
   saveUser(user:User){
    return this.http.post<User>("http://localhost:8011/userservice/user",user);
   }
+  getById(emailId):any{
+    return this.http.get("http://localhost:8011/userservice/users/"+emailId);
+   }
 }

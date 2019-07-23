@@ -71,4 +71,14 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+    @Override
+    public User getById(String emailId) {
+        user = null;
+        Optional optional = userRepository.findById(emailId);
+        if (optional.isPresent()) {
+             user= userRepository.findById(emailId).get();
+        }
+        return user;
+    }
+
 }
