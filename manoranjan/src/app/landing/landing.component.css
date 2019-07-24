@@ -23,6 +23,7 @@ h5{
 }
 .new{
     background: black;
+    widows: 500px;
 }
 .first{
     position: absolute;

@@ -22,6 +22,7 @@ h3{
     margin-left: 700px;
 }
 .one{
+    margin-top: 400px;
     background-image: url("../../assets/e6.jpg");
     /* background-image: linear-gradient(to bottom right, rgb(92, 192, 218),rgb(175, 37, 37),black); */
 }
