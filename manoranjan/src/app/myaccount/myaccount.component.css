@@ -5,12 +5,15 @@ body{
 .emp-profile{
     padding: 3%;
     margin-top: 10%;
-    margin-bottom: 15%; 
+    margin-bottom: 5%; 
     border-radius: 0.2rem;
     background: #fff;
     color: black;
     font-family: 'Merriweather',serif;
     
+}
+app-footer{
+    height: 500px;
 }
 .profile-img{
     text-align: center;

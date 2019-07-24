@@ -11,15 +11,15 @@
 
       <mat-card class="example-card"  style="margin-top:-70px" >
           <mat-card-content class="content" >
-            <div class="container2">
+            <div class="container3">
               <div class="row">
-                  <p>Genre</p>
+                  <h6>Genre</h6>
               </div>
               <mat-card class="example-card">
         
                   <mat-card-content class="content">
               
-                    <mat-grid-list cols="3" style="margin-top:-20px">
+                    <mat-grid-list cols="3" id="firstgrid">
                       <mat-grid-tile >
                           <mat-button-toggle class="imageCard"  (change)="onSubmInterest($event.value)" value="romantic">
                             <img  mat-card-md-image src="/assets/images/romantic.jpg" alt="romantic">
@@ -56,7 +56,7 @@
                         </mat-button-toggle>
                 </mat-grid-tile>
              </mat-grid-list>
-      <mat-grid-list cols="3">
+      <mat-grid-list cols="3" id="gridimages">
           <mat-grid-tile>
                   <mat-button-toggle (change)="onSubmInterest($event.value)"  value="horror">
                     <img  mat-card-md-image src="/assets/images/horror.jpg" alt="Horror">
@@ -108,7 +108,7 @@
                         </div>
                         <div class="col-sm-8" id="date" style="margin-top: -40px">
                         <mat-form-field >
-                            <input class="form-control" matInput formControlName="date" [matDatepicker]="picker" placeholder="  ">
+                            <input class="form-control" matInput formControlName="date" [matDatepicker]="picker" placeholder="Select date">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                             <mat-error><span *ngIf="firstFormGroup.controls['date'].hasError('required')">Please choose a date.</span>
@@ -133,7 +133,7 @@
 <mat-card class="example-card">
 <mat-card-content class="content">
 <div class="container2">
-      <div class="row">
+      <div class="row" id="studioName">
           <div class="col-3">
               <label>Studio Name</label>
             </div>
@@ -198,7 +198,7 @@
             <td width="300px">
           {{crew.crewName}} --> {{crew.crewRole}} 
           </td>
-          <td width="115px">
+          <td width="110px">
           <button (click)="deleteCrew(crew.crewName,crew.crewRole)" id="delete">Delete</button>
           </td>
           </tr>
@@ -239,7 +239,7 @@
         </div>
       
       </form>
-    </div><br>
+    </div>
     <ul>
         <li>
           <table  *ngFor="let cast of castList">
@@ -247,7 +247,7 @@
             <td width="300px">
             {{cast.realName}}  As  {{cast.screenName}}  
             </td>
-            <td width="115px">
+            <td width="110px">
           <button (click)="deleteCast(cast.screenName,cast.realName)" id="delete">Delete</button>
           </td>
             </tr>
@@ -270,7 +270,7 @@
           <mat-card-content class="content">
       
             <div class="container1">
-                <div class="row">
+                <div class="row" id="posterImage">
                     <div class="col-sm-4">
                         <label>Poster Image:</label>
                     </div>
@@ -281,7 +281,7 @@
                         </mat-error>
                         </mat-error>
                      </div>
-                </div><br>
+                </div><br><br>
               <div class="row">
                   <div class="col-sm-4" id="videoFile">
                       <label>Video File:</label>
@@ -294,7 +294,7 @@
                     <button mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo">Upload</button>
                   </div>
                   </div>
-              </div><br>
+              </div><br><br>
                     <div class="row">
                       <div class="col-sm-4" id="trailer">
                           <label>Trailer(optional):</label>
@@ -309,10 +309,10 @@
                       </div>
                   <!-- </div> -->
 
-                  </div><br>
+                  </div><br><br>
                   <div class="row">
                       <div class="col-sm-4" id="userWatch">
-                          <label>How will users watch this video:</label>
+                          <label>Content type:</label>
                       </div>
                       <div class="col-sm-8" id="select1">
                           <select class="selectpicker" formControlName="type" data-width="fit">
@@ -341,7 +341,7 @@
     <mat-card class="example-card">
   
         <mat-card-content class="content">
-            <div >
+            <div class="container4">
               <h3>Thank you!</h3>
               <br>
               <p>Successfully uploaded</p>
