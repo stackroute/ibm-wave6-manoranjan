@@ -168,8 +168,8 @@ mat-card-content mat-grid-list{
    img{
      margin-top: 10px;
      margin-bottom: 10px;
-     height:70px;
-     width: 70px;
+     height:80px;
+     width: 170px;
    } 
   .mat-form-field-infix {
     top: -0.25em;
