@@ -29,7 +29,7 @@ export class MyaccountComponent implements OnInit {
         this.users = data;
         console.log("POST Request is successful ", data);},
         error => {
-          alert("Login Unsuccessful, tryagain")
+          // alert("Login Unsuccessful, tryagain")
           console.log("Error", error);}
       );
     // });

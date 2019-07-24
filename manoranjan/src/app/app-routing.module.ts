@@ -63,8 +63,9 @@ import { MyaccountComponent } from './myaccount/myaccount.component';
 import { EditComponent } from './edit/edit.component';
 import { StandaloneStepperComponent } from './standalone-stepper/standalone-stepper.component';
 import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-episodic.component';
-
+import { ProducernavComponent } from './producernav/producernav.component';
 import{ProducerprofileComponent} from './producerprofile/producerprofile.component';
+import { EditproducerprofileComponent } from './editproducerprofile/editproducerprofile.component';
 
 import { EpisodicComponent } from './episodic/episodic.component';
 
@@ -88,6 +89,7 @@ const routes: Routes = [
   {path: 'linknorm',component:LinknormviewComponent},
   {path: 'linkpri',component:LinkpriviewComponent},
   {path: 'linkprilog/:email',component:LinkpriviewloginComponent},
+  {path: 'linkprilog',component:LinkpriviewloginComponent},
   {path: 'linkdocpri',component:LinkDocPriComponent},
   {path: 'linktvpri',component:LinkTvPriComponent},
   {path: 'linkmoviepri',component:LinkMoviePriComponent},
@@ -130,8 +132,10 @@ const routes: Routes = [
   {path :'package',component:PackageComponent},
   {path:'myaccount',component:MyaccountComponent},
   {path:'edit',component:EditComponent},
+  {path:'editpro',component:EditproducerprofileComponent},
   {path :'payment',component:PaymentComponent},
-  {path :'producer',component:ProducerprofileComponent},
+  {path :'producerpro',component:ProducerprofileComponent},
+  {path :'producer',component:ProducernavComponent},
   {path:'standaloneepisodic',component:StandaloneEpisodicComponent},
   {path:'episodic/:title/:category/:synopsis',component:EpisodicComponent},
   {path:'standalonestepper/:title/:category/:synopsis',component:StandaloneStepperComponent},
