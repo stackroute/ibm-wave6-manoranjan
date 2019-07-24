@@ -31,7 +31,19 @@ section{
   table{
     margin: auto;
   }
-
+  ul li{
+    list-style-type: none;
+  }
+  ul{
+    color: blue;
+    list-style-type: none;
+  }
+  ul li table{
+    margin-left: 75px;
+  }
+  ul li table tr td{
+    border: 1px solid black;
+  }
  .name{
    margin-left: -10px;
  }
@@ -59,14 +71,29 @@ section{
     margin-bottom: 0px;
     
   } 
+  .form3 .form3-heading{
+    font-weight: bold;
+    margin-left: -64%;
+  }
+  .form3 .videoFile{
+    margin-left: -40px;
+  }
+  .form3 .description{
+    margin-left: -38px;
+  }
+  .form3 .poster{
+    margin-left: -60px;
+  }
+  .form3 .releaseDate{
+    margin-left: -20px;
+  }
   p,tr td, .form-control,button,.headingStyle,mat-radio-button {
     font-family: 'Merriweather', serif;
   }
   .example-card {
     max-width: 100%;
     margin-top: -10px;
-      }
-  
+      }    
   .mat-form-field-infix {
     top: -0.25em;
   }

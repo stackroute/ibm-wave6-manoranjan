@@ -31,6 +31,10 @@ p{
    .container{
      margin-left: 15px;
    }
+   mat-horizontal-stepper form{
+    margin-left: 15%; 
+    margin-right: 14%;   
+  }
    #videoFile{
      margin-left: -55px;
    }
@@ -65,11 +69,11 @@ p{
    #select2{
      margin-left: -20px;
    }
-   #input3{
+   /* #input3{
      margin-left: -50px;
-   }
+   } */
    #crew{
-     margin-left: -25px;
+     margin-left: 2px;
    }
    li{
      list-style-type: none;
@@ -79,43 +83,42 @@ p{
      margin-left: 30px;
    }
    #name{
-     margin-left: 55px;
+     margin-left: -6px;
    }
    #role{
-     margin-left: 50px;
+     margin-left: -3px;
    }
    #input{
      margin-top: -50px;
      margin-left: -10px;
    }
-   #select{
-     margin-top: -48px;
-     margin-left: 178px;
-   }
+ 
    #submit{
-     margin-top: -10px;
-     margin-left: 175px;
+     margin-top: 10px;
+     margin-left: 185px;
    }
    #cast{
-     margin-left: -25px;
+     margin-left: 2px;
    }
    #screenName{
-     margin-left: 80px;
-   }
-   #realName{
-     margin-left: 6px;
-   }
-   #input1{
-     margin-top: -50px;
      margin-left: -10px;
    }
-   #input2{
-     margin-top: -50px;
-     margin-left: 200px;
+   #realName{
+     margin-left: -6px;
    }
+   ul{
+    color: blue;
+  }
+  ul li table{
+    margin-left: 300px;
+  }
+  ul li table tr td{
+    border: 1px solid black;
+  }
+  
    #submit1{
-     margin-top:-10px;
-     margin-left: 175px;
+     margin-top:10px;
+     margin-left: 185px;
    }
    #input4{
      margin-left: -60px;
