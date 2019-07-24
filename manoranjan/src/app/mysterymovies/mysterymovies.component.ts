@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Media } from '../media';
+import { MediaService } from '../media.service';
 
 @Component({
   selector: 'app-mysterymovies',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MysterymoviesComponent implements OnInit {
 
-  constructor() { }
+  movies;
+  movies1=new Array<Media>()
+  constructor(private mediaService:MediaService) { }
 
   ngOnInit() {
+    this.mediaService.getMovieByGenre("mystery").subscribe(data=>{
+      this.movies=data
+      this.movies1=this.movies
+      console.log(this.movies1)
+    })
   }
 
 }

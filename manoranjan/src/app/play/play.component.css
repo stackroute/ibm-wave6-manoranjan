@@ -1,0 +1,17 @@
+div{
+    position:fixed;
+}
+h3{
+    margin-left:100%;
+    width: 100%;
+    margin-top: 80%;
+    color: white;
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+}
+#video{
+    height:70%;
+    width:70%;
+    margin-top: 1%;
+    margin-left: 15%
+}

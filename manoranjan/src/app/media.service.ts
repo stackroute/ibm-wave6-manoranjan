@@ -17,7 +17,7 @@ export class MediaService {
    let formdata: FormData = new FormData();
 
    formdata.append('file', file);
-   const req = new HttpRequest('POST', 'http://localhost:8060/stream/v1/post', formdata, {
+   const req = new HttpRequest('POST', 'http://localhost:8080/stream/v1/post', formdata, {
     
      reportProgress: true,
      responseType: 'text'
@@ -28,7 +28,7 @@ export class MediaService {
  }
 
  saveMedia(media:Media){
-   return this.http.post<Media>("http://localhost:8060/stream/v1/media",media);
+   return this.http.post<Media>("http://localhost:8080/stream/v1/media",media);
  }
 
  getAllMedia(){
@@ -39,8 +39,8 @@ export class MediaService {
     });
   }
 
-  getMediaById(id){
-    return this.http.get('http://localhost:8080/stream/v1/media/'+id,{
+  getMediaById(title){
+    return this.http.get('http://localhost:8080/stream/v1/media/'+title,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
@@ -49,6 +49,22 @@ export class MediaService {
 
   saveSerial(serial:Episodic){
     return this.http.post<Episodic>("http://localhost:8080/stream/v1/serial",serial);
+  }
+
+  getDocumentries(){
+    return this.http.get('http://localhost:8080/stream/v1/media/category/Documentary',{
+      headers:new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    });
+  }
+
+  getMovieByGenre(genre:string){
+    return this.http.get('http://localhost:8080/stream/v1/media/movie/'+genre,{
+      headers:new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    });
   }
 
 }

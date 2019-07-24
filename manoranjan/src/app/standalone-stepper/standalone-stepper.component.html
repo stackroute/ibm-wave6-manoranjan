@@ -256,7 +256,7 @@
                       <label>Video File:</label>
                   </div>
                   <div class="col-sm-8" id="chooseFile">
-                      <input class="aligns" type="file" [(ngModel)]="video" formControlName="video" (change)="selectVideo($event)"
+                      <input class="aligns" type="file" formControlName="video" (change)="selectVideo($event)"
                       accept="video/*">
                       <div id="upload">
                     <!-- <input type="file" class="form-control" formControlName="video" (change)="selectVideo($event)"> -->
@@ -269,7 +269,7 @@
                           <label>Trailer(optional):</label>
                       </div>
                       <div class="col-sm-8" id="chooseFile1">
-                          <input class="aligns" type="file" [(ngModel)]="trailer" formControlName="trailer" (change)="selectTrailer($event)"
+                          <input class="aligns" type="file" formControlName="trailer" (change)="selectTrailer($event)"
                           accept="video/*">
                           <div id="upload1">
                         <!-- <input type="file" class="form-control" formControlName="trailer" (change)="selectTrailer($event)"> -->
@@ -328,8 +328,3 @@
 
 </mat-card>
 </section>
-
-
-
-
-

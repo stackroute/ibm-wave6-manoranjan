@@ -67,6 +67,7 @@ import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-ep
 import{ProducerprofileComponent} from './producerprofile/producerprofile.component';
 
 import { EpisodicComponent } from './episodic/episodic.component';
+import { PlayComponent } from './play/play.component';
 
 
 const routes: Routes = [
@@ -79,7 +80,8 @@ const routes: Routes = [
   {path: 'login',component:LoginComponent},
   {path: 'register',component:RegistrationComponent},
   {path: 'navnorm',component:NavNormComponent},
-  {path: 'movie',component:MoviesComponent},
+  // {path: 'movie',component:MoviesComponent},
+  {path: 'movie/:title',component:MoviesComponent},
   {path: 'wish',component:WishlistComponent},
   {path: 'moviedes',component:LinkMovieNorComponent},
   {path: 'tv',component:LinkTvNorComponent},
@@ -136,7 +138,7 @@ const routes: Routes = [
   {path:'episodic/:title/:category/:synopsis',component:EpisodicComponent},
 
   {path:'standalonestepper/:title/:category/:synopsis',component:StandaloneStepperComponent},
-
+  {path:'play/:title/:url',component:PlayComponent},
   {path: '**', redirectTo: '/navland'},
 
 ];
