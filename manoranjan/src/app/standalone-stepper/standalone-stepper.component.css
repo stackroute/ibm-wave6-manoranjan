@@ -5,6 +5,10 @@
     margin-top: -10px;
 
       }
+label{
+  font-size: 15px;
+  font-weight:bold;
+}
 .container1{
    height: 368px;
    margin-left: 50px;

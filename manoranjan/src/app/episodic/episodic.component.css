@@ -1,37 +1,41 @@
-
-/* section{
-
-     height:95%;
-    overflow: hidden; 
-    margin-right: 40px;
-    margin-left: 40px;
-    margin-bottom: 30px;
-  }  */
+.container{
+  height: 378px;
+  margin-left: -40px;
+}
+.container1{
+  height: 400px;
+}
   .example-card {
     max-width: 100%;
+    width:100%;
     font-family: 'Merriweather', serif;
     font-weight: bold;
-    margin-top: -10px;
+    overflow: hidden;
       }
-  mat-horizontal-stepper{
-    margin-top: 40px;
-  }
   .fill-remaining-space{
   flex: 1 1 auto;
-  margin-top: 10px;
+  }
+  #language{
+    margin-top: 150px;
+  }
+  #input{
+    margin-left: 10px;
+  }
+  #input1{
+    margin-left: 15px;
   }
 
+  #poster{
+    margin-left: -10px;
+  }
+  #type{
+    margin-left: -15px;
+  }
    mat-toolbar {
-     margin-top: 10px;
    background-color: white;
   }
-  mat-horizontal-stepper form{
-  margin-left: 15%; 
-  margin-right: 14%;   
-}
 
 .addButton{
-  margin-top: 10px;
   margin-left: 28%;
 }
   table{
@@ -64,17 +68,13 @@
   margin-left: -5px;  
 }
   mat-card{
-  margin-left: 10%;
-  margin-right: 10%;
   height: 100%;
-  margin-top: 2%;
+  margin-top: 10px;
+  overflow: hidden;
   }
-  mat-grid-list{
-    margin-bottom: 100px;
-  }
+
   .content1{
-    margin-left: 30px;
-    margin-bottom: 0px;
+    margin-left: 10px;
     
   } 
   .form3 .form3-heading{
@@ -96,13 +96,7 @@
   p,tr td, .form-control,button,.headingStyle,mat-radio-button {
     font-family: 'Merriweather', serif;
   }
-   
-  .mat-form-field-infix {
-    top: -0.25em;
-  }
-  mat-grid-list{
-    margin-bottom: -160px;
-  }
+
   mat-button-toggle{
   height: 125px;
   width: 175px;
@@ -113,9 +107,6 @@
     color: red;
   }
   
-  .mat-form-field-infix {
-    top: -0.25em;
-  }
   .form-horizontal{
       text-align: center;
       margin-left: 22%;
@@ -129,7 +120,6 @@
   .column {
     float: left;
     width: 45%;
-    padding: 0 10px;
   }
   
   /* Remove extra left and right margins, due to padding */
@@ -147,29 +137,26 @@
     .column {
       width: 100%;
       display: block;
-      margin-bottom: 20px;
     }
   }
   
   /* Style the counter cards */
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 16px;
     text-align: center;
     background-color: #f1f1f1;
   }
-  
-  .user-profile{
-    width: 50%;
-    margin-left: 24px;
-    margin-top: 10px;
+  section{
+    margin-left: 140px;
+    margin-right: 135px;
+    overflow: hidden;
   }
+  
     .person-icon{
         width: 200px;
         height: 200px;
     }
   form{
-  padding-top: 50px;
   border-block-start-color: black;
   border-block-end-color: black;
   border-block-start-width: 10px;
