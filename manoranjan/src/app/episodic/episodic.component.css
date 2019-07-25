@@ -3,7 +3,11 @@
   margin-left: -40px;
 }
 .container1{
-  height: 400px;
+  margin-top: 30px;
+  height: 487px;
+}
+.container2{
+  height: 520px;
 }
   .example-card {
     max-width: 100%;
@@ -18,6 +22,9 @@
   #language{
     margin-top: 150px;
   }
+  /* .container1 #studioDetails{
+    margin-top: 100px;
+  } */
   #input{
     margin-left: 10px;
   }
@@ -49,7 +56,7 @@
     list-style-type: none;
   }
   ul li table{
-    margin-left: 75px;
+    margin-left: 132px;
   }
   ul li table tr td{
     border: 1px solid black;
@@ -138,6 +145,50 @@
       width: 100%;
       display: block;
     }
+  }
+  label{
+    font-size:15px;
+    font-weight: bold;
+  }
+  #studioName{
+    margin-left: -6px;
+    margin-top: 50px;
+  }
+  #input4{
+    margin-left: 5px;
+    margin-top: 50px;
+  }
+  #screenName{
+    margin-left:90px;
+    margin-top: -50px;
+  }
+  #realName{
+    margin-top: -50px;
+    margin-left: -12px;
+  }
+  #input5{
+    margin-top: 20px;
+    margin-left: 160px;
+  }
+
+  #input6{
+    margin-top: 20px;
+  }
+
+  #name{
+    margin-top: -50px;
+    margin-left: 90px;
+  }
+  #role{
+    margin-left: -33px;
+    margin-top: -50px;
+  }
+  #input2{
+    margin-top: 20px;
+    margin-left:160px;
+  }
+  #input3{
+    margin-top: 20px;
   }
   
   /* Style the counter cards */
