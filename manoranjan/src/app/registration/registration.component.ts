@@ -15,11 +15,12 @@ export class RegistrationComponent implements OnInit {
   user:User=new User();
   completeDetails = []
   genre =[]
+  email;
 
   firstFormGroup: FormGroup
   secondFormGroup: FormGroup
 
-  constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService, private router: Router) {}
+  constructor(private route:ActivatedRoute,private router:Router,private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService) {}
     
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -34,6 +35,7 @@ export class RegistrationComponent implements OnInit {
       mobileNo:["", Validators.compose([ Validators.maxLength(10),Validators.required,
           Validators.minLength(10),Validators.pattern("^[0-9]+")])]
     });
+    
   }
 
   onSubmitViewerDetails(value) {
@@ -73,6 +75,8 @@ export class RegistrationComponent implements OnInit {
           alert("Invalid")
           console.log("Error", error);}
           );
+          
+          this.router.navigateByUrl('/package/'+this.completeDetails[0].emailId); 
     }
      
   validation_messages = {

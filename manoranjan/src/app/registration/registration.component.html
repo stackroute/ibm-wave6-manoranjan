@@ -25,7 +25,7 @@
         <!-- name row is closed-->
                    <tr><td > <label>Email</label></td>
                       <mat-form-field>
-                        <td > <input class="form-control"  type="text" name="emailId" formControlName="emailId" [(ngModel)]="emailId"  matInput  required ></td>
+                        <td > <input class="form-control" #email type="text" name="emailId" formControlName="emailId" [(ngModel)]="emailId"  matInput  required ></td>
                          <mat-error *ngFor="let validation of validation_messages.emailId">
                             <mat-error class="error-message" *ngIf="firstFormGroup.get('emailId').hasError(validation.type) && (firstFormGroup.get('emailId').dirty || firstFormGroup.get('emailId').touched)">{{validation.message}}
                             </mat-error>
@@ -168,7 +168,7 @@
 <!-- form 3rd is closed-->
          
          <mat-step [stepControl]="fourthForm">
-          <form #viewerForm="ngForm"  (ngSubmit)="onSubmit()" class="form-horizontal" >
+          <form #viewerForm="ngForm" class="form-horizontal" >
                <ng-template matStepLabel><span class="headingStyle">See Status</span></ng-template>
                <mat-card class="example-card">
                 <mat-card-content class="content">
@@ -186,7 +186,7 @@
                  </mat-card-content>
                  <div style="margin-top: -10px">
                     <button mat-stroked-button matStepperPrevious>Back</button>&nbsp;
-                    <button type="submit" (click)="submitDetails()" routerLink="/package" mat-stroked-button matStepperNext>Submit</button>
+                    <button type="submit" (click)="submitDetails()" mat-stroked-button matStepperNext>Submit</button>
                  </div>
              </mat-card>   
   </form>

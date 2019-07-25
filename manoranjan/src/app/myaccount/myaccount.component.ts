@@ -23,7 +23,7 @@ export class MyaccountComponent implements OnInit {
     // this.activatedRoute.paramMap.subscribe(params=>{
     //   this.emailId=params.get('email');
       
-      this.user.emailId=sessionStorage.getItem('emailId');
+      this.user.emailId=sessionStorage.getItem('email');
       console.log(this.user.emailId)
       this.userService.getById(this.user.emailId).subscribe(data => {
         this.users = data;
