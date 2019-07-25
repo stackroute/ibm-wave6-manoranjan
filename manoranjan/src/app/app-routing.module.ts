@@ -89,7 +89,7 @@ const routes: Routes = [
   {path: 'image',component:ImageComponent},
   {path: 'linknorm',component:LinknormviewComponent},
   {path: 'linkpri',component:LinkpriviewComponent},
-  {path: 'linkprilog',component:LinkpriviewloginComponent},
+  {path: 'linkprilog/:email',component:LinkpriviewloginComponent},
   {path: 'linkdocpri',component:LinkDocPriComponent},
   {path: 'linktvpri',component:LinkTvPriComponent},
   {path: 'linkmoviepri',component:LinkMoviePriComponent},
@@ -136,11 +136,9 @@ const routes: Routes = [
   {path :'producer',component:ProducerprofileComponent},
   {path:'standaloneepisodic',component:StandaloneEpisodicComponent},
   {path:'episodic/:title/:category/:synopsis',component:EpisodicComponent},
-
   {path:'standalonestepper/:title/:category/:synopsis',component:StandaloneStepperComponent},
   {path:'play/:title/:url',component:PlayComponent},
   {path: '**', redirectTo: '/navland'},
-
 ];
 
 @NgModule({

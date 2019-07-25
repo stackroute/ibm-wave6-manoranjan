@@ -9,17 +9,24 @@ import {ActivatedRoute,Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 user:Userauthen=new Userauthen();
+// users;
   constructor(private router:Router, private route:ActivatedRoute,private userService:UserauthenService) { }
 
   ngOnInit() {
   }
   submit(email,pass){
     this.user.emailId = email;
+    
     this.user.password = pass;
+    // this.users=email
+    console.log(this.user.emailId);
+    // console.log(this.users)
+  
     this.userService.login(this.user).
     subscribe(
         data => {
-        this.router.navigate(["/linkprilog"],{relativeTo:this.route});
+        // this.router.navigate(["/linkprilog"],{relativeTo:this.route});
+        this.router.navigateByUrl('/linkprilog/'+this.user.emailId);
           console.log("POST Request is successful ", data);},
           
         error => {
@@ -28,5 +35,6 @@ user:Userauthen=new Userauthen();
           console.log("Error", error);}
           
   );
+  // this.router.navigateByUrl('/myaccount/'+this.user.emailId);  
   }
 }

@@ -67,4 +67,20 @@ export class MediaService {
     });
   }
 
+  getShowsByLanguage(language:string){
+    return this.http.get('http://localhost:8080/stream/v1/series/tv/'+language,{
+      headers:new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    });
+  }
+
+  getWebSeries(){
+    return this.http.get('http://localhost:8080/stream/v1/series/category/Web Series',{
+      headers:new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    });
+  }
+
 }

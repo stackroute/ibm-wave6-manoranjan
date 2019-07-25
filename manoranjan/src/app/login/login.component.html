@@ -13,9 +13,10 @@
 
     <!-- Login Form -->
     <form action="login">
-      <input type="text" #emailId class="fadeIn second" name="login" placeholder="Enter your email">
-      <input type="password" #password class="fadeIn third" name="login" placeholder="Password">
+      <input type="text" #emailId class="fadeIn second" placeholder="Enter your email">
+      <input type="password" #password class="fadeIn third" placeholder="Password">
       <input type="submit" (click)="submit(emailId.value,password.value)" class="fadeIn fourth" value="Log In">
+      <!-- <button type="submit" (click)="submit(emailId.value,password.value)"> LogIn</button> -->
     </form>
             
     <!-- Remind Passowrd -->

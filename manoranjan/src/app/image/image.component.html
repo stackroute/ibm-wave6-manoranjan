@@ -1,30 +1,100 @@
 <div class="main">
-    <!-- navbar -->
-    <app-nav-norm></app-nav-norm>
-    <!--end of nevbar section-->
-    <div class="detail-page">
-        <div class="masthead-container">
-            <div class="masthead-card masthead-hover" style="background-color: rgb(59, 23, 25);">
-                <div class="content-holder">
-                    <div class="badge-wrapper"></div>
-                    <div class="toptitle clear-both">Nazar</div>
-                    <div class="content-meta"> 
-                        <span>
-                        
-                            <span class="meta-data">65 Seasons</span>
-                            <span class="meta-data">2694 Episodes</span>
-                            <span class="meta-data">PG</span>
-                            <span class="meta-data">Hindi</span>
-                            <span class="meta-data">Drama</span>
-                        </span> 
+        <!--navbar section-->
+        <app-nav-norm></app-nav-norm>
+        <!--end of nevbar section-->
+        <!-- movie image -->
+            <div class="detail-page">
+                <div class="masthead-container">
+                    <div class="masthead-card masthead-hover" style="background-color: rgb(18, 63, 68);">
+                        <div class="content-holder">
+                            <div class="badge-wrapper"></div>
+                            <div class="toptitle clear-both">{{serial1.episodicTitle}}</div>
+                            <div class="content-meta"> 
+                                <span>
+                                    <!-- <span class="meta-data">2 hr 23 min</span> -->
+                                    <!-- <span class="meta-data">{{date|date:'short'}}</span> -->
+                                    <!-- <span class="meta-data">{{media1.mediaGenre}}</span> -->
+                                    <!-- <span class="meta-data">PG</span> -->
+                                    <span class="meta-data">{{serial1.episodicLanguage}}</span>
+                                </span> 
+                            </div>
+                            <div class="description">
+                                <!-- Based on a novel by Chetan Bhagat; North and South India come together in this chholey-bhaturey-idli-dosa romance of Punjabi Krish Malhotra and Tamilian Ananya Swaminathan, who meet at the IIM campus. -->
+                                {{serial1.episodicSynopsis}}
+                            </div>
+                        </div>
+                        <div class="image-holder">
+                            <div class="imageloader loaded">
+                                <span class="imageloader loaded">
+                                    <!-- <img src="https://secure-media1.hotstarext.com/r1/thumbs/PCTV/02/1000034502/PCTV-1000034502-hcdl.jpg"> -->
+                                    <img src="{{serial1.episodicPosterUrl}}">
+                                </span>
+                            </div>
+                            <div class="watch-share">
+                                <div class="watchlist-holder ">
+                                    <div class="add-to-watchlist ">
+                                        <div class="click-icon " title="Add to Watchlist">
+                                            <div class="click-icon-wrapper">    
+                                                <div class="watchlist-icon bottom-right">
+                                                    <i class="fa fa-list-ul" style="font-size:24px;color:white"></i> 
+                                                </div>
+                                                <p class="icon-title bottom-right2">Watchlist</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="social-holder">
+                                    <div class="click-icon share-click-icon">
+                                        <div class="click-icon-wrapper">
+                                            <div class="share-icon bottom-right">
+                                                <i class="fa fa-share-alt" style="font-size:24px;color:white"></i>
+                                            </div>
+                                            <p class="icon-title bottom-right2">Share</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="social-wrap slide-in">
+                                        <div class="share-wrap">
+                                            <div class="fb-share">
+                                                <a class="fb-icon" title="Share"></a>
+                                            </div>
+                                            <div class="tw-share">
+                                                <a class="tw-icon" title="Tweet"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="action-holder">    
+                                    <div class="action">
+                                        <button type="button" (click)="playVideo()" class="action-container" style="background-color: rgb(18, 63, 68);">
+                                            <div class="action-data">
+                                                <div class="action-play">
+                                                    <div class="play-btn">
+                                                        <i class="fa fa-play" style="font-size:24px"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="action-content">
+                                                    <div class="action-primary-txt pull-left">
+                                                        <div>Watch</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="image-gradient" style="background: linear-gradient( to left, rgba(0, 0, 0, 0), rgb(18, 63, 68));">
+                            <div class="footer-gradient" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(18, 63, 68, 0.6));">
+                            </div> 
+                        </div> 
                     </div>
-                    <div class="description">
-                    An evil entity who bewitches the Rathod family, and outlines the struggles faced by the family under her evil eye. It stars Antara Biswas, Harsh Rajput and Niyati Fatnani in lead roles, who portray Mohana Rathod.
-                    </div>
-                    <div class="container">
+                    <!-- <div class="container">
                         <div class="action-holder">    
                             <div class="action">
-                                <a class="action-container" href="/movies/2-states/1000034502/watch">
+                                <button type="button" routerLink="/about1" class="action-container" style="background-color: rgb(18, 63, 68);">
                                     <div class="action-data">
                                         <div class="action-play">
                                             <div class="play-btn">
@@ -33,64 +103,20 @@
                                         </div>
                                         <div class="action-content">
                                             <div class="action-primary-txt pull-left">
-                                                <div>Watch Episode</div>
+                                                <div>Watch Movie</div>
                                             </div>
                                         </div>
                                     </div>
-                                </a>
+                                </button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="image-holder">
-                    <div class="imageloader loaded">
-                        <span class="imageloader loaded">
-                            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_hcdl/sources/r1/cms/prod/1888/311888-h">
-                        </span>
-                    </div>
-                    <div class="watch-share">
-                        <div class="watchlist-holder ">
-                            <div class="add-to-watchlist ">
-                                <div class="click-icon " title="Add to Watchlist">
-                                    <div class="click-icon-wrapper ">
-                                        <div class="watchlist-icon bottom-right">
-                                            <i class="fa fa-list-ul" style="font-size:24px;color:white"></i> 
-                                        </div>
-                                        <p class="icon-title bottom-right2">Watchlist</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="social-holder">
-                            <div class="click-icon share-click-icon">
-                                <div class="click-icon-wrapper">
-                                    <div class="share-icon bottom-right">
-                                        <i class="fa fa-share-alt" style="font-size:24px;color:white"></i>
-                                    </div>
-                                    <p class="icon-title bottom-right2">Share</p>
-                                </div>
-                            </div>
-                            <div class="social-wrap slide-in">
-                                <div class="share-wrap">
-                                    <div class="fb-share">
-                                        <a class="fb-icon" title="Share"></a>
-                                    </div>
-                                    <div class="tw-share">
-                                        <a class="tw-icon" title="Tweet"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="image-gradient" style="background: linear-gradient( to left, rgba(0, 0, 0, 0),rgb(59, 23, 25));">
-                    <div class="footer-gradient" style="background: linear-gradient(rgba(0, 0, 0, 0), rgb(59, 23, 25));">
-                    </div> 
-                </div> 
             </div>
+            <!-- end moveimage -->
+            <!-- cards -->
+            <app-like-card [list]="episodeList" [title]="title"></app-like-card>
+            <app-thirdcard></app-thirdcard>
+            <!-- end cards -->
+            <app-footer></app-footer>
         </div>
-    </div>
-    <app-like-card></app-like-card>
-    <app-thirdcard></app-thirdcard>
-    <app-footer></app-footer>
-</div>

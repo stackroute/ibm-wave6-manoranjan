@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MediaService } from '../media.service';
+import { Episodic } from '../episodic';
 
 @Component({
   selector: 'app-web',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WebComponent implements OnInit {
 
-  constructor() { }
+  series;
+  series1=new Array<Episodic>()
+
+  constructor(private mediaService:MediaService) { }
 
   ngOnInit() {
+    this.mediaService.getWebSeries().subscribe(data=>{
+      this.series=data;
+      this.series1=this.series
+      console.log(this.series1)
+    })
   }
 
 }

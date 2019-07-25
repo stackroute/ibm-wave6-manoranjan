@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Episodic } from '../episodic';
+import { MediaService } from '../media.service';
 
 @Component({
   selector: 'app-englishserials',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EnglishserialsComponent implements OnInit {
 
-  constructor() { }
+  serials;
+  serials1=new Array<Episodic>()
+  constructor(private mediaService:MediaService) { }
 
   ngOnInit() {
+    this.mediaService.getShowsByLanguage("English").subscribe(data=>{
+      this.serials=data
+      this.serials1=this.serials
+      console.log(this.serials1)
+    })
   }
-
 }
