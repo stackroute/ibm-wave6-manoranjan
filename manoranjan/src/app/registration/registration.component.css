@@ -118,9 +118,14 @@ margin-right: 10px;
       height: 200px;
   }
 form{
-padding-top: 50px;
+padding-top: 30px;
 border-block-start-color: black;
 border-block-end-color: black;
 border-block-start-width: 10px;
 }
-
+img{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height:80px;
+  width: 170px;
+} 

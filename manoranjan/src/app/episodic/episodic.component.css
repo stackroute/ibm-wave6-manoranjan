@@ -1,12 +1,18 @@
 
-section{
-    font-family: 'Merriweather', serif;
+/* section{
+
      height:95%;
     overflow: hidden; 
     margin-right: 40px;
     margin-left: 40px;
     margin-bottom: 30px;
-  } 
+  }  */
+  .example-card {
+    max-width: 100%;
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    margin-top: -10px;
+      }
   mat-horizontal-stepper{
     margin-top: 40px;
   }
@@ -20,8 +26,8 @@ section{
    background-color: white;
   }
   mat-horizontal-stepper form{
-  margin-left: 17%; 
-  margin-right: 16%;   
+  margin-left: 15%; 
+  margin-right: 14%;   
 }
 
 .addButton{
@@ -90,10 +96,7 @@ section{
   p,tr td, .form-control,button,.headingStyle,mat-radio-button {
     font-family: 'Merriweather', serif;
   }
-  .example-card {
-    max-width: 100%;
-    margin-top: -10px;
-      }    
+   
   .mat-form-field-infix {
     top: -0.25em;
   }

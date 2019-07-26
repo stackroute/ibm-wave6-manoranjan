@@ -1,78 +1,42 @@
-.main{
-    background-color: black;
-    font-family: 'Merriweather', serif;
+#container{
+  width:90%;
+  margin:3.5em auto;
+  padding:10;
+  margin-bottom: 0%;
 }
-.btn-group i{
-    color:rgb(20, 19, 19);
+#container H4{
+  padding-top: 0;
+  margin-bottom: 20px;
 }
-nav {
-    position: fixed;
-    z-index: -1;
+img-clicked{
+  border: 0;
 }
-li.menu-item {
-    margin:0 0 10px 0;
-    transform: translate(15px,-5px);
-    position: absolute;
-    padding-right: 15px;
-    font-family: 'Merriweather', serif;
- }
- .nav-item{
-    padding-right: 50px;
- }
- .navbar-brand{
-     padding-right: 20px;
- }
- .form-inline{
-     padding-left:200px; 
-     padding-right: 20px;
-
- }
- .form-inline i {
-     color:white;
- }
- a.navbar-brand{
-    font-family: 'Merriweather', serif;
-     font-size: 2em;
- }
- h4{
-    font-family: 'Merriweather', serif;
-     color: white;
-     font-size: 22px;
-     margin-left: 30px;
-     margin-top: 20px;
- }
-.container{
-    padding-top: 90px;
-    top: 8px;
-  }
-  .image {
-    /* padding-top: 30px; */
-    display: block;
-    width: 165px;
-    height: 180px;
-    border-radius: 14px;
-    margin-left: 12px;
-    margin-top: 30px;
-  }
-  .overlay {
-    position: absolute; 
-    bottom: 0; 
-    background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.5);
-    color: #f1f1f1; 
-    width: 165px;
-    transition: .5s ease;
-    opacity:0;
-    color: white;
-    font-size: 10px;
-    padding: 20px;
-    text-align: center;
-  }
-  .container-fluid{
-    margin-top: -10px;
-  }
-  #bottom-right{
-    position: absolute;
-    /* bottom: 2px; */
-    right: 250px;
-  }
+button{
+  border: none;
+}
+#left,#right{
+  margin:50px;
+  
+}
+.latest{
+  height: 180px;
+  width: 165px;
+  border-radius: 14px;
+  margin-top: 15px;
+  padding: 5px;
+  margin-bottom:30px;
+}
+.items:hover img,
+.items.hover img {
+ -webkit-transform: scale(1.15);
+ transform: scale(1.15);
+}
+h4{
+  color: white;
+  font-size: 22px;
+  margin-left: 110px;
+  font-family: 'Merriweather', serif;
+}
+h4 span:hover{
+  color: #36c5ff;
+}

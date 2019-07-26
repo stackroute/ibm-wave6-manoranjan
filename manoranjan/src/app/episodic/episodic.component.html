@@ -193,7 +193,7 @@
       <ng-template matStepLabel><span class="headingStyle">Episode Details</span></ng-template>
         <mat-card class="example-card">
           <mat-card-content class="content">
-            <p class="form3-heading">Episode List</p>
+            <!-- <p class="form3-heading">Episode List</p> -->
                <!-- <table > -->
                    <div class="row">
                      <div class="col-5">
@@ -215,8 +215,7 @@
                       </div> 
                       <div class="col-4">
                           <input class="aligns" type="file" formControlName="episodeUrl" (change)="selectVideo($event)"
-                          accept="image/*">
-                           
+                          accept="video/*">
                           </div>
                           <div class="col-3">
                             <button mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo" style="margin-right: 0px;">Upload</button>

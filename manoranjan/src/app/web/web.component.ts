@@ -15,7 +15,7 @@ export class WebComponent implements OnInit {
   constructor(private mediaService:MediaService) { }
 
   ngOnInit() {
-    this.mediaService.getWebSeries().subscribe(data=>{
+    this.mediaService.getEpisodic("Web Series").subscribe(data=>{
       this.series=data;
       this.series1=this.series
       console.log(this.series1)

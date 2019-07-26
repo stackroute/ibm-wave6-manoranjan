@@ -84,7 +84,7 @@ export class StandaloneStepperComponent implements OnInit {
       // realName:new FormControl('', [Validators.required, Validators.maxLength(10)]),
     });
     this.thirdFormGroup = this._formBuilder.group({
-      posterurl:new FormControl('', [Validators.required]),
+      posterurl:new FormControl(),
       video:new FormControl(),
       trailer:new FormControl(),
       type:new FormControl('', [Validators.required])

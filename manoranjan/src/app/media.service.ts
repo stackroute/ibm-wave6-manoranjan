@@ -51,8 +51,8 @@ export class MediaService {
     return this.http.post<Episodic>("http://localhost:8080/stream/v1/serial",serial);
   }
 
-  getDocumentries(){
-    return this.http.get('http://localhost:8080/stream/v1/media/category/Documentary',{
+  getStandalone(type:string){
+    return this.http.get('http://localhost:8080/stream/v1/media/category/'+type,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
@@ -75,8 +75,8 @@ export class MediaService {
     });
   }
 
-  getWebSeries(){
-    return this.http.get('http://localhost:8080/stream/v1/series/category/Web Series',{
+  getEpisodic(series:string){
+    return this.http.get('http://localhost:8080/stream/v1/series/category/'+series,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })

@@ -120,6 +120,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-episodic.component';
 import { EpisodicComponent } from './episodic/episodic.component';
 import { PlayComponent } from './play/play.component';
+import { ProducernavComponent } from './producernav/producernav.component';
+import { DatacardComponent } from './datacard/datacard.component';
+import { DatacardepisodicComponent } from './datacardepisodic/datacardepisodic.component';
 
 
 @NgModule({
@@ -222,7 +225,10 @@ import { PlayComponent } from './play/play.component';
     StandaloneStepperComponent,
     StandaloneEpisodicComponent,
     EpisodicComponent,
-    PlayComponent
+    PlayComponent,
+    ProducernavComponent,
+    DatacardComponent,
+    DatacardepisodicComponent
   ],
   imports: [
     BrowserModule,
