@@ -69,7 +69,7 @@
           <mat-radio-group  class="genderradio" formControlName="gender" [(ngModel)]="gender"> 
             <mat-radio-button value="male" style="margin-right: 20px">Male </mat-radio-button>
              <mat-radio-button   value="female"> Female</mat-radio-button>
-              <mat-error *ngFor="let validation of validation_messages.age">
+              <mat-error *ngFor="let validation of validation_messages.gender">
                 <mat-error class="error-message" *ngIf="secondFormGroup.get('gender').hasError(validation.type) && (secondFormGroup.get('gender').dirty || secondFormGroup.get('gender').touched)">{{validation.message}}
                 </mat-error>
               </mat-error>  
@@ -78,8 +78,8 @@
  <!-- gender row is closed-->
        <tr><td> <label >Mobile </label></td>
          <mat-form-field>
-           <td> <input class="form-control"  type="number" name="mobile"  matInput required formControlName="mobileNo" [(ngModel)]="mobileNo" ></td>
-            <mat-error *ngFor="let validation of validation_messages.age">
+           <td> <input class="form-control"  type="text" name="mobile"  matInput required formControlName="mobileNo" [(ngModel)]="mobileNo" ></td>
+            <mat-error *ngFor="let validation of validation_messages.mobileNo">
              <mat-error class="error-message" *ngIf="secondFormGroup.get('mobileNo').hasError(validation.type) && (secondFormGroup.get('mobileNo').dirty || secondFormGroup.get('mobileNo').touched)">{{validation.message}}
              </mat-error>
            </mat-error>
