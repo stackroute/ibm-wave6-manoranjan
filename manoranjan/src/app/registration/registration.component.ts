@@ -54,8 +54,6 @@ export class RegistrationComponent implements OnInit {
     this.genre.push(interest);
     console.log(this.genre);
   }
-
-
   submitDetails() {
       var m = {
         'name': this.completeDetails[0].name,
