@@ -26,7 +26,6 @@ export class StandaloneStepperComponent implements OnInit {
   myGroup: FormGroup;
   [x: string]: any;
   user:User=new User();
-  //crewRole:Array<any>;
   mediaDetails=[];
   
   hide:true;
@@ -76,12 +75,7 @@ export class StandaloneStepperComponent implements OnInit {
 
     });
     this.secondFormGroup = this._formBuilder.group({
-      // name: ['', Validators.compose([Validators.required,Validators.maxLength(20)])],
-      studio:new FormControl('', [Validators.required, Validators.maxLength(30)]),
-      // crewName:new FormControl('', [Validators.required, Validators.maxLength(10)]),
-      // crewRole:new FormControl('', [Validators.required]),
-      // screenName:new FormControl('', [Validators.required, Validators.maxLength(10)]),
-      // realName:new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      studio:new FormControl('', [Validators.required, Validators.maxLength(30)])
     });
     this.thirdFormGroup = this._formBuilder.group({
       posterurl:new FormControl(),

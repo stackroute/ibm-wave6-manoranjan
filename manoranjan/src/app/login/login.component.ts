@@ -26,7 +26,8 @@ user:Userauthen=new Userauthen();
     subscribe(
         data => {
         // this.router.navigate(["/linkprilog"],{relativeTo:this.route});
-        this.router.navigateByUrl('/linkprilog/'+this.user.emailId);
+        sessionStorage.setItem("email",this.user.emailId)
+        this.router.navigateByUrl('/linkprilog');
           console.log("POST Request is successful ", data);},
           
         error => {

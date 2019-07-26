@@ -11,9 +11,9 @@ export class LinkpriviewloginComponent implements OnInit {
   constructor(private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params=>{
-      sessionStorage.setItem('emailId',params.get('email'))
-    })
+    // this.route.paramMap.subscribe(params=>{
+    //   sessionStorage.setItem('email',params.get('email'))
+    // })
   }
 
 }
