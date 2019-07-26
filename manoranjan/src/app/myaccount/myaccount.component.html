@@ -1,7 +1,4 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<!------ Include the above in your HEAD tag ---------->
+
 <app-main-nav></app-main-nav>
 <div class="container emp-profile" routerLink="/">
             <form>
@@ -9,10 +6,7 @@
                     <div class="col-md-6">
                         <div class="profile-img">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                            <!-- <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div> -->
+
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -41,7 +35,7 @@
                                                <label>Name</label>
                                            </div>
                                            <div class="col-md-6">
-                                               <p>Patel</p>
+                                               <p>{{users?.name}}</p>
                                            </div>
                                        </div>
                                        <div class="row">
@@ -49,7 +43,7 @@
                                                <label>Email</label>
                                            </div>
                                            <div class="col-md-6">
-                                               <p>patel123@gmail.com</p>
+                                               <p>{{users?.emailId}}</p>
                                            </div>
                                        </div>
                                        <div class="row">
@@ -57,7 +51,7 @@
                                                <label>Age</label>
                                            </div>
                                            <div class="col-md-6">
-                                               <p>20</p>
+                                               <p>{{users?.age}}</p>
                                            </div>
                                        </div>
                                        <div class="row">
@@ -65,7 +59,7 @@
                                                <label>Gender</label>
                                            </div>
                                            <div class="col-md-6">
-                                               <p>Female</p>
+                                               <p>{{users?.gender}}</p>
                                            </div>
                                        </div>
                                        <div class="row">
@@ -73,7 +67,7 @@
                                                <label>Mobile</label>
                                            </div>
                                            <div class="col-md-6">
-                                               <p>7546276547</p>
+                                               <p>{{users?.mobileNo}}</p>
                                            </div>
                                        </div>
                            </div>
@@ -87,4 +81,5 @@
            </div>
        </div>
 
+       <br><br>
        <app-footer></app-footer>

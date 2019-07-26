@@ -2,16 +2,51 @@
     max-width: 100%;
     font-family: 'Merriweather', serif;
     font-weight: bold;
+    margin-top: -10px;
+
       }
-p{
-  margin-top: 10px;
+label{
+  font-size: 15px;
+  font-weight:bold;
 }
 .container1{
-  margin-left: 50px;
+   height: 368px;
+   margin-left: 50px;
+}
+.container2{
+  height: 408px;
+}
+h3{
+  margin-top: 180px;
+  color: green;
+}
+.container4{
+  height: 298px;
+}
+h6{
+  margin-top: 10px;
+  font-weight: bold;
+  margin-left: 18px;
+  margin-bottom: 15px;
+}
+p{
+  color: green;
+}
+mat-card-content mat-grid-list{
+  margin-bottom: -90px;
+}
+#posterImage{
+  margin-top: 110px;
 }
   .card{
     height: 150px;
     width: 150px;
+  }
+  #firstgrid{
+    margin-top: -50px;
+  }
+#gridimages{
+    margin-bottom: -50px;
   }
   img:hover{
     opacity: 0.5; 
@@ -20,10 +55,7 @@ p{
      margin-left: -45px;
      margin-bottom: 5px;
    }
-   .example-card {
-    max-width: 100%;
-    margin-top: -10px;
-      }
+  
    .mat-button-toggle-checked {
      border: 3px solid black;
      background-color: rgb(177, 208, 238); 
@@ -31,6 +63,10 @@ p{
    .container{
      margin-left: 15px;
    }
+   mat-horizontal-stepper form{
+    margin-left: 15%; 
+    margin-right: 14%;   
+  }
    #videoFile{
      margin-left: -55px;
    }
@@ -41,10 +77,10 @@ p{
      margin-left: -1px;
    }
    #userWatch{
-     margin-left: -30px;
+     margin-left: -43px;
    }
    #select1{
-     margin-left: -131px;
+     margin-left: -120px;
    }
    mat-card{
     margin-top:2%;
@@ -65,11 +101,11 @@ p{
    #select2{
      margin-left: -20px;
    }
-   #input3{
+   /* #input3{
      margin-left: -50px;
-   }
+   } */
    #crew{
-     margin-left: -25px;
+     margin-left: 2px;
    }
    li{
      list-style-type: none;
@@ -79,46 +115,48 @@ p{
      margin-left: 30px;
    }
    #name{
-     margin-left: 55px;
+     margin-left: -6px;
    }
    #role{
-     margin-left: 50px;
+     margin-left: -3px;
    }
    #input{
      margin-top: -50px;
      margin-left: -10px;
    }
-   #select{
-     margin-top: -48px;
-     margin-left: 178px;
-   }
+ 
    #submit{
-     margin-top: -10px;
-     margin-left: 175px;
+     margin-top: 10px;
+     margin-left: 185px;
    }
    #cast{
-     margin-left: -25px;
+     margin-left: 2px;
+   }
+   #studioName{
+     margin-top: 70px;
    }
    #screenName{
-     margin-left: 80px;
-   }
-   #realName{
-     margin-left: 6px;
-   }
-   #input1{
-     margin-top: -50px;
      margin-left: -10px;
    }
-   #input2{
-     margin-top: -50px;
-     margin-left: 200px;
+   #realName{
+     margin-left: -6px;
    }
+   ul{
+    color: blue;
+  }
+  ul li table{
+    margin-left: 290px;
+  }
+  ul li table tr td{
+    border: 1px solid gainsboro;
+  }
+  
    #submit1{
-     margin-top:-10px;
-     margin-left: 175px;
+     margin-top:10px;
+     margin-left: 185px;
    }
    #input4{
-     margin-left: -60px;
+     margin-left: -65px;
    }
    #upload{
      margin-left: 250px;
@@ -134,8 +172,8 @@ p{
    img{
      margin-top: 10px;
      margin-bottom: 10px;
-     height:70px;
-     width: 70px;
+     height:80px;
+     width: 170px;
    } 
   .mat-form-field-infix {
     top: -0.25em;
@@ -146,9 +184,9 @@ p{
       margin-right: 22%;
   }
   section{
-    margin-top: 50px;
     margin-left: 120px;
-    margin-right: 60px;
+    margin-right: 120px;
+    overflow: hidden;
   }
  mat-horizontal-stepper{
    margin-left: 60px;
@@ -160,6 +198,7 @@ p{
  }
   #date{
     margin-top: 5px;
+    margin-left: -130px;
   }
   #date1{
     margin-top: -10px;

@@ -1,0 +1,35 @@
+.main{
+    background: black;
+    font-family: 'Merriweather', serif;
+    /* overflow-y: scroll; overflow-x:hidden; */
+}
+
+.btn-group i{
+    color:white;
+}
+nav {
+    position: absolute;
+    z-index: -1;
+}
+ a.navbar-brand{
+     font-family: 'Merriweather', serif;
+     font-size: 2em;
+ }
+ button{
+	position: relative;
+    margin-left: 1280px;
+    font-size: 1em;
+    padding: 5px 10px;
+ }
+ .nav-item{
+    padding-right: 50px;
+ }
+ a.navbar-brand{
+     font-family: 'Merriweather', serif;
+     font-size: 2em;
+ }
+ #parent{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
