@@ -192,79 +192,102 @@
       <ng-template matStepLabel><span class="headingStyle">Episode Details</span></ng-template>
         <mat-card class="example-card">
           <mat-card-content class="content">
-            <!-- <p class="form3-heading">Episode List</p> -->
-               <!-- <table > -->
                  <div class="container2">
+                    <form #viewerForm="ngForm" [formGroup]="eightFormGroup"  class="form-horizontal eight" style="margin-left: 0px; margin-right: 0px; margin-top: -50px">
                    <div class="row">
-                     <div class="col-5">
+                     <div class="col-5" id="episodeNumber">
                        <label >Episode Number</label> </div> 
-                    <div class="col-7">
-                       <!-- <mat-form-field> -->
-                          <input class="form-control" type="number" name="episodeNo" formControlName="episodeNo" required>
-                            <!-- <mat-error *ngFor="let validation of validation_messages.episodeNo">
-                            <mat-error class="error-message" *ngIf="thirdFormGroup.get('episodeNo').hasError(validation.type) && (thirdFormGroup.get('episodeNo').dirty || thirdFormGroup.get('episodeNo').touched)">{{validation.message}}
-                            </mat-error>
-                            </mat-error> -->
-                       <!-- </mat-form-field>  -->
+                    <div class="col-7" id="input7">
+                          <input class="form-control" type="number" #episodeNo name="episodeNo" formControlName="episodeNo" required>
                      </div> 
                    </div> 
-                   <br>
+                   <br><br>
                    <div class="row">
-                      <div class="col-5">
-                         <label class="videoFile">Video File</label>
+                      <div class="col-5" id="videoFile">
+                         <label>Video File</label>
                       </div> 
-                      <div class="col-4">
-                          <input class="aligns" type="file" formControlName="episodeUrl" (change)="selectVideo($event)"
+                      <div class="col-4" id="input8">
+                          <input class="aligns" type="file" #episodeUrl formControlName="episodeUrl" (change)="selectVideo($event)"
                           accept="video/*">
                           </div>
-                          <div class="col-3">
-                            <button mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo" style="margin-right: 0px;">Upload</button>
+                          <div class="col-3" id="upload">
+                            <button mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo">Upload</button>
                      </div> 
                   </div>  
-                <br>
+                <br><br>
                    <div class="row">
-                      <div class="col-5">
-                            <label class="description" >Description</label>
+                      <div class="col-5" id="description">
+                            <label>Description</label>
                       </div> 
-                      <div class="col-7">
-                          <input class="form-control" type="text" name="posterDescription" formControlName="posterDescription" required>
+                      <div class="col-7" id="input9">
+                          <input class="form-control"  #episodeDescription type="text" name="posterDescription" formControlName="episodeDescription" required>
                       </div> 
                    </div> 
                  <br><br>
                      <div class="row">
-                        <div class="col-5">
-                         <label class="poster">Poster   </label>
+                        <div class="col-5" id="poster1">
+                         <label>Poster</label>
                      </div> 
-                     <div class="col-7">
-                           <input class="form-control" type="text" name="posterUrl" formControlName="posterUrl" required>
+                     <div class="col-7" id="input10">
+                           <input class="form-control" #episodePosterUrl type="text" name="posterUrl" formControlName="episodePosterUrl" required>
                      </div>  
                   </div> 
                 <br>
                   <div class="row">
-                        <div class="col-5">
-                           <label class="releaseDate">Release Date</label> 
+                        <div class="col-5" id="releaseDate">
+                           <label>Release Date</label> 
                         </div> 
-                        <div class="col-7">
+                        <div class="col-7" id="date">
                         <mat-form-field>
-                              <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="releaseDate" >
+                              <input matInput [matDatepicker]="picker" placeholder="Choose a date" #episodeReleaseDate formControlName="episodeReleaseDate" >
                               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                               <mat-datepicker #picker></mat-datepicker>
                          </mat-form-field>
                          </div> 
                          </div>
-                         </div>
+                         <div class="row" id="submit1">
+                            <button type="submit" (click)="addEpisode(episodeNo.value,episodeUrl.value,episodeDescription.value,episodePosterUrl.value,episodeReleaseDate.value)">Add</button>
+                        </div>
+                         </form>                   
+                    </div>
+                    <ul>
+                      <li>
+                        <table *ngFor="let episode of episodePreview" id="episodeList">
+                          <tr>
+                            <td>
+                              {{episode.episodeNo}}
+                            </td>
+                            <td>
+                              {{episode.episodeUrl}}
+                            </td>
+                            <td>
+                              {{episode.episodeDescription}}
+                            </td>
+                            <td>
+                              {{episode.episodePosterUrl}}
+                            </td>
+                            <td>
+                              {{episode.episodeReleaseDate}}
+                            </td>
+                        <td>
+                        <button (click)="deleteEpisode(episode.episodeNo,episode.episodeUrl,episode.episodeDescription,episode.episodePosterUrl,episode.episodeReleaseDate)">Delete</button>
+                        </td>
+                        </tr>
+                      </table>
+                     </li>
+                   </ul>
                </mat-card-content>
-              <button mat-stroked-button matStepperPrevious  >Back</button>&nbsp;                      
-            <button mat-stroked-button matStepperNext  [disabled]="!thirdFormGroup.valid">Next</button>
+              <button mat-stroked-button matStepperPrevious>Back</button>&nbsp;                      
+            <button mat-stroked-button matStepperNext>Next</button>
            </mat-card> 
-         </form>
+         </form><br>
        </mat-step> 
        <mat-step [stepControl]="fourthForm">
           <form #viewerForm="ngForm" class="form-horizontal" style="height: 100%">
               <ng-template matStepLabel><span class="headingStyle">Status</span></ng-template>
               <mat-card class="example-card">
                   <mat-card-content class="content">
-                      <div >
+                      <div class="container3">
                         <h3>Thank you!</h3>
                         <br>
                         <p>Successfully uploaded</p>
