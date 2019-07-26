@@ -21,4 +21,7 @@ export class UserService {
       })
     });
    }
+   getAllUsers():any{
+    return this.http.get("http://localhost:8011/userservice/users");
+  }
 }
