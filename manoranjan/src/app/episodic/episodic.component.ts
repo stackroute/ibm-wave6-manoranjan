@@ -18,6 +18,16 @@ export class EpisodicComponent implements OnInit {
   thirdFormGroup: FormGroup
   sixthFormGroup:FormGroup
   seventhFormGroup:FormGroup
+  eightFormGroup:FormGroup
+
+  episodePreview=[];
+  episodeNo;
+  episodeUrl;
+  episodeDescription;
+  episodePosterUrl;
+  episodeReleaseDate;
+
+
 
   episodeDetails=[]
   
@@ -36,11 +46,8 @@ export class EpisodicComponent implements OnInit {
  screenName;
  realName;
   
-  // crew:Crew=new Crew();
-  // cast:Cast=new Cast();
+
   episode:Episode=new Episode();
-  // listCrew:Array<Crew>=new Array<Crew>();
-  // listCast:Array<Cast>=new Array<Cast>();
   listEpisode:Array<Episode>=new Array<Episode>();
 
   progress:{percentage:number}={percentage:0};
@@ -88,6 +95,13 @@ episodeType: new FormControl("" , Validators.compose([Validators.required])),
     screenName:new FormControl(),
     realName:new FormControl(),
   });
+  this.eightFormGroup = this._formBuilder.group({
+    episodeNo:new FormControl('', Validators.compose([Validators.required,Validators.maxLength(20)])),
+    episodeUrl:new FormControl('', Validators.compose([Validators.required])),
+    episodeDescription:new FormControl('', Validators.compose([Validators.required,Validators.maxLength(100)])),
+    episodePosterUrl:new FormControl('', Validators.compose([Validators.required])),
+    episodeReleaseDate:new FormControl("" , Validators.compose([Validators.required]))
+  });
   
      }
      // ng oninit closed
@@ -117,6 +131,23 @@ episodeType: new FormControl("" , Validators.compose([Validators.required])),
         { type: 'validUsername', message: 'Your username has already been taken' }
       ],
       
+      }
+
+      addEpisode(episodeNumber,video,desc,poster,dateRelease){ 
+        this.episodePreview.push(
+          {episodeNo:episodeNumber,episodeUrl:video,episodeDescription:desc,episodePosterUrl:poster,episodeReleaseDate:dateRelease}
+        )
+        console.log(this.episodePreview);
+      }
+      deleteEpisode(episodeNumber,video,desc,poster,dateRelease){
+        console.log(episodeNumber,video,desc,poster,dateRelease);
+        for(var i=0;i<this.episodePreview.length;i++)
+        {
+          if(this.episodePreview[i]["episodeNo"]==episodeNumber)
+          {
+            this.episodePreview.splice(i,1);
+          }
+        }
       }
 
       addCrew(name,role){
@@ -153,14 +184,12 @@ episodeType: new FormControl("" , Validators.compose([Validators.required])),
       }
 
       onFirstSubmit(value){
-        // console.log(this.firstFormGroup.controls.language.value)
         console.log("first");
         console.log(value);
         this.episodeDetails.push(value);
       }
   
       onSecondSubmit(value){
-        // console.log(this.firstFormGroup.controls.language.value)
         console.log("second");
         console.log(value);
         this.episodeDetails.push(value);
@@ -191,14 +220,6 @@ episodeType: new FormControl("" , Validators.compose([Validators.required])),
       }
       
       saveMedia(){
-        // this.crew.crewName=this.episodeDetails[1].crewName;
-        // this.crew.crewRole=this.episodeDetails[1].crewRole;
-        // this.listCrew.push(this.crew);
-    
-        // this.cast.screenName=this.episodeDetails[1].screenName;
-        // this.cast.realName=this.episodeDetails[1].realName;
-        // this.listCast.push(this.cast);
-
         this.episode.episodeNo=this.episodeDetails[2].episodeNo;
         this.episode.episodeDescription=this.episodeDetails[2].posterDescription;
         this.episode.episodePosterUrl=this.episodeDetails[2].posterUrl;
