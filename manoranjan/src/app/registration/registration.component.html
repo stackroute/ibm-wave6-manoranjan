@@ -3,14 +3,14 @@
     <mat-card fxFlex="1000px" fxFlex.xs="50%" style="background-color: black">
         <mat-toolbar >
           <span class="fill-remaining-space"></span>
-          <span style="margin-top: 35px"> Your Details </span>
+          <span style="margin-top: 35px"> Details </span>
           <span class="fill-remaining-space"></span>
         </mat-toolbar>
         <!-- [linear]="isLinear" -->
 <mat-horizontal-stepper labelPosition="bottom" linear style="height: 100%">
 <mat-step [stepControl]="firstForm"  >
     <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal" (ngSubmit)="onSubmitViewerDetails(firstFormGroup.value)">
-       <ng-template matStepLabel><span class="headingStyle">Viewers Details</span></ng-template>
+       <ng-template matStepLabel><span class="headingStyle">Credential</span></ng-template>
           <mat-card class="example-card first-card" style="padding-bottom: 20px;" >
             <mat-card-content class="content" >
               <div class="row">     
@@ -60,7 +60,7 @@
 <!-- 2nd stapper form here-->
 <mat-step [stepControl]="secondForm">
 <form #viewerForm="ngForm" [formGroup]="secondFormGroup"  class="form-horizontal"  (ngSubmit)="onSubmitMoreDetails(secondFormGroup.value)">
-  <ng-template matStepLabel><span class="headingStyle">More Details</span></ng-template>
+  <ng-template matStepLabel><span class="headingStyle">Personal Details</span></ng-template>
     <mat-card class="example-card">
       <mat-card-content class="content">
         <div class="row">
@@ -182,7 +182,7 @@
          
          <mat-step [stepControl]="fourthForm">
           <form #viewerForm="ngForm" class="form-horizontal" >
-               <ng-template matStepLabel><span class="headingStyle">See Status</span></ng-template>
+               <ng-template matStepLabel><span class="headingStyle">Status</span></ng-template>
                <mat-card class="example-card">
                 <mat-card-content class="content">
 

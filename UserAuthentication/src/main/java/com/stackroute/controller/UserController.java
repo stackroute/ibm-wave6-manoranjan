@@ -67,13 +67,16 @@ public class UserController {
 
             map1.put("token", jwtToken);
 
-            map1.put("message", "User successfully logged in");
+//            map1.put("message", "User successfully logged in");
+
+            map1.put("message", user.getRole());
 
             return map1;
 
         };
         Map<String, String> map = securityTokenGenrator.generateToken(user);
         return new ResponseEntity<>(map, HttpStatus.OK);
+//        return new ResponseEntity<>(user.getRole(),HttpStatus.OK);
 
     }
     @ApiOperation(value = "Gets all the user details(username,password,role)")
