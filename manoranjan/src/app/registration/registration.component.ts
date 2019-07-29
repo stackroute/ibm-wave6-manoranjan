@@ -65,11 +65,14 @@ export class RegistrationComponent implements OnInit {
       }
       this.userService.saveUser(m).subscribe(data => {
         alert("valid")
-        console.log("POST Request is successful ", data);},
+        console.log("POST Request is successful ", data);
+        this.router.navigateByUrl('/package/'+this.completeDetails[0].emailId);
+        },
         error => {
           alert("Invalid")
           console.log("Error", error);}
           );
+         
     } 
 
   validation_messages = {

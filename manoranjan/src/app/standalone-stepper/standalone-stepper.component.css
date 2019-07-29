@@ -186,9 +186,11 @@ mat-card-content mat-grid-list{
       margin-right: 22%;
   }
   section{
+    margin-top: 5%;
     margin-left: 120px;
     margin-right: 120px;
     overflow: hidden;
+    margin-bottom: 2%;
   }
  mat-horizontal-stepper{
    margin-left: 60px;
