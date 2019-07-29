@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -32,6 +33,19 @@ public class MediaServiceImpl implements MediaService {
 
     @Autowired
     private EpisodicMediaRepository episodicMediaRepository;
+
+    @Autowired
+    KafkaTemplate<Media,Media> kafkaTemplate;
+
+    @Autowired
+    KafkaTemplate<EpisodicMedia,EpisodicMedia> kafkaTemplate1;
+
+    @Autowired
+    KafkaTemplate<Episode,Episode> kafkaTemplate2;
+
+    private static String topic= "saveMedia";
+    private static String topic1= "saveEpisodicMedia";
+    private static String topic2= "saveEpisode";
 
 
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
@@ -63,6 +77,7 @@ public class MediaServiceImpl implements MediaService {
         else {
             media1= mediaRepository.save(media);
         }
+        kafkaTemplate.send(topic,media1);
         return media1;
     }
 
@@ -118,6 +133,7 @@ public class MediaServiceImpl implements MediaService {
         else {
             episodicMediaRepository.save(serial);
         }
+        kafkaTemplate1.send(topic1,serial);
         return serial;
     }
 
@@ -192,6 +208,7 @@ public class MediaServiceImpl implements MediaService {
         episodes.add(episode);
         media.setEpisodeList(episodes);
         episodicMediaRepository.save(media);
+        kafkaTemplate2.send(topic2,episode);
         return "Episode added";
     }
 
