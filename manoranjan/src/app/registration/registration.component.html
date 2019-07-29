@@ -11,13 +11,13 @@
 <mat-step [stepControl]="firstForm"  >
     <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal" (ngSubmit)="onSubmitViewerDetails(firstFormGroup.value)">
        <ng-template matStepLabel><span class="headingStyle">Credential</span></ng-template>
-          <mat-card class="example-card first-card" style="padding-bottom: 20px;" >
-            <mat-card-content class="content" >
+          <mat-card class="example-card first-card">
+            <mat-card-content class="content">
               <div class="row">     
               <div class="col-3" id="name"> <label > Name </label></div>
                      <!-- <mat-form-field> -->
                       <div class="col-7" id="input1">  <input class="form-control" type="text" name="name" formControlName="name" [(ngModel)]="name" required></div>
-                      <mat-error *ngFor="let validation of validation_messages.name">
+                      <mat-error *ngFor="let validation of validation_messages.name" id="error">
                           <mat-error class="error-message" *ngIf="firstFormGroup.get('name').hasError(validation.type) && (firstFormGroup.get('name').dirty || firstFormGroup.get('name').touched)">{{validation.message}}
                           </mat-error>
                        </mat-error>
@@ -28,7 +28,7 @@
                    <div class="col-3" id="email" > <label>Email</label></div>
                       <!-- <mat-form-field> -->
                         <div class="col-7" id="input2"> <input class="form-control" #email type="text" name="emailId" formControlName="emailId" [(ngModel)]="emailId" required ></div>
-                         <mat-error *ngFor="let validation of validation_messages.emailId">
+                         <mat-error *ngFor="let validation of validation_messages.emailId" id="error">
                             <mat-error class="error-message" *ngIf="firstFormGroup.get('emailId').hasError(validation.type) && (firstFormGroup.get('emailId').dirty || firstFormGroup.get('emailId').touched)">{{validation.message}}
                             </mat-error>
                          </mat-error>
@@ -43,7 +43,7 @@
                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                               </button>
                               </div>
-                              <mat-error *ngFor="let validation of validation_messages.password">
+                              <mat-error *ngFor="let validation of validation_messages.password" id="error">
                                   <mat-error class="error-message" *ngIf="firstFormGroup.get('password').hasError(validation.type) && (firstFormGroup.get('password').dirty || firstFormGroup.get('password').touched)">{{validation.message}}
                                   </mat-error>
                               </mat-error>
@@ -66,7 +66,7 @@
         <div class="row">
          <div class="col-3" id="age"> <label> Age </label></div>
             <div class="col-8" id="input4">  <input class="form-control" type="text" name="age"  formControlName="age" [(ngModel)]="age" matInput  required ></div>
-             <mat-error *ngFor="let validation of validation_messages.age">
+             <mat-error *ngFor="let validation of validation_messages.age" id="error">
               <mat-error class="error-message" *ngIf="secondFormGroup.get('age').hasError(validation.type) && (secondFormGroup.get('age').dirty || secondFormGroup.get('age').touched)">{{validation.message}}
               </mat-error>
             </mat-error>
@@ -91,7 +91,7 @@
            <div class="row">
       <div class="col-3" id="mobile"> <label >Mobile </label></div>
            <div class="col-8" id="input5"> <input class="form-control"  type="text" name="mobile"  matInput required formControlName="mobileNo" [(ngModel)]="mobileNo" ></div>
-            <mat-error *ngFor="let validation of validation_messages.mobileNo">
+            <mat-error *ngFor="let validation of validation_messages.mobileNo" id="error">
              <mat-error class="error-message" *ngIf="secondFormGroup.get('mobileNo').hasError(validation.type) && (secondFormGroup.get('mobileNo').dirty || secondFormGroup.get('mobileNo').touched)">{{validation.message}}
              </mat-error>
            </mat-error>
