@@ -11,8 +11,8 @@
 <mat-step [stepControl]="firstForm"  >
     <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal" (ngSubmit)="onSubmitViewerDetails(firstFormGroup.value)">
        <ng-template matStepLabel><span class="headingStyle">Credential</span></ng-template>
-          <mat-card class="example-card first-card" style="padding-bottom: 20px;" >
-            <mat-card-content class="content" >
+          <mat-card class="example-card first-card">
+            <mat-card-content class="content">
               <div class="row">     
               <div class="col-3" id="name"> <label > Name </label></div>
                      <!-- <mat-form-field> -->
