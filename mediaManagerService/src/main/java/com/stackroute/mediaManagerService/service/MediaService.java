@@ -21,11 +21,14 @@ public interface MediaService {
     public Media updateDetails(Media media);
     public Media deleteMedia(String mediaTitle) throws MediaNotFoundException;
     public List<Media> getMediaByGenre(String Genre);
+    public List<Media> getMediaByCategory(String category);
 
     public EpisodicMedia saveSerial(EpisodicMedia serial) throws MediaAlreadyExistsException;
     public List<EpisodicMedia> getAllSerials() throws MediaNotFoundException;
     public EpisodicMedia getSerialByTitle(String episodicTitle) throws MediaNotFoundException;
     public EpisodicMedia deleteSerial(String serialTitle) throws MediaNotFoundException;
+    public List<EpisodicMedia> getSerialByCategory(String category);
+    public List<EpisodicMedia> getTvSerialByLanguage(String language);
 
     public String addEpisode(String serialTitle,Episode episode);
     public String deleteEpisode(String serialTitle,int episodeNumber);

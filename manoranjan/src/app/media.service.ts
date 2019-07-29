@@ -17,7 +17,7 @@ export class MediaService {
    let formdata: FormData = new FormData();
 
    formdata.append('file', file);
-   const req = new HttpRequest('POST', 'http://localhost:8080/stream/v1/post', formdata, {
+   const req = new HttpRequest('POST', 'http://localhost:8011/mediaManagerService/post', formdata, {
     
      reportProgress: true,
      responseType: 'text'
@@ -28,11 +28,11 @@ export class MediaService {
  }
 
  saveMedia(media:Media){
-   return this.http.post<Media>("http://localhost:8080/stream/v1/media",media);
+   return this.http.post<Media>("http://localhost:8011/mediaManagerService/media",media);
  }
 
  getAllMedia(){
-    return this.http.get('http://localhost:8080/stream/v1/medias',{
+    return this.http.get('http://localhost:8011/mediaManagerService/medias',{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
@@ -40,7 +40,7 @@ export class MediaService {
   }
 
   getMediaById(title){
-    return this.http.get('http://localhost:8080/stream/v1/media/'+title,{
+    return this.http.get('http://localhost:8011/mediaManagerService/media/'+title,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
@@ -48,11 +48,11 @@ export class MediaService {
   }
 
   saveSerial(serial:Episodic){
-    return this.http.post<Episodic>("http://localhost:8080/stream/v1/serial",serial);
+    return this.http.post<Episodic>("http://localhost:8011/mediaManagerService/serial",serial);
   }
 
   getStandalone(type:string){
-    return this.http.get('http://localhost:8080/stream/v1/media/category/'+type,{
+    return this.http.get('http://localhost:8011/mediaManagerService/media/category/'+type,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
@@ -60,7 +60,7 @@ export class MediaService {
   }
 
   getMovieByGenre(genre:string){
-    return this.http.get('http://localhost:8080/stream/v1/media/movie/'+genre,{
+    return this.http.get('http://localhost:8011/mediaManagerService/media/movie/'+genre,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
@@ -68,7 +68,7 @@ export class MediaService {
   }
 
   getShowsByLanguage(language:string){
-    return this.http.get('http://localhost:8080/stream/v1/series/tv/'+language,{
+    return this.http.get('http://localhost:8011/mediaManagerService/series/tv/'+language,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
@@ -76,7 +76,7 @@ export class MediaService {
   }
 
   getEpisodic(series:string){
-    return this.http.get('http://localhost:8080/stream/v1/series/category/'+series,{
+    return this.http.get('http://localhost:8011/mediaManagerService/series/category/'+series,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })

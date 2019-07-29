@@ -28,6 +28,35 @@ public class MediaController {
     @Autowired
     private MediaService mediaService;
 
+    @PostMapping("/media")
+    public Media saveMedia(@RequestBody Media media){
+        Media media1=new Media();
+        try{
+            media1=mediaService.saveMedia(media);
+        }
+        catch (MediaAlreadyExistsException exception){
+            System.out.println(exception);
+        }
+        return media1;
+    }
+
+    @PostMapping("/serial")
+    public EpisodicMedia saveSerial(@RequestBody EpisodicMedia media){
+        EpisodicMedia media1=new EpisodicMedia();
+        try{
+            media1=mediaService.saveSerial(media);
+        }
+        catch (MediaAlreadyExistsException exception){
+            System.out.println(exception);
+        }
+        return media1;
+    }
+
+    @PostMapping("/episode/{serialTitle}")
+    public String saveEpisode(@PathVariable("serialTitle") String serialTitle, @RequestBody Episode episode){
+        return mediaService.addEpisode(serialTitle,episode);
+    }
+
     @GetMapping("/medias")
     public List<Media> getAllMedias(){
         List<Media> mediaList=new ArrayList<>();
@@ -86,38 +115,24 @@ public class MediaController {
         return mediaService.getEpisodeById(serialTitle, episodeNum);
     }
 
-    @GetMapping("/media/{genre}")
+    @GetMapping("/media/movie/{genre}")
     public List<Media> getMediaByGenre(@PathVariable("genre") String genre){
         return mediaService.getMediaByGenre(genre);
     }
 
-    @PostMapping("/media")
-    public Media saveMedia(@RequestBody Media media){
-        Media media1=new Media();
-        try{
-            media1=mediaService.saveMedia(media);
-        }
-        catch (MediaAlreadyExistsException exception){
-            System.out.println(exception);
-        }
-        return media1;
+    @GetMapping("/series/tv/{language}")
+    public List<EpisodicMedia> getSerialByLanguage(@PathVariable("language") String language){
+        return mediaService.getTvSerialByLanguage(language);
     }
 
-    @PostMapping("/serial")
-    public EpisodicMedia saveSerial(@RequestBody EpisodicMedia media){
-        EpisodicMedia media1=new EpisodicMedia();
-        try{
-            media1=mediaService.saveSerial(media);
-        }
-        catch (MediaAlreadyExistsException exception){
-            System.out.println(exception);
-        }
-        return media1;
+    @GetMapping("/media/category/{category}")
+    public List<Media> getSpecificCategoryMedia(@PathVariable("category") String category){
+        return mediaService.getMediaByCategory(category);
     }
 
-    @PostMapping("/episode/{serialTitle}")
-    public String saveEpisode(@PathVariable("serialTitle") String serialTitle, @RequestBody Episode episode){
-        return mediaService.addEpisode(serialTitle,episode);
+    @GetMapping("/series/category/{category}")
+    public List<EpisodicMedia> getEpisodicByCategory(@PathVariable("category") String category){
+        return mediaService.getSerialByCategory(category);
     }
 
     @DeleteMapping("/media/{title}")

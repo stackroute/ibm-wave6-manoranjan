@@ -35,7 +35,7 @@ public class MediaServiceImpl implements MediaService {
 
 
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
-    private final Path rootLocation = Paths.get("/home/sakshi/stackroute/manoranjan_project/ibm-wave6-manoranjan/red5-server-1.1.0/red5-server/webapps/vod/streams");
+    private final Path rootLocation = Paths.get("/home/sakshi/stackroute/manoranjan-task/red5-server-1.1.0/red5-server/webapps/vod/streams");
 
     @Override
     public List<Media> getAllMedia() throws MediaNotFoundException{
@@ -87,12 +87,27 @@ public class MediaServiceImpl implements MediaService {
         List<Media> allMedia=mediaRepository.findAll();
         List<Media> genreMedia=new ArrayList<>();
         for (Media media:allMedia
-             ) {
-            if(media.getMediaGenre().contains(genre)){
-                genreMedia.add(media);
+        ) {
+            if(media.getMediaCategory().equals("Movie")){
+                if(media.getMediaGenre().contains(genre)){
+                    genreMedia.add(media);
+                }
             }
         }
         return genreMedia;
+    }
+
+    @Override
+    public List<Media> getMediaByCategory(String category) {
+        List<Media> allMedia=mediaRepository.findAll();
+        List<Media> catMedia=new ArrayList<>();
+        for(Media media:allMedia
+        ){
+            if(media.getMediaCategory().equals(category)){
+                catMedia.add(media);
+            }
+        }
+        return catMedia;
     }
 
     @Override
@@ -137,11 +152,39 @@ public class MediaServiceImpl implements MediaService {
     }
 
     @Override
+    public List<EpisodicMedia> getSerialByCategory(String category) {
+        List<EpisodicMedia> allSerials=episodicMediaRepository.findAll();
+        List<EpisodicMedia> catSerials=new ArrayList<>();
+        for (EpisodicMedia serial:allSerials
+        ) {
+            if(serial.getEpisodicCategory().equals(category)){
+                catSerials.add(serial);
+            }
+        }
+        return catSerials;
+    }
+
+    @Override
+    public List<EpisodicMedia> getTvSerialByLanguage(String language) {
+        List<EpisodicMedia> allSerials=episodicMediaRepository.findAll();
+        List<EpisodicMedia> lanSerials=new ArrayList<>();
+        for (EpisodicMedia serial:allSerials
+        ) {
+            if(serial.getEpisodicCategory().equals("TV Episodes")){
+                if(serial.getEpisodicLanguage().equals(language)){
+                    lanSerials.add(serial);
+                }
+            }
+        }
+        return lanSerials;
+    }
+
+    @Override
     public String addEpisode(String serialTitle, Episode episode) {
         EpisodicMedia media=episodicMediaRepository.findById(serialTitle).get();
         List<Episode> episodes=media.getEpisodeList();
         for (Episode i:
-             episodes) {
+                episodes) {
             if(i.getEpisodeNo()==episode.getEpisodeNo()){
                 return "Episode already exist";
             }
@@ -158,7 +201,7 @@ public class MediaServiceImpl implements MediaService {
         List<Episode> episodes=media.getEpisodeList();
         Episode episode=new Episode();
         for (Episode i:
-             episodes) {
+                episodes) {
             if(i.getEpisodeNo()==episodeNumber){
                 episode=i;
                 break;
