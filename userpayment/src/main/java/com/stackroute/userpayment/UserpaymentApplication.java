@@ -1,13 +1,13 @@
-package com.stackroute.userpackage;
+package com.stackroute.userpayment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserpackageApplication {
+public class UserpaymentApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserpackageApplication.class, args);
+		SpringApplication.run(UserpaymentApplication.class, args);
 	}
 
 }

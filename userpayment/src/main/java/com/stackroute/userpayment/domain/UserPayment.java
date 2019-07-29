@@ -1,13 +1,11 @@
-package com.stackroute.userpackage.domain;
+package com.stackroute.userpayment.domain;
 
-import com.fasterxml.jackson.annotation.JsonTypeId;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Id;
-import java.lang.annotation.Documented;
 import java.sql.Date;
 
 
@@ -15,7 +13,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UserPackage {
+public class UserPayment {
     @Id
     private String emailId;
     private String packageName;

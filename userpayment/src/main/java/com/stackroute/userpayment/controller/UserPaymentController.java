@@ -1,27 +1,25 @@
-package com.stackroute.userpackage.controller;
+package com.stackroute.userpayment.controller;
 
-import com.stackroute.userpackage.domain.UserPackage;
-import com.stackroute.userpackage.service.UserPackageService;
+import com.stackroute.userpayment.domain.UserPayment;
+import com.stackroute.userpayment.service.UserPaymentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 @RestController
 @CrossOrigin(value="*")
 @RequestMapping(value="api/v1")
-public class UserPackageController {
-    private UserPackageService userPackageService;
+public class UserPaymentController {
+    private UserPaymentService userPackageService;
 
-    public UserPackageController(UserPackageService userPackageService)
+    public UserPaymentController(UserPaymentService userPackageService)
     {
         this.userPackageService=userPackageService;
     }
     @PostMapping("user")
-    public ResponseEntity<?> saveUser(@RequestBody UserPackage userPackage)
+    public ResponseEntity<?> saveUser(@RequestBody UserPayment userPackage)
     {
         ResponseEntity responseEntity;
 
@@ -45,7 +43,7 @@ public class UserPackageController {
     }
     @GetMapping("users")
     public ResponseEntity<?> getAllUsers(){
-        return new ResponseEntity<List<UserPackage>>(userPackageService.getAllUsers(),HttpStatus.OK);
+        return new ResponseEntity<List<UserPayment>>(userPackageService.getAllUsers(),HttpStatus.OK);
     }
     @DeleteMapping("/user/{emailId}")
     public ResponseEntity<?> deleteUser(@PathVariable String emailId)

@@ -1,7 +1,7 @@
-package com.stackroute.userpackage.service;
+package com.stackroute.userpayment.service;
 
-import com.stackroute.userpackage.domain.UserPackage;
-import com.stackroute.userpackage.repository.UserPackageRepository;
+import com.stackroute.userpayment.domain.UserPayment;
+import com.stackroute.userpayment.repository.UserPaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserPackageServiceImpl implements UserPackageService {
-    UserPackage userPackage=null;
-    UserPackageRepository userPackageRepository;
+public class UserPaymentServiceImpl implements UserPaymentService {
+    UserPayment userPackage=null;
+    UserPaymentRepository userPackageRepository;
     @Autowired
-    public UserPackageServiceImpl(UserPackageRepository userPackageRepository)
+    public UserPaymentServiceImpl(UserPaymentRepository userPackageRepository)
     {
         this.userPackageRepository=userPackageRepository;
     }
@@ -23,9 +23,9 @@ public class UserPackageServiceImpl implements UserPackageService {
 
 
     @Override
-    public UserPackage saveUser(UserPackage userPackage)  {
+    public UserPayment saveUser(UserPayment userPackage)  {
 
-            UserPackage saveUser = (UserPackage) userPackageRepository.save(userPackage);
+            UserPayment saveUser = (UserPayment) userPackageRepository.save(userPackage);
 
         System.out.println(saveUser);
             return saveUser;
@@ -34,12 +34,12 @@ public class UserPackageServiceImpl implements UserPackageService {
     }
 
     @Override
-    public List<UserPackage> getAllUsers() {
+    public List<UserPayment> getAllUsers() {
 
         return userPackageRepository.findAll();
     }
     @Override
-    public UserPackage deleteUser(String emailId) {
+    public UserPayment deleteUser(String emailId) {
         userPackage= null;
         Optional optional = userPackageRepository.findById(emailId);
         if (optional.isPresent()) {

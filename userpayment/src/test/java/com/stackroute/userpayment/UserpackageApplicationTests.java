@@ -1,4 +1,4 @@
-package com.stackroute.userpackage;
+package com.stackroute.userpayment;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
