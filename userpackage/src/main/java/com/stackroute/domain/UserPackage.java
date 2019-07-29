@@ -1,4 +1,4 @@
-package com.stackroute.userpackage.domain;
+package com.stackroute.domain;
 
 import com.fasterxml.jackson.annotation.JsonTypeId;
 import lombok.AllArgsConstructor;

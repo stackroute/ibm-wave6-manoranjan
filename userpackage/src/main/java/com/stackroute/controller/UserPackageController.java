@@ -1,13 +1,11 @@
-package com.stackroute.userpackage.controller;
+package com.stackroute.controller;
 
-import com.stackroute.userpackage.domain.UserPackage;
-import com.stackroute.userpackage.service.UserPackageService;
+import com.stackroute.service.UserPackageService;
+import com.stackroute.domain.UserPackage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -24,13 +22,6 @@ public class UserPackageController {
     public ResponseEntity<?> saveUser(@RequestBody UserPackage userPackage)
     {
         ResponseEntity responseEntity;
-
-//
-//        Date date=new Date();
-//        long millies=date.getTime();
-//        Timestamp timestamp=new Timestamp(millies);
-//        userPackage.setMydate(timestamp);
-
 
         try {
             userPackageService.saveUser(userPackage);

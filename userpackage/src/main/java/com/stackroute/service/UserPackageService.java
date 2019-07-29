@@ -1,6 +1,6 @@
-package com.stackroute.userpackage.service;
+package com.stackroute.service;
 
-import com.stackroute.userpackage.domain.UserPackage;
+import com.stackroute.domain.UserPackage;
 
 import java.util.List;
 
