@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Id;
 import java.lang.annotation.Documented;
+import java.sql.Date;
 
 
 @Document
@@ -18,9 +19,9 @@ public class UserPackage {
     @Id
     private String emailId;
     private String packageName;
-    private String mydate;
+    private Date mydate;
 
-    public String getMyDate() {
+    public Date getMyDate() {
         return mydate;
     }
 
@@ -32,7 +33,7 @@ public class UserPackage {
         return packageName;
     }
 
-    public void setMydate(String mydate) {
+    public void setMydate(Date mydate) {
         this.mydate = mydate;
     }
 }

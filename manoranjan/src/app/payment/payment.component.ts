@@ -20,7 +20,7 @@ ptime;
   payment=new Userpayment();
   emailId;packageName;
    time;
-   amount; ddMMyyyy;
+   amount; date=new Date();
   cardName;cardNumber;expiryMonth;expiryYear;cvv;
    route:any;
   usercard:Usercard=new Usercard();
@@ -30,7 +30,7 @@ ptime;
   registerForm: any;
   constructor(private _formBuilder: FormBuilder,private router:Router,private usercardservice:UsercardService,
     private activatedRoute:ActivatedRoute,private paymentservice:PaymentService,public dialog: MatDialog,private datePipe: DatePipe) {
-       this.ddMMyyyy = this.datePipe.transform(new Date(),"dd-MM-yyyy");
+       
       }
     submit(time,amount,cardName,cardNumber,expiryMonth,expiryYear,cvv){
       this.time=time;
@@ -52,7 +52,7 @@ ptime;
             this.payment.emailId=this.user.emailId;
             this.payment.packageName=time;
             sessionStorage.setItem("packageTime",this.payment.packageName)
-            this.payment.mydate=this.ddMMyyyy;
+            this.payment.mydate=this.date;
       this.paymentservice.save(this.payment).
         subscribe(
             data => {
