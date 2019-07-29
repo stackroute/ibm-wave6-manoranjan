@@ -53,10 +53,6 @@ export class RegistrationComponent implements OnInit {
     this.genre.push(interest);
     console.log(this.genre);
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> 705e33093232a0d248a80a80755c5dad0a9bcd7e
   submitDetails() {
       var m = {
         'name': this.completeDetails[0].name,
