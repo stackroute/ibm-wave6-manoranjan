@@ -53,15 +53,15 @@ public class UserController {
     {
         ResponseEntity responseEntity;
         userService.deleteUser(emailId);
-        responseEntity=new ResponseEntity<String>("", HttpStatus.CREATED);
+        responseEntity=new ResponseEntity<String>("Deleted Successfully", HttpStatus.CREATED);
         return responseEntity;
     }
     @PutMapping("/user/{emailId}")
-    public ResponseEntity<?> updateUser(@RequestBody User user)
+    public ResponseEntity<?> updateUser(@PathVariable("emailId") String emailId, @RequestBody User user)
     {
         ResponseEntity responseEntity;
-        userService.updateUser(user);
-        responseEntity = new ResponseEntity<String>("Updated Successfully", HttpStatus.CREATED);
+        userService.updateUser(emailId,user);
+        responseEntity = new ResponseEntity<User>(user, HttpStatus.CREATED);
         return responseEntity;
     }
 

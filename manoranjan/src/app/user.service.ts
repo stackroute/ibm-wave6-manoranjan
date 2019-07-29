@@ -21,7 +21,14 @@ export class UserService {
       })
     });
    }
-   getAllUsers():any{
+  getAllUsers():any{
     return this.http.get("http://localhost:8011/userservice/users");
   }
+  updateUser(emailId,user:User):any{
+    return this.http.put("http://localhost:8011/userservice/user/"+emailId,user,{
+      headers:new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    });
+}
 }
