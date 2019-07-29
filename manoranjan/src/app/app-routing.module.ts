@@ -66,9 +66,8 @@ import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-ep
 import { ProducernavComponent } from './producernav/producernav.component';
 import{ProducerprofileComponent} from './producerprofile/producerprofile.component';
 import { EditproducerprofileComponent } from './editproducerprofile/editproducerprofile.component';
-
 import { EpisodicComponent } from './episodic/episodic.component';
-
+import{DatePipe}from '@angular/common';
 
 const routes: Routes = [
   {path :'terms',component:TermsOfUseComponent},
@@ -130,6 +129,7 @@ const routes: Routes = [
   {path :'about1',component:AboutComponent},
   {path :'package',component:PackageComponent},
   {path :'package/:email',component:PackageComponent},
+  {path :'payment/:time/:amount',component:PaymentComponent},
   {path:'myaccount',component:MyaccountComponent},
   {path:'edit/:email',component:EditComponent},
   {path:'editpro',component:EditproducerprofileComponent},
@@ -144,6 +144,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  providers:[DatePipe],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

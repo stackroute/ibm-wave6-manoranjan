@@ -69,6 +69,7 @@ export class RegistrationComponent implements OnInit {
           console.log("Error", error);});
 
       this.router.navigateByUrl('/package/'+this.completeDetails[0].emailId);
+
     } 
 
   validation_messages = {
