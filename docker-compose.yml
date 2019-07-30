@@ -66,9 +66,9 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: localhost:2181
       KAFKA_MESSAGE_MAX_BYTES: 1000000000
 
-  userAuthentication:
-    image: user-authentication:1.0.0
-    build: UserAuthentication/
+  user-authentication-service:
+    image: user-authentication-service:1.0.0
+    build: user-authentication-service/
     restart: always
     network_mode: host
     depends_on:
@@ -107,9 +107,9 @@ services:
     expose:
       - 27017
 
-  userservice:
+  user-service:
       image: user-service:1.0.0
-      build: userservice/
+      build: user-service/
       restart: always
       network_mode: "host"
       depends_on:
@@ -122,9 +122,9 @@ services:
       expose:
         - 8050
 
-  mediaManagerService:
-    image: media-manager:1.0.0
-    build: mediaManagerService/
+  media-manager-service:
+    image: media-manager-service:1.0.0
+    build: media-manager-service/
     restart: always
     network_mode: "host"
     depends_on:
@@ -137,9 +137,9 @@ services:
     expose:
       - 8060
 
-  userpayment:
-    image: user-payment:1.0.0
-    build: userpayment/
+  payment-service:
+    image: payment-service:1.0.0
+    build: payment-service/
     restart: always
     network_mode: "host"
     depends_on:
