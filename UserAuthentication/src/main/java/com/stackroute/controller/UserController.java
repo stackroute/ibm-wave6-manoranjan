@@ -1,10 +1,7 @@
 package com.stackroute.controller;
 
 import com.stackroute.domain.User;
-import com.stackroute.exception.PasswordNotMatchException;
-import com.stackroute.exception.UserAlreadyExistsException;
-import com.stackroute.exception.UserNameNotFoundException;
-import com.stackroute.exception.UserNameOrPasswordEmptyException;
+import com.stackroute.exception.*;
 import com.stackroute.jwt.SecurityTokenGenerator;
 import com.stackroute.service.UserService;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -81,7 +78,7 @@ public class UserController {
     }
     @ApiOperation(value = "Gets all the user details(username,password,role)")
     @GetMapping("/users")
-    public ResponseEntity<?> getAllUser()
+    public ResponseEntity<?> getAllUser() throws UserNotFoundException
     {
         return new ResponseEntity<List<User>>(userService.getAllUsers(), HttpStatus.OK);
     }

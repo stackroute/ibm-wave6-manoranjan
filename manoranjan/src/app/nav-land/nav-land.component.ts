@@ -10,6 +10,7 @@ export class NavLandComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    sessionStorage.clear();
   }
 
 }

@@ -28,4 +28,9 @@ public class GlobalException {
         return new ResponseEntity<String>("User Name/Password is Empty !", HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFoundException(UserNotFoundException e){
+        return new ResponseEntity<String>("User Not Found !", HttpStatus.NOT_FOUND);
+    }
+
 }
