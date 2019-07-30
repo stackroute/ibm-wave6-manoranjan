@@ -20,6 +20,9 @@ section{
   height: 500px;
   box-shadow: none;
 } 
+mat-card-content .imageCard{
+ margin-left: 40px;
+}
 #first-card{
 margin-top: -14px;
 }
@@ -37,7 +40,7 @@ label{
 font-family: 'Merriweather', serif;
 }
 form .row1{
-  margin-top: 60px;
+  margin-top: 25px;
 }
 
 #password{
@@ -63,9 +66,7 @@ margin-top: 10px;
 table{
   margin: auto;
 }
-.mat-button-toggle {
-border: 0;
-}
+
 img:hover{
  opacity: 0.5; 
 }
@@ -90,38 +91,32 @@ p,tr td, .form-control,button,.headingStyle,mat-radio-button {
 mat-grid-list{
   margin-bottom: -100px;
 }
-mat-button-toggle{
-height: 40%;
-width: 60%;
-margin-right: 10px;
 
-}
 mat-grid-list mat-grid-tile{
   height:100px;
   width:100px
 }
-#firstImage{
-  margin-left:100px;
+  #firstImage{
+  margin-left:80px;
 }
-
 #thirdImage{
-  margin-left: -100px;
+  margin-left: -80px;
 }
 #fourthImage{
-  margin-left:100px;
+  margin-left:80px;
 }
 #sixthImage{
-  margin-left: -100px;
+  margin-left: -80px;
 }
 #seventhImage{
-  margin-left: 100px;
+  margin-left: 80px;
 }
 
 #ninthImage{
-  margin-left: -100px;
-}
+  margin-left: -20px;
+} 
 #firstgrid{
-  margin-top: -30px;
+  margin-top: -60px;
 }
 .nextButton{
   margin-left: 20px;
@@ -205,7 +200,7 @@ img{
   width: 100%;
 } 
 #success{
-  margin-top: 100px;
+  margin-top: -60px;
   font-family: 'Merriweather', serif;
   color:green;
 }

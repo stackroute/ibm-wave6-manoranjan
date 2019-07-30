@@ -70,7 +70,6 @@ export class StandaloneStepperComponent implements OnInit {
     });
 
     this.firstFormGroup = this._formBuilder.group({
-      language: new FormControl('', [Validators.required]),
       date:new FormControl()
 
     });
@@ -78,6 +77,7 @@ export class StandaloneStepperComponent implements OnInit {
       studio:new FormControl('', [Validators.required, Validators.maxLength(30)])
     });
     this.thirdFormGroup = this._formBuilder.group({
+      language: new FormControl('', [Validators.required]),
       posterurl:new FormControl(),
       video:new FormControl(),
       trailer:new FormControl(),

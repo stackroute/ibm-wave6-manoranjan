@@ -111,7 +111,7 @@
        <mat-card class="example-card" id="third-card" >
           <mat-card-content class="content" >
                 <mat-grid-list cols="3" id="firstgrid">
-                    <mat-grid-tile id="firstImage">
+                    <mat-grid-tile id="firstImage" >
                         <mat-button-toggle class="imageCard"  (change)="onSubmInterest($event.value)" value="romantic">
                           <img  mat-card-md-image src="/assets/images/binew1.jpg" alt="romantic">
                       </mat-button-toggle>
@@ -148,17 +148,17 @@
            </mat-grid-list>
     <mat-grid-list cols="3" id="gridimages">
         <mat-grid-tile id="seventhImage">
-                <mat-button-toggle (change)="onSubmInterest($event.value)"  value="horror">
+                <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)"  value="horror">
                   <img  mat-card-md-image src="/assets/images/hnew1.jpg" alt="Horror">
                 </mat-button-toggle>
           </mat-grid-tile>
           <mat-grid-tile id="eighthImage">
-                  <mat-button-toggle (change)="onSubmInterest($event.value)" value="biopic">
+                  <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="biopic">
                    <img  mat-card-md-image src="/assets/images/r.jpg" alt="biopic">
                   </mat-button-toggle>
          </mat-grid-tile>
-         <mat-grid-tile id="ninthImage">
-            <mat-button-toggle (change)="onSubmInterest($event.value)"  value="science">
+         <mat-grid-tile id="thirdImage">
+            <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)"  value="science">
              <img  mat-card-md-image src="/assets/images/scinew.jpg" alt="science">
             </mat-button-toggle>
        </mat-grid-tile>
@@ -181,7 +181,7 @@
                           Thank you!
                         </h3>
                          <br>
-                        <p >You are successfully Registered here!</p>
+                        <p >You are Registered  successfully</p>
                     </div>
                    <br>
                  </mat-card-content>
