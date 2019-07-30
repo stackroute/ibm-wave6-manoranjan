@@ -1,9 +1,12 @@
 package com.stackroute.service;
 
+import com.stackroute.domain.UserPayment;
 import com.stackroute.exceptions.UserAllReadyExistException;
+import com.stackroute.repository.UserPaymentRepository;
 import com.stackroute.repository.UserRepository;
 import com.stackroute.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +18,19 @@ public class UserServiceImpl implements UserService {
 
     User user=null;
     UserRepository userRepository;
+
+    @Autowired
+    UserPaymentRepository userPaymentRepository;
+
     @Autowired
     public UserServiceImpl(UserRepository userRepository)
     {
         this.userRepository=userRepository;
+    }
+
+    public UserServiceImpl(UserPaymentRepository userPaymentRepository)
+    {
+        this.userPaymentRepository=userPaymentRepository;
     }
 
     @Autowired
@@ -79,6 +91,16 @@ public class UserServiceImpl implements UserService {
              user= userRepository.findById(emailId).get();
         }
         return user;
+    }
+
+    @Override
+    @KafkaListener(topics = "savedUser",groupId = "Group_JsonObject")
+    public UserPayment saveUser(UserPayment userPayment) {
+        UserPayment saveUser = (UserPayment) userPaymentRepository.save(userPayment);
+
+        System.out.println(saveUser);
+        return saveUser;
+
     }
 
 }
