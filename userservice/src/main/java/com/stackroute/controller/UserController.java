@@ -35,7 +35,7 @@ public class UserController {
     {
         ResponseEntity responseEntity;
         try {
-            userService.saveUser(userPackage);
+            userService.saveUserPayment(userPackage);
             responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.OK);
         }
 
@@ -48,6 +48,14 @@ public class UserController {
     @GetMapping("users")
     public ResponseEntity<?> getAllUsers() throws UserNotFoundException {
         return new ResponseEntity<List<User>>(userService.getAllUsers(),HttpStatus.OK);
+    }
+    @GetMapping("user/wish/{emailId}")
+    public ResponseEntity<?> getAllWishlist(@PathVariable("emailId") String emailId) throws UserNotFoundException {
+        return new ResponseEntity<List<List<String>>>(userService.getAllWishlist(emailId),HttpStatus.OK);
+    }
+    @GetMapping("user/history/{emailId}")
+    public ResponseEntity<?> getAllHistory(@PathVariable("emailId") String emailId) throws UserNotFoundException {
+        return new ResponseEntity<List<List<String>>>(userService.getAllHistory(emailId),HttpStatus.OK);
     }
     @GetMapping("/users/{emailId}")
     public ResponseEntity<?> getById(@PathVariable("emailId") String emailId) throws UserNotFoundException{

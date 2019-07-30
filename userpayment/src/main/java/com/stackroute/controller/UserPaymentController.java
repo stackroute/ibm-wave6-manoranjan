@@ -26,7 +26,7 @@ public class UserPaymentController {
         ResponseEntity responseEntity;
 
         try {
-            userPackageService.saveUser(userPackage);
+            userPackageService.saveUserPayment(userPackage);
             responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.CREATED);
         }
 

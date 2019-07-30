@@ -84,6 +84,7 @@ public class UserServiceImpl implements UserService {
             user1.setName(user.getName());
             user1.setMobileNo(user.getMobileNo());
             user1.setAge(user.getAge());
+            userRepository.save(user1);
         }
         if(user1==null)
             throw new UserNotFoundException();
@@ -103,13 +104,36 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<List<String>> getAllWishlist(String emailId) throws UserNotFoundException {
+        List<List<String>> wish;
+        User user=userRepository.findById(emailId).get();
+        wish=user.getWishList();
+        if(wish==null){
+            throw new UserNotFoundException();
+        }
+        return wish;
+    }
+
+    @Override
+    public List<List<String>> getAllHistory(String emailId) throws UserNotFoundException {
+        List<List<String>> history;
+        User user=userRepository.findById(emailId).get();
+        history=user.getHistory();
+        if(history==null){
+            throw new UserNotFoundException();
+        }
+        return history;
+    }
+
+    @Override
     @KafkaListener(topics = "savedUser",groupId = "Group_JsonObject")
-    public UserPayment saveUser(UserPayment userPayment) {
+    public UserPayment saveUserPayment(UserPayment userPayment) {
         UserPayment saveUser = (UserPayment) userPaymentRepository.save(userPayment);
 
         System.out.println(saveUser);
         return saveUser;
 
     }
+
 
 }

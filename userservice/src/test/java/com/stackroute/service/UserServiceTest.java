@@ -63,17 +63,6 @@ public class UserServiceTest {
     {
         optional=null;
     }
-//    @Test
-//    public void saveUserTest() throws UserAllReadyExistException {
-//
-//        when(userRepository.save((User) any())).thenReturn(user);
-//        kafkaTemplate.send(topic,user);
-//        User savedUser = userService.saveUser(user);
-//        Assert.assertEquals(user,savedUser);
-//        System.out.println("savedUser" + savedUser);
-//        verify(userRepository,times(1)).save(user);
-//
-//    }
     @Test
     public void getAllUsers() throws UserNotFoundException {
         userRepository.save(user);

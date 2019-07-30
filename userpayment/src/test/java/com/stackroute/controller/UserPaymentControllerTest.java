@@ -58,7 +58,7 @@ public class UserPaymentControllerTest {
     @Test
     //testcase for saving user package details
     public void saveUser() throws Exception {
-        when(userPaymentService.saveUser((UserPayment)any())).thenReturn(userPayment);
+        when(userPaymentService.saveUserPayment((UserPayment)any())).thenReturn(userPayment);
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/user")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(userPayment)))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
@@ -67,7 +67,7 @@ public class UserPaymentControllerTest {
     @Test
     //failure case for saving the user package details
     public void saveUserFailure() throws Exception {
-        when(userPaymentService.saveUser((UserPayment)any())).thenThrow();
+        when(userPaymentService.saveUserPayment((UserPayment)any())).thenThrow();
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/user")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(userPayment)))
                 .andExpect(MockMvcResultMatchers.status().isConflict())

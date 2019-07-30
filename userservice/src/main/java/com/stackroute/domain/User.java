@@ -28,4 +28,6 @@ public class User {
     private String password;
     private List<String> genre;
     private String role = "user";
+    private List<List<String>> wishList;
+    private List<List<String>> history;
 }

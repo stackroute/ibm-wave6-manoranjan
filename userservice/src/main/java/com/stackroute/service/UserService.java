@@ -18,7 +18,11 @@ public interface UserService {
     public User updateUser(String emailId,User user) throws UserNotFoundException;
     //get user by their emailId
     public User getById(String emailId) throws UserNotFoundException;
+    //get all wishlist
+    public List<List<String>> getAllWishlist(String emailId) throws UserNotFoundException;
+    //get all history
+    public List<List<String>> getAllHistory(String emailId) throws UserNotFoundException;
     //cosuming userservice through KAFKA
-    public UserPayment saveUser(UserPayment userPayment);
+    public UserPayment saveUserPayment(UserPayment userPayment);
 
 }

@@ -43,7 +43,7 @@ public class UserPaymentServiceImpl implements UserPaymentService {
     private static String topic= "savedUser";
 
     @Override
-    public UserPayment saveUser(UserPayment userPayment)  {
+    public UserPayment saveUserPayment(UserPayment userPayment)  {
 
             UserPayment saveUser = (UserPayment) userPaymentRepository.save(userPayment);
 
