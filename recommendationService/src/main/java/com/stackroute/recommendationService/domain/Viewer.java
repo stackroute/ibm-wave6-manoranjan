@@ -16,7 +16,7 @@ public class Viewer {
     public Viewer() {
     }
 
-    public Viewer(Long id, String name, String emailId, List<String> genre, List<Media> media) {
+    public Viewer(Long id, String name, String emailId, List<String> genre, List<StandaloneMedia> standaloneMedia) {
         this.id = id;
         this.name = name;
         this.emailId = emailId;

@@ -2,7 +2,7 @@ package com.stackroute.recommendationService.controller;
 
 import com.stackroute.recommendationService.domain.Genre;
 import com.stackroute.recommendationService.domain.Language;
-import com.stackroute.recommendationService.domain.Media;
+import com.stackroute.recommendationService.domain.StandaloneMedia;
 import com.stackroute.recommendationService.exception.GenreNotFoundException;
 import com.stackroute.recommendationService.exception.LanguageNotFoundException;
 import com.stackroute.recommendationService.exception.MediaAlreadyExistException;
@@ -18,10 +18,10 @@ public class MediaController {
 
     @Autowired
     private MediaServiceImpl mediaService;
-    private Media media;
+    private StandaloneMedia standaloneMedia;
 
     @GetMapping("/medias")
-    public Collection<Media> getMedias()throws MediaNotFoundException {
+    public Collection<StandaloneMedia> getMedias()throws MediaNotFoundException {
         return mediaService.getMedias();
     }
 
@@ -36,12 +36,12 @@ public class MediaController {
     }
 
     @PostMapping("/media")
-    public Media saveNewMedia(@RequestBody Media media)throws MediaAlreadyExistException {
-        return mediaService.saveMedia(media);
+    public StandaloneMedia saveNewMedia(@RequestBody StandaloneMedia standaloneMedia)throws MediaAlreadyExistException {
+        return mediaService.saveMedia(standaloneMedia);
     }
 
     @GetMapping("/media/{title}")
-    public Media getMediaByTitle(@PathVariable("title") String title)throws MediaNotFoundException{
+    public StandaloneMedia getMediaByTitle(@PathVariable("title") String title)throws MediaNotFoundException{
         return mediaService.getMediaByTitle(title);
     }
 }

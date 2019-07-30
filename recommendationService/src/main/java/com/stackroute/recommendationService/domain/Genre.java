@@ -14,7 +14,7 @@ public class Genre {
     public Genre() {
     }
 
-    public Genre(Long id, String genre, List<Viewer> viewer, List<Media> media) {
+    public Genre(Long id, String genre, List<Viewer> viewer, List<StandaloneMedia> standaloneMedia) {
         this.id = id;
         this.genre = genre;
     }

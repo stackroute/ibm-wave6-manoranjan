@@ -1,9 +1,9 @@
 package com.stackroute.recommendationService.service;
 
-import com.stackroute.recommendationService.domain.Media;
+import com.stackroute.recommendationService.domain.StandaloneMedia;
 import com.stackroute.recommendationService.exception.MediaNotFoundException;
 import com.stackroute.recommendationService.repository.LanguageRepository;
-import com.stackroute.recommendationService.repository.MediaRepository;
+import com.stackroute.recommendationService.repository.StandaloneMediaRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,43 +17,43 @@ import java.util.Optional;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-public class MediaServiceTest {
-    private Media media;
+public class StandaloneMediaServiceTest {
+    private StandaloneMedia standaloneMedia;
 
     @Mock
     //this specify which mock obiject to be injected
-    private MediaRepository mediaRepository;
+    private StandaloneMediaRepository standaloneMediaRepository;
     Optional optional;
     LanguageRepository languageRepository;
 
     @InjectMocks
     private MediaServiceImpl mediaService;
-    List<Media> list= null;
+    List<StandaloneMedia> list= null;
 
     @Before
     public void setUp(){
         //Initialising the mock object
         MockitoAnnotations.initMocks(this);
-        media = new Media();
-        media.setId((long) 1);
-        media.setTitle("Mohobbatein");
+        standaloneMedia = new StandaloneMedia();
+        standaloneMedia.setId((long) 1);
+        standaloneMedia.setTitle("Mohobbatein");
         List<String> genre = new ArrayList<>();
         genre.add("Action");
         genre.add("Romantic");
-        media.setGenre(genre);
-        media.setLanguage("Hindi");
+        standaloneMedia.setGenre(genre);
+        standaloneMedia.setLanguage("Hindi");
         list = new ArrayList<>();
-        list.add(media);
-        optional=Optional.of(media);
+        list.add(standaloneMedia);
+        optional=Optional.of(standaloneMedia);
     }
 
     @Test
     public void getAllMediasTestSuccess() throws MediaNotFoundException {
-        mediaRepository.save(media);
+        standaloneMediaRepository.save(standaloneMedia);
         //stubbing the mock to return specific data
-        when(mediaRepository.findAll()).thenReturn(list);
-        List<Media> mediaList = mediaService.displayMedia();
-        Assert.assertEquals(list,mediaList);
+        when(standaloneMediaRepository.findAll()).thenReturn(list);
+        List<StandaloneMedia> standaloneMediaList = mediaService.displayMedia();
+        Assert.assertEquals(list, standaloneMediaList);
     }
 
 //    @Test

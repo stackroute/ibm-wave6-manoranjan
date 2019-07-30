@@ -13,7 +13,7 @@ public class Language {
     public Language() {
     }
 
-    public Language(Long id, String language, Media media) {
+    public Language(Long id, String language, StandaloneMedia standaloneMedia) {
         this.id = id;
         this.language = language;
     }
