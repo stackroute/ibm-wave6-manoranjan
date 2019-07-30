@@ -2,6 +2,7 @@ package com.stackroute.service;
 
 import com.stackroute.domain.User;
 import com.stackroute.exception.UserAlreadyExistsException;
+import com.stackroute.exception.UserNotFoundException;
 import com.stackroute.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -12,6 +13,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
+    User user;
 
     private UserRepository userRepo;
 
@@ -41,7 +43,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers() throws UserNotFoundException {
         return userRepo.findAll();
     }
 

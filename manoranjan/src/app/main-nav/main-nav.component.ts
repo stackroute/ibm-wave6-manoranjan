@@ -16,5 +16,9 @@ export class MainNavComponent implements OnInit {
 
   ngOnInit() {
 }
+submit(){
+  sessionStorage.setItem('email',null);
+  this.router.navigateByUrl("/navland");
+}
 
 }

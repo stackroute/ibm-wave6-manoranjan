@@ -1,6 +1,7 @@
 package com.stackroute.service;
 
 import com.stackroute.exceptions.UserAllReadyExistException;
+import com.stackroute.exceptions.UserNotFoundException;
 import com.stackroute.repository.UserRepository;
 import com.stackroute.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
-    User user=null;
     UserRepository userRepository;
     @Autowired
     public UserServiceImpl(UserRepository userRepository)
@@ -30,36 +30,41 @@ public class UserServiceImpl implements UserService {
     public User saveUser(User user) throws UserAllReadyExistException {
         if(userRepository.existsById(user.getEmailId()))
         {
-            throw new UserAllReadyExistException("User already exist!!!!");
+            throw new UserAllReadyExistException();
         }
         User saveUser= (User) userRepository.save(user);
-        if(saveUser==null)
+       if(saveUser==null)
         {
-            throw new UserAllReadyExistException("User already exist!!!");
+            throw new UserAllReadyExistException();
         }
-        kafkaTemplate.send(topic,saveUser);
-        return saveUser;
+       else {
+           kafkaTemplate.send(topic,user);
+
+       }
+
+       return saveUser;
     }
 
     @Override
-    public List<User> getAllUsers() {
-
-        return userRepository.findAll();
+    public List<User> getAllUsers() throws UserNotFoundException {
+            return userRepository.findAll();
     }
 
     @Override
-    public User deleteUser(String emailId) {
-        user = null;
+    public User deleteUser(String emailId) throws UserNotFoundException {
+        User user = null;
         Optional optional = userRepository.findById(emailId);
         if (optional.isPresent()) {
             user = userRepository.findById(emailId).get();
             userRepository.deleteById(emailId);
         }
+        else
+            throw new UserNotFoundException();
         return user;
     }
 
     @Override
-    public User updateUser(String emailId,User user) {
+    public User updateUser(String emailId,User user) throws UserNotFoundException {
         User user1=new User();
         if (userRepository.existsById(user.getEmailId())) {
             user1=userRepository.findById(emailId).get();
@@ -68,16 +73,20 @@ public class UserServiceImpl implements UserService {
             user1.setMobileNo(user.getMobileNo());
             user1.setAge(user.getAge());
         }
+        if(user1==null)
+            throw new UserNotFoundException();
         return userRepository.save(user1);
     }
 
     @Override
-    public User getById(String emailId) {
-        user = null;
+    public User getById(String emailId) throws UserNotFoundException {
+        User user;
         Optional optional = userRepository.findById(emailId);
         if (optional.isPresent()) {
              user= userRepository.findById(emailId).get();
         }
+        else
+            throw new UserNotFoundException("track");
         return user;
     }
 
