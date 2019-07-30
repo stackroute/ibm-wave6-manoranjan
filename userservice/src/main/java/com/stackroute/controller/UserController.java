@@ -1,5 +1,6 @@
 package com.stackroute.controller;
 
+import com.stackroute.domain.UserPayment;
 import com.stackroute.exceptions.UserAllReadyExistException;
 import com.stackroute.domain.User;
 import com.stackroute.service.UserService;
@@ -36,6 +37,22 @@ public class UserController {
         }
         return responseEntity;
     }
+
+    @PostMapping("userPayment")
+    public ResponseEntity<?> saveUser(@RequestBody UserPayment userPackage)
+    {
+        ResponseEntity responseEntity;
+        try {
+            userService.saveUser(userPackage);
+            responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.OK);
+        }
+
+        catch(Exception e)
+        {
+            responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);
+        }
+        return responseEntity;
+    }
     @GetMapping("users")
     public ResponseEntity<?> getAllUsers(){
         return new ResponseEntity<List<User>>(userService.getAllUsers(),HttpStatus.OK);
@@ -53,15 +70,15 @@ public class UserController {
     {
         ResponseEntity responseEntity;
         userService.deleteUser(emailId);
-        responseEntity=new ResponseEntity<String>("", HttpStatus.CREATED);
+        responseEntity=new ResponseEntity<String>("Deleted Successfully", HttpStatus.CREATED);
         return responseEntity;
     }
     @PutMapping("/user/{emailId}")
-    public ResponseEntity<?> updateUser(@RequestBody User user)
+    public ResponseEntity<?> updateUser(@PathVariable("emailId") String emailId, @RequestBody User user)
     {
         ResponseEntity responseEntity;
-        userService.updateUser(user);
-        responseEntity = new ResponseEntity<String>("Updated Successfully", HttpStatus.CREATED);
+        userService.updateUser(emailId,user);
+        responseEntity = new ResponseEntity<User>(user, HttpStatus.CREATED);
         return responseEntity;
     }
 

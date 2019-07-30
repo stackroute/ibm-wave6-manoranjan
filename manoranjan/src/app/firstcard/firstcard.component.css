@@ -11,10 +11,12 @@
 img-clicked{
   border: 0;
 }
-
+button{
+  border: none;
+}
 #left,#right{
   margin:50px;
- 
+  
 }
 .latest{
   height: 180px;

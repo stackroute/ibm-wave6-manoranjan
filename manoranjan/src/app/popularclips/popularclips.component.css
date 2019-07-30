@@ -1,4 +1,4 @@
-#container{
+  #container{
 	width:90%;
 	margin:3.5em auto;
 	padding:20;
@@ -7,8 +7,8 @@
   #container H4{
 	padding-top: 0;
 	margin-bottom: 20px;
-  }
-  #left,#right{
+  } */
+ #left,#right{
 	margin: 50px;
   }
   .latest{
@@ -24,6 +24,9 @@
   }
   h4{
 	text-align: center;
-	font-family: 'Merriweather', serif;
-  }
+  font-family: 'Merriweather', serif;
   
+  }
+  h3{
+    margin-left: 120px;
+  }

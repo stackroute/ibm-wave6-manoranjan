@@ -1,10 +1,56 @@
 
 section{
   font-family: 'Merriweather', serif;
-  height:100%;
-  overflow: hidden;
+  font-weight: bold;
+  height:100%; 
+}
 
+#outerMatCard{
+  margin-top: 75px;
+}
+#error{
+  margin-left: 45%;
+}
+
+.example-card{
+  width:800px;
+  margin-top: 10px;
+  margin-bottom: 1px;
+  margin-left:-80px;
+  height: 500px;
+  box-shadow: none;
 } 
+#first-card{
+margin-top: -14px;
+}
+#second-card{
+  margin-top: -14px;
+  }
+  #third-card{
+    margin-top: -14px;  
+  }
+  #fourth-card{
+    margin-top: -14px;
+    }
+label{
+  font-size:15px;
+font-family: 'Merriweather', serif;
+}
+form .row1{
+  margin-top: 60px;
+}
+
+#password{
+  margin-left: 25px;
+}
+
+#passwordIcon{
+  margin-left: -30px;
+}
+#age{
+  margin-left: -15px;
+}
+
 .fill-remaining-space{
 flex: 1 1 auto;
 margin-top: 10px;
@@ -13,12 +59,11 @@ margin-top: 10px;
    margin-top: 10px;
  background-color: white;
 }
+
 table{
   margin: auto;
 }
 .mat-button-toggle {
-  /* border: 1px solid black; */
-  /* border-radius: 4px; */
 border: 0;
 }
 img:hover{
@@ -31,17 +76,10 @@ img:hover{
 mat-card{
 margin-left: 10%;
 margin-right: 10%;
-height: 100%;
-margin-top: 2%;
+margin-top: 4%;
+
 }
-mat-grid-list{
-  margin-bottom: 100px;
-}
-.content1{
-  margin-left: 30px;
-  margin-bottom: 0px;
-  
-} 
+
 p,tr td, .form-control,button,.headingStyle,mat-radio-button {
   font-family: 'Merriweather', serif;
 }
@@ -50,13 +88,58 @@ p,tr td, .form-control,button,.headingStyle,mat-radio-button {
   top: -0.25em;
 }
 mat-grid-list{
-  margin-bottom: -160px;
+  margin-bottom: -100px;
 }
 mat-button-toggle{
-height: 125px;
-width: 175px;
+height: 40%;
+width: 60%;
 margin-right: 10px;
 
+}
+mat-grid-list mat-grid-tile{
+  height:100px;
+  width:100px
+}
+#firstImage{
+  margin-left:100px;
+}
+
+#thirdImage{
+  margin-left: -100px;
+}
+#fourthImage{
+  margin-left:100px;
+}
+#sixthImage{
+  margin-left: -100px;
+}
+#seventhImage{
+  margin-left: 100px;
+}
+
+#ninthImage{
+  margin-left: -100px;
+}
+#firstgrid{
+  margin-top: -30px;
+}
+.nextButton{
+  margin-left: 20px;
+}
+#gridimages{
+  margin-bottom: -50px;
+}
+mat-button-toggle img{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0;
+  height:80px;
+  width: 120px;  
+}
+
+mat-grid-list{
+  margin-top: -100px;
+  margin-bottom: -150px;
 }
 .mark{
   color: red;
@@ -84,6 +167,7 @@ margin-right: 10px;
 /* Remove extra left and right margins, due to padding */
 .row {margin: 0 -5px;}
 
+
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -99,15 +183,6 @@ margin-right: 10px;
     margin-bottom: 20px;
   }
 }
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-
 .user-profile{
   width: 50%;
   margin-left: 24px;
@@ -118,9 +193,26 @@ margin-right: 10px;
       height: 200px;
   }
 form{
-padding-top: 50px;
+padding-top: 30px;
 border-block-start-color: black;
 border-block-end-color: black;
 border-block-start-width: 10px;
 }
-
+img{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height:100%;
+  width: 100%;
+} 
+#success{
+  margin-top: 100px;
+  font-family: 'Merriweather', serif;
+  color:green;
+}
+#success img{
+  height:50px;
+  width:50px;
+}
+h3{
+  margin-top: 180px;
+}

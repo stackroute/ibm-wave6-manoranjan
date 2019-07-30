@@ -16,22 +16,26 @@ export class MyaccountComponent implements OnInit {
   users:User;
   user=new User();
   emailId;
-  constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService,private activatedRoute:ActivatedRoute) { }
+  constructor(private router:Router,private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
 
     // this.activatedRoute.paramMap.subscribe(params=>{
     //   this.emailId=params.get('email');
       
-      this.user.emailId=sessionStorage.getItem('emailId');
+      this.user.emailId=sessionStorage.getItem('email');
       console.log(this.user.emailId)
       this.userService.getById(this.user.emailId).subscribe(data => {
         this.users = data;
         console.log("POST Request is successful ", data);},
         error => {
-          alert("Login Unsuccessful, tryagain")
+          // alert("Login Unsuccessful, tryagain")
           console.log("Error", error);}
       );
     // });
+   }
+   sendEmail(email)
+   {
+      this.router.navigateByUrl('/edit/'+email);
    }
 }

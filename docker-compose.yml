@@ -128,9 +128,25 @@ services:
     restart: always
     network_mode: "host"
     depends_on:
+      - kafka
       - mongo
       - eureka-server
       - zuul-api
+    ports:
+      - 8060:8060
+    expose:
+      - 8060
+
+  userpayment:
+    image: user-payment:1.0.0
+    build: userpayment/
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - mongo
+      - kafka
+      - zuul-api
+      - eureka-server
     ports:
       - 8060:8060
     expose:

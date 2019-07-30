@@ -119,7 +119,10 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-episodic.component';
 import { EpisodicComponent } from './episodic/episodic.component';
-import { UseraccountComponent } from './useraccount/useraccount.component';
+import { ProducernavComponent } from './producernav/producernav.component';
+import { NavComponent } from './nav/nav.component';
+
+
 
 
 @NgModule({
@@ -222,7 +225,8 @@ import { UseraccountComponent } from './useraccount/useraccount.component';
     StandaloneStepperComponent,
     StandaloneEpisodicComponent,
     EpisodicComponent,
-    UseraccountComponent
+    ProducernavComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
