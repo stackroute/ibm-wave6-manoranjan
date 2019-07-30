@@ -1,5 +1,6 @@
 package com.stackroute.controller;
 
+import com.stackroute.domain.UserPayment;
 import com.stackroute.exceptions.UserAllReadyExistException;
 import com.stackroute.domain.User;
 import com.stackroute.exceptions.UserNotFoundException;
@@ -26,6 +27,22 @@ public class UserController {
         ResponseEntity responseEntity;
         userService.saveUser(user);
         responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.OK);
+        return responseEntity;
+    }
+
+    @PostMapping("userPayment")
+    public ResponseEntity<?> saveUser(@RequestBody UserPayment userPackage)
+    {
+        ResponseEntity responseEntity;
+        try {
+            userService.saveUser(userPackage);
+            responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.OK);
+        }
+
+        catch(Exception e)
+        {
+            responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);
+        }
         return responseEntity;
     }
     @GetMapping("users")

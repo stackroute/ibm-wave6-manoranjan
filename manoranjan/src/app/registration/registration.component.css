@@ -1,70 +1,56 @@
 
 section{
-  margin-top: 4%;
   font-family: 'Merriweather', serif;
   font-weight: bold;
-  height:100%;
-  overflow: hidden;
-  margin-bottom: 1%;
+  height:100%; 
+}
 
+#outerMatCard{
+  margin-top: 75px;
 }
 #error{
-  margin-left: 38%;
+  margin-left: 45%;
 }
-input{
-  width:300px;
-}
+
 .example-card{
   width:800px;
+  margin-top: 10px;
+  margin-bottom: 1px;
   margin-left:-80px;
-  height: 515px;
+  height: 500px;
+  box-shadow: none;
 } 
+#first-card{
+margin-top: -14px;
+}
+#second-card{
+  margin-top: -14px;
+  }
+  #third-card{
+    margin-top: -14px;  
+  }
+  #fourth-card{
+    margin-top: -14px;
+    }
 label{
-  font-size:18px;
+  font-size:15px;
+font-family: 'Merriweather', serif;
 }
-#name{
-  margin-top:75px;
-  margin-left:80px;
+form .row1{
+  margin-top: 60px;
 }
-#input1{
-  margin-top:70px;
-}
-#email{
-  margin-top:5px;
-  margin-left: 80px;
-}
+
 #password{
-  margin-left: 98px;
+  margin-left: 25px;
 }
-#input3{
-  margin-top: -35px;
-  margin-left: 274px;
-}
-#icon{
-  margin-top: -38px;
-  margin-left: 580px;
+
+#passwordIcon{
+  margin-left: -30px;
 }
 #age{
-  margin-left: 100px;
-  margin-top: 100px;
+  margin-left: -15px;
 }
-#input4{
-  margin-top:100px;
-  margin-left: -40px;
-}
-#gender{
-  margin-left: 112px;
-}
-#radio{
-  margin-left: -215px;
-}
-#mobile{
-  margin-left: 108px;
-}
-#input5{
-  margin-top:-30px;
- margin-left: 258px;
-}
+
 .fill-remaining-space{
 flex: 1 1 auto;
 margin-top: 10px;
@@ -73,15 +59,11 @@ margin-top: 10px;
    margin-top: 10px;
  background-color: white;
 }
-/* table tr td label{
-  margin-left: 80px;
-  /* margin-top: 10px; */
 
 table{
   margin: auto;
 }
 .mat-button-toggle {
-
 border: 0;
 }
 img:hover{
@@ -94,17 +76,10 @@ img:hover{
 mat-card{
 margin-left: 10%;
 margin-right: 10%;
-height: 100%;
 margin-top: 4%;
+
 }
-/* mat-grid-list{
-  margin-bottom: 200px;
-} */
-.content1{
-  margin-left: 30px;
-  margin-bottom: 0px;
-  
-} 
+
 p,tr td, .form-control,button,.headingStyle,mat-radio-button {
   font-family: 'Merriweather', serif;
 }
@@ -146,7 +121,10 @@ mat-grid-list mat-grid-tile{
   margin-left: -100px;
 }
 #firstgrid{
-  margin-top: -10px;
+  margin-top: -30px;
+}
+.nextButton{
+  margin-left: 20px;
 }
 #gridimages{
   margin-bottom: -50px;
@@ -158,9 +136,7 @@ mat-button-toggle img{
   height:80px;
   width: 120px;  
 }
-/* mat-grid-list mat-grid-tile{
-  margin-right: -150px;
-} */
+
 mat-grid-list{
   margin-top: -100px;
   margin-bottom: -150px;
@@ -207,15 +183,6 @@ mat-grid-list{
     margin-bottom: 20px;
   }
 }
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-
 .user-profile{
   width: 50%;
   margin-left: 24px;
@@ -238,6 +205,7 @@ img{
   width: 100%;
 } 
 #success{
+  margin-top: 100px;
   font-family: 'Merriweather', serif;
   color:green;
 }

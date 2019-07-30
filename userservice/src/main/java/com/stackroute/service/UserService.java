@@ -1,5 +1,6 @@
 package com.stackroute.service;
 
+import com.stackroute.domain.UserPayment;
 import com.stackroute.exceptions.UserAllReadyExistException;
 import com.stackroute.domain.User;
 import com.stackroute.exceptions.UserNotFoundException;
@@ -17,4 +18,7 @@ public interface UserService {
     public User updateUser(String emailId,User user) throws UserNotFoundException;
     //get user by their emailId
     public User getById(String emailId) throws UserNotFoundException;
+    //cosuming userservice through KAFKA
+    public UserPayment saveUser(UserPayment userPayment);
+
 }
