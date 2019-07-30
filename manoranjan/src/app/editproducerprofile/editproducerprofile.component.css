@@ -25,4 +25,14 @@
      margin-right:5%;
      margin-left: 27%;
  }
- 
+ personal-info{
+     margin-top:70px;
+     position: relative;
+     overflow-y: hidden;
+ }
+ .container{
+    position: absolute;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+ }

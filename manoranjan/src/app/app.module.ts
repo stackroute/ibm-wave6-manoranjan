@@ -120,6 +120,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-episodic.component';
 import { EpisodicComponent } from './episodic/episodic.component';
 import { ProducernavComponent } from './producernav/producernav.component';
+import { NavComponent } from './nav/nav.component';
 
 
 
@@ -224,7 +225,8 @@ import { ProducernavComponent } from './producernav/producernav.component';
     StandaloneStepperComponent,
     StandaloneEpisodicComponent,
     EpisodicComponent,
-    ProducernavComponent
+    ProducernavComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

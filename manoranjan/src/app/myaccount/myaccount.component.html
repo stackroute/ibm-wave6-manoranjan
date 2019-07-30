@@ -76,7 +76,8 @@
                </div>
            </form>
            <div class="col-md-2">
-                <input type="Edit Profile" class=" btn btn-info" routerLink="/edit" value="Edit Profile">
+                <!-- <input type="Edit Profile" class=" btn btn-info" routerLink="/edit" value="Edit Profile"> -->
+                <input type="Edit Profile" class=" btn btn-info" (click)="sendEmail(users?.emailId)" value="Edit Profile">
 
            </div>
        </div>
