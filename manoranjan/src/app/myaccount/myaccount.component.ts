@@ -16,7 +16,7 @@ export class MyaccountComponent implements OnInit {
   users:User;
   user=new User();
   emailId;
-  constructor(private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService,private activatedRoute:ActivatedRoute) { }
+  constructor(private router:Router,private _formBuilder: FormBuilder,private _userService:UserService,private userService: UserService,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -33,5 +33,9 @@ export class MyaccountComponent implements OnInit {
           console.log("Error", error);}
       );
     // });
+   }
+   sendEmail(email)
+   {
+      this.router.navigateByUrl('/edit/'+email);
    }
 }

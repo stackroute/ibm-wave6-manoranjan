@@ -24,10 +24,16 @@ user:Userauthen=new Userauthen();
   
     this.userService.login(this.user).
     subscribe(
-        data => {
+        (data:any) => {
         // this.router.navigate(["/linkprilog"],{relativeTo:this.route});
         sessionStorage.setItem("email",this.user.emailId)
-        this.router.navigateByUrl('/linkprilog');
+        if(data.message==="producer"){
+          this.router.navigateByUrl('/producer');
+        }
+        else if(data.message==="user"){
+          this.router.navigateByUrl('/linkprilog');
+        }
+
           console.log("POST Request is successful ", data);},
           
         error => {
@@ -36,6 +42,5 @@ user:Userauthen=new Userauthen();
           console.log("Error", error);}
           
   );
-  // this.router.navigateByUrl('/myaccount/'+this.user.emailId);  
   }
 }

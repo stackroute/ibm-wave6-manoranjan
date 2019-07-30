@@ -63,15 +63,13 @@ export class RegistrationComponent implements OnInit {
         'mobileNo': this.completeDetails[1].mobileNo,
         'genre': this.genre, 
       }
-      this.userService.saveUser(m).subscribe((data:any) => {
-        // alert("valid")
-        console.log("POST Request is successful ", data);
-      },
+
+      this.userService.saveUser(m).subscribe(data => {
+        console.log("POST Request is successful ", data);},
         error => {
-          // alert("Invalid")
-          console.log("Error", error);
-        });
-        this.router.navigateByUrl('/package/'+this.completeDetails[0].emailId);
+          console.log("Error", error);});
+
+      this.router.navigateByUrl('/package/'+this.completeDetails[0].emailId);
 
     } 
 
@@ -89,8 +87,8 @@ export class RegistrationComponent implements OnInit {
     
     'password': [
       { type: 'required', message: 'Password is required' },
-      { type: 'minlength', message: 'Password must be at least 5 characters long' },
-      { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, one number and one special character' }
+      { type: 'minlength', message: 'Password is at least 8 char long' },
+      { type: 'pattern', message: ' password 8 char long ,has at least one uppercase, one lowercase, one number and one special character' }
     ],
 
     'age': [

@@ -123,6 +123,7 @@ import { PlayComponent } from './play/play.component';
 import { ProducernavComponent } from './producernav/producernav.component';
 import { DatacardComponent } from './datacard/datacard.component';
 import { DatacardepisodicComponent } from './datacardepisodic/datacardepisodic.component';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
@@ -228,7 +229,9 @@ import { DatacardepisodicComponent } from './datacardepisodic/datacardepisodic.c
     PlayComponent,
     ProducernavComponent,
     DatacardComponent,
-    DatacardepisodicComponent
+    DatacardepisodicComponent,
+    ProducernavComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
