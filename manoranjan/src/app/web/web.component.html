@@ -179,7 +179,7 @@
             <div class="col-sm-2" *ngFor="let s of series1">
                 <div class="box">
                     <div class="imgbox">
-                        <img src="{{s.episodicPosterUrl}}" class="image">
+                        <img src="{{s.episodicPosterUrl}}" class="image" (click)="sendDetails(s)">
                     </div>
                     <div class="content">
                         <h3>{{s.episodicTitle}}</h3>

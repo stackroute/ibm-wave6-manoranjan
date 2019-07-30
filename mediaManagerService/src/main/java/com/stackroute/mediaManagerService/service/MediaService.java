@@ -18,22 +18,24 @@ public interface MediaService {
     public List<Media> getAllMedia() throws MediaNotFoundException;
     public Media getMediaById(String mediaTitle) throws MediaNotFoundException;
     public Media saveMedia(Media media) throws MediaAlreadyExistsException;
-    public Media updateDetails(Media media);
+
     public Media deleteMedia(String mediaTitle) throws MediaNotFoundException;
-    public List<Media> getMediaByGenre(String Genre);
-    public List<Media> getMediaByCategory(String category);
+    public List<Media> getMediaByGenre(String Genre) throws MediaNotFoundException;
+    public List<Media> getMediaByCategory(String category) throws  MediaNotFoundException;
 
     public EpisodicMedia saveSerial(EpisodicMedia serial) throws MediaAlreadyExistsException;
     public List<EpisodicMedia> getAllSerials() throws MediaNotFoundException;
     public EpisodicMedia getSerialByTitle(String episodicTitle) throws MediaNotFoundException;
     public EpisodicMedia deleteSerial(String serialTitle) throws MediaNotFoundException;
-    public List<EpisodicMedia> getSerialByCategory(String category);
-    public List<EpisodicMedia> getTvSerialByLanguage(String language);
+    public List<EpisodicMedia> getSerialByCategory(String category) throws MediaNotFoundException;
+    public List<EpisodicMedia> getTvSerialByLanguage(String language) throws MediaNotFoundException;
 
-    public String addEpisode(String serialTitle,Episode episode);
-    public String deleteEpisode(String serialTitle,int episodeNumber);
-    public Episode getEpisodeById(String serialTitle,int episodeNumber);
-    public List<Episode> getAllEpisodes(String serialTitle);
+    public Episode addEpisode(String serialTitle,Episode episode) throws MediaAlreadyExistsException, MediaNotFoundException;
+    public Episode deleteEpisode(String serialTitle,int episodeNumber) throws MediaNotFoundException;
+    public Episode getEpisodeById(String serialTitle,int episodeNumber) throws MediaNotFoundException;
+    public List<Episode> getAllEpisodes(String serialTitle) throws MediaNotFoundException;
+
+    public List<Object> getMediaList(List<List<String>> mediaList);
 
     public void store(MultipartFile file);
     public Resource loadFile(String filename);

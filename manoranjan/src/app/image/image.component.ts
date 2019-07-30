@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ImageComponent implements OnInit {
 
+  id;
   serial;
   serial1=new Episodic()
   episodeList;
@@ -25,7 +26,13 @@ export class ImageComponent implements OnInit {
   }
 
   playVideo(){
+    this.id=sessionStorage.getItem('email')
     console.log();
-    this.router.navigateByUrl('/play/'+this.serial.episodicTitle+'/'+this.serial1.episodeList[0].episodeUrl);
+    if(this.id!==null){
+      this.router.navigateByUrl('/play/'+this.serial.episodicTitle+'/'+this.serial1.episodeList[0].episodeUrl);
+    }
+    else{
+      this.router.navigateByUrl('/login');
+    }
   }
 }

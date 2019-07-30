@@ -35,39 +35,38 @@ public class MediaRepositoryTest {
         media.setMediaCategory("Movie");
         media.setMediaSynopsis("Movies based on people from 2 different states");
 
-        List<String> genres=new ArrayList<String>();
+    List<String> genres=new ArrayList<String>();
         genres.add("Romantic");
         genres.add("Action");
 
         media.setMediaGenre(genres);
         media.setMediaLanguage("Hindi");
 
-        String pattern = "yyyy-MM-dd";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        Date date = simpleDateFormat.parse("2018-09-09");
-
+    String pattern = "yyyy-MM-dd";
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+    Date date = simpleDateFormat.parse("2018-09-09");
         media.setMediaReleaseDate(date);
-        media.setMediaPosterUrl("poster.jpg");
+        media.setMediaPosterUrl("https://images-na.ssl-images-amazon.com/images/I/51ZvSZqM9UL.jpg");
         media.setMediaStudioName("Red chillies");
 
-        Crew crew=new Crew("Chetan Bhagat","Writer");
-        Cast cast=new Cast("Krish","Arjun");
-        Cast cast1=new Cast("Ananya","Alia");
+    Crew crew=new Crew("Chetan Bhagat","Writer");
+    Cast cast=new Cast("Krish","Arjun");
+    Cast cast1=new Cast("Ananya","Alia");
 
-        List<Crew> crews=new ArrayList<>();
+    List<Crew> crews=new ArrayList<>();
         crews.add(crew);
 
         media.setMediaCrew(crews);
 
-        List<Cast> casts=new ArrayList<>();
+    List<Cast> casts=new ArrayList<>();
         casts.add(cast);
         casts.add(cast1);
 
         media.setMediaCast(casts);
-        media.setMediaUrl("2states");
-        media.setMediaTrailerUrl("trailer");
+        media.setMediaUrl("2states.mp4");
+        media.setMediaTrailerUrl("trailer.mp4");
         media.setMediaType("Free");
-    }
+}
 
     @After
     public void tearDown() throws Exception {
@@ -75,7 +74,7 @@ public class MediaRepositoryTest {
     }
 
     @Test
-    public void testSaveMedia(){
+    public void testSaveMedia_returnSavedMedia(){
         mediaRepository.save(media);
         Media media1=mediaRepository.findById("2 states").get();
         System.out.println(media1);
@@ -83,16 +82,42 @@ public class MediaRepositoryTest {
     }
 
     @Test
-    public void testAllMedia(){
+    public void testSaveMediaFailure_returnSavedMedia(){
+        mediaRepository.save(media);
+        Media media1=mediaRepository.findById("2 states").get();
+        Assert.assertNotEquals("2 cities",media1.getMediaTitle());
+
+    }
+
+    @Test
+    public void testAllMedia_returnListOfMedia(){
         mediaRepository.save(media);
         List<Media> mediaList=mediaRepository.findAll();
         Assert.assertEquals(true,mediaList.contains(media));
     }
 
     @Test
-    public void testDeleteMedia(){
+    public void testAllMediaFailure_returnListOfMedia(){
+        mediaRepository.save(media);
+        List<Media> mediaList=mediaRepository.findAll();
+        Assert.assertNotEquals(false,mediaList.contains(media));
+    }
+
+
+
+    @Test
+    public void testDeleteMedia_returnDeletedMedia(){
+        mediaRepository.save(media);
         mediaRepository.deleteById("2 states");
         List<Media> mediaList=mediaRepository.findAll();
         Assert.assertEquals(false,mediaList.contains(media));
+    }
+
+    @Test
+    public void testDeleteMediaFailure_returnDeletedMedia(){
+        mediaRepository.save(media);
+        mediaRepository.deleteById("2 states");
+        List<Media> mediaList=mediaRepository.findAll();
+        Assert.assertNotEquals(true,mediaList.contains(media));
     }
 }

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Media } from './media';
 import { Episodic } from './episodic';
+import { List } from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -81,6 +82,10 @@ export class MediaService {
         'Access-Control-Allow-Origin' : '*'
       })
     });
+  }
+
+  getList(mediaList:List<List<string>>){
+    return this.http.post('http://localhost:8011/mediaManagerService/media/list',mediaList);
   }
 
 }
