@@ -9,7 +9,6 @@ export class PaymentService {
   constructor(private http:HttpClient) { }
   save(userpayment:Userpayment){
     console.log("userpayment - "+userpayment.mydate)
-    return this.http.post("http://172.17.0.1:8011/userpayment/user",userpayment,{responseType: 'text'});
-    
+    return this.http.post("http://172.17.0.1:8083/payment-service/user",userpayment,{responseType: 'text'});
   }
 }
