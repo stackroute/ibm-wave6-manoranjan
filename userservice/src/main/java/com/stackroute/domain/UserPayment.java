@@ -7,7 +7,7 @@ import lombok.ToString;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Id;
-import java.sql.Date;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor

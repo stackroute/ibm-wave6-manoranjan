@@ -34,6 +34,7 @@
 		<module>userservice</module>
 		<module>UserAuthentication</module>
 		<module>mediaManagerService</module>
+		<module>userpayment</module>
 	</modules>
 
 	<dependencies>
