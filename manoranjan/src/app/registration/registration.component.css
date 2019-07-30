@@ -95,7 +95,7 @@ mat-card{
 margin-left: 10%;
 margin-right: 10%;
 height: 100%;
-margin-top: 10px;
+margin-top: 4%;
 }
 /* mat-grid-list{
   margin-bottom: 200px;
@@ -190,6 +190,7 @@ mat-grid-list{
 
 /* Remove extra left and right margins, due to padding */
 .row {margin: 0 -5px;}
+
 
 /* Clear floats after the columns */
 .row:after {

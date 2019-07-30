@@ -131,7 +131,7 @@ const routes: Routes = [
   {path :'package/:email',component:PackageComponent},
   {path :'payment/:time/:amount',component:PaymentComponent},
   {path:'myaccount',component:MyaccountComponent},
-  {path:'edit',component:EditComponent},
+  {path:'edit/:email',component:EditComponent},
   {path:'editpro',component:EditproducerprofileComponent},
   {path :'payment',component:PaymentComponent},
   {path :'producerpro',component:ProducerprofileComponent},

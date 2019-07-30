@@ -12,5 +12,4 @@ public class UserPaymentApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-
 }
