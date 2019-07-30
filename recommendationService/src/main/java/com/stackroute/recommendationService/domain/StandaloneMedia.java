@@ -5,7 +5,7 @@ import org.neo4j.ogm.annotation.NodeEntity;
 import java.util.List;
 
 @NodeEntity
-public class Media {
+public class StandaloneMedia {
 
     @GraphId
     private Long id;
@@ -13,10 +13,10 @@ public class Media {
     private List<String> genre;
     private String language;
 
-    public Media() {
+    public StandaloneMedia() {
     }
 
-    public Media(Long id, String title, List<String> genre, String language) {
+    public StandaloneMedia(Long id, String title, List<String> genre, String language) {
         this.id = id;
         this.title = title;
         this.genre = genre;

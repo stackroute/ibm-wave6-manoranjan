@@ -2,14 +2,14 @@ package com.stackroute.recommendationService.service;
 
 import com.stackroute.recommendationService.domain.Genre;
 import com.stackroute.recommendationService.domain.Language;
-import com.stackroute.recommendationService.domain.Media;
+import com.stackroute.recommendationService.domain.StandaloneMedia;
 import com.stackroute.recommendationService.exception.GenreNotFoundException;
 import com.stackroute.recommendationService.exception.LanguageNotFoundException;
 import com.stackroute.recommendationService.exception.MediaAlreadyExistException;
 import com.stackroute.recommendationService.exception.MediaNotFoundException;
 import com.stackroute.recommendationService.repository.GenreRepository;
 import com.stackroute.recommendationService.repository.LanguageRepository;
-import com.stackroute.recommendationService.repository.MediaRepository;
+import com.stackroute.recommendationService.repository.StandaloneMediaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
@@ -19,7 +19,7 @@ import java.util.List;
 public class MediaServiceImpl implements MediaService {
 
     @Autowired
-    private MediaRepository mediaRepository;
+    private StandaloneMediaRepository standaloneMediaRepository;
 
     @Autowired
     private LanguageRepository languageRepository;
@@ -27,22 +27,22 @@ public class MediaServiceImpl implements MediaService {
     @Autowired
     private GenreRepository genreRepository;
 
-    public Collection<Media> getMedias()throws MediaNotFoundException {
-        if (mediaRepository.getAllMedias()==null){
+    public Collection<StandaloneMedia> getMedias()throws MediaNotFoundException {
+        if (standaloneMediaRepository.getAllMedias()==null){
             throw new MediaNotFoundException();
         }
         else {
-            return mediaRepository.getAllMedias();
+            return standaloneMediaRepository.getAllMedias();
         }
     }
 
-    public List<Media> displayMedia() throws MediaNotFoundException {
-        if (mediaRepository.findAll()==null)
+    public List<StandaloneMedia> displayMedia() throws MediaNotFoundException {
+        if (standaloneMediaRepository.findAll()==null)
         {
             throw new MediaNotFoundException();
         }
         else {
-            return (List<Media>) mediaRepository.findAll();
+            return (List<StandaloneMedia>) standaloneMediaRepository.findAll();
         }
     }
 
@@ -64,57 +64,57 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
-    public Media getMediaByTitle(String title)throws MediaNotFoundException{
-        if (mediaRepository.getByTitle(title)==null){
+    public StandaloneMedia getMediaByTitle(String title)throws MediaNotFoundException{
+        if (standaloneMediaRepository.getByTitle(title)==null){
             throw new MediaNotFoundException();
         }
         else {
-            return mediaRepository.getByTitle(title);
+            return standaloneMediaRepository.getByTitle(title);
         }
     }
 
-    public Media saveMedia(Media media)throws MediaAlreadyExistException {
-        if (mediaRepository.getByTitle(media.getTitle())==null)
+    public StandaloneMedia saveMedia(StandaloneMedia standaloneMedia)throws MediaAlreadyExistException {
+        if (standaloneMediaRepository.getByTitle(standaloneMedia.getTitle())==null)
         {
-            int length = media.getGenre().size();
+            int length = standaloneMedia.getGenre().size();
             for (int i = 0; i < length; i++)
             {
-                if (languageRepository.findLanguageByName(media.getLanguage()) == null)
+                if (languageRepository.findLanguageByName(standaloneMedia.getLanguage()) == null)
                 {
-                    if (genreRepository.findGenreByName(media.getGenre().get(i)) == null)
+                    if (genreRepository.findGenreByName(standaloneMedia.getGenre().get(i)) == null)
                     {
-                        mediaRepository.saveNewMediaLanguage(media.getTitle(), media.getGenre().get(i), media.getLanguage());
-                        mediaRepository.createGenreNode(media.getGenre().get(i));
-                        mediaRepository.createGenreRelation(media.getTitle(), media.getGenre().get(i));
+                        standaloneMediaRepository.saveNewMediaLanguage(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i), standaloneMedia.getLanguage());
+                        standaloneMediaRepository.createGenreNode(standaloneMedia.getGenre().get(i));
+                        standaloneMediaRepository.createGenreRelation(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i));
                     }
                     else {
-                        mediaRepository.saveNewMediaLanguage(media.getTitle(), media.getGenre().get(i), media.getLanguage());
-                        mediaRepository.createGenreRelation(media.getTitle(), media.getGenre().get(i));
+                        standaloneMediaRepository.saveNewMediaLanguage(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i), standaloneMedia.getLanguage());
+                        standaloneMediaRepository.createGenreRelation(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i));
                     }
                 }
-                else if (genreRepository.findGenreByName(media.getGenre().get(i)) == null)
+                else if (genreRepository.findGenreByName(standaloneMedia.getGenre().get(i)) == null)
                 {
-                    if (mediaRepository.getByTitle(media.getTitle()) == null)
+                    if (standaloneMediaRepository.getByTitle(standaloneMedia.getTitle()) == null)
                     {
-                        mediaRepository.createMediaNode(media.getTitle(), media.getGenre().get(i), media.getLanguage());
-                        mediaRepository.createLanguageRelation(media.getTitle(), media.getLanguage());
-                        mediaRepository.createGenreNode(media.getGenre().get(i));
-                        mediaRepository.createGenreRelation(media.getTitle(), media.getGenre().get(i));
+                        standaloneMediaRepository.createMediaNode(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i), standaloneMedia.getLanguage());
+                        standaloneMediaRepository.createLanguageRelation(standaloneMedia.getTitle(), standaloneMedia.getLanguage());
+                        standaloneMediaRepository.createGenreNode(standaloneMedia.getGenre().get(i));
+                        standaloneMediaRepository.createGenreRelation(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i));
                     }
                     else {
-                        mediaRepository.createGenreNode(media.getGenre().get(i));
-                        mediaRepository.createGenreRelation(media.getTitle(), media.getGenre().get(i));
+                        standaloneMediaRepository.createGenreNode(standaloneMedia.getGenre().get(i));
+                        standaloneMediaRepository.createGenreRelation(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i));
                     }
                 }
                 else {
-                    if (mediaRepository.getByTitle(media.getTitle()) == null)
+                    if (standaloneMediaRepository.getByTitle(standaloneMedia.getTitle()) == null)
                     {
-                        mediaRepository.createMediaNode(media.getTitle(), media.getGenre().get(i), media.getLanguage());
-                        mediaRepository.createLanguageRelation(media.getTitle(), media.getLanguage());
-                        mediaRepository.createGenreRelation(media.getTitle(), media.getGenre().get(i));
+                        standaloneMediaRepository.createMediaNode(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i), standaloneMedia.getLanguage());
+                        standaloneMediaRepository.createLanguageRelation(standaloneMedia.getTitle(), standaloneMedia.getLanguage());
+                        standaloneMediaRepository.createGenreRelation(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i));
                     }
                     else {
-                        mediaRepository.createGenreRelation(media.getTitle(), media.getGenre().get(i));
+                        standaloneMediaRepository.createGenreRelation(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i));
                     }
                 }
             }
@@ -122,6 +122,6 @@ public class MediaServiceImpl implements MediaService {
         else{
             throw new MediaAlreadyExistException();
         }
-        return media;
+        return standaloneMedia;
     }
 }

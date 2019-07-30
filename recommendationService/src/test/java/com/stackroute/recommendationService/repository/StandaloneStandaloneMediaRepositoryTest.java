@@ -2,7 +2,7 @@ package com.stackroute.recommendationService.repository;
 
 import com.stackroute.recommendationService.domain.Genre;
 import com.stackroute.recommendationService.domain.Language;
-import com.stackroute.recommendationService.domain.Media;
+import com.stackroute.recommendationService.domain.StandaloneMedia;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,10 +15,10 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @DataNeo4jTest
-public class MediaRepositoryTest {
+public class StandaloneStandaloneMediaRepositoryTest {
     @Autowired
-    private MediaRepository mediaRepository;
-    private Media media;
+    private StandaloneMediaRepository standaloneMediaRepository;
+    private StandaloneMedia standaloneMedia;
 
     @Autowired
     private GenreRepository genreRepository;
@@ -30,28 +30,28 @@ public class MediaRepositoryTest {
 
     @Before
     public void setUp() {
-        media = new Media();
-        media.setId((long) 1);
-        media.setTitle("The Lion King");
+        standaloneMedia = new StandaloneMedia();
+        standaloneMedia.setId((long) 1);
+        standaloneMedia.setTitle("The Lion King");
         List<String> genre = new ArrayList<>();
         genre.add("Action");
         genre.add("Kid");
-        media.setGenre(genre);
-        media.setLanguage("Hindi");
+        standaloneMedia.setGenre(genre);
+        standaloneMedia.setLanguage("Hindi");
     }
 
     @After
     public void tearDown() {
-        mediaRepository.deleteAll();
+        standaloneMediaRepository.deleteAll();
     }
 
     @Test
     public void displayAllMediaTest()
     {
-        Media media1=new Media();
-        Media media2=new Media();
-        mediaRepository.save(media1);
-        mediaRepository.save(media2);
+        StandaloneMedia standaloneMedia1 =new StandaloneMedia();
+        StandaloneMedia standaloneMedia2 =new StandaloneMedia();
+        standaloneMediaRepository.save(standaloneMedia1);
+        standaloneMediaRepository.save(standaloneMedia2);
 
     }
 
