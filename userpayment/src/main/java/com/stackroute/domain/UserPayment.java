@@ -1,14 +1,15 @@
-package com.stackroute.userpayment.domain;
+package com.stackroute.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Id;
-import java.sql.Date;
+import java.util.Date;
 
-
+@Data
 @Document
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,21 +19,5 @@ public class UserPayment {
     private String emailId;
     private String packageName;
     private Date mydate;
-
-    public Date getMyDate() {
-        return mydate;
-    }
-
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public String getPackageName() {
-        return packageName;
-    }
-
-    public void setMydate(Date mydate) {
-        this.mydate = mydate;
-    }
 }
 
