@@ -15,4 +15,8 @@ public class GlobalException {
     public ResponseEntity<?> handleUserNotFoundException(UserNotFoundException e){
         return new ResponseEntity<String>("User Not Found", HttpStatus.CONFLICT);
     }
+    @ExceptionHandler(DataAlreadyExistException.class)
+    public ResponseEntity<?> handleDataAlreadyExistException(DataAlreadyExistException e){
+        return new ResponseEntity<String>("Data Already exist", HttpStatus.CONFLICT);
+    }
 }

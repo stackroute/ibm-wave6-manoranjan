@@ -1,6 +1,7 @@
 package com.stackroute.service;
 
 import com.stackroute.domain.UserPayment;
+import com.stackroute.exceptions.DataAlreadyExistException;
 import com.stackroute.exceptions.UserAllReadyExistException;
 import com.stackroute.exceptions.UserNotFoundException;
 import com.stackroute.repository.UserPaymentRepository;
@@ -11,6 +12,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -123,6 +125,39 @@ public class UserServiceImpl implements UserService {
             throw new UserNotFoundException();
         }
         return history;
+    }
+
+    @Override
+    public List<String> addToWishlish(String emailId, String title, String category) throws UserNotFoundException, DataAlreadyExistException {
+        User user;
+        List<String> data=new ArrayList<>();
+        data.add(title);
+        data.add(category);
+        if(userRepository.existsById(emailId)){
+            user=userRepository.findById(emailId).get();
+            if(user.getWishList().contains(data)){
+                throw new DataAlreadyExistException();
+            }
+            user.getWishList().add(data);
+            userRepository.save(user);
+        }
+        else throw new UserNotFoundException();
+        return data;
+    }
+
+    @Override
+    public List<String> addToHistory(String emailId, String title, String category) throws UserNotFoundException {
+        User user;
+        List<String> data=new ArrayList<>();
+        data.add(title);
+        data.add(category);
+        if(userRepository.existsById(emailId)){
+            user=userRepository.findById(emailId).get();
+            user.getHistory().add(data);
+            userRepository.save(user);
+        }
+        else throw new UserNotFoundException();
+        return data;
     }
 
     @Override

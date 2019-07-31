@@ -1,6 +1,7 @@
 <div class="main">
         <!--navbar section-->
-        <app-nav-norm></app-nav-norm>
+        <app-nav-norm *ngIf="status==='false'"></app-nav-norm>
+        <app-main-nav *ngIf="status==='true'"></app-main-nav>
         <!--end of nevbar section-->
         <!-- movie image -->
             <div class="detail-page">

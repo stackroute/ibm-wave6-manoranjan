@@ -1,6 +1,7 @@
 package com.stackroute.controller;
 
 import com.stackroute.domain.UserPayment;
+import com.stackroute.exceptions.DataAlreadyExistException;
 import com.stackroute.exceptions.UserAllReadyExistException;
 import com.stackroute.domain.User;
 import com.stackroute.exceptions.UserNotFoundException;
@@ -57,6 +58,17 @@ public class UserController {
     public ResponseEntity<?> getAllHistory(@PathVariable("emailId") String emailId) throws UserNotFoundException {
         return new ResponseEntity<List<List<String>>>(userService.getAllHistory(emailId),HttpStatus.OK);
     }
+
+    @PostMapping("/user/wish/{emailId}/{title}/{category}")
+    public ResponseEntity<?> addToWishlish(@PathVariable("emailId") String emailId,@PathVariable("title") String title,@PathVariable("category") String category) throws UserNotFoundException, DataAlreadyExistException {
+        return new ResponseEntity<>(userService.addToWishlish(emailId, title, category),HttpStatus.OK);
+    }
+
+    @PostMapping("/user/wish/{emailId}/{title}/{category}")
+    public ResponseEntity<?> addToHistory(@PathVariable("emailId") String emailId,@PathVariable("title") String title,@PathVariable("category") String category) throws UserNotFoundException {
+        return new ResponseEntity<>(userService.addToHistory(emailId, title, category),HttpStatus.OK);
+    }
+
     @GetMapping("/users/{emailId}")
     public ResponseEntity<?> getById(@PathVariable("emailId") String emailId) throws UserNotFoundException{
         ResponseEntity responseEntity;
