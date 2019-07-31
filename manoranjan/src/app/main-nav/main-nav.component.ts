@@ -12,13 +12,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MainNavComponent implements OnInit {
 
   emailId;
-  constructor(private activatedRoute:ActivatedRoute,private router:Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-}
-submit(){
-  sessionStorage.setItem('email',null);
-  this.router.navigateByUrl("/navland");
-}
+  }
+  submit() {
+    sessionStorage.setItem('email', null);
+    this.router.navigateByUrl("/navland");
+  }
 
 }

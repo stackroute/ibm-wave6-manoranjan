@@ -17,30 +17,32 @@ public class ViewerController {
     private ViewerServiceImpl viewerService;
 
     @GetMapping("/viewers")
-    public Collection<Viewer> getViewer()throws ViewerNotFoundException { return viewerService.getAll(); }
+    public Collection<Viewer> getViewer() throws ViewerNotFoundException {
+        return viewerService.getAll();
+    }
 
     @PostMapping("/viewer")
-    public Viewer saveViewer(@RequestBody Viewer viewer)throws ViewerAlreadyExistException {
+    public Viewer saveViewer(@RequestBody Viewer viewer) throws ViewerAlreadyExistException {
         return viewerService.saveViewer(viewer);
     }
 
     @GetMapping("/viewer/{emailId}")
-    public Viewer getByEmailId(@PathVariable("emailId") String emailId)throws ViewerNotFoundException{
+    public Viewer getByEmailId(@PathVariable("emailId") String emailId) throws ViewerNotFoundException {
         return viewerService.getViewerByEmailId(emailId);
     }
 
     @PutMapping("/viewer")
-    public Viewer updateDetails(@RequestBody Viewer viewer)throws ViewerNotFoundException{
+    public Viewer updateDetails(@RequestBody Viewer viewer) throws ViewerNotFoundException {
         return viewerService.updateDetails(viewer);
     }
 
     @DeleteMapping("/viewer")
-    public Collection<Viewer> deleteViewer (@RequestBody Viewer viewer)throws ViewerNotFoundException{
+    public Collection<Viewer> deleteViewer(@RequestBody Viewer viewer) throws ViewerNotFoundException {
         return viewerService.deleteViewer(viewer.getEmailId());
     }
 
     @PostMapping("graphMedia/{emailId}/{title}")
-    public Viewer saveMediaRelation(@PathVariable String emailId, @PathVariable String title)throws ViewerNotFoundException{
-        return  viewerService.saveMediaRelation(emailId,title);
+    public Viewer saveMediaRelation(@PathVariable String emailId, @PathVariable String title) throws ViewerNotFoundException {
+        return viewerService.saveMediaRelation(emailId, title);
     }
 }

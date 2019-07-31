@@ -10,13 +10,13 @@ import { Episodic } from '../episodic';
 export class TeluguserialsComponent implements OnInit {
 
   serials;
-  serials1=new Array<Episodic>()
-  constructor(private mediaService:MediaService) { }
+  serials1 = new Array<Episodic>()
+  constructor(private mediaService: MediaService) { }
 
   ngOnInit() {
-    this.mediaService.getShowsByLanguage("Telugu").subscribe(data=>{
-      this.serials=data
-      this.serials1=this.serials
+    this.mediaService.getShowsByLanguage("Telugu").subscribe(data => {
+      this.serials = data
+      this.serials1 = this.serials
       console.log(this.serials1)
     })
   }

@@ -31,95 +31,95 @@ public class MediaController {
     @PostMapping("/media")
     public ResponseEntity<?> saveMedia(@RequestBody Media media) throws MediaAlreadyExistsException {
         Media media1;
-        media1=mediaService.saveMedia(media);
-        return new ResponseEntity<Media>(media1,HttpStatus.OK);
+        media1 = mediaService.saveMedia(media);
+        return new ResponseEntity<Media>(media1, HttpStatus.OK);
     }
 
     @PostMapping("/serial")
     public ResponseEntity<?> saveSerial(@RequestBody EpisodicMedia media) throws MediaAlreadyExistsException {
-        EpisodicMedia media1=new EpisodicMedia();
-        media1=mediaService.saveSerial(media);
-        return new ResponseEntity<EpisodicMedia>(media1,HttpStatus.OK);
+        EpisodicMedia media1 = new EpisodicMedia();
+        media1 = mediaService.saveSerial(media);
+        return new ResponseEntity<EpisodicMedia>(media1, HttpStatus.OK);
     }
 
     @PostMapping("/episode/{serialTitle}")
     public ResponseEntity<?> saveEpisode(@PathVariable("serialTitle") String serialTitle, @RequestBody Episode episode) throws MediaNotFoundException, MediaAlreadyExistsException {
-        return new ResponseEntity<>(mediaService.addEpisode(serialTitle,episode),HttpStatus.OK);
+        return new ResponseEntity<>(mediaService.addEpisode(serialTitle, episode), HttpStatus.OK);
     }
 
     @GetMapping("/medias")
     public ResponseEntity<?> getAllMedias() throws MediaNotFoundException {
         List<Media> mediaList;
-        mediaList=mediaService.getAllMedia();
-        return new ResponseEntity<List<Media>>(mediaList,HttpStatus.OK);
+        mediaList = mediaService.getAllMedia();
+        return new ResponseEntity<List<Media>>(mediaList, HttpStatus.OK);
     }
 
     @GetMapping("/serials")
     public ResponseEntity<?> getAllSerials() throws MediaNotFoundException {
         List<EpisodicMedia> episodicMediaList;
-        episodicMediaList=mediaService.getAllSerials();
-        return new ResponseEntity<List<EpisodicMedia>>(episodicMediaList,HttpStatus.OK);
+        episodicMediaList = mediaService.getAllSerials();
+        return new ResponseEntity<List<EpisodicMedia>>(episodicMediaList, HttpStatus.OK);
     }
 
     @GetMapping("/episodes/{title}")
     public ResponseEntity<?> getAllEpisodes(@PathVariable("title") String serialTitle) throws MediaNotFoundException {
-        return new ResponseEntity<List<Episode>>(mediaService.getAllEpisodes(serialTitle),HttpStatus.OK);
+        return new ResponseEntity<List<Episode>>(mediaService.getAllEpisodes(serialTitle), HttpStatus.OK);
     }
 
     @GetMapping("/media/{title}")
     public ResponseEntity<?> getMediaById(@PathVariable("title") String mediaTitle) throws MediaNotFoundException {
-        return new ResponseEntity<Media>(mediaService.getMediaById(mediaTitle),HttpStatus.OK);
+        return new ResponseEntity<Media>(mediaService.getMediaById(mediaTitle), HttpStatus.OK);
     }
 
     @GetMapping("/serial/{title}")
     public ResponseEntity<?> getSerialById(@PathVariable("title") String serialTitle) throws MediaNotFoundException {
-        return new ResponseEntity<EpisodicMedia>(mediaService.getSerialByTitle(serialTitle),HttpStatus.OK);
+        return new ResponseEntity<EpisodicMedia>(mediaService.getSerialByTitle(serialTitle), HttpStatus.OK);
     }
 
     @GetMapping("/episode/{title}/{episodeNum}")
-    public ResponseEntity<?> getEpisodeById(@PathVariable("title") String serialTitle,@PathVariable("episodeNum") int episodeNum) throws MediaNotFoundException {
-        return new ResponseEntity<>(mediaService.getEpisodeById(serialTitle, episodeNum),HttpStatus.OK);
+    public ResponseEntity<?> getEpisodeById(@PathVariable("title") String serialTitle, @PathVariable("episodeNum") int episodeNum) throws MediaNotFoundException {
+        return new ResponseEntity<>(mediaService.getEpisodeById(serialTitle, episodeNum), HttpStatus.OK);
     }
 
     @GetMapping("/media/movie/{genre}")
     public ResponseEntity<?> getMediaByGenre(@PathVariable("genre") String genre) throws MediaNotFoundException {
-        return new ResponseEntity<List<Media>>(mediaService.getMediaByGenre(genre),HttpStatus.OK);
+        return new ResponseEntity<List<Media>>(mediaService.getMediaByGenre(genre), HttpStatus.OK);
     }
 
     @GetMapping("/series/tv/{language}")
     public ResponseEntity<?> getSerialByLanguage(@PathVariable("language") String language) throws MediaNotFoundException {
-        return new ResponseEntity<List<EpisodicMedia>>(mediaService.getTvSerialByLanguage(language),HttpStatus.OK);
+        return new ResponseEntity<List<EpisodicMedia>>(mediaService.getTvSerialByLanguage(language), HttpStatus.OK);
     }
 
     @GetMapping("/media/category/{category}")
     public ResponseEntity<?> getSpecificCategoryMedia(@PathVariable("category") String category) throws MediaNotFoundException {
-        return new ResponseEntity<List<Media>>(mediaService.getMediaByCategory(category),HttpStatus.OK);
+        return new ResponseEntity<List<Media>>(mediaService.getMediaByCategory(category), HttpStatus.OK);
     }
 
     @GetMapping("/series/category/{category}")
     public ResponseEntity<?> getEpisodicByCategory(@PathVariable("category") String category) throws MediaNotFoundException {
-        return new ResponseEntity<List<EpisodicMedia>>(mediaService.getSerialByCategory(category),HttpStatus.OK);
+        return new ResponseEntity<List<EpisodicMedia>>(mediaService.getSerialByCategory(category), HttpStatus.OK);
     }
 
     @PostMapping("/media/list")
-    public ResponseEntity<?> getMediaList(@RequestBody List<List<String>> medias){
-        return new ResponseEntity<List<Object>>(mediaService.getMediaList(medias),HttpStatus.OK);
+    public ResponseEntity<?> getMediaList(@RequestBody List<List<String>> medias) {
+        return new ResponseEntity<List<Object>>(mediaService.getMediaList(medias), HttpStatus.OK);
     }
 
     @DeleteMapping("/media/{title}")
     public ResponseEntity<?> deleteMedia(@PathVariable("title") String mediaTitle) throws MediaNotFoundException {
-        return new ResponseEntity<Media>(mediaService.deleteMedia(mediaTitle),HttpStatus.OK);
+        return new ResponseEntity<Media>(mediaService.deleteMedia(mediaTitle), HttpStatus.OK);
     }
 
     @DeleteMapping("/serial/{title}")
     public ResponseEntity<?> deleteSerial(@PathVariable("title") String serialTitle) throws MediaNotFoundException {
-        return new ResponseEntity<EpisodicMedia>(mediaService.deleteSerial(serialTitle),HttpStatus.OK);
+        return new ResponseEntity<EpisodicMedia>(mediaService.deleteSerial(serialTitle), HttpStatus.OK);
 
     }
 
     @DeleteMapping("/episode/{title}/{episodeNum}")
     public ResponseEntity<?> deleteEpisode(@PathVariable("title") String serialTitle, @PathVariable("episodeNum") int episodeNum) throws MediaNotFoundException {
-        return new ResponseEntity<Episode>(mediaService.deleteEpisode(serialTitle, episodeNum),HttpStatus.OK);
+        return new ResponseEntity<Episode>(mediaService.deleteEpisode(serialTitle, episodeNum), HttpStatus.OK);
     }
 
     List<String> files = new ArrayList<String>();
@@ -132,7 +132,7 @@ public class MediaController {
             files.add(file.getOriginalFilename());
 
             message = "You successfully uploaded " + file.getOriginalFilename() + "!";
-            System.out.println("message:"+message);
+            System.out.println("message:" + message);
             return ResponseEntity.status(HttpStatus.OK).body(message);
         } catch (Exception e) {
             message = "FAIL to upload " + file.getOriginalFilename() + "!";

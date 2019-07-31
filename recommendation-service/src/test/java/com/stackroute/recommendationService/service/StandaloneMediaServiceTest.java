@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -28,10 +29,10 @@ public class StandaloneMediaServiceTest {
 
     @InjectMocks
     private MediaServiceImpl mediaService;
-    List<StandaloneMedia> list= null;
+    List<StandaloneMedia> list = null;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         //Initialising the mock object
         MockitoAnnotations.initMocks(this);
         standaloneMedia = new StandaloneMedia();
@@ -44,7 +45,7 @@ public class StandaloneMediaServiceTest {
         standaloneMedia.setLanguage("Hindi");
         list = new ArrayList<>();
         list.add(standaloneMedia);
-        optional=Optional.of(standaloneMedia);
+        optional = Optional.of(standaloneMedia);
     }
 
     @Test

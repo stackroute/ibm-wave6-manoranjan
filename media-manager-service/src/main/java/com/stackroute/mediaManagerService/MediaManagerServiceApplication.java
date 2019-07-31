@@ -10,18 +10,14 @@ import javax.annotation.Resource;
 
 @EnableEurekaClient
 @SpringBootApplication
-public class MediaManagerServiceApplication implements CommandLineRunner{
+public class MediaManagerServiceApplication implements CommandLineRunner {
 
-//	@Resource
-//	MediaService mediaService;
 
-	public static void main(String[] args) {
-		SpringApplication.run(MediaManagerServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MediaManagerServiceApplication.class, args);
+    }
 
-	@Override
-	public void run(String... arg) {
-//		mediaService.deleteAll();
-//		mediaService.init();
-	}
+    @Override
+    public void run(String... arg) {
+    }
 }

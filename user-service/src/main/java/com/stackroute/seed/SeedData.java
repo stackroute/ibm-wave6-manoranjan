@@ -17,13 +17,14 @@ import java.util.List;
 @PropertySource("classpath:config.properties")
 public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
-    User user=new User();
-    User user1=new User();
-    User user2=new User();
+    User user = new User();
+    User user1 = new User();
+    User user2 = new User();
     @Autowired
     UserRepository userRepository;
     @Autowired
     private Environment environment;
+
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         user.setEmailId(environment.getProperty("user.emailId"));

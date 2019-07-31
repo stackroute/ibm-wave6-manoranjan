@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.neo4j.DataNeo4jTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,18 +47,16 @@ public class StandaloneStandaloneMediaRepositoryTest {
     }
 
     @Test
-    public void displayAllMediaTest()
-    {
-        StandaloneMedia standaloneMedia1 =new StandaloneMedia();
-        StandaloneMedia standaloneMedia2 =new StandaloneMedia();
+    public void displayAllMediaTest() {
+        StandaloneMedia standaloneMedia1 = new StandaloneMedia();
+        StandaloneMedia standaloneMedia2 = new StandaloneMedia();
         standaloneMediaRepository.save(standaloneMedia1);
         standaloneMediaRepository.save(standaloneMedia2);
 
     }
 
     @Test
-    public void displayAllMediaTestFailure()
-    {
+    public void displayAllMediaTestFailure() {
 
     }
 }

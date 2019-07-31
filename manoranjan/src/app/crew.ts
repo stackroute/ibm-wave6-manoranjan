@@ -1,4 +1,4 @@
 export class Crew {
-    crewName:string;
-    crewRole:string;
+    crewName: string;
+    crewRole: string;
 }

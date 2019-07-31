@@ -5,10 +5,11 @@ import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
 import java.util.Collection;
 
 @Repository
-public interface ViewerRepository extends Neo4jRepository<Viewer,Long> {
+public interface ViewerRepository extends Neo4jRepository<Viewer, Long> {
 
     @Query("MATCH (v:Viewer)-[i:Watched By]->(m:Media) RETURN v,i,m")
     Collection<Viewer> getAllViewers();
@@ -16,10 +17,10 @@ public interface ViewerRepository extends Neo4jRepository<Viewer,Long> {
     Viewer findByEmailId(@Param("emailId") String emailId);
 
     @Query("CREATE (v:Viewer {name:{name}, emailId:{emailId}, genre:{genre}})-[r:Interested_In]->(g:Genre {genre:v.genre})")
-    Viewer createNewViewerWithGenre(@Param("name") String name, @Param("emailId")String emailId, @Param("genre") String genre);
+    Viewer createNewViewerWithGenre(@Param("name") String name, @Param("emailId") String emailId, @Param("genre") String genre);
 
     @Query("CREATE (v:Viewer {name:{name}, emailId:{emailId}, genre:{genre}})")
-    Viewer createViewer(@Param("name") String name, @Param("emailId")String emailId, @Param("genre") String genre);
+    Viewer createViewer(@Param("name") String name, @Param("emailId") String emailId, @Param("genre") String genre);
 
     @Query("CREATE (g:Genre {genre:{genre}})")
     Viewer createGenreNode(@Param("genre") String genre);
