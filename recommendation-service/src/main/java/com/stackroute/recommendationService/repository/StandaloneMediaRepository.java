@@ -11,24 +11,24 @@ import java.util.Collection;
 @Repository
 public interface StandaloneMediaRepository extends Neo4jRepository<StandaloneMedia, Long> {
 
-    @Query("MATCH (m:Media) RETURN m")
-    Collection<StandaloneMedia> getAllMedias();
+    @Query("MATCH (s:StandaloneMedia) RETURN s")
+    Collection<StandaloneMedia> getAllStandaloneMedias();
 
-    StandaloneMedia getByTitle(@Param("title") String title);
+    StandaloneMedia getStandaloneMediaByTitle(@Param("title") String title);
 
-    @Query("CREATE (m:Media {title:{title}, genre:{genre}, language:{language}})-[r:Language]->(l:Language {language:m.language})")
-    StandaloneMedia saveNewMediaLanguage(@Param("title") String title, @Param("genre") String genre, @Param("language") String language);
+    @Query("CREATE (s:StandaloneMedia {title:{title}, genre:{genre}, language:{language}})-[r:Language]->(l:Language {language:s.language})")
+    StandaloneMedia saveNewStandaloneMediaLanguage(@Param("title") String title, @Param("genre") String genre, @Param("language") String language);
 
-    @Query("CREATE (m:Media {title:{title}, genre:{genre}, language:{language}})")
-    StandaloneMedia createMediaNode(@Param("title") String title, @Param("genre") String genre, @Param("language") String language);
+    @Query("CREATE (s:StandaloneMedia {title:{title}, genre:{genre}, language:{language}})")
+    StandaloneMedia createStandaloneMediaNode(@Param("title") String title, @Param("genre") String genre, @Param("language") String language);
 
-    @Query("MATCH (m:Media),(l:Language) WHERE m.title={title} and l.language={language} CREATE (m)-[r:Language]->(l) RETURN m, r, l")
+    @Query("MATCH (s:StandaloneMedia),(l:Language) WHERE s.title={title} and l.language={language} CREATE (s)-[r:Language]->(l) RETURN s, r, l")
     StandaloneMedia createLanguageRelation(@Param("title") String title, @Param("language") String language);
 
     @Query("CREATE (g:Genre {genre:{genre}})")
     StandaloneMedia createGenreNode(@Param("genre") String genre);
 
-    @Query("MATCH (m:Media),(g:Genre) WHERE m.title={title} and g.genre={genre} CREATE (m)-[r:Genre]->(g) RETURN m, r, g")
+    @Query("MATCH (s:StandaloneMedia),(g:Genre) WHERE s.title={title} and g.genre={genre} CREATE (s)-[r:Genre]->(g) RETURN s, r, g")
     StandaloneMedia createGenreRelation(@Param("title") String title, @Param("genre") String genre);
 
 }

@@ -16,7 +16,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @DataNeo4jTest
-public class StandaloneStandaloneMediaRepositoryTest {
+public class StandaloneMediaRepositoryTest {
     @Autowired
     private StandaloneMediaRepository standaloneMediaRepository;
     private StandaloneMedia standaloneMedia;

@@ -18,7 +18,7 @@ import java.util.Optional;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-public class StandaloneMediaServiceTest {
+public class MediaServiceTest {
     private StandaloneMedia standaloneMedia;
 
     @Mock
@@ -57,35 +57,4 @@ public class StandaloneMediaServiceTest {
         Assert.assertEquals(list, standaloneMediaList);
     }
 
-//    @Test
-//    public void getAllMediasTestFailure() throws MediaNotFoundException {
-//        mediaRepository.save(media);
-//        //stubbing the mock to return specific data
-//        when(mediaRepository.findAll()).thenReturn(null);
-//        List<Media> mediaList = mediaService.displayMedia();
-//        Assert.assertNotEquals(list,mediaList);
-//    }
-
-//    @Test
-//    public void getMediaByTitleTestSuccess() throws MediaNotFoundException {
-//        when(mediaRepository.findById(media.getId())).thenReturn(optional);
-//        Media savedMedia = mediaService.getMediaByTitle(media.getTitle());
-//        Assert.assertEquals(Optional.of(1), savedMedia.getId());
-//    }
-
-//    @Test
-//    public void saveMediaTestSuccess() throws MediaAlreadyExistException {
-//        when(mediaRepository.save((Media) any())).thenReturn(media);
-//        Media savedMedia = mediaService.saveMedia(media);
-//        Assert.assertEquals(media,savedMedia);
-//        System.out.println(savedMedia);
-//        //verify here verifies that muzixRepository save method is only called once
-//        verify(mediaRepository,times(1)).save(media);
-//    }
-//    @Test
-//    public void saveTrackTestFailure() throws MediaAlreadyExistException {
-//        when(mediaRepository.save((Media) any())).thenReturn(null);
-//        Media savedMedia = mediaService.saveMedia(media);
-//        Assert.assertNotEquals(media,savedMedia);
-//    }
 }

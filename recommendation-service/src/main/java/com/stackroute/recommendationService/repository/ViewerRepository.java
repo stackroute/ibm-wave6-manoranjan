@@ -11,8 +11,11 @@ import java.util.Collection;
 @Repository
 public interface ViewerRepository extends Neo4jRepository<Viewer, Long> {
 
-    @Query("MATCH (v:Viewer)-[i:Watched By]->(m:Media) RETURN v,i,m")
+    @Query("MATCH (v:Viewer)-[i:Watched By]->(s:StandaloneMedia) RETURN v,i,s")
     Collection<Viewer> getAllViewers();
+
+//    @Query("MATCH (v:Viewer)-[i:Watched By]->(s:StandaloneMedia) AND MATCH (v:Viewer)-[i:Watched By]->(e:EpisodicMedia)")
+//    Collection<Viewer> getAllViewers();
 
     Viewer findByEmailId(@Param("emailId") String emailId);
 
@@ -28,6 +31,10 @@ public interface ViewerRepository extends Neo4jRepository<Viewer, Long> {
     @Query("MATCH (v:Viewer),(g:Genre) WHERE v.emailId={emailId} and g.genre={genre} CREATE (v)-[r:Interested_In]->(g) RETURN v")
     public Viewer createGenreRelation(@Param("emailId") String emailId, @Param("genre") String genre);
 
-    @Query("MATCH (v:Viewer),(m:Media) WHERE v.emailId={emailId} and m.title={title} CREATE (v)-[r:Watches]->(m) RETURN v")
-    public Viewer createMediaRelation(@Param("emailId") String emailId, @Param("title") String title);
+    @Query("MATCH (v:Viewer),(s:StandaloneMedia) WHERE v.emailId={emailId} and s.title={title} CREATE (v)-[r:Watches]->(s) RETURN v")
+    public Viewer createStandaloneMediaRelation(@Param("emailId") String emailId, @Param("title") String title);
+
+    @Query("MATCH (v:Viewer),(e:EpisodicMedia) WHERE v.emailId={emailId} and e.title={title} CREATE (v)-[r:Watches]->(e) RETURN v")
+    public Viewer createEpisodicMediaRelation(@Param("emailId") String emailId, @Param("title") String title);
+
 }

@@ -7,6 +7,7 @@ import com.stackroute.recommendationService.exception.ViewerNotFoundException;
 import java.util.Collection;
 
 public interface ViewerService {
+
     public Collection<Viewer> getAll() throws ViewerNotFoundException;
 
     public Viewer saveViewer(Viewer viewer) throws ViewerAlreadyExistException;
@@ -17,5 +18,7 @@ public interface ViewerService {
 
     public Collection<Viewer> deleteViewer(String emailId) throws ViewerNotFoundException;
 
-    public Viewer saveMediaRelation(String emailId, String title) throws ViewerNotFoundException;
+    public Viewer saveStandaloneMediaRelation(String emailId, String title) throws ViewerNotFoundException;
+
+    public Viewer saveEpisodicMediaRelation(String emailId, String title) throws ViewerNotFoundException;
 }

@@ -1,13 +1,9 @@
 package com.stackroute.recommendationService.controller;
 
-import com.stackroute.recommendationService.domain.Genre;
-import com.stackroute.recommendationService.domain.Language;
-import com.stackroute.recommendationService.domain.StandaloneMedia;
-import com.stackroute.recommendationService.exception.GenreNotFoundException;
-import com.stackroute.recommendationService.exception.LanguageNotFoundException;
-import com.stackroute.recommendationService.exception.MediaAlreadyExistException;
-import com.stackroute.recommendationService.exception.MediaNotFoundException;
+import com.stackroute.recommendationService.domain.*;
+import com.stackroute.recommendationService.exception.*;
 import com.stackroute.recommendationService.service.MediaServiceImpl;
+import com.stackroute.recommendationService.service.ViewerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,11 +15,18 @@ public class MediaController {
 
     @Autowired
     private MediaServiceImpl mediaService;
-    private StandaloneMedia standaloneMedia;
 
-    @GetMapping("/medias")
-    public Collection<StandaloneMedia> getMedias() throws MediaNotFoundException {
-        return mediaService.getMedias();
+    @Autowired
+    private ViewerServiceImpl viewerService;
+
+    @GetMapping("/standaloneMedias")
+    public Collection<StandaloneMedia> getStandaloneMedias() throws MediaNotFoundException {
+        return mediaService.getStandaloneMedias();
+    }
+
+    @GetMapping("/episodicMedias")
+    public Collection<EpisodicMedia> getEpisodicMedias() throws MediaNotFoundException {
+        return mediaService.getEpisodicMedias();
     }
 
     @GetMapping("/languages")
@@ -36,13 +39,58 @@ public class MediaController {
         return mediaService.getGenres();
     }
 
-    @PostMapping("/media")
-    public StandaloneMedia saveNewMedia(@RequestBody StandaloneMedia standaloneMedia) throws MediaAlreadyExistException {
-        return mediaService.saveMedia(standaloneMedia);
+    @PostMapping("/standaloneMedia")
+    public StandaloneMedia saveNewStandaloneMedia(@RequestBody StandaloneMedia standaloneMedia) throws MediaAlreadyExistException {
+        return mediaService.saveStandaloneMedia(standaloneMedia);
     }
 
-    @GetMapping("/media/{title}")
-    public StandaloneMedia getMediaByTitle(@PathVariable("title") String title) throws MediaNotFoundException {
-        return mediaService.getMediaByTitle(title);
+    @PostMapping("/episodicMedia")
+    public EpisodicMedia saveNewEpisodicMedia(@RequestBody EpisodicMedia episodicMedia) throws MediaAlreadyExistException {
+        return mediaService.saveEpisodicMedia(episodicMedia);
+    }
+
+    @GetMapping("/standaloneMedia/{title}")
+    public StandaloneMedia getStandaloneMediaByTitle(@PathVariable("title") String title) throws MediaNotFoundException {
+        return mediaService.getStandaloneMediaByTitle(title);
+    }
+
+    @GetMapping("/episodicMedia/{title}")
+    public EpisodicMedia getEpisodicMediaByTitle(@PathVariable("title") String title) throws MediaNotFoundException {
+        return mediaService.getEpisodicMediaByTitle(title);
+    }
+
+    @GetMapping("/viewers")
+    public Collection<Viewer> getViewer() throws ViewerNotFoundException {
+        return viewerService.getAll();
+    }
+
+    @PostMapping("/viewer")
+    public Viewer saveViewer(@RequestBody Viewer viewer) throws ViewerAlreadyExistException {
+        return viewerService.saveViewer(viewer);
+    }
+
+    @GetMapping("/viewer/{emailId}")
+    public Viewer getByEmailId(@PathVariable("emailId") String emailId) throws ViewerNotFoundException {
+        return viewerService.getViewerByEmailId(emailId);
+    }
+
+    @PutMapping("/viewer")
+    public Viewer updateDetails(@RequestBody Viewer viewer) throws ViewerNotFoundException {
+        return viewerService.updateDetails(viewer);
+    }
+
+    @DeleteMapping("/viewer")
+    public Collection<Viewer> deleteViewer(@RequestBody Viewer viewer) throws ViewerNotFoundException {
+        return viewerService.deleteViewer(viewer.getEmailId());
+    }
+
+    @PostMapping("graphStandaloneMedia/{emailId}/{title}")
+    public Viewer saveStandaloneMediaRelation(@PathVariable String emailId, @PathVariable String title) throws ViewerNotFoundException {
+        return viewerService.saveStandaloneMediaRelation(emailId, title);
+    }
+
+    @PostMapping("graphEpisodicMedia/{emailId}/{title}")
+    public Viewer saveEpisodicMediaRelation(@PathVariable String emailId, @PathVariable String title) throws ViewerNotFoundException {
+        return viewerService.saveEpisodicMediaRelation(emailId, title);
     }
 }
