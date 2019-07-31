@@ -17,7 +17,7 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
     UserPaymentRepository userPaymentRepository;
@@ -41,19 +41,20 @@ public class UserServiceImpl implements UserService {
         if (userRepository.existsById(user.getEmailId())) {
             throw new UserAllReadyExistException();
         }
-        User saveUser = (User) userRepository.save(user);
+        User saveUser = userRepository.save(user);
         if (saveUser == null) {
             throw new UserAllReadyExistException();
+
         } else {
             kafkaTemplate.send(topic, user);
-
         }
 
         return saveUser;
     }
 
     @Override
-    public List<User> getAllUsers() throws UserNotFoundException {
+    public List<User> getAllUsers() {
+
         return userRepository.findAll();
     }
 
@@ -62,7 +63,7 @@ public class UserServiceImpl implements UserService {
         User user = null;
         Optional optional = userRepository.findById(emailId);
         if (optional.isPresent()) {
-            user = userRepository.findById(emailId).get();
+            user = (User) optional.get();
             userRepository.deleteById(emailId);
         } else
             throw new UserNotFoundException();
@@ -80,7 +81,7 @@ public class UserServiceImpl implements UserService {
             user1.setAge(user.getAge());
             userRepository.save(user1);
         }
-        if (user1 == null)
+        else
             throw new UserNotFoundException();
         return userRepository.save(user1);
     }
@@ -90,7 +91,8 @@ public class UserServiceImpl implements UserService {
         User user;
         Optional optional = userRepository.findById(emailId);
         if (optional.isPresent()) {
-            user = userRepository.findById(emailId).get();
+            user = (User) optional.get();
+
         } else
             throw new UserNotFoundException("track");
         return user;
@@ -121,9 +123,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @KafkaListener(topics = "savedUser", groupId = "Group_JsonObject")
     public UserPayment saveUserPayment(UserPayment userPayment) {
-        UserPayment saveUser = (UserPayment) userPaymentRepository.save(userPayment);
-
-        System.out.println(saveUser);
+        UserPayment saveUser =  userPaymentRepository.save(userPayment);
         return saveUser;
 
     }

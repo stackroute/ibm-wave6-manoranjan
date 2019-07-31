@@ -12,8 +12,7 @@ public interface UserService {
     public User saveUser(User user) throws UserAllReadyExistException;
 
     //display list of all user
-    public List<User> getAllUsers() throws UserNotFoundException;
-
+    public List<User> getAllUsers();
     //delete particular user
     public User deleteUser(String emailId) throws UserNotFoundException;
 

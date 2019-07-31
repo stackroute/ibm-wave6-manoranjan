@@ -24,8 +24,7 @@ public class UserConsumerConfig {
         config.put(ConsumerConfig.GROUP_ID_CONFIG, "Group_JsonObject");
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-
-        return new DefaultKafkaConsumerFactory<User, User>(config, new JsonDeserializer<User>(), new JsonDeserializer<User>(User.class));
+        return new DefaultKafkaConsumerFactory<>(config,new JsonDeserializer<User>(),new JsonDeserializer<User>(User.class));
 
     }
 

@@ -9,5 +9,6 @@ public class UserAllReadyExistException extends Exception {
     public UserAllReadyExistException(String message) {
         super(message);
         this.message = message;
+
     }
 }
