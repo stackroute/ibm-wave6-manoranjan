@@ -30,7 +30,7 @@ public class UserController {
         return responseEntity;
     }
 
-    @PostMapping("userPayment")
+    @PostMapping("user-payment")
     public ResponseEntity<?> saveUser(@RequestBody UserPayment userPackage)
     {
         ResponseEntity responseEntity;
@@ -49,15 +49,15 @@ public class UserController {
     public ResponseEntity<?> getAllUsers() throws UserNotFoundException {
         return new ResponseEntity<List<User>>(userService.getAllUsers(),HttpStatus.OK);
     }
-    @GetMapping("user/wish/{emailId}")
+    @GetMapping("user/wish/{email}")
     public ResponseEntity<?> getAllWishlist(@PathVariable("emailId") String emailId) throws UserNotFoundException {
         return new ResponseEntity<List<List<String>>>(userService.getAllWishlist(emailId),HttpStatus.OK);
     }
-    @GetMapping("user/history/{emailId}")
+    @GetMapping("user/history/{email}")
     public ResponseEntity<?> getAllHistory(@PathVariable("emailId") String emailId) throws UserNotFoundException {
         return new ResponseEntity<List<List<String>>>(userService.getAllHistory(emailId),HttpStatus.OK);
     }
-    @GetMapping("/users/{emailId}")
+    @GetMapping("/users/{email}")
     public ResponseEntity<?> getById(@PathVariable("emailId") String emailId) throws UserNotFoundException{
         ResponseEntity responseEntity;
         User user=null;
@@ -65,7 +65,7 @@ public class UserController {
         responseEntity=new ResponseEntity<User>(user, HttpStatus.CREATED);
         return responseEntity;
     }
-    @DeleteMapping("/user/{emailId}")
+    @DeleteMapping("/user/{email}")
     public ResponseEntity<?> deleteUser(@PathVariable String emailId) throws UserNotFoundException
     {
         ResponseEntity responseEntity;
@@ -73,7 +73,7 @@ public class UserController {
         responseEntity=new ResponseEntity<String>("Deleted Successfully", HttpStatus.CREATED);
         return responseEntity;
     }
-    @PutMapping("/user/{emailId}")
+    @PutMapping("/user/{email}")
     public ResponseEntity<?> updateUser(@PathVariable("emailId") String emailId, @RequestBody User user) throws UserNotFoundException
     {
         ResponseEntity responseEntity;
