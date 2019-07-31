@@ -31,6 +31,6 @@ export class EditComponent implements OnInit {
   this.userService.updateUser(this.emailId,this.user).subscribe(data=>{
     console.log("update Request is successful ", data);},
     error=>{console.log("Error", error);})
-    this.router.navigateByUrl('/edit/');
+    this.router.navigateByUrl('/myaccount/');
   }
 }

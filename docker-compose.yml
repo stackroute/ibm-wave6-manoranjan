@@ -32,9 +32,9 @@ services:
     image: zuul-api
     hostname: localhost
     ports:
-      - 8011:8011
+      - 8083:8083
     expose:
-      - 8011
+      - 8083
 
   zookeeper:
     container_name: zookeeper
@@ -151,3 +151,29 @@ services:
       - 8060:8060
     expose:
       - 8060
+
+  neo4j:
+    image: neo4j:latest
+    restart: always
+    network_mode: host
+    ports:
+      - 7474:7474
+      - 7687:7687
+    expose:
+      - 7474
+      - 7687
+
+#  recommendation-service:
+#    image: recommendation-service:1.0.0
+#    build: recommendation-service/
+#    restart: always
+#    network_mode: "host"
+#    depends_on:
+#      - neo4j
+#      - kafka
+#      - zuul-api
+#      - eureka-server
+#    ports:
+#      - 8060:8060
+#    expose:
+#      - 8060

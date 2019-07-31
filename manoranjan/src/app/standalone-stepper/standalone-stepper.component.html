@@ -108,7 +108,7 @@
                         </div>
                         <div class="col-sm-8" id="date" style="margin-top: -40px">
                         <mat-form-field >
-                            <input class="form-control" matInput formControlName="date" [matDatepicker]="picker" placeholder="Select date">
+                            <input class="form-control" matInput formControlName="date" [matDatepicker]="picker" placeholder=" ">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                             <mat-error><span *ngIf="firstFormGroup.controls['date'].hasError('required')">Please choose a date.</span>
@@ -124,7 +124,7 @@
         </form>
 </mat-step>
 
-<!-- 2nd stapper form here-->
+<!-- 2nd stepper form here-->
 <mat-step [stepControl]="secondForm">
 <form #viewerForm="ngForm" [formGroup]="secondFormGroup" (ngSubmit)="onSecondSubmit(secondFormGroup.value)" class="form-horizontal" >
 
@@ -166,10 +166,13 @@
        
                   <div class="row">
                      <div class="col-3"></div>
-                    <div class="col-4">
-                 
+                    <div class="col-4">                 
                        <!-- <input class="form-control" type="text" #crewName formControlName="crewName" placeholder="new" matInput> -->
                        <input type="text" rows="1" cols="20" class="form-control" #crewName formControlName="crewName">
+                       <mat-error *ngFor="let validation of validation_messages.crewName">
+                        <mat-error class="error-message" *ngIf="sixthFormGroup.get('crewName').hasError(validation.type) && (sixthFormGroup.get('crewName').dirty || sixthFormGroup.get('crewName').touched)">{{validation.message}}
+                        </mat-error>
+                     </mat-error>
                      
                 
                    </div>
@@ -228,10 +231,18 @@
           <div class="col-3"></div>
         <div class="col-4" id="input1">
             <input class="form-control" type="text" rows="1" cols="20" #screenName formControlName="screenName">
+            <mat-error *ngFor="let validation of validation_messages.screenName">
+              <mat-error class="error-message" *ngIf="seventhFormGroup.get('screenName').hasError(validation.type) && (seventhFormGroup.get('screenName').dirty || seventhFormGroup.get('screenName').touched)">{{validation.message}}
+              </mat-error>
+           </mat-error>
         </div>
 
         <div class="col-4" id="input2">
             <input class="form-control" type="text" rows="1" cols="20" #realName formControlName="realName">
+            <mat-error *ngFor="let validation of validation_messages.realName">
+              <mat-error class="error-message" *ngIf="seventhFormGroup.get('realName').hasError(validation.type) && (seventhFormGroup.get('realName').dirty || seventhFormGroup.get('realName').touched)">{{validation.message}}
+              </mat-error>
+           </mat-error>
         </div>
       </div>
         <div class="row" id="submit1">

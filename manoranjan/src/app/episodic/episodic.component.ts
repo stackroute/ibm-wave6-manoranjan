@@ -63,15 +63,11 @@ export class EpisodicComponent implements OnInit {
     this.firstFormGroup = this._formBuilder.group({
       episodeLanguage:new FormControl('', Validators.compose([Validators.required])),
       episodePoster: new FormControl('', Validators.compose([Validators.required])),
-      episodeType: new FormControl("" , Validators.compose([Validators.required])),
+      episodeType: new FormControl('', Validators.compose([Validators.required])),
     });
 
     this.secondFormGroup = this._formBuilder.group({
-      EpisodeStudioName: new FormControl('', Validators.compose([Validators.required,Validators.maxLength(20)])),
-      crewName: new FormControl('', Validators.compose([Validators.maxLength(20)])),
-      crewRole: new FormControl('', Validators.compose([])),
-      screenName: new FormControl('', Validators.compose([Validators.maxLength(20)])),
-      realName: new FormControl('', Validators.compose([Validators.maxLength(20)]))   
+      EpisodeStudioName: new FormControl('',Validators.compose([Validators.pattern('^[a-zA-z. ]*$')]))
     });
 
     this.thirdFormGroup = this._formBuilder.group({
@@ -83,13 +79,13 @@ export class EpisodicComponent implements OnInit {
     });
 
     this.sixthFormGroup = this._formBuilder.group({
-      crewName:new FormControl(),
+      crewName:new FormControl('', Validators.compose([Validators.pattern('^[a-zA-Z. ]*$')])),
       crewRole:new FormControl(),
     });
 
     this.seventhFormGroup = this._formBuilder.group({
-      screenName:new FormControl(),
-      realName:new FormControl(),
+      screenName:new FormControl('', Validators.compose([Validators.pattern('^[a-zA-Z. ]*$')])),
+      realName:new FormControl('', Validators.compose([Validators.pattern('^[a-zA-Z. ]*$')]))
     });
 
     this.eightFormGroup = this._formBuilder.group({
@@ -97,33 +93,37 @@ export class EpisodicComponent implements OnInit {
       episodeUrl:new FormControl('', Validators.compose([Validators.required])),
       episodeDescription:new FormControl('', Validators.compose([Validators.required,Validators.maxLength(100)])),
       episodePosterUrl:new FormControl('', Validators.compose([Validators.required])),
-      episodeReleaseDate:new FormControl("" , Validators.compose([Validators.required]))
+      episodeReleaseDate:new FormControl('' , Validators.compose([Validators.required]))
     });
   }
   // ng oninit closed
   validation_messages = {
+    'episodicLanguage':[
+      {type:'required',message:'languge required'}
+    ],
+    'episodePoster':[
+      {type:'required',message:'episode poster required'}
+    ],
+    'episodeType':[
+      {type:'required',message:'languge required'}
+    ],
     'crewName': [
-      { type: 'required', message: 'crewName is required' },
-      { type: 'maxlength', message: 'crewName cannot be more than 25 characters long' },
-      { type: 'pattern', message: 'Your username must contain only numbers and letters' },
+      { type: 'pattern', message: 'Your crewname must contain only characters' },
       { type: 'validUsername', message: 'Your username has already been taken' }
     ],
     'screenName': [
-      { type: 'required', message: 'screenName is required' },
-      { type: 'maxlength', message: 'screenName cannot be more than 25 characters long' },
-      { type: 'pattern', message: 'Your screenName must contain only numbers and letters' },
+      { type: 'pattern', message: 'Your screenName must contain only characters' },
       { type: 'validUsername', message: 'Your username has already been taken' }
     ],
-    'episodeStudioName': [
-      { type: 'required', message: 'screenName is required' },
-      { type: 'maxlength', message: 'screenName cannot be more than 25 characters long' },
-      { type: 'pattern', message: 'Your screenName must contain only numbers and letters' },
+    'EpisodeStudioName': [
+      { type: 'pattern', message: 'Your screenName must contain only characters' },
       { type: 'validUsername', message: 'Your username has already been taken' }
+    ],
+    'episodePosterUrl': [
+      { type: 'required', message: 'episode poster url is required' }
     ],
     'realName': [
-      { type: 'required', message: 'Username is required' },
-      { type: 'maxlength', message: 'Username cannot be more than 25 characters long' },
-      { type: 'pattern', message: 'Your username must contain only numbers and letters' },
+      { type: 'pattern', message: 'Your realname must contain only characters' },
       { type: 'validUsername', message: 'Your username has already been taken' }
     ],      
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-producerprofile',
@@ -12,7 +13,7 @@ export class ProducerprofileComponent implements OnInit {
   users:User;
   user=new User();
   emailId;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private router:Router) { }
 
   ngOnInit() {
     this.user.emailId=sessionStorage.getItem('email');
@@ -24,6 +25,10 @@ export class ProducerprofileComponent implements OnInit {
           // alert("Login Unsuccessful, tryagain")
           console.log("Error", error);}
       );
+  }
+  sendEmail(email)
+  {
+     this.router.navigateByUrl('/editpro/'+email);
   }
 
 }
