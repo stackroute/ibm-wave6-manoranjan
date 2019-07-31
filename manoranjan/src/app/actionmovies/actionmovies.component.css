@@ -25,6 +25,23 @@
   .container-fluid{
     margin-top: -10px;
   }
+  .close {
+    position: absolute;
+    top: 0;
+    opacity: none;
+    right: 0;
+    height:40px;
+    width:40px;
+    border-radius:40px;
+    
+    /* font-family: 'Chewy', cursive; */
+    /* color: white; */
+    /* color: white; */
+    /* background-color: blue;
+    overflow: hidden;
+    font-weight: bold;
+    font-style: italic; */
+   }
   .box{
     position: relative;
     /* overflow: hidden; */

@@ -16,16 +16,13 @@
       }
 .container{
    height: 368px;
-   /* margin-left: 50px; */
 }
 
 h3{
   margin-top: 180px;
   color: green;
 }
-.container4{
-  height: 298px;
-}
+
 h6{
   margin-top: 10px;
   font-weight: bold;
@@ -74,7 +71,6 @@ mat-card-content mat-grid-list{
      margin-top:-60px;
      margin-bottom: -20px;
    }
-  
   #genre{
     margin-top: 25px;
     margin-left: -28px;
@@ -82,7 +78,6 @@ mat-card-content mat-grid-list{
    #releaseDate{
      margin-left: 0px;
    }
-  
    li{
      list-style-type: none;
      margin-left: -150px;
@@ -130,28 +125,28 @@ mat-card-content mat-grid-list{
      margin-top:10px;
      margin-left: 185px;
    }
+   #buttomButton{
+     margin-bottom: 40px;
+   }
   
   #chooseFile{
     margin-left: -1px;
   }
    #upload{
-     margin-left: 210px;
+     margin-left: -35px;
      margin-top:-32px;
-   }
-    
+   } 
     #language{
-    margin-left: -50px;
+    margin-left: -55px;
   }
-
   #posterImage{
-    margin-left: -30px;
+    margin-left: -32px;
   }
- 
    #videoFile{
-     margin-left:-55px;
+     margin-left:-47px;
    }
    #contentType{
-    margin-left:-40px;
+    margin-left:-25px;
   }
    img{
      margin-top: 10px;
@@ -207,6 +202,9 @@ mat-card-content mat-grid-list{
      width: 40%;
      height: 50%;
      
+  }
+  #publish{
+    margin-top: 60px;
   }
   .mat-card-sm-image{
   margin-right: 10px;

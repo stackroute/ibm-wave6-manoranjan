@@ -12,20 +12,20 @@ export class UserService {
   constructor(private http:HttpClient) { }
   
   saveUser(user:User){
-   return this.http.post<User>("http://localhost:8011/userservice/user",user);
+   return this.http.post<User>("http://localhost:8083/user-service/user",user);
   }
   getById(emailId):any{
-    return this.http.get("http://localhost:8011/userservice/users/"+emailId,{
+    return this.http.get("http://localhost:8083/user-service/users/"+emailId,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
     });
    }
   getAllUsers():any{
-    return this.http.get("http://localhost:8011/userservice/users");
+    return this.http.get("http://localhost:8083/user-service/users");
   }
   updateUser(emailId,user:User):any{
-    return this.http.put("http://localhost:8011/userservice/user/"+emailId,user,{
+    return this.http.put("http://localhost:8083/user-service/user/"+emailId,user,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })

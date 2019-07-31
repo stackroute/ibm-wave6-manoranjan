@@ -1,7 +1,7 @@
 <div id="container">
     <h4><span>Episodes</span></h4>
     <div ng2-carouselamos class="slides-wrapper"
-        [items]="items"
+        [items]="list"
         [width]="1150"
         [$prev]="prev"
         [$next]="next"
@@ -18,9 +18,8 @@
         
     <ng-template #item let-item let-i="index">
         <div class="items">
-            <img class="latest" src="{{ item.name }}">
-            <div class="overlay">Bumm Bumm Bole is a Hindi film, starring Darsheel Safary, Ziyah Vastani, 
-                Atul Kulkarni and Rituparna ...</div>
+            <img class="latest" src="{{ item.episodePosterUrl }}" routerLink="/play/{{title}}/{{item.episodeUrl}}">
+            <div class="overlay">{{item.episodeDescription}}</div>
         </div>
     </ng-template>
 </div>

@@ -23,6 +23,9 @@
                                           <option value="Gujarathi">Gujarathi</option>
                                          <option value="Bengali">Bengali</option>
                                        </select>
+                                       <mat-error>
+                                        <span *ngIf="!firstFormGroup.get('episodeLanguage').valid && firstFormGroup.get('episodeLanguage').touched">Please select language !!!</span>
+                                    </mat-error>
                                  </div> 
                             </div>
                           <br><br>
@@ -31,7 +34,11 @@
                                  <label >Poster</label> 
                                 </div> 
                                 <div class="col-7" id="input">      
-                                  <input type="text" rows="1" cols="20" class="form-control" #episodePoster formControlName="episodePoster">                    
+                                  <input type="text" rows="1" cols="20" class="form-control" #episodePoster formControlName="episodePoster">   
+                                  <mat-error *ngFor="let validation of validation_messages.episodePoster">
+                                    <mat-error class="error-message" *ngIf="firstFormGroup.get('episodePoster').hasError(validation.type) && (firstFormGroup.get('episodePoster').dirty || firstFormGroup.get('episodePoster').touched)">{{validation.message}}
+                                    </mat-error>
+                                 </mat-error>                
                                 </div>
                             </div>
                           <br><br>
@@ -44,6 +51,9 @@
                                       <option value="free">Free</option>
                                       <option value="premium">Premium</option>
                                     </select>
+                                    <mat-error>
+                                      <span *ngIf="!firstFormGroup.get('episodeType').valid && firstFormGroup.get('episodeType').touched">Please select episodeType !!!</span>
+                                  </mat-error>
                                 </div> 
                             </div>
                             </div> 
@@ -65,9 +75,9 @@
                                     <label>Studio Name</label>
                                   </div>
                                   <div class="col-8" id="input4">
-                                      <input class="form-control" type="text" formControlName="EpisodeStudioName"   required>
+                                      <input class="form-control" type="text" formControlName="EpisodeStudioName">
                                         <mat-error *ngFor="let validation of validation_messages.EpisodeStudioName">
-                                        <mat-error class="error-message" *ngIf="firstFormGroup.get('EpisodeStudioName').hasError(validation.type) && (firstFormGroup.get('EpisodeStudioName').dirty ||firstFormGroup.get('EpisodeStudioName').touched)">{{validation.message}}
+                                        <mat-error class="error-message" *ngIf="secondFormGroup.get('EpisodeStudioName').hasError(validation.type) && (secondFormGroup.get('EpisodeStudioName').dirty ||secondFormGroup.get('EpisodeStudioName').touched)">{{validation.message}}
                                         </mat-error>
                                         </mat-error>
                                   </div>
@@ -92,7 +102,7 @@
                                       <!-- <input class="form-control" type="text" #crewName formControlName="crewName" placeholder="new" matInput> -->
                                       <input type="text" rows="1" cols="20" class="form-control" #crewName formControlName="crewName">
                                       <mat-error *ngFor="let validation of validation_messages.crewName">
-                                      <mat-error class="error-message" *ngIf="secondFormGroup.get('crewName').hasError(validation.type) && (secondFormGroup.get('crewName').dirty || secondFormGroup.get('crewName').touched)">{{validation.message}}
+                                      <mat-error class="error-message" *ngIf="sixthFormGroup.get('crewName').hasError(validation.type) && (sixthFormGroup.get('crewName').dirty || sixthFormGroup.get('crewName').touched)">{{validation.message}}
                                       </mat-error>
                                       </mat-error>
                                     <!-- </mat-form-field>        -->
@@ -148,14 +158,14 @@
                                       <!-- <mat-form-field>   -->
                                         <input class="form-control" type="text" rows="1" cols="20" #screenName formControlName="screenName" >
                                             <mat-error *ngFor="let validation of validation_messages.screenName">
-                                            <mat-error class="error-message" *ngIf="secondFormGroup.get('screenName').hasError(validation.type) && (secondFormGroup.get('screenName').dirty ||secondFormGroup.get('screenName').touched)">{{validation.message}}
+                                            <mat-error class="error-message" *ngIf="seventhFormGroup.get('screenName').hasError(validation.type) && (seventhFormGroup.get('screenName').dirty ||sixthFormGroup.get('screenName').touched)">{{validation.message}}
                                             </mat-error>
                                             </mat-error>
                                     </div>
                                     <div class="col-4" id="input6">
                                         <input class="form-control" type="text" #realName formControlName="realName" >
                                         <mat-error *ngFor="let validation of validation_messages.realName">
-                                        <mat-error class="error-message" *ngIf="secondFormGroup.get('realName').hasError(validation.type) && (secondFormGroup.get('realName').dirty || secondFormGroup.get('realName').touched)">{{validation.message}}
+                                        <mat-error class="error-message" *ngIf="seventhFormGroup.get('realName').hasError(validation.type) && (seventhFormGroup.get('realName').dirty || seventhFormGroup.get('realName').touched)">{{validation.message}}
                                         </mat-error>
                                         </mat-error>
                                     </div>
@@ -230,6 +240,10 @@
                      </div> 
                      <div class="col-7" id="input10">
                            <input class="form-control" #episodePosterUrl type="text" name="posterUrl" formControlName="episodePosterUrl" required>
+                           <mat-error *ngFor="let validation of validation_messages.episodePosterUrl">
+                            <mat-error class="error-message" *ngIf="eightFormGroup.get('episodePosterUrl').hasError(validation.type) && (eightFormGroup.get('episodePosterUrl').dirty || eightFormGroup.get('episodePosterUrl').touched)">{{validation.message}}
+                            </mat-error>
+                            </mat-error>
                      </div>  
                   </div> 
                 <br>
@@ -298,7 +312,7 @@
               </mat-card>    
           </form>
        </mat-step>    
-     </mat-horizontal-stepper>       
+     </mat-horizontal-stepper>
     </mat-card>
   </section>
   <app-footer></app-footer>
