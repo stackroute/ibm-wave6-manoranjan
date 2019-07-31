@@ -11,20 +11,20 @@ import { Router } from '@angular/router';
 export class HindiserialsComponent implements OnInit {
 
   serials;
-  serials1=new Array<Episodic>()
-  constructor(private mediaService:MediaService,private router:Router) { }
+  serials1 = new Array<Episodic>()
+  constructor(private mediaService: MediaService, private router: Router) { }
 
   ngOnInit() {
-    this.mediaService.getShowsByLanguage("Hindi").subscribe(data=>{
-      this.serials=data
-      this.serials1=this.serials
+    this.mediaService.getShowsByLanguage("Hindi").subscribe(data => {
+      this.serials = data
+      this.serials1 = this.serials
       console.log(this.serials1)
     })
   }
 
-  sendDetails(serial){
-    let x=JSON.stringify(serial)
-    sessionStorage.setItem("serial",x);
+  sendDetails(serial) {
+    let x = JSON.stringify(serial)
+    sessionStorage.setItem("serial", x);
     console.log(serial.episodicTitle)
     this.router.navigateByUrl("/image");
   }

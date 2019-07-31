@@ -54,6 +54,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllUsers() {
+
         return userRepository.findAll();
     }
 
@@ -91,6 +92,7 @@ public class UserServiceImpl implements UserService {
         Optional optional = userRepository.findById(emailId);
         if (optional.isPresent()) {
             user = (User) optional.get();
+
         } else
             throw new UserNotFoundException("track");
         return user;

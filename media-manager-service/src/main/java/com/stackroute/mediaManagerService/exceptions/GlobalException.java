@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalException {
 
     @ExceptionHandler(MediaNotFoundException.class)
-    public ResponseEntity<?> handleMediaNotFoundException(MediaNotFoundException mediaNotFound){
+    public ResponseEntity<?> handleMediaNotFoundException(MediaNotFoundException mediaNotFound) {
         return new ResponseEntity<String>("Media not found", HttpStatus.CONFLICT);
     }
 
     @ExceptionHandler(MediaAlreadyExistsException.class)
-    public ResponseEntity<?> handleMediaAlreadyExistsException(MediaAlreadyExistsException mediaAlreadyExists){
-        return new ResponseEntity<String>("Media already exists",HttpStatus.CONFLICT);
+    public ResponseEntity<?> handleMediaAlreadyExistsException(MediaAlreadyExistsException mediaAlreadyExists) {
+        return new ResponseEntity<String>("Media already exists", HttpStatus.CONFLICT);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> handleException(Exception exception){
-        return new ResponseEntity<>("Exception Occured",HttpStatus.CONFLICT);
+    public ResponseEntity<?> handleException(Exception exception) {
+        return new ResponseEntity<>("Exception Occured", HttpStatus.CONFLICT);
     }
 
 }

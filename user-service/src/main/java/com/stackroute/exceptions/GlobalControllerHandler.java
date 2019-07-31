@@ -11,6 +11,7 @@ public class GlobalControllerHandler {
     public ResponseEntity<?> handleUserAllReadyExistException(UserAllReadyExistException e){
         return new ResponseEntity<>("User Already exist", HttpStatus.CONFLICT);
     }
+
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<?> handleUserNotFoundException(UserNotFoundException e){
         return new ResponseEntity<>("User Not Found", HttpStatus.CONFLICT);

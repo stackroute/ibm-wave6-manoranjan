@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../user';
-import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { User } from '../user';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Media } from '../media';
@@ -15,20 +15,20 @@ import { Cast } from '../cast';
 })
 export class StandaloneStepperComponent implements OnInit {
 
-  crewList=[];
+  crewList = [];
   crewName;
   crewRole;
 
-  castList=[];
+  castList = [];
   screenName;
   realName;
 
   myGroup: FormGroup;
   [x: string]: any;
-  user:User=new User();
-  mediaDetails=[];
-  
-  hide:true;
+  user: User = new User();
+  mediaDetails = [];
+
+  hide: true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
@@ -39,126 +39,122 @@ export class StandaloneStepperComponent implements OnInit {
   category;
   synopsis;
 
-  currentFileUpload:File;
-  selectedVideo:FileList;
-  selectedTrailer:FileList;
+  currentFileUpload: File;
+  selectedVideo: FileList;
+  selectedTrailer: FileList;
 
   mediaName;
   trailerName;
 
-  progress:{percentage:number}={percentage:0};
+  progress: { percentage: number } = { percentage: 0 };
 
-  media:Media=new Media();
-  crew:Crew=new Crew();
-  cast:Cast=new Cast();
-  listCrew:Array<Crew>=new Array<Crew>();
-  listCast:Array<Cast>=new Array<Cast>();
+  media: Media = new Media();
+  crew: Crew = new Crew();
+  cast: Cast = new Cast();
+  listCrew: Array<Crew> = new Array<Crew>();
+  listCast: Array<Cast> = new Array<Cast>();
 
-  genres:Array<string>=new Array<string>();
+  genres: Array<string> = new Array<string>();
 
 
-  constructor(private _formBuilder: FormBuilder,private router:Router,
-    private mediaService:MediaService,private activatedRoute:ActivatedRoute) {}
-  
+  constructor(private _formBuilder: FormBuilder, private router: Router,
+    private mediaService: MediaService, private activatedRoute: ActivatedRoute) { }
+
   ngOnInit() {
 
-    this.activatedRoute.paramMap.subscribe(params=>{
-      this.title=params.get('title');
-      this.category=params.get('category');
-      this.synopsis=params.get('synopsis');
-      console.log("title- "+this.title+" category- "+this.category+" synopsis- "+this.synopsis);
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.title = params.get('title');
+      this.category = params.get('category');
+      this.synopsis = params.get('synopsis');
+      console.log("title- " + this.title + " category- " + this.category + " synopsis- " + this.synopsis);
     });
 
     this.firstFormGroup = this._formBuilder.group({
       language: new FormControl('', [Validators.required]),
-      date:new FormControl("" , Validators.compose([Validators.required]))
+      date: new FormControl("", Validators.compose([Validators.required]))
 
     });
     this.secondFormGroup = this._formBuilder.group({
-      studio:new FormControl('', [Validators.required, Validators.maxLength(50),Validators.pattern('^[a-zA-Z. ]*$')])
+      studio: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-Z. ]*$')])
     });
     this.thirdFormGroup = this._formBuilder.group({
-      posterurl:new FormControl('',Validators.required),
-      video:new FormControl(),
-      trailer:new FormControl(),
-      type:new FormControl('', [Validators.required])
+      posterurl: new FormControl('', Validators.required),
+      video: new FormControl(),
+      trailer: new FormControl(),
+      type: new FormControl('', [Validators.required])
     });
 
     this.sixthFormGroup = this._formBuilder.group({
-      crewName:new FormControl("",Validators.pattern('^[a-zA-Z. ]*$')),
-      crewRole:new FormControl(),
+      crewName: new FormControl("", Validators.pattern('^[a-zA-Z. ]*$')),
+      crewRole: new FormControl(),
     });
     this.seventhFormGroup = this._formBuilder.group({
-      screenName:new FormControl("",Validators.pattern('^[a-zA-Z. ]*$')),
-      realName:new FormControl("",Validators.pattern('^[a-zA-Z. ]*$')),
+      screenName: new FormControl("", Validators.pattern('^[a-zA-Z. ]*$')),
+      realName: new FormControl("", Validators.pattern('^[a-zA-Z. ]*$')),
     });
   }
 
-  addCrew(name,role){ 
+  addCrew(name, role) {
     this.crewList.push(
-      {crewName:name,crewRole:role}
+      { crewName: name, crewRole: role }
     )
     console.log(this.crewList);
   }
-  deleteCrew(crewName,crewRole){
-    console.log(crewName,crewRole);
-    for(var i=0;i<this.crewList.length;i++)
-    {
-      if(this.crewList[i]["crewName"]==crewName)
-      {
-        this.crewList.splice(i,1);
+  deleteCrew(crewName, crewRole) {
+    console.log(crewName, crewRole);
+    for (var i = 0; i < this.crewList.length; i++) {
+      if (this.crewList[i]["crewName"] == crewName) {
+        this.crewList.splice(i, 1);
       }
     }
   }
 
-  addCast(screen,real){ 
+  addCast(screen, real) {
     this.castList.push(
-      {screenName:screen,realName:real}
+      { screenName: screen, realName: real }
     )
     console.log(this.castList);
   }
-  deleteCast(screenName,realName){
-    console.log(screenName,realName);
-    for(var i=0;i<this.castList.length;i++)
-    {
-      if(this.castList[i]["screenName"]==screenName)
-      {
-        this.castList.splice(i,1);
+  deleteCast(screenName, realName) {
+    console.log(screenName, realName);
+    for (var i = 0; i < this.castList.length; i++) {
+      if (this.castList[i]["screenName"] == screenName) {
+        this.castList.splice(i, 1);
       }
     }
   }
 
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' : '';
+      this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
-  onFirstSubmit(value){
+  onFirstSubmit(value) {
     console.log(this.firstFormGroup.controls.language.value)
     console.log("first");
     console.log(value);
     this.mediaDetails.push(value);
   }
 
-  onSecondSubmit(value){
+  onSecondSubmit(value) {
     console.log(value);
     this.mediaDetails.push(value);
   }
 
-  onThirdSubmit(value){
+  onThirdSubmit(value) {
     console.log(value);
     this.mediaDetails.push(value);
   }
-  onSubmInterest(value){
+  onSubmInterest(value) {
     console.log(value);
     this.genres.push(value);
   }
 
-  selectVideo(event){
-    this.selectedVideo=event.target.files;
+  selectVideo(event) {
+    this.selectedVideo = event.target.files;
   }
 
-  uploadVideo(){
+  uploadVideo() {
     this.progress.percentage = 0;
     this.currentFileUpload = this.selectedVideo.item(0)
     this.mediaService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
@@ -166,17 +162,17 @@ export class StandaloneStepperComponent implements OnInit {
         this.progress.percentage = Math.round(100 * event.loaded / event.total);
       } else if (event instanceof HttpResponse) {
         console.log('File is completely uploaded!');
-        this.mediaName=this.currentFileUpload.name;
+        this.mediaName = this.currentFileUpload.name;
       }
     })
     this.selectedVideo = undefined
   }
 
-  selectTrailer(event){
-    this.selectedTrailer=event.target.files;
+  selectTrailer(event) {
+    this.selectedTrailer = event.target.files;
   }
 
-  uploadTrailer(){
+  uploadTrailer() {
     this.progress.percentage = 0;
     this.currentFileUpload = this.selectedTrailer.item(0)
     this.mediaService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
@@ -184,44 +180,44 @@ export class StandaloneStepperComponent implements OnInit {
         this.progress.percentage = Math.round(100 * event.loaded / event.total);
       } else if (event instanceof HttpResponse) {
         console.log('File is completely uploaded!');
-        this.trailerName=this.currentFileUpload.name;
+        this.trailerName = this.currentFileUpload.name;
       }
     })
     this.selectedTrailer = undefined
   }
 
-  saveMedia(){
-    this.crew.crewName=this.mediaDetails[1].crewName;
-    this.crew.crewRole=this.mediaDetails[1].crewRole;
+  saveMedia() {
+    this.crew.crewName = this.mediaDetails[1].crewName;
+    this.crew.crewRole = this.mediaDetails[1].crewRole;
     this.listCrew.push(this.crew);
 
-    this.cast.screenName=this.mediaDetails[1].screenName;
-    this.cast.realName=this.mediaDetails[1].realName;
+    this.cast.screenName = this.mediaDetails[1].screenName;
+    this.cast.realName = this.mediaDetails[1].realName;
     this.listCast.push(this.cast);
 
-    var video={
-      'mediaTitle':this.title,
-      'mediaCategory':this.category,
-      'mediaSynopsis':this.synopsis,
-      'mediaLanguage':this.mediaDetails[0].language,
-      'mediaReleaseDate':this.mediaDetails[0].date,
-      'mediaStudioName':this.mediaDetails[1].studio,
-      'mediaCrew':this.crewList,
-      'mediaCast':this.castList,
-      'mediaPosterUrl':this.mediaDetails[2].posterurl,
-      'mediaType':this.mediaDetails[2].type,
-      'mediaUrl':this.mediaName,
-      'mediaTrailerUrl':this.trailerName,
-      'mediaGenre':this.genres
+    var video = {
+      'mediaTitle': this.title,
+      'mediaCategory': this.category,
+      'mediaSynopsis': this.synopsis,
+      'mediaLanguage': this.mediaDetails[0].language,
+      'mediaReleaseDate': this.mediaDetails[0].date,
+      'mediaStudioName': this.mediaDetails[1].studio,
+      'mediaCrew': this.crewList,
+      'mediaCast': this.castList,
+      'mediaPosterUrl': this.mediaDetails[2].posterurl,
+      'mediaType': this.mediaDetails[2].type,
+      'mediaUrl': this.mediaName,
+      'mediaTrailerUrl': this.trailerName,
+      'mediaGenre': this.genres
     };
 
-    this.mediaService.saveMedia(video).subscribe(com=>{
+    this.mediaService.saveMedia(video).subscribe(com => {
       console.log("saved");
       console.log(com)
     },
-    error=>{
-      console.log(error)
-    });
+      error => {
+        console.log(error)
+      });
   }
   validation_messages = {
     'studio': [
@@ -232,16 +228,16 @@ export class StandaloneStepperComponent implements OnInit {
     'posterurl': [
       { type: 'required', message: 'poster url is required' },
     ],
-    'crewName':[
-      {type: 'pattern',message:'crew name must contain only characters'}
+    'crewName': [
+      { type: 'pattern', message: 'crew name must contain only characters' }
     ],
-    'screenName':[
-      {type: 'pattern',message:'screen name must contain only characters'}
+    'screenName': [
+      { type: 'pattern', message: 'screen name must contain only characters' }
     ],
-    'realName':[
-      {type: 'pattern',message:'real name must contain only characters'}
+    'realName': [
+      { type: 'pattern', message: 'real name must contain only characters' }
     ]
 
   }
 
- }
+}

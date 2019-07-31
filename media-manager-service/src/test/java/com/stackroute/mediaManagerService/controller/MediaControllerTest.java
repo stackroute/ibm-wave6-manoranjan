@@ -31,6 +31,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
@@ -60,13 +61,13 @@ public class MediaControllerTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        mockMvc= MockMvcBuilders.standaloneSetup(mediaController).setControllerAdvice(new GlobalException()).build();
-        media=new Media();
+        mockMvc = MockMvcBuilders.standaloneSetup(mediaController).setControllerAdvice(new GlobalException()).build();
+        media = new Media();
         media.setMediaTitle("2 states");
         media.setMediaCategory("Movie");
         media.setMediaSynopsis("Movies based on people from 2 different states");
 
-        List<String> genres=new ArrayList<String>();
+        List<String> genres = new ArrayList<String>();
         genres.add("romantic");
         genres.add("action");
 
@@ -80,16 +81,16 @@ public class MediaControllerTest {
         media.setMediaPosterUrl("https://images-na.ssl-images-amazon.com/images/I/51ZvSZqM9UL.jpg");
         media.setMediaStudioName("Red chillies");
 
-        Crew crew=new Crew("Chetan Bhagat","Writer");
-        Cast cast=new Cast("Krish","Arjun");
-        Cast cast1=new Cast("Ananya","Alia");
+        Crew crew = new Crew("Chetan Bhagat", "Writer");
+        Cast cast = new Cast("Krish", "Arjun");
+        Cast cast1 = new Cast("Ananya", "Alia");
 
-        List<Crew> crews=new ArrayList<>();
+        List<Crew> crews = new ArrayList<>();
         crews.add(crew);
 
         media.setMediaCrew(crews);
 
-        List<Cast> casts=new ArrayList<>();
+        List<Cast> casts = new ArrayList<>();
         casts.add(cast);
         casts.add(cast1);
 
@@ -98,10 +99,10 @@ public class MediaControllerTest {
         media.setMediaTrailerUrl("trailer.mp4");
         media.setMediaType("Free");
 
-        mediaList=new ArrayList<>();
+        mediaList = new ArrayList<>();
         mediaList.add(media);
 
-        episodicMedia=new EpisodicMedia();
+        episodicMedia = new EpisodicMedia();
         episodicMedia.setEpisodicType("Yeh rista");
         episodicMedia.setEpisodicSynopsis("Yeh Rishta Kya Kehlata Hai tells the story of how the two meet, " +
                 "time and again, which leads to their relationship progressing further with each encounter.");
@@ -111,22 +112,22 @@ public class MediaControllerTest {
         episodicMedia.setEpisodicPosterUrl("https://cdn.pinkvilla.com/files/styles/contentpreview/public/yehrishtatrptopperweek.jpg?itok=p9vofO7z");
         episodicMedia.setEpisodicStudioName("Red chillies");
 
-        Crew crewEM=new Crew("Chetan","Writer");
-        Cast castEM=new Cast("Naira","Shivangi");
-        Cast cast1EM=new Cast("Kartik","Mohsin");
+        Crew crewEM = new Crew("Chetan", "Writer");
+        Cast castEM = new Cast("Naira", "Shivangi");
+        Cast cast1EM = new Cast("Kartik", "Mohsin");
 
-        List<Crew> crewsEM=new ArrayList<>();
+        List<Crew> crewsEM = new ArrayList<>();
         crewsEM.add(crewEM);
 
         episodicMedia.setEpisodicCrew(crewsEM);
 
-        List<Cast> castsEM=new ArrayList<>();
+        List<Cast> castsEM = new ArrayList<>();
         castsEM.add(castEM);
         castsEM.add(cast1EM);
 
         episodicMedia.setEpisodicCast(castsEM);
 
-        episode=new Episode();
+        episode = new Episode();
         episode.setEpisodeNo(1);
         episode.setEpisodeDescription("First meeting");
         episode.setEpisodeUrl("video.mp4");
@@ -135,7 +136,7 @@ public class MediaControllerTest {
         Date dateEM = simpleDateFormat.parse("2019-06-09");
         episode.setEpisodeReleaseDate(dateEM);
 
-        episode1=new Episode();
+        episode1 = new Episode();
         episode1.setEpisodeNo(2);
         episode1.setEpisodeDescription("Second meeting");
         episode1.setEpisodeUrl("video.mp4");
@@ -144,12 +145,12 @@ public class MediaControllerTest {
         Date date1 = simpleDateFormat.parse("2019-06-10");
         episode1.setEpisodeReleaseDate(date1);
 
-        episodes=new ArrayList<>();
+        episodes = new ArrayList<>();
         episodes.add(episode);
 
         episodicMedia.setEpisodeList(episodes);
 
-        episodicMediaList=new ArrayList<>();
+        episodicMediaList = new ArrayList<>();
         episodicMediaList.add(episodicMedia);
 
     }
@@ -159,12 +160,11 @@ public class MediaControllerTest {
         mediaService.deleteAll();
     }
 
-    private static String asJsonString(final Object obj)
-    {
-        try{
+    private static String asJsonString(final Object obj) {
+        try {
             return new ObjectMapper().writeValueAsString(obj);
 
-        }catch(Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
@@ -207,7 +207,7 @@ public class MediaControllerTest {
 
     @Test
     public void saveEpisodeTest_returnOkHttpStatus() throws Exception {
-        when(mediaService.addEpisode(any(),any())).thenReturn(episode);
+        when(mediaService.addEpisode(any(), any())).thenReturn(episode);
         mockMvc.perform(MockMvcRequestBuilders.post("/stream/v1/episode/Yeh rista")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(episode)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -216,7 +216,7 @@ public class MediaControllerTest {
 
     @Test
     public void saveEpisodeTest_returnConflictHttpStatus() throws Exception {
-        when(mediaService.addEpisode(any(),any())).thenReturn(null);
+        when(mediaService.addEpisode(any(), any())).thenReturn(null);
         mockMvc.perform(MockMvcRequestBuilders.post("/stream/v1/episode/Yeh rista")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(null)))
                 .andExpect(MockMvcResultMatchers.status().isConflict())
@@ -267,15 +267,6 @@ public class MediaControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
-
-//    @Test
-//    public void getEpisodeByIdTest() throws Exception {
-//        when(mediaService.getEpisodeById("Yeh rishta",1)).thenReturn(episode);
-//        mockMvc.perform(MockMvcRequestBuilders.get("/stream/v1/episode/Yeh rishta/1")
-//                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(episode)))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andDo(MockMvcResultHandlers.print());
-//    }
 
     @Test
     public void getMediaByGenreTest() throws Exception {
@@ -331,12 +322,4 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
-//    @Test
-//    public void deleteEpisodeTest() throws Exception {
-//        when(mediaService.deleteEpisode(episodicMedia.getEpisodicTitle(),1)).thenReturn(episode);
-//        mockMvc.perform(MockMvcRequestBuilders.delete("/stream/v1/episode/Yeh rishta/1")
-//                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(episode)))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andDo(MockMvcResultHandlers.print());
-//    }
 }

@@ -11,8 +11,8 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
     private UserRepository userRepository;
 
     @Autowired
-    public FeedDataApplicationListener(UserRepository userRepository){
-        this.userRepository=userRepository;
+    public FeedDataApplicationListener(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override

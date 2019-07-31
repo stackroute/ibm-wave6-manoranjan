@@ -10,22 +10,22 @@ import { Router } from '@angular/router';
 })
 export class WishlistComponent implements OnInit {
 
-  media:any;
-  constructor(private mediaService:MediaService,private router:Router) {
-    
-   }
+  media: any;
+  constructor(private mediaService: MediaService, private router: Router) {
+
+  }
 
   ngOnInit() {
 
-    var m=[["yeh hai mohabbatein","TV Episodes"],["kahaani","Movie"]];
-    this.mediaService.getList(m).subscribe(data=>{
-      this.media=data;
+    var m = [["yeh hai mohabbatein", "TV Episodes"], ["kahaani", "Movie"]];
+    this.mediaService.getList(m).subscribe(data => {
+      this.media = data;
       console.log(data);
     })
   }
-  sendDetails(serial){
-    let x=JSON.stringify(serial)
-    sessionStorage.setItem("serial",x);
+  sendDetails(serial) {
+    let x = JSON.stringify(serial)
+    sessionStorage.setItem("serial", x);
     console.log(serial.episodicTitle)
     this.router.navigateByUrl("/image");
   }

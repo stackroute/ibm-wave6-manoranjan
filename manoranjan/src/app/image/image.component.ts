@@ -11,27 +11,24 @@ export class ImageComponent implements OnInit {
 
   id;
   serial;
-  serial1=new Episodic()
+  serial1 = new Episodic()
   episodeList;
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
   title;
   ngOnInit() {
-    this.serial=JSON.parse(sessionStorage.getItem("serial"));
-    // this.title=JSON.parse(sessionStorage.getItem('serial')).episodicTitle;
-    // console.log("pppppppppppppp"+this.title);
-    this.serial1=this.serial
-    this.episodeList=this.serial.episodeList
-    this.title=this.serial.episodicTitle
-    // console.log(this.serial1.episodicTitle)
+    this.serial = JSON.parse(sessionStorage.getItem("serial"));
+    this.serial1 = this.serial
+    this.episodeList = this.serial.episodeList
+    this.title = this.serial.episodicTitle
   }
 
-  playVideo(){
-    this.id=sessionStorage.getItem('email')
+  playVideo() {
+    this.id = sessionStorage.getItem('email')
     console.log();
-    if(this.id!==null){
-      this.router.navigateByUrl('/play/'+this.serial.episodicTitle+'/'+this.serial1.episodeList[0].episodeUrl);
+    if (this.id !== null) {
+      this.router.navigateByUrl('/play/' + this.serial.episodicTitle + '/' + this.serial1.episodeList[0].episodeUrl);
     }
-    else{
+    else {
       this.router.navigateByUrl('/login');
     }
   }

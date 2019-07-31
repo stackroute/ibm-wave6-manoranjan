@@ -1,35 +1,43 @@
-
 #footer-main {
-    background:#343a40;
+    background: #343a40;
     color: white;
     font-size: 0.9rem;
     font-family: 'Merriweather', serif;
     font-size: 16px;
 }
-.container-fluid{
+
+.container-fluid {
     padding-top: 10px;
 }
-i{
+
+i {
     padding: 15px;
 }
-a{
+
+a {
     color: white;
 }
-.list-unstyled i{
+
+.list-unstyled i {
     padding-left: 20px;
 }
-.connect{
+
+.connect {
     padding-left: 690px;
 }
-.connect .right{
+
+.connect .right {
     padding-left: 75px;
 }
-.first{
+
+.first {
     float: left;
 }
-.second{
+
+.second {
     text-align: center;
 }
-.third{
+
+.third {
     float: left;
 }
