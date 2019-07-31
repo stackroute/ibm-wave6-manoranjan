@@ -58,13 +58,6 @@ public class UserRepositoryTest {
         userRepository.deleteAll();
     }
 
-    //    @Test
-//    public void getAllUsersTest(){
-//        userRepository.save(user);
-//        List<User> list = userRepository.findAll();
-//        System.out.println(list);
-//        Assert.assertEquals(user.getEmailId(),list.get(0).getEmailId());
-//    }
     @Test
     public void getAllUsersFailureTest() {
         userRepository.save(user);

@@ -33,7 +33,8 @@ public class UserPaymentController {
         return responseEntity;
     }
 
-    @PostMapping("userEmail")
+
+    @PostMapping("user-email")
     public ResponseEntity<?> saveUser(@RequestBody User user) {
         ResponseEntity responseEntity;
         try {

@@ -26,7 +26,7 @@ public class ViewerController {
         return viewerService.saveViewer(viewer);
     }
 
-    @GetMapping("/viewer/{emailId}")
+    @GetMapping("/viewer/{email}")
     public Viewer getByEmailId(@PathVariable("emailId") String emailId) throws ViewerNotFoundException {
         return viewerService.getViewerByEmailId(emailId);
     }
@@ -41,7 +41,7 @@ public class ViewerController {
         return viewerService.deleteViewer(viewer.getEmailId());
     }
 
-    @PostMapping("graphMedia/{emailId}/{title}")
+    @PostMapping("graphMedia/{email}/{title}")
     public Viewer saveMediaRelation(@PathVariable String emailId, @PathVariable String title) throws ViewerNotFoundException {
         return viewerService.saveMediaRelation(emailId, title);
     }
