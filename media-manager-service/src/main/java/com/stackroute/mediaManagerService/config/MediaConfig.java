@@ -17,11 +17,13 @@ import java.util.Map;
 @Configuration
 public class MediaConfig {
 
+    private String address="127.0.0.1:9092";
+
     @Bean
     public ProducerFactory<Media,Media> producerFactory()
     {
         Map<Object,Object> config=new HashMap<>();
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,address);
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,JsonSerializer.class);
 
@@ -31,14 +33,14 @@ public class MediaConfig {
     @Bean
     public KafkaTemplate<Media, Media> kafkaTemplate()
     {
-        return new KafkaTemplate<Media, Media>(producerFactory());
+        return new KafkaTemplate<>(producerFactory());
 
     }
     @Bean
     public ProducerFactory<EpisodicMedia,EpisodicMedia> producerFactory1()
     {
         Map<Object,Object> config=new HashMap<>();
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,address);
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,JsonSerializer.class);
 
@@ -48,14 +50,14 @@ public class MediaConfig {
     @Bean
     public KafkaTemplate<EpisodicMedia, EpisodicMedia> kafkaTemplate1()
     {
-        return new KafkaTemplate<EpisodicMedia, EpisodicMedia>(producerFactory1());
+        return new KafkaTemplate<>(producerFactory1());
 
     }
     @Bean
     public ProducerFactory<Episode,Episode> producerFactory2()
     {
         Map<Object,Object> config=new HashMap<>();
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,address);
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,JsonSerializer.class);
 
@@ -65,7 +67,7 @@ public class MediaConfig {
     @Bean
     public KafkaTemplate<Episode, Episode> kafkaTemplate2()
     {
-        return new KafkaTemplate<Episode, Episode>(producerFactory2());
+        return new KafkaTemplate<>(producerFactory2());
 
     }
 }

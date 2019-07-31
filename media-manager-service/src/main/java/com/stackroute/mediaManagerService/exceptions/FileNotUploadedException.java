@@ -1,9 +1,9 @@
 package com.stackroute.mediaManagerService.exceptions;
 
-public class MediaNotFoundException extends Exception {
+public class FileNotUploadedException extends Exception {
     private final String message;
 
-    public MediaNotFoundException(String message) {
+    public FileNotUploadedException(String message) {
         super(message);
         this.message = message;
     }

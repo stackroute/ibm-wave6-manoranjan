@@ -3,6 +3,7 @@ package com.stackroute.mediaManagerService.service;
 import com.stackroute.mediaManagerService.domain.Episode;
 import com.stackroute.mediaManagerService.domain.EpisodicMedia;
 import com.stackroute.mediaManagerService.domain.Media;
+import com.stackroute.mediaManagerService.exceptions.FileNotUploadedException;
 import com.stackroute.mediaManagerService.exceptions.MediaAlreadyExistsException;
 import com.stackroute.mediaManagerService.exceptions.MediaNotFoundException;
 import com.stackroute.mediaManagerService.repository.EpisodicMediaRepository;
@@ -47,6 +48,10 @@ public class MediaServiceImpl implements MediaService {
     private static String topic1= "saveEpisodicMedia";
     private static String topic2= "saveEpisode";
 
+    private String mediaNotFound="Media not found";
+    private String mediaAlreadyExist="Media already exists";
+    private String fail="Fail";
+
 
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
     private final Path rootLocation = Paths.get("/home/sakshi/stackroute/manoranjan-task/red5-server-1.1.0/red5-server/webapps/vod/streams");
@@ -54,10 +59,10 @@ public class MediaServiceImpl implements MediaService {
     @Override
     public List<Media> getAllMedia() throws MediaNotFoundException{
         List<Media> medias=mediaRepository.findAll();
-        if(medias==null){
-            throw new MediaNotFoundException("Media not found");
+        if(medias!=null){
+            return medias;
         }
-        else return medias;
+        else throw new MediaNotFoundException(mediaNotFound);
     }
 
     @Override
@@ -65,23 +70,23 @@ public class MediaServiceImpl implements MediaService {
         if(mediaRepository.existsById(mediaTitle)){
             return mediaRepository.findById(mediaTitle).get();
         }
-        else throw new MediaNotFoundException("Media not found");
+        else throw new MediaNotFoundException(mediaNotFound);
     }
 
     @Override
     public Media saveMedia(Media media) throws MediaAlreadyExistsException {
         Media media1;
         if(mediaRepository.existsById(media.getMediaTitle())){
-            throw new MediaAlreadyExistsException("Media already exists");
+            throw new MediaAlreadyExistsException(mediaAlreadyExist);
         }
         else {
             media1= mediaRepository.save(media);
-            if(media1==null){
-                throw new MediaAlreadyExistsException("Media already exists");
+            if(media1!=null){
+                kafkaTemplate.send(topic,media1);
+                return media1;
             }
+            throw new MediaAlreadyExistsException(mediaAlreadyExist);
         }
-        kafkaTemplate.send(topic,media1);
-        return media1;
     }
 
     @Override
@@ -92,48 +97,46 @@ public class MediaServiceImpl implements MediaService {
             mediaRepository.deleteById(mediaTitle);
             return media;
         }
-        else throw new MediaNotFoundException("Media not found");
+        else throw new MediaNotFoundException(mediaNotFound);
     }
 
     @Override
     public List<Media> getMediaByGenre(String genre) throws MediaNotFoundException {
         List<Media> allMedia=mediaRepository.findAll();
-        if(allMedia==null){
-            throw new MediaNotFoundException("Media not found");
-        }
-        else{
+        if(allMedia!=null){
             List<Media> genreMedia=new ArrayList<>();
             for (Media media:allMedia) {
-                if(media.getMediaCategory().equals("Movie")){
-                    if(media.getMediaGenre().contains(genre)){
-                        genreMedia.add(media);
-                    }
+                if(media.getMediaCategory().equals("Movie") && media.getMediaGenre().contains(genre)){
+                    genreMedia.add(media);
                 }
             }
-            if(genreMedia==null){
-                throw new MediaNotFoundException("Media not found");
+            if(genreMedia!=null){
+                return genreMedia;
             }
-            else return genreMedia;
+            else throw new MediaNotFoundException(mediaNotFound);
+        }
+        else{
+            throw new MediaNotFoundException(mediaNotFound);
         }
     }
 
     @Override
     public List<Media> getMediaByCategory(String category) throws MediaNotFoundException {
         List<Media> allMedia=mediaRepository.findAll();
-        if(allMedia==null){
-            throw new MediaNotFoundException("Media not found");
-        }
-        else{
+        if(allMedia!=null){
             List<Media> catMedia=new ArrayList<>();
             for(Media media:allMedia){
                 if(media.getMediaCategory().equals(category)){
                     catMedia.add(media);
                 }
             }
-            if(catMedia==null){
-                throw new MediaNotFoundException("Media not found");
+            if(catMedia!=null){
+                return catMedia;
             }
-            else return catMedia;
+            else throw new MediaNotFoundException(mediaNotFound);
+        }
+        else{
+            throw new MediaNotFoundException(mediaNotFound);
         }
     }
 
@@ -141,13 +144,13 @@ public class MediaServiceImpl implements MediaService {
     public EpisodicMedia saveSerial(EpisodicMedia serial) throws MediaAlreadyExistsException {
         EpisodicMedia media;
         if(episodicMediaRepository.existsById(serial.getEpisodicTitle())){
-            throw new MediaAlreadyExistsException("Media already exists");
+            throw new MediaAlreadyExistsException(mediaAlreadyExist);
         }
         else {
             media=episodicMediaRepository.save(serial);
         }
         if(media==null){
-            throw new MediaAlreadyExistsException("Media already exists");
+            throw new MediaAlreadyExistsException(mediaAlreadyExist);
         }
         kafkaTemplate1.send(topic1,serial);
         return media;
@@ -157,7 +160,7 @@ public class MediaServiceImpl implements MediaService {
     public List<EpisodicMedia> getAllSerials() throws MediaNotFoundException {
         List<EpisodicMedia> episodicMediaList=episodicMediaRepository.findAll();
         if(episodicMediaList==null){
-            throw new MediaNotFoundException("Media not found");
+            throw new MediaNotFoundException(mediaNotFound);
         }
         else return episodicMediaList;
     }
@@ -169,7 +172,7 @@ public class MediaServiceImpl implements MediaService {
             media=episodicMediaRepository.findById(episodicTitle).get();
             return media;
         }
-        else throw new MediaNotFoundException("Media not found");
+        else throw new MediaNotFoundException(mediaNotFound);
     }
 
     @Override
@@ -180,14 +183,14 @@ public class MediaServiceImpl implements MediaService {
             episodicMediaRepository.deleteById(serialTitle);
             return media;
         }
-        else throw new MediaNotFoundException("Media not found");
+        else throw new MediaNotFoundException(mediaNotFound);
     }
 
     @Override
     public List<EpisodicMedia> getSerialByCategory(String category) throws MediaNotFoundException {
         List<EpisodicMedia> allSerials=episodicMediaRepository.findAll();
         if(allSerials==null){
-            throw new MediaNotFoundException("Media not found");
+            throw new MediaNotFoundException(mediaNotFound);
         }
         else{
             List<EpisodicMedia> catSerials=new ArrayList<>();
@@ -197,7 +200,7 @@ public class MediaServiceImpl implements MediaService {
                 }
             }
             if(catSerials==null){
-                throw new MediaNotFoundException("Media not found");
+                throw new MediaNotFoundException(mediaNotFound);
             }
             else return catSerials;
         }
@@ -207,19 +210,17 @@ public class MediaServiceImpl implements MediaService {
     public List<EpisodicMedia> getTvSerialByLanguage(String language) throws MediaNotFoundException {
         List<EpisodicMedia> allSerials=episodicMediaRepository.findAll();
         if(allSerials==null){
-            throw new MediaNotFoundException("Media not found");
+            throw new MediaNotFoundException(mediaNotFound);
         }
         else{
             List<EpisodicMedia> lanSerials=new ArrayList<>();
             for (EpisodicMedia serial:allSerials) {
-                if(serial.getEpisodicCategory().equals("TV Episodes")){
-                    if(serial.getEpisodicLanguage().equals(language)){
-                        lanSerials.add(serial);
-                    }
+                if(serial.getEpisodicCategory().equals("TV Episodes") && serial.getEpisodicLanguage().equals(language)){
+                    lanSerials.add(serial);
                 }
             }
             if(lanSerials==null){
-                throw new MediaNotFoundException("Media not found");
+                throw new MediaNotFoundException(mediaNotFound);
             }
             else return lanSerials;
         }
@@ -232,7 +233,7 @@ public class MediaServiceImpl implements MediaService {
             List<Episode> episodes=media.getEpisodeList();
             for (Episode i: episodes) {
                 if(i.getEpisodeNo()==episode.getEpisodeNo()){
-                    throw new MediaAlreadyExistsException("Media already exists");
+                    throw new MediaAlreadyExistsException(mediaAlreadyExist);
                 }
             }
             episodes.add(episode);
@@ -241,7 +242,7 @@ public class MediaServiceImpl implements MediaService {
             kafkaTemplate2.send(topic2,episode);
             return episode;
         }
-        else throw new MediaNotFoundException("Media not found");
+        else throw new MediaNotFoundException(mediaNotFound);
     }
 
     @Override
@@ -259,7 +260,7 @@ public class MediaServiceImpl implements MediaService {
                 }
             }
             if(flag==0){
-                throw new MediaNotFoundException("Media not found");
+                throw new MediaNotFoundException(mediaNotFound);
             }
             else{
                 episodes.remove(episode);
@@ -268,7 +269,7 @@ public class MediaServiceImpl implements MediaService {
                 return episode;
             }
         }
-        else throw new MediaNotFoundException("Media not found");
+        else throw new MediaNotFoundException(mediaNotFound);
     }
 
     @Override
@@ -287,11 +288,11 @@ public class MediaServiceImpl implements MediaService {
                 }
             }
             if(flag==0){
-                throw new MediaNotFoundException("Media not found");
+                throw new MediaNotFoundException(mediaNotFound);
             }
             else return episode;
         }
-        else throw new MediaNotFoundException("Media not found");
+        else throw new MediaNotFoundException(mediaNotFound);
     }
 
     @Override
@@ -300,12 +301,12 @@ public class MediaServiceImpl implements MediaService {
             EpisodicMedia media=episodicMediaRepository.findById(serialTitle).get();
             List<Episode> medias = media.getEpisodeList();
             if(medias==null){
-                throw new MediaNotFoundException("Media not found");
+                throw new MediaNotFoundException(mediaNotFound);
             }
             else return medias;
         }
         else {
-            throw new MediaNotFoundException("Media not found");
+            throw new MediaNotFoundException(mediaNotFound);
         }
     }
 
@@ -333,25 +334,25 @@ public class MediaServiceImpl implements MediaService {
         return medias;
     }
 
-    public void store(MultipartFile file) {
+    public void store(MultipartFile file) throws FileNotUploadedException {
         try {
             Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
         } catch (Exception e) {
-            throw new RuntimeException("FAIL!");
+            throw new FileNotUploadedException(fail);
         }
     }
 
-    public Resource loadFile(String filename) {
+    public Resource loadFile(String filename) throws FileNotUploadedException {
         try {
             Path file = rootLocation.resolve(filename);
             Resource resource = new UrlResource(file.toUri());
             if (resource.exists() || resource.isReadable()) {
                 return resource;
             } else {
-                throw new RuntimeException("FAIL!");
+                throw new FileNotUploadedException(fail);
             }
         } catch (MalformedURLException e) {
-            throw new RuntimeException("FAIL!");
+            throw new FileNotUploadedException(fail);
         }
     }
 
@@ -359,11 +360,11 @@ public class MediaServiceImpl implements MediaService {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
 
-    public void init() {
+    public void init() throws FileNotUploadedException {
         try {
             Files.createDirectory(rootLocation);
         } catch (IOException e) {
-            throw new RuntimeException("Could not initialize storage!");
+            throw new FileNotUploadedException("Could not initialize storage!");
         }
     }
 }

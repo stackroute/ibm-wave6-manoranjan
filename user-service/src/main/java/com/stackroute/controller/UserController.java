@@ -64,7 +64,7 @@ public class UserController {
         return new ResponseEntity<>(userService.addToWishlish(emailId, title, category),HttpStatus.OK);
     }
 
-    @PostMapping("/user/wish/{email}/{title}/{category}")
+    @PostMapping("/user/history/{email}/{title}/{category}")
     public ResponseEntity<?> addToHistory(@PathVariable("email") String emailId,@PathVariable("title") String title,@PathVariable("category") String category) throws UserNotFoundException {
         return new ResponseEntity<>(userService.addToHistory(emailId, title, category),HttpStatus.OK);
     }
