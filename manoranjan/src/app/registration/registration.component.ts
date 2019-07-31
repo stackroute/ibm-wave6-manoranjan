@@ -23,14 +23,14 @@ export class RegistrationComponent implements OnInit {
     
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
-       name: ['', Validators.compose([Validators.required,Validators.maxLength(25)])],
+       name: ['', Validators.compose([Validators.required,Validators.maxLength(25),Validators.pattern('^[a-zA-Z ]*$')])],
           emailId:[ '',Validators.compose([Validators.required,Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}')])],
         
       password:['',Validators.compose([ Validators.minLength(5), Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@#$!%*?&])[A-Za-z\d$@#$!%*?&].{8,}')])]
      
     });
     this.secondFormGroup = this._formBuilder.group({
-      age: ["", Validators.compose([Validators.required])],
+      age: ["", Validators.compose([Validators.required,Validators.pattern('^[0-9]{1,2}')])],
       gender: ["" , Validators.compose([Validators.required])],
       mobileNo:["", Validators.compose([ Validators.maxLength(10),Validators.required,
           Validators.minLength(10),Validators.pattern("^[6-9]+[0-9]+")])]
@@ -63,6 +63,7 @@ export class RegistrationComponent implements OnInit {
         'mobileNo': this.completeDetails[1].mobileNo,
         'genre': this.genre, 
       }
+
       this.userService.saveUser(m).subscribe(data => {
         console.log("POST Request is successful ", data);},
         error => {
@@ -91,7 +92,8 @@ export class RegistrationComponent implements OnInit {
     ],
 
     'age': [
-      { type: 'required', message: 'age is required' }
+      { type: 'required', message: 'age is required' },
+      { type: 'pattern', message: 'enter valid age' }
     ],
     
     'gender': [

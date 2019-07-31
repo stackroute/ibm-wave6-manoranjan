@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-like-card',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LikeCardComponent implements OnInit {
 
+  @Input() public list;
+  @Input() public title;
   items:Array<any> =[];
   constructor() {
     this.items=[

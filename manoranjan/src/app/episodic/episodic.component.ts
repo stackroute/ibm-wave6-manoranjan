@@ -27,8 +27,6 @@ export class EpisodicComponent implements OnInit {
   episodePosterUrl;
   episodeReleaseDate;
 
-
-
   episodeDetails=[]
   
   currentFileUpload:File;
@@ -40,13 +38,12 @@ export class EpisodicComponent implements OnInit {
   episodeName;
 
   crewList=[];
- crewName;
- crewRole;
- castList=[];
- screenName;
- realName;
+  crewName;
+  crewRole;
+  castList=[];
+  screenName;
+  realName;
   
-
   episode:Episode=new Episode();
   listEpisode:Array<Episode>=new Array<Episode>();
 
@@ -55,199 +52,205 @@ export class EpisodicComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private router: Router,
     private mediaService:MediaService,private activatedRoute:ActivatedRoute) { }
 
- ngOnInit() {
+  ngOnInit() {
+    this.activatedRoute.paramMap.subscribe(params=>{
+      this.title=params.get('title');
+      this.category=params.get('category');
+      this.synopsis=params.get('synopsis');
+      console.log("title- "+this.title+" category- "+this.category+" synopsis- "+this.synopsis);
+    });
 
-  this.activatedRoute.paramMap.subscribe(params=>{
-    this.title=params.get('title');
-    this.category=params.get('category');
-    this.synopsis=params.get('synopsis');
-    console.log("title- "+this.title+" category- "+this.category+" synopsis- "+this.synopsis);
-  });
+    this.firstFormGroup = this._formBuilder.group({
+      episodeLanguage:new FormControl('', Validators.compose([Validators.required])),
+      episodePoster: new FormControl('', Validators.compose([Validators.required])),
+      episodeType: new FormControl('', Validators.compose([Validators.required])),
+    });
 
+    this.secondFormGroup = this._formBuilder.group({
+      EpisodeStudioName: new FormControl('',Validators.compose([Validators.pattern('^[a-zA-z. ]*$')]))
+    });
 
-  this.firstFormGroup = this._formBuilder.group({
-episodeLanguage:new FormControl('', Validators.compose([Validators.required])),
-episodePoster: new FormControl('', Validators.compose([Validators.required])),
-episodeType: new FormControl("" , Validators.compose([Validators.required])),
+    this.thirdFormGroup = this._formBuilder.group({
+      episodeNo: new FormControl('', Validators.compose([Validators.required,Validators.maxLength(20)])),
+      episodeUrl: new FormControl('', Validators.compose([Validators.required])),
+      posterDescription:new FormControl('', Validators.compose([Validators.required,Validators.maxLength(100)])),
+      posterUrl:new FormControl('', Validators.compose([Validators.required])),
+      releaseDate:new FormControl("" , Validators.compose([Validators.required]))
+    });
 
-  });
-   this.secondFormGroup = this._formBuilder.group({
-    EpisodeStudioName: new FormControl('', Validators.compose([Validators.required,Validators.maxLength(20)])),
-     crewName: new FormControl('', Validators.compose([Validators.maxLength(20)])),
-    crewRole: new FormControl('', Validators.compose([])),
-    screenName: new FormControl('', Validators.compose([Validators.maxLength(20)])),
-    realName: new FormControl('', Validators.compose([Validators.maxLength(20)]))   
-   });
-   this.thirdFormGroup = this._formBuilder.group({
-    episodeNo: new FormControl('', Validators.compose([Validators.required,Validators.maxLength(20)])),
-    episodeUrl: new FormControl('', Validators.compose([Validators.required])),
-    posterDescription:new FormControl('', Validators.compose([Validators.required,Validators.maxLength(100)])),
-    posterUrl:new FormControl('', Validators.compose([Validators.required])),
-    
-    releaseDate:new FormControl("" , Validators.compose([Validators.required]))
-   });
+    this.sixthFormGroup = this._formBuilder.group({
+      crewName:new FormControl('', Validators.compose([Validators.pattern('^[a-zA-Z. ]*$')])),
+      crewRole:new FormControl(),
+    });
 
-   this.sixthFormGroup = this._formBuilder.group({
-    crewName:new FormControl(),
-    crewRole:new FormControl(),
-  });
-  this.seventhFormGroup = this._formBuilder.group({
-    screenName:new FormControl(),
-    realName:new FormControl(),
-  });
-  this.eightFormGroup = this._formBuilder.group({
-    episodeNo:new FormControl('', Validators.compose([Validators.required,Validators.maxLength(20)])),
-    episodeUrl:new FormControl('', Validators.compose([Validators.required])),
-    episodeDescription:new FormControl('', Validators.compose([Validators.required,Validators.maxLength(100)])),
-    episodePosterUrl:new FormControl('', Validators.compose([Validators.required])),
-    episodeReleaseDate:new FormControl("" , Validators.compose([Validators.required]))
-  });
+    this.seventhFormGroup = this._formBuilder.group({
+      screenName:new FormControl('', Validators.compose([Validators.pattern('^[a-zA-Z. ]*$')])),
+      realName:new FormControl('', Validators.compose([Validators.pattern('^[a-zA-Z. ]*$')]))
+    });
+
+    this.eightFormGroup = this._formBuilder.group({
+      episodeNo:new FormControl('', Validators.compose([Validators.required,Validators.maxLength(20)])),
+      episodeUrl:new FormControl('', Validators.compose([Validators.required])),
+      episodeDescription:new FormControl('', Validators.compose([Validators.required,Validators.maxLength(100)])),
+      episodePosterUrl:new FormControl('', Validators.compose([Validators.required])),
+      episodeReleaseDate:new FormControl('' , Validators.compose([Validators.required]))
+    });
+  }
+  // ng oninit closed
+  validation_messages = {
+    'episodicLanguage':[
+      {type:'required',message:'languge required'}
+    ],
+    'episodePoster':[
+      {type:'required',message:'episode poster required'}
+    ],
+    'episodeType':[
+      {type:'required',message:'languge required'}
+    ],
+    'crewName': [
+      { type: 'pattern', message: 'Your crewname must contain only characters' },
+      { type: 'validUsername', message: 'Your username has already been taken' }
+    ],
+    'screenName': [
+      { type: 'pattern', message: 'Your screenName must contain only characters' },
+      { type: 'validUsername', message: 'Your username has already been taken' }
+    ],
+    'EpisodeStudioName': [
+      { type: 'pattern', message: 'Your screenName must contain only characters' },
+      { type: 'validUsername', message: 'Your username has already been taken' }
+    ],
+    'episodePosterUrl': [
+      { type: 'required', message: 'episode poster url is required' }
+    ],
+    'realName': [
+      { type: 'pattern', message: 'Your realname must contain only characters' },
+      { type: 'validUsername', message: 'Your username has already been taken' }
+    ],      
+  }
+
+  addEpisode(episodeNumber,video,desc,poster,dateRelease){ 
+    this.episodePreview.push(
+      {
+        episodeNo:episodeNumber,
+        episodeUrl:video,
+        episodeDescription:desc,
+        episodePosterUrl:poster,
+        episodeReleaseDate:dateRelease
+      });
+    console.log(this.episodePreview);
+  }
+
+  deleteEpisode(episodeNumber,video,desc,poster,dateRelease){
+    console.log(episodeNumber,video,desc,poster,dateRelease);
+    for(var i=0;i<this.episodePreview.length;i++)
+    {
+      if(this.episodePreview[i]["episodeNo"]==episodeNumber)
+      {
+        this.episodePreview.splice(i,1);
+      }
+    }
+  }
+
+  addCrew(name,role){
+    this.crewList.push(
+      {crewName:name,crewRole:role}
+    );
+    console.log(this.crewList);
+  }
+
+  deleteCrew(name,role){
+    console.log(name,role);
+    for(var i=0;i<this.crewList.length;i++)
+    {
+      if(this.crewList[i]["crewName"]==name)
+      {
+          this.crewList.splice(i,1);
+      }
+    }
+  }
+  addCast(screen,real){
+    this.castList.push(
+    {screenName:screen,realName:real}
+    )
+    console.log(this.castList);
+  }
   
-     }
-     // ng oninit closed
-     validation_messages = {
-      'crewName': [
-        { type: 'required', message: 'crewName is required' },
-        { type: 'maxlength', message: 'crewName cannot be more than 25 characters long' },
-        { type: 'pattern', message: 'Your username must contain only numbers and letters' },
-        { type: 'validUsername', message: 'Your username has already been taken' }
-      ],
-      'screenName': [
-        { type: 'required', message: 'screenName is required' },
-        { type: 'maxlength', message: 'screenName cannot be more than 25 characters long' },
-        { type: 'pattern', message: 'Your screenName must contain only numbers and letters' },
-        { type: 'validUsername', message: 'Your username has already been taken' }
-      ],
-      'episodeStudioName': [
-        { type: 'required', message: 'screenName is required' },
-        { type: 'maxlength', message: 'screenName cannot be more than 25 characters long' },
-        { type: 'pattern', message: 'Your screenName must contain only numbers and letters' },
-        { type: 'validUsername', message: 'Your username has already been taken' }
-      ],
-      'realName': [
-        { type: 'required', message: 'Username is required' },
-        { type: 'maxlength', message: 'Username cannot be more than 25 characters long' },
-        { type: 'pattern', message: 'Your username must contain only numbers and letters' },
-        { type: 'validUsername', message: 'Your username has already been taken' }
-      ],
-      
+  deleteCast(screenName,realName){
+    console.log(screenName,realName);
+    for(var i=0;i<this.castList.length;i++)
+    {
+      if(this.castList[i]["screenName"]==screenName)
+      {
+        this.castList.splice(i,1);
       }
+    }
+  }
 
-      addEpisode(episodeNumber,video,desc,poster,dateRelease){ 
-        this.episodePreview.push(
-          {episodeNo:episodeNumber,episodeUrl:video,episodeDescription:desc,episodePosterUrl:poster,episodeReleaseDate:dateRelease}
-        )
-        console.log(this.episodePreview);
-      }
-      deleteEpisode(episodeNumber,video,desc,poster,dateRelease){
-        console.log(episodeNumber,video,desc,poster,dateRelease);
-        for(var i=0;i<this.episodePreview.length;i++)
-        {
-          if(this.episodePreview[i]["episodeNo"]==episodeNumber)
-          {
-            this.episodePreview.splice(i,1);
-          }
-        }
-      }
-
-      addCrew(name,role){
-        this.crewList.push(
-          {crewName:name,crewRole:role}
-        )
-        console.log(this.crewList);
-      }
-      deleteCrew(name,role){
-        console.log(name,role);
-        for(var i=0;i<this.crewList.length;i++)
-        {
-          if(this.crewList[i]["crewName"]==name)
-          {
-            this.crewList.splice(i,1);
-          }
-        }
-      }
-      addCast(screen,real){
-        this.castList.push(
-          {screenName:screen,realName:real}
-        )
-        console.log(this.castList);
-      }
-      deleteCast(screenName,realName){
-        console.log(screenName,realName);
-        for(var i=0;i<this.castList.length;i++)
-        {
-          if(this.castList[i]["screenName"]==screenName)
-          {
-            this.castList.splice(i,1);
-          }
-        }
-      }
-
-      onFirstSubmit(value){
-        console.log("first");
-        console.log(value);
-        this.episodeDetails.push(value);
-      }
+  onFirstSubmit(value){
+    console.log("first");
+    console.log(value);
+    this.episodeDetails.push(value);
+  }
   
-      onSecondSubmit(value){
-        console.log("second");
-        console.log(value);
-        this.episodeDetails.push(value);
-      }
+  onSecondSubmit(value){
+    console.log("second");
+    console.log(value);
+    this.episodeDetails.push(value);
+  }
 
-      onThirdSubmit(value){
-        console.log("third");
-        console.log(value);
-        this.episodeDetails.push(value);
-      }
+  onThirdSubmit(value){
+    console.log("third");
+    console.log(value);
+    this.episodeDetails.push(value);
+  }
 
-      selectVideo(event){
-        this.selectedVideo=event.target.files;
-      }
+  selectVideo(event){
+    this.selectedVideo=event.target.files;
+  }
     
-      uploadVideo(){
-        this.progress.percentage = 0;
-        this.currentFileUpload = this.selectedVideo.item(0)
-        this.mediaService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
-          if (event.type === HttpEventType.UploadProgress) {
-            this.progress.percentage = Math.round(100 * event.loaded / event.total);
-          } else if (event instanceof HttpResponse) {
-            console.log('File is completely uploaded!');
-            this.episodeName=this.currentFileUpload.name;
-          }
-        })
-        this.selectedVideo = undefined
+  uploadVideo(){
+    this.progress.percentage = 0;
+    this.currentFileUpload = this.selectedVideo.item(0)
+    this.mediaService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        this.progress.percentage = Math.round(100 * event.loaded / event.total);
+      } 
+      else if (event instanceof HttpResponse) {
+        console.log('File is completely uploaded!');
+        this.episodeName=this.currentFileUpload.name;
       }
+    })
+    this.selectedVideo = undefined
+  }
       
-      saveMedia(){
-        this.episode.episodeNo=this.episodeDetails[2].episodeNo;
-        this.episode.episodeDescription=this.episodeDetails[2].posterDescription;
-        this.episode.episodePosterUrl=this.episodeDetails[2].posterUrl;
-        this.episode.episodeReleaseDate=this.episodeDetails[2].releaseDate;
-        this.episode.episodeUrl=this.episodeName;
+  saveMedia(){
+        // this.episode.episodeNo=this.episodeDetails[2].episodeNo;
+        // this.episode.episodeDescription=this.episodeDetails[2].posterDescription;
+        // this.episode.episodePosterUrl=this.episodeDetails[2].posterUrl;
+        // this.episode.episodeReleaseDate=this.episodeDetails[2].releaseDate;
+        // this.episode.episodeUrl=this.episodeName;
 
-        this.listEpisode.push(this.episode);
+        // this.listEpisode.push(this.episode);
     
-        var video={
-          'episodicTitle':this.title,
-          'episodicCategory':this.category,
-          'episodicSynopsis':this.synopsis,
-          'episodicLanguage':this.episodeDetails[0].episodeLanguage,
-          'episodicPosterUrl':this.episodeDetails[0].episodePoster,
-          'episodicStudioName':this.episodeDetails[1].EpisodeStudioName,
-          'episodicCrew':this.crewList,
-          'episodicCast':this.castList,
-          'episodeList':this.listEpisode,
-          'episodicType':this.episodeDetails[0].episodeType
-        };
+    var video={
+      'episodicTitle':this.title,
+      'episodicCategory':this.category,
+      'episodicSynopsis':this.synopsis,
+      'episodicLanguage':this.episodeDetails[0].episodeLanguage,
+      'episodicPosterUrl':this.episodeDetails[0].episodePoster,
+      'episodicStudioName':this.episodeDetails[1].EpisodeStudioName,
+      'episodicCrew':this.crewList,
+      'episodicCast':this.castList,
+      'episodeList':this.episodePreview,
+      'episodicType':this.episodeDetails[0].episodeType
+    };
     
-        this.mediaService.saveSerial(video).subscribe(com=>{
-          console.log("saved");
-          console.log(com)
-        },
-        error=>{
-          console.log(error)
-        });
-      }
-
+    this.mediaService.saveSerial(video).subscribe(com=>{
+      console.log("saved");
+      console.log(com)
+    },
+    error=>{
+      console.log(error)
+    });
+  }
 }

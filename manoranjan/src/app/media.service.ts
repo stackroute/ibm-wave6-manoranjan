@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
 import { Media } from './media';
 import { Episodic } from './episodic';
+import { List } from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class MediaService {
    let formdata: FormData = new FormData();
 
    formdata.append('file', file);
-   const req = new HttpRequest('POST', 'http://localhost:8083/mediaManagerService/post', formdata, {
+   const req = new HttpRequest('POST', 'http://localhost:8083/media-manager-service/post', formdata, {
     
      reportProgress: true,
      responseType: 'text'
@@ -28,11 +29,11 @@ export class MediaService {
  }
 
  saveMedia(media:Media){
-   return this.http.post<Media>("http://localhost:8083/mediaManagerService/media",media);
+   return this.http.post<Media>("http://localhost:8083/media-manager-service/media",media);
  }
 
  getAllMedia(){
-    return this.http.get('http://localhost:8083/mediaManagerService/medias',{
+    return this.http.get('http://localhost:8083/media-manager-service/medias',{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
@@ -40,7 +41,7 @@ export class MediaService {
   }
 
   getMediaById(id){
-    return this.http.get('http://localhost:8083/mediaManagerService/media/'+id,{
+    return this.http.get('http://localhost:8083/media-manager-service/media/'+id,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
@@ -48,7 +49,43 @@ export class MediaService {
   }
 
   saveSerial(serial:Episodic){
-    return this.http.post<Episodic>("http://localhost:8083/mediaManagerService/serial",serial);
+    return this.http.post<Episodic>("http://localhost:8083/media-manager-service/serial",serial);
+  }
+
+  getStandalone(type:string){
+    return this.http.get('http://localhost:8083/media-manager-service/media/category/'+type,{
+      headers:new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    });
+  }
+
+  getMovieByGenre(genre:string){
+    return this.http.get('http://localhost:8083/media-manager-service/media/movie/'+genre,{
+      headers:new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    });
+  }
+
+  getShowsByLanguage(language:string){
+    return this.http.get('http://localhost:8083/media-manager-service/series/tv/'+language,{
+      headers:new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    });
+  }
+
+  getEpisodic(series:string){
+    return this.http.get('http://localhost:8083/media-manager-service/series/category/'+series,{
+      headers:new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    });
+  }
+
+  getList(mediaList:List<List<string>>){
+    return this.http.post('http://localhost:8083/media-manager-service/media/list',mediaList);
   }
 
 }

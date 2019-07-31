@@ -1,6 +1,6 @@
 
 <!--documentry cards-->
-<div class="container">
+<!-- <div class="container">
     <h4>Documentaries</h4>
     <div class="container-fluid">
         <div class="row">
@@ -209,6 +209,25 @@
         </div>
          
     </div> 
-</div>
+</div> -->
 <!-- endcard -->
-<br><br>
+
+<div class="container">
+        <h4>Documentaries</h4>
+        <div class="container-fluid">
+            <div class="row">
+                    <div class="col-sm-2" *ngFor="let doc of documentaries1">
+                        <div class="box">
+                            <div class="imgbox">
+                                <img src="{{doc.mediaPosterUrl}}" class="image" routerLink="/movie/{{doc.mediaTitle}}">
+                            </div>
+                            <div class="content">
+                                <h3>{{doc.mediaTitle}}</h3>
+                                <p>{{doc.mediaSynopsis}}</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+</div>
+<br>

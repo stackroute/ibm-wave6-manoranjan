@@ -1,5 +1,5 @@
 <!--documentry cards-->
-<div class="container">
+<!-- <div class="container">
     <h4>Web Series</h4>
     <div class="container-fluid">
         <div class="row">
@@ -170,6 +170,24 @@
             </div> 
         </div> 
     </div> 
-</div>
+</div> -->
 <!-- endcard -->
+<div class="container">
+    <h4>Web Series</h4>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2" *ngFor="let s of series1">
+                <div class="box">
+                    <div class="imgbox">
+                        <img src="{{s.episodicPosterUrl}}" class="image" (click)="sendDetails(s)">
+                    </div>
+                    <div class="content">
+                        <h3>{{s.episodicTitle}}</h3>
+                        <p>{{s.episodicSynopsis}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <br><br>

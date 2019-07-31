@@ -1,4 +1,3 @@
-
 section{
   font-family: 'Merriweather', serif;
   font-weight: bold;
@@ -13,6 +12,7 @@ section{
 }
 
 .example-card{
+  font-family: 'Merriweather', serif;
   width:800px;
   margin-top: 10px;
   margin-bottom: 1px;
