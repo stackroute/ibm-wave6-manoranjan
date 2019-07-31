@@ -9,6 +9,7 @@ import{PaymentService}from '../payment.service';
 import { Cardinfo } from '../cardinfo';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';
+import { PaymentdialogComponent } from '../paymentdialog/paymentdialog.component';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -57,7 +58,7 @@ ptime;
         subscribe(
             data => {
               this.ptime=sessionStorage.getItem('packageTime');
-              //this.router.navigateByUrl('/paymentsuccess/'+this.ptime+'/'+amount);
+             // this.router.navigateByUrl('/paymentdialog/'+this.ptime+'/'+amount);
               console.log("POST Request is successful ", data)
             },
        error => {
@@ -84,6 +85,25 @@ ptime;
       console.log("time- "+this.time+" amount- "+this.amount );
     });
   }
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+        return;
+    }
+
+   const dialogRef = this.dialog.open(PaymentdialogComponent, {
+    width: '350px',
+  
+    disableClose: true,
+   
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+  });
+}
 }
   
 
