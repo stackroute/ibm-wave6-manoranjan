@@ -7,6 +7,7 @@ import com.stackroute.exception.EmailIdNotFoundException;
 import java.util.List;
 
 public interface UserPaymentService {
+
     //saving user package details
     public UserPayment saveUserPayment(UserPayment userPackage) throws EmailIdNotFoundException;
     //getting all users who have subscribed for the packages

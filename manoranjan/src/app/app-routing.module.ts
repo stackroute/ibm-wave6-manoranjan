@@ -1,7 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AboutComponent} from './about/about.component';
-import {MainNavComponent} from './main-nav/main-nav.component';
+import { AboutComponent } from './about/about.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FaqComponent } from './faq/faq.component';
@@ -25,8 +25,8 @@ import { LinkMovieNorComponent } from './link-movie-nor/link-movie-nor.component
 import { LinkMoviePriComponent } from './link-movie-pri/link-movie-pri.component';
 import { LinkWebNorComponent } from './link-web-nor/link-web-nor.component';
 import { LinkWebPriComponent } from './link-web-pri/link-web-pri.component';
-import {PackageComponent} from './package/package.component';
-import {PaymentComponent} from './payment/payment.component';
+import { PackageComponent } from './package/package.component';
+import { PaymentComponent } from './payment/payment.component';
 import { ActionmovienormComponent } from './actionmovienorm/actionmovienorm.component';
 import { HorrormovienormComponent } from './horrormovienorm/horrormovienorm.component';
 import { RomanticmovienormComponent } from './romanticmovienorm/romanticmovienorm.component';
@@ -64,23 +64,24 @@ import { EditComponent } from './edit/edit.component';
 import { StandaloneStepperComponent } from './standalone-stepper/standalone-stepper.component';
 import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-episodic.component';
 import { ProducernavComponent } from './producernav/producernav.component';
-import{ProducerprofileComponent} from './producerprofile/producerprofile.component';
+import { ProducerprofileComponent } from './producerprofile/producerprofile.component';
 import { EditproducerprofileComponent } from './editproducerprofile/editproducerprofile.component';
 import { EpisodicComponent } from './episodic/episodic.component';
 import { PlayComponent } from './play/play.component';
 import{DatePipe}from '@angular/common';
 import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component';
 
+
 const routes: Routes = [
-  {path :'terms',component:TermsOfUseComponent},
-  {path :'feedback',component:FeedbackComponent},
-  {path :'faq',component:FaqComponent},
-  {path: 'document',component:LinkDocNorComponent}, 
-  {path: 'land',component:LandingComponent},
-  {path: 'navland',component:NavLandComponent},
-  {path: 'login',component:LoginComponent},
-  {path: 'register',component:RegistrationComponent},
-  {path: 'navnorm',component:NavNormComponent},
+  { path: 'terms', component: TermsOfUseComponent },
+  { path: 'feedback', component: FeedbackComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: 'document', component: LinkDocNorComponent },
+  { path: 'land', component: LandingComponent },
+  { path: 'navland', component: NavLandComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegistrationComponent },
+  { path: 'navnorm', component: NavNormComponent },
   // {path: 'movie',component:MoviesComponent},
   {path: 'movie/:title',component:MoviesComponent},
   {path: 'wish',component:WishlistComponent},
@@ -149,7 +150,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  providers:[DatePipe],
+  providers: [DatePipe],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -18,53 +18,52 @@ import java.util.Map;
 public class MediaConfig {
 
     @Bean
-    public ProducerFactory<Media,Media> producerFactory()
-    {
-        Map<Object,Object> config=new HashMap<>();
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
+    public ProducerFactory<Media, Media> producerFactory() {
+        Map<Object, Object> config = new HashMap<>();
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,JsonSerializer.class);
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
         return new DefaultKafkaProducerFactory(config);
 
     }
+
     @Bean
-    public KafkaTemplate<Media, Media> kafkaTemplate()
-    {
+    public KafkaTemplate<Media, Media> kafkaTemplate() {
         return new KafkaTemplate<Media, Media>(producerFactory());
 
     }
+
     @Bean
-    public ProducerFactory<EpisodicMedia,EpisodicMedia> producerFactory1()
-    {
-        Map<Object,Object> config=new HashMap<>();
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
+    public ProducerFactory<EpisodicMedia, EpisodicMedia> producerFactory1() {
+        Map<Object, Object> config = new HashMap<>();
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,JsonSerializer.class);
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
         return new DefaultKafkaProducerFactory(config);
 
     }
+
     @Bean
-    public KafkaTemplate<EpisodicMedia, EpisodicMedia> kafkaTemplate1()
-    {
+    public KafkaTemplate<EpisodicMedia, EpisodicMedia> kafkaTemplate1() {
         return new KafkaTemplate<EpisodicMedia, EpisodicMedia>(producerFactory1());
 
     }
+
     @Bean
-    public ProducerFactory<Episode,Episode> producerFactory2()
-    {
-        Map<Object,Object> config=new HashMap<>();
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
+    public ProducerFactory<Episode, Episode> producerFactory2() {
+        Map<Object, Object> config = new HashMap<>();
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,JsonSerializer.class);
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
         return new DefaultKafkaProducerFactory(config);
 
     }
+
     @Bean
-    public KafkaTemplate<Episode, Episode> kafkaTemplate2()
-    {
+    public KafkaTemplate<Episode, Episode> kafkaTemplate2() {
         return new KafkaTemplate<Episode, Episode>(producerFactory2());
 
     }

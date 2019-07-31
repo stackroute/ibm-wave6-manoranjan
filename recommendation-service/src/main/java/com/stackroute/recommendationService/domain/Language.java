@@ -1,8 +1,16 @@
 package com.stackroute.recommendationService.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @NodeEntity
 public class Language {
 
@@ -10,27 +18,4 @@ public class Language {
     private Long id;
     private String language;
 
-    public Language() {
-    }
-
-    public Language(Long id, String language, StandaloneMedia standaloneMedia) {
-        this.id = id;
-        this.language = language;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
 }

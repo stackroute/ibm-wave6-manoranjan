@@ -20,21 +20,20 @@ import java.util.Map;
 public class PaymentConfig {
 
     @Bean
-    public ProducerFactory<UserPayment, UserPayment> producerFactory()
-    {
-        Map<Object,Object> config=new HashMap<>();
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
+    public ProducerFactory<UserPayment, UserPayment> producerFactory() {
+        Map<Object, Object> config = new HashMap<>();
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,JsonSerializer.class);
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
         return new DefaultKafkaProducerFactory(config);
 
     }
+
     @Bean
     public KafkaTemplate<UserPayment,UserPayment> kafkaTemplate()
     {
         return new KafkaTemplate<>(producerFactory());
-
     }
 
     @Bean
@@ -47,8 +46,8 @@ public class PaymentConfig {
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 
         return new DefaultKafkaConsumerFactory<>(config,new JsonDeserializer<User>(),new JsonDeserializer<User>(User.class));
-
     }
+
     @Bean
     public ConcurrentKafkaListenerContainerFactory<User,User> kafkaListenerContainerFactory()
     {

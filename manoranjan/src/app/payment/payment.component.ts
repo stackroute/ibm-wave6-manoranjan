@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user';
 import { FormBuilder, Form } from '@angular/forms';
 import { Userpayment } from '../userpayment';
-import{PaymentService}from '../payment.service';
+import { PaymentService } from '../payment.service';
 import { Cardinfo } from '../cardinfo';
 import {MatDialog} from '@angular/material';
 import { DatePipe } from '@angular/common';
@@ -29,12 +29,12 @@ ptime;
   cardName;cardNumber;expiryMonth;expiryYear;cvv;
    route:any;
   form: Form;
-  cardinfo=new Cardinfo();
+  cardinfo = new Cardinfo();
   submitted: boolean;
   registerForm: any;
+
   constructor(private router:Router,
     private activatedRoute:ActivatedRoute,private paymentservice:PaymentService,public dialog: MatDialog) {
-       
       }
     submit(time,amount,cardName,cardNumber,expiryMonth,expiryYear,cvv){
       this.time=time;
@@ -69,28 +69,27 @@ ptime;
                
               });
             },
-       error => {
-        // alert("incorrect details")
-        console.log("1234567")
-        this.router.navigate(['/payment/'+time+'/'+amount],{relativeTo:this.route});
-        console.log("Error", error);}
-      );
-          // this.paymentservice.chargeCard(token);
-          console.log("fdsad")
-        }
-    else {
-          console.log(response.error.message);
-        }
-      });
-     }
+            error => {
+              console.log("1234567")
+              this.router.navigate(['/payment/' + time + '/' + amount], { relativeTo: this.route });
+              console.log("Error", error);
+            }
+          );
+        console.log("fdsad")
+      }
+      else {
+        console.log(response.error.message);
+      }
+    });
+  }
   ngOnInit() {
-    this.user.emailId=sessionStorage.getItem('email');
-    console.log( this.user.emailId);
-    this.time=sessionStorage.getItem('time');
-    this.activatedRoute.paramMap.subscribe(params=>{
-      this.time=params.get('time');
-      this.amount=params.get('amount');
-      console.log("time- "+this.time+" amount- "+this.amount );
+    this.user.emailId = sessionStorage.getItem('email');
+    console.log(this.user.emailId);
+    this.time = sessionStorage.getItem('time');
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.time = params.get('time');
+      this.amount = params.get('amount');
+      console.log("time- " + this.time + " amount- " + this.amount);
     });
   }
   onSubmit() {
@@ -113,6 +112,6 @@ ptime;
   });
 }
 }
-  
+
 
 

@@ -1,7 +1,7 @@
 package com.stackroute.exception;
 
 public class UserNameOrPasswordEmptyException extends Exception {
-    public UserNameOrPasswordEmptyException(){
+    public UserNameOrPasswordEmptyException() {
         super();
     }
 }

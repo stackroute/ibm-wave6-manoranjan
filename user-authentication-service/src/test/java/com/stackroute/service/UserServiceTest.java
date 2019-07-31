@@ -28,9 +28,9 @@ public class UserServiceTest {
     private UserRepository userRepository;
 
     @Mock
-    KafkaTemplate<User,User> kafkaTemplate;
+    KafkaTemplate<User, User> kafkaTemplate;
 
-    private static String topic= "saveUser";
+    private static String topic = "saveUser";
 
     //Inject the mocks as dependencies into UserServiceImpl
     @InjectMocks
@@ -38,6 +38,7 @@ public class UserServiceTest {
     List<User> list = null;
 
     private Optional optional;
+
     @Before
     public void setUp() {
         //Initialising the mock object
@@ -48,30 +49,31 @@ public class UserServiceTest {
         user.setRole("user");
         list = new ArrayList<>();
         list.add(user);
-        optional=Optional.of(user);
+        optional = Optional.of(user);
     }
+
     @After
-    public void teardown()
-    {
-        optional=null;
+    public void teardown() {
+        optional = null;
     }
+
     @Test
     public void saveUserTest() throws UserAlreadyExistsException {
-
         when(userRepository.save((User) any())).thenReturn(user);
 //        kafkaTemplate.send(topic,user);
         User savedUser = userService.saveUser(user);
-        Assert.assertEquals(user,savedUser);
+        Assert.assertEquals(user, savedUser);
         System.out.println("savedUser" + savedUser);
-        verify(userRepository,times(1)).save(user);
+        verify(userRepository, times(1)).save(user);
 
     }
+
     @Test
     public void getAllUsersTest() throws UserNotFoundException {
         userRepository.save(user);
         //stubbing the mock to return specific data
         when(userRepository.findAll()).thenReturn(list);
         List<User> userlist = userService.getAllUsers();
-        Assert.assertEquals(list,userlist);
+        Assert.assertEquals(list, userlist);
     }
 }

@@ -1,26 +1,27 @@
 <div class="outer" style="background-color: black; height:100%">
     <div class="container">
-        <h1 class=" heading" style="text-align: center ; font-family: Georgia, 'Times New Roman', Times, serif"> Payment</h1>
+        <h1 class=" heading" style="text-align: center ; font-family: Georgia, 'Times New Roman', Times, serif"> Payment
+        </h1>
         <div class="form-group row">
             <label for="Account-Holder-Name" class="col-sm-12 col-form-label">Name on Card</label>
             <div class="col-sm-12">
-                <input type="text"  #cardName class="form-control" name="Account-Holder-Name" autofocus />
+                <input type="text" #cardName class="form-control" name="Account-Holder-Name" autofocus />
             </div>
         </div>
         <div class="form-group row">
             <label for="cardNumber" class="col-sm-7 col-form-label">Card Number</label>
             <img class="col-sm-5 img-responsive pull-right" style="padding-left: 2px" src="http://i76.imgup.net/accepted_c22e0.png">
             <div class="col-sm-12">
-                <input type="tel" #cardNumber class="form-control" name="cardNumber" autocomplete="cc-number" required  />
+                <input type="tel" #cardNumber class="form-control" name="cardNumber" autocomplete="cc-number" required />
             </div>
         </div>
         <div class="form-group row">
             <label for="cardExpiry" class="col-sm-6 col-form-label">Expiry Date</label>
-            <label for="cardExpiry" class="col-sm-6 col-form-label" >CVV  <i class="fa fa-question-circle"></i></label>
-        </div> 
+            <label for="cardExpiry" class="col-sm-6 col-form-label">CVV <i class="fa fa-question-circle"></i></label>
+        </div>
         <div class="form-group row">
             <div class="col-sm-3">
-                <select #expiryMonth class="form-control"  >
+                <select #expiryMonth class="form-control">
                     <option>MM</option>
                     <option>01</option>
                     <option>02</option>
@@ -34,11 +35,11 @@
                     <option>10</option>
                     <option>11</option>
                     <option>12</option>
-                </select>  
+                </select>
             </div>
-              
+
             <div class="col-sm-3">
-                <select #expiryYear class="form-control"  >
+                <select #expiryYear class="form-control">
                     <option>YY</option>
                     <option>19</option>
                     <option>20</option>
@@ -52,14 +53,14 @@
                     <option>28</option>
                     <option>29</option>
                     <option>30</option>
-                </select>  
+                </select>
             </div>
             <div class="col-sm-6">
-                <input type="text" #cvv  class="form-control" name="CVV"  required autofocus /> 
+                <input type="text" #cvv class="form-control" name="CVV" required autofocus />
             </div>
         </div>
         <br>
-        
+
         <div class="form-group row">
             <div class="col-sm-7 offset-sm-5">
                 <button type="submit" class="btn btn-primary btn-info" (click)="submit(time,amount,cardName.value,cardNumber.value,expiryMonth.value,expiryYear.value,cvv.value)" data-toggle="modal" data-target="#myModal">Submit</button>
@@ -69,12 +70,16 @@
 </div>
  <!-- <div class="modal" id="myModal">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-            Payment done Successfully for {{time}} 
+        <div class="modal-content">
+            <div class="modal-body">
+                Payment done Successfully for {{time}}
+            </div>
+            <a id="modalFooter" href="/linkpri">Ok</a>
         </div>
-          <a id="modalFooter" href="/linkpri">Ok</a>
-      </div>
     </div>
+<<<<<<< HEAD
   </div>  -->
  
+
+
+

@@ -3,24 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule} from '@angular/common/http';
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { MatToolbarModule, MatListModule,MatFormFieldModule, MatInputModule} from '@angular/material';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatToolbarModule, MatListModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { CarousalComponent } from './carousal/carousal.component';
 import { FirstcardComponent } from './firstcard/firstcard.component';
-import {Ng2CarouselamosModule} from 'ng2-carouselamos';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { SecondcardComponent } from './secondcard/secondcard.component';
 import { ThirdcardComponent } from './thirdcard/thirdcard.component';
 import { FooterComponent } from './footer/footer.component';
@@ -44,7 +44,7 @@ import { WebComponent } from './web/web.component';
 import { ImageComponent } from './image/image.component';
 import { LikeCardComponent } from './like-card/like-card.component';
 import { EpisoderecommendationComponent } from './episoderecommendation/episoderecommendation.component';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 import { HindiserialsComponent } from './hindiserials/hindiserials.component';
 import { MarathiserialsComponent } from './marathiserials/marathiserials.component';
 import { TeluguserialsComponent } from './teluguserials/teluguserials.component';
@@ -115,8 +115,8 @@ import { ProducerprofileComponent } from './producerprofile/producerprofile.comp
 import { EditproducerprofileComponent } from './editproducerprofile/editproducerprofile.component';
 import { UploadedvideosComponent } from './uploadedvideos/uploadedvideos.component';
 import { StandaloneStepperComponent } from './standalone-stepper/standalone-stepper.component';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { StandaloneEpisodicComponent } from './standalone-episodic/standalone-episodic.component';
 import { EpisodicComponent } from './episodic/episodic.component';
 import { PlayComponent } from './play/play.component';
@@ -255,7 +255,7 @@ import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component'
     MatCardModule,
     MatGridListModule,
     MatRadioModule,
-    MatFormFieldModule, 
+    MatFormFieldModule,
     MatInputModule,
     MatButtonToggleModule,
     ReactiveFormsModule,

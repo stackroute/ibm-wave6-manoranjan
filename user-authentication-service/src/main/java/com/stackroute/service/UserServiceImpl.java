@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    User user;
+    private User user;
 
     private UserRepository userRepo;
 
@@ -30,14 +30,19 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    @KafkaListener(topics = "saveUser",groupId = "Group_JsonObject")
+    @KafkaListener(topics = "saveUser", groupId = "Group_JsonObject")
     public User saveUser(User user) throws UserAlreadyExistsException {
-        if(userRepo.existsByEmailId(user.getEmailId())){
+        if (userRepo.existsByEmailId(user.getEmailId())) {
             throw new UserAlreadyExistsException();
+<<<<<<< HEAD
         }
         else
-            System.out.println(user);
             return userRepo.save(user);
+=======
+        } else
+            System.out.println(user);
+        return userRepo.save(user);
+>>>>>>> ec5e1d5b171f2891a835da62153df5fdf28dfbfc
 
     }
 
@@ -46,7 +51,6 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUsers() throws UserNotFoundException {
         return userRepo.findAll();
     }
-
 
 
 }

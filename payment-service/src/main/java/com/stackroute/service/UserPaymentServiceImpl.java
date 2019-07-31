@@ -18,27 +18,26 @@ import java.util.Optional;
 @Service
 public class UserPaymentServiceImpl implements UserPaymentService {
 
-    UserPayment userPayment=null;
+    UserPayment userPayment = null;
     UserPaymentRepository userPaymentRepository;
 
     @Autowired
     UserRepository userRepository;
 
-    public UserPaymentServiceImpl(UserRepository userRepository)
-    {
-        this.userRepository=userRepository;
+    public UserPaymentServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Autowired
-    public UserPaymentServiceImpl(UserPaymentRepository userPaymentRepository)
-    {
-        this.userPaymentRepository=userPaymentRepository;
+    public UserPaymentServiceImpl(UserPaymentRepository userPaymentRepository) {
+        this.userPaymentRepository = userPaymentRepository;
     }
 
     @Autowired
-    KafkaTemplate<UserPayment,UserPayment> kafkaTemplate;
+    KafkaTemplate<UserPayment, UserPayment> kafkaTemplate;
 
-    private static String topic= "savedUser";
+    private static String topic = "savedUser";
+
 
     @Override//saving user package details
     public UserPayment saveUserPayment(UserPayment userPayment) throws EmailIdNotFoundException {
@@ -49,6 +48,7 @@ public class UserPaymentServiceImpl implements UserPaymentService {
         }
         else throw new EmailIdNotFoundException("Email Id not found");
 
+
     }
 
     @Override//getting all users who have subscribed for the packages
@@ -56,9 +56,10 @@ public class UserPaymentServiceImpl implements UserPaymentService {
 
         return userPaymentRepository.findAll();
     }
+
     @Override //deleting the user
     public UserPayment deleteUser(String emailId) {
-        userPayment= null;
+        userPayment = null;
         Optional optional = userPaymentRepository.findById(emailId);
         if (optional.isPresent()) {
             userPaymentRepository.deleteById(emailId);
