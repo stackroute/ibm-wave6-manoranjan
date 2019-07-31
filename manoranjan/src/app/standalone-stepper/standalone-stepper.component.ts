@@ -71,26 +71,26 @@ export class StandaloneStepperComponent implements OnInit {
 
     this.firstFormGroup = this._formBuilder.group({
       language: new FormControl('', [Validators.required]),
-      date:new FormControl()
+      date:new FormControl("" , Validators.compose([Validators.required]))
 
     });
     this.secondFormGroup = this._formBuilder.group({
-      studio:new FormControl('', [Validators.required, Validators.maxLength(30)])
+      studio:new FormControl('', [Validators.required, Validators.maxLength(50),Validators.pattern('^[a-zA-Z. ]*$')])
     });
     this.thirdFormGroup = this._formBuilder.group({
-      posterurl:new FormControl(),
+      posterurl:new FormControl('',Validators.required),
       video:new FormControl(),
       trailer:new FormControl(),
       type:new FormControl('', [Validators.required])
     });
 
     this.sixthFormGroup = this._formBuilder.group({
-      crewName:new FormControl(),
+      crewName:new FormControl("",Validators.pattern('^[a-zA-Z. ]*$')),
       crewRole:new FormControl(),
     });
     this.seventhFormGroup = this._formBuilder.group({
-      screenName:new FormControl(),
-      realName:new FormControl(),
+      screenName:new FormControl("",Validators.pattern('^[a-zA-Z. ]*$')),
+      realName:new FormControl("",Validators.pattern('^[a-zA-Z. ]*$')),
     });
   }
 
@@ -226,10 +226,20 @@ export class StandaloneStepperComponent implements OnInit {
   validation_messages = {
     'studio': [
       { type: 'required', message: 'Studio name is required' },
-      { type: 'validUsername', message: 'Your username has already been taken' }
+      { type: 'validUsername', message: 'Your username has already been taken' },
+      { type: 'pattern', message: 'studio name must contain only characters' }
     ],
     'posterurl': [
       { type: 'required', message: 'poster url is required' },
+    ],
+    'crewName':[
+      {type: 'pattern',message:'crew name must contain only characters'}
+    ],
+    'screenName':[
+      {type: 'pattern',message:'screen name must contain only characters'}
+    ],
+    'realName':[
+      {type: 'pattern',message:'real name must contain only characters'}
     ]
 
   }
