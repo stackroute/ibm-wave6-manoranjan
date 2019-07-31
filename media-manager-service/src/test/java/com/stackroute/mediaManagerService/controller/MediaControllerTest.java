@@ -268,14 +268,14 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
-    @Test
-    public void getEpisodeByIdTest() throws Exception {
-        when(mediaService.getEpisodeById("Yeh rishta",1)).thenReturn(episode);
-        mockMvc.perform(MockMvcRequestBuilders.get("/stream/v1/episode/Yeh rishta/1")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(episode)))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andDo(MockMvcResultHandlers.print());
-    }
+//    @Test
+//    public void getEpisodeByIdTest() throws Exception {
+//        when(mediaService.getEpisodeById("Yeh rishta",1)).thenReturn(episode);
+//        mockMvc.perform(MockMvcRequestBuilders.get("/stream/v1/episode/Yeh rishta/1")
+//                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(episode)))
+//                .andExpect(MockMvcResultMatchers.status().isOk())
+//                .andDo(MockMvcResultHandlers.print());
+//    }
 
     @Test
     public void getMediaByGenreTest() throws Exception {
@@ -331,12 +331,12 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
-    @Test
-    public void deleteEpisodeTest() throws Exception {
-        when(mediaService.deleteEpisode(episodicMedia.getEpisodicTitle(),1)).thenReturn(episode);
-        mockMvc.perform(MockMvcRequestBuilders.delete("/stream/v1/episode/Yeh rishta/1")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(episode)))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andDo(MockMvcResultHandlers.print());
-    }
+//    @Test
+//    public void deleteEpisodeTest() throws Exception {
+//        when(mediaService.deleteEpisode(episodicMedia.getEpisodicTitle(),1)).thenReturn(episode);
+//        mockMvc.perform(MockMvcRequestBuilders.delete("/stream/v1/episode/Yeh rishta/1")
+//                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(episode)))
+//                .andExpect(MockMvcResultMatchers.status().isOk())
+//                .andDo(MockMvcResultHandlers.print());
+//    }
 }

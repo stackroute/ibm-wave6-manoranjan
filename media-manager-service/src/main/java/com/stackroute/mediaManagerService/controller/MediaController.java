@@ -43,7 +43,7 @@ public class MediaController {
     }
 
     @PostMapping("/episode/{serial-title}")
-    public ResponseEntity<?> saveEpisode(@PathVariable("serialTitle") String serialTitle, @RequestBody Episode episode) throws MediaNotFoundException, MediaAlreadyExistsException {
+    public ResponseEntity<?> saveEpisode(@PathVariable("serial-title") String serialTitle, @RequestBody Episode episode) throws MediaNotFoundException, MediaAlreadyExistsException {
         return new ResponseEntity<>(mediaService.addEpisode(serialTitle,episode),HttpStatus.OK);
     }
 
