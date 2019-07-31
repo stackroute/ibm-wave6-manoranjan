@@ -124,6 +124,8 @@ import { ProducernavComponent } from './producernav/producernav.component';
 import { DatacardComponent } from './datacard/datacard.component';
 import { DatacardepisodicComponent } from './datacardepisodic/datacardepisodic.component';
 import { NavComponent } from './nav/nav.component';
+import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component';
+
 
 
 @NgModule({
@@ -231,7 +233,8 @@ import { NavComponent } from './nav/nav.component';
     DatacardComponent,
     DatacardepisodicComponent,
     ProducernavComponent,
-    NavComponent
+    NavComponent,
+    PaymentdialogComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ package com.stackroute.controller;
 
 import com.stackroute.domain.User;
 import com.stackroute.domain.UserPayment;
+import com.stackroute.exception.EmailIdNotFoundException;
 import com.stackroute.service.UserPaymentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,21 +22,24 @@ public class UserPaymentController {
     }
 
     @PostMapping("user")
-    public ResponseEntity<?> saveUser(@RequestBody UserPayment userPackage) {
+    //posting the data in to the database
+    public ResponseEntity<String> saveUser(UserPayment userPayment) throws EmailIdNotFoundException {
         ResponseEntity responseEntity;
 
         try {
-            userPackageService.saveUserPayment(userPackage);
+            userPackageService.saveUserPayment(userPayment);
             responseEntity = new ResponseEntity<String>("Successfully created", HttpStatus.CREATED);
         } catch (Exception e) {
             responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+
+            return responseEntity;
         }
         return responseEntity;
     }
 
-
     @PostMapping("user-email")
-    public ResponseEntity<?> saveUser(@RequestBody User user) {
+    public ResponseEntity<String> saveUser(User user)
+    {
         ResponseEntity responseEntity;
         try {
             userPackageService.saveUser(user);
@@ -47,8 +51,9 @@ public class UserPaymentController {
     }
 
     @GetMapping("users")
-    public ResponseEntity<?> getAllUsers() {
-        return new ResponseEntity<List<UserPayment>>(userPackageService.getAllUsers(), HttpStatus.OK);
+    //getting the users from the database
+    public ResponseEntity<List<UserPayment>> getAllUsers() {
+        return new ResponseEntity<>(userPackageService.getAllUsers(), HttpStatus.OK);
     }
 
 }

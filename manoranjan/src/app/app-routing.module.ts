@@ -68,7 +68,9 @@ import { ProducerprofileComponent } from './producerprofile/producerprofile.comp
 import { EditproducerprofileComponent } from './editproducerprofile/editproducerprofile.component';
 import { EpisodicComponent } from './episodic/episodic.component';
 import { PlayComponent } from './play/play.component';
-import { DatePipe } from '@angular/common';
+import{DatePipe}from '@angular/common';
+import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component';
+
 
 const routes: Routes = [
   { path: 'terms', component: TermsOfUseComponent },
@@ -132,6 +134,7 @@ const routes: Routes = [
   {path :'package',component:PackageComponent},
   {path :'package/:email',component:PackageComponent},
   {path :'payment/:time/:amount',component:PaymentComponent},
+  {path :'paymentdialog/:time/:amount',component:PaymentdialogComponent},
   {path:'myaccount',component:MyaccountComponent},
   {path:'edit/:email',component:EditComponent},
   {path:'editpro/:email',component:EditproducerprofileComponent},

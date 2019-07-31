@@ -70,18 +70,21 @@ export class StandaloneStepperComponent implements OnInit {
     });
 
     this.firstFormGroup = this._formBuilder.group({
-      language: new FormControl('', [Validators.required]),
-      date: new FormControl("", Validators.compose([Validators.required]))
 
-    });
+      date:new FormControl("" , Validators.compose([Validators.required]))
+
+      });
     this.secondFormGroup = this._formBuilder.group({
       studio: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.pattern('^[a-zA-Z. ]*$')])
     });
     this.thirdFormGroup = this._formBuilder.group({
-      posterurl: new FormControl('', Validators.required),
-      video: new FormControl(),
-      trailer: new FormControl(),
-      type: new FormControl('', [Validators.required])
+
+      language: new FormControl('', [Validators.required]),
+      video:new FormControl(),
+      trailer:new FormControl(),
+      type:new FormControl('', [Validators.required]),
+      posterurl: new FormControl('', [Validators.required])
+     
     });
 
     this.sixthFormGroup = this._formBuilder.group({

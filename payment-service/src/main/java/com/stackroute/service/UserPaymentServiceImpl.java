@@ -1,14 +1,12 @@
 package com.stackroute.service;
 
 import com.stackroute.domain.UserPayment;
+import com.stackroute.exception.EmailIdNotFoundException;
 import com.stackroute.repository.UserPaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.stackroute.domain.User;
-import com.stackroute.domain.UserPayment;
-import com.stackroute.repository.UserPaymentRepository;
 import com.stackroute.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 
@@ -40,38 +38,39 @@ public class UserPaymentServiceImpl implements UserPaymentService {
 
     private static String topic = "savedUser";
 
-    @Override
-    public UserPayment saveUserPayment(UserPayment userPayment) {
-        UserPayment saveUser = (UserPayment) userPaymentRepository.save(userPayment);
-        System.out.println(saveUser);
-        kafkaTemplate.send(topic, saveUser);
-        return saveUser;
+
+    @Override//saving user package details
+    public UserPayment saveUserPayment(UserPayment userPayment) throws EmailIdNotFoundException {
+        if(userPaymentRepository.existsById(userPayment.getEmailId())) {
+            UserPayment saveUser = userPaymentRepository.save(userPayment);
+            kafkaTemplate.send(topic, saveUser);
+            return saveUser;
+        }
+        else throw new EmailIdNotFoundException("Email Id not found");
 
 
     }
 
-    @Override
+    @Override//getting all users who have subscribed for the packages
     public List<UserPayment> getAllUsers() {
 
         return userPaymentRepository.findAll();
     }
 
-    @Override
+    @Override //deleting the user
     public UserPayment deleteUser(String emailId) {
         userPayment = null;
         Optional optional = userPaymentRepository.findById(emailId);
         if (optional.isPresent()) {
-            userPayment = userPaymentRepository.findById(emailId).get();
             userPaymentRepository.deleteById(emailId);
         }
         return userPayment;
     }
 
     @Override
-    @KafkaListener(topics = "saveUser", groupId = "Group_JsonObject1")
+    //consuming the user details from user service
+    @KafkaListener(topics = "saveUser",groupId = "Group_JsonObject1")
     public User saveUser(User user) {
-        User saveUser = (User) userRepository.save(user);
-        System.out.println(saveUser);
-        return saveUser;
+        return userRepository.save(user);
     }
 }

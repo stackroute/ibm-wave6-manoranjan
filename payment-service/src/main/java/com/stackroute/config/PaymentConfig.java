@@ -31,26 +31,27 @@ public class PaymentConfig {
     }
 
     @Bean
-    public KafkaTemplate<UserPayment, UserPayment> kafkaTemplate() {
-        return new KafkaTemplate<UserPayment, UserPayment>(producerFactory());
-
+    public KafkaTemplate<UserPayment,UserPayment> kafkaTemplate()
+    {
+        return new KafkaTemplate<>(producerFactory());
     }
 
     @Bean
-    public ConsumerFactory<User, User> consumerFactory() {
-        Map<String, Object> config = new HashMap<>();
-        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "Group_JsonObject1");
+    public ConsumerFactory<User,User> consumerFactory()
+    {
+        Map<String,Object>  config=new HashMap<>();
+        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
+        config.put(ConsumerConfig.GROUP_ID_CONFIG,"Group_JsonObject1");
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 
-        return new DefaultKafkaConsumerFactory<User, User>(config, new JsonDeserializer<User>(), new JsonDeserializer<User>(User.class));
-
+        return new DefaultKafkaConsumerFactory<>(config,new JsonDeserializer<User>(),new JsonDeserializer<User>(User.class));
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<User, User> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<User, User> factory = new ConcurrentKafkaListenerContainerFactory();
+    public ConcurrentKafkaListenerContainerFactory<User,User> kafkaListenerContainerFactory()
+    {
+        ConcurrentKafkaListenerContainerFactory<User,User> factory=new ConcurrentKafkaListenerContainerFactory();
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }

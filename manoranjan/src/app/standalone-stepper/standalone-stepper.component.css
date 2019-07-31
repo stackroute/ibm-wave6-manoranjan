@@ -2,39 +2,31 @@
     max-width: 100%;
     font-family: 'Merriweather', serif;
     font-weight: bold;
-    margin-top: -10px;
+ 
     height: 100%;
     overflow: hidden;
+    box-shadow: none;
+      }
+      #outerMatCard{
+        margin-top:-75px;
+      }
+  label{
+        font-size:15px;
+      font-family: 'Merriweather', serif;
+      }
+.container{
+   height: 368px;
 }
 
-label {
-    font-size: 15px;
-    font-weight: bold;
+h3{
+  margin-top: 180px;
+  color: green;
 }
+
 
 .container1 {
     height: 368px;
     margin-left: 50px;
-}
-
-.container2 {
-    height: 408px;
-}
-
-h3 {
-    margin-top: 180px;
-    color: green;
-}
-
-.container4 {
-    height: 298px;
-}
-
-h6 {
-    margin-top: 10px;
-    font-weight: bold;
-    margin-left: 18px;
-    margin-bottom: 15px;
 }
 
 p {
@@ -44,10 +36,87 @@ p {
 mat-card-content mat-grid-list {
     margin-bottom: -90px;
 }
-
-#posterImage {
-    margin-top: 110px;
+#bottomButton{
+  margin-bottom: 50px;
 }
+  .card{
+    height: 150px;
+    width: 150px;
+  }
+  #firstgrid{
+    margin-top: -30px;
+  }
+#gridimages{
+    margin-bottom: -50px;
+  }
+  img:hover{
+    opacity: 0.5; 
+   }
+  
+   .mat-button-toggle-checked {
+     border: 2px solid black;
+     background-color: rgb(177, 208, 238); 
+   }
+   /* .container{
+     margin-left: 15px;
+   } */
+   mat-horizontal-stepper form{
+    margin-left: 15%; 
+    margin-right: 14%;   
+  }
+ 
+   mat-card{
+    margin-top:2%;
+    width:95%; 
+    height: 100%;
+    margin-left: 3%;
+    }
+   mat-grid-list{
+     margin-top:-60px;
+     margin-bottom: -20px;
+   }
+  #genre{
+    margin-top: 25px;
+    margin-left: -28px;
+  }
+   #releaseDate{
+     margin-left: 0px;
+   }
+   li{
+     list-style-type: none;
+     margin-left: -150px;
+   }
+   #delete{
+     margin-left: 30px;
+   }
+   #name{
+     margin-left: -30px;
+   }
+   #role{
+     margin-left: -40px;
+   }
+   #input{
+     margin-top: -50px;
+     margin-left: -10px;
+   }
+ 
+   #submit{
+     margin-top: 10px;
+     margin-left: 185px;
+   }
+   #cast{
+     margin-left: 2px;
+   }
+   #studioName{
+     margin-top: 10px;
+   }
+   #screenName{
+     margin-left: -20px;
+   }
+   #realName{
+     margin-left: -60px;
+   }
+
 
 .card {
     height: 150px;
@@ -66,10 +135,6 @@ img:hover {
     opacity: 0.5;
 }
 
-.col-sm-4 {
-    margin-left: -45px;
-    margin-bottom: 5px;
-}
 
 .mat-button-toggle-checked {
     border: 3px solid black;
@@ -83,10 +148,6 @@ img:hover {
 mat-horizontal-stepper form {
     margin-left: 15%;
     margin-right: 14%;
-}
-
-#videoFile {
-    margin-left: -55px;
 }
 
 #trailer {
@@ -130,9 +191,6 @@ mat-grid-list {
 }
 
 
-/* #input3{
-     margin-left: -50px;
-   } */
 
 #crew {
     margin-left: 2px;
@@ -169,10 +227,6 @@ li {
     margin-left: 2px;
 }
 
-#studioName {
-    margin-top: 70px;
-}
-
 #screenName {
     margin-left: -10px;
 }
@@ -182,6 +236,7 @@ li {
 }
 
 ul {
+
     color: blue;
 }
 
@@ -191,7 +246,70 @@ ul li table {
 
 ul li table tr td {
     border: 1px solid gainsboro;
-}
+
+  }
+   #submit1{
+     margin-top:10px;
+     margin-left: 185px;
+   }
+   #buttomButton{
+     margin-bottom: 40px;
+   }
+ 
+   #upload{
+     margin-left: -35px;
+     margin-top:-32px;
+   } 
+ 
+  #posterImage{
+    margin-left: -32px;
+  }
+   #videoFile{
+     margin-left:-47px;
+   }
+   #contentType{
+    margin-left:-25px;
+  }
+   img{
+     margin-top: 10px;
+     margin-bottom: 10px;
+     height:100%;
+     width: 100%;
+   } 
+   mat-button-toggle img{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+    height:80px;
+    width: 120px;  
+  }
+  #success{
+    margin-top: 100px;
+    font-family: 'Merriweather', serif;
+    color:green;
+  }  
+  .mat-form-field-infix {
+    top: -0.25em;
+  }
+  .form-horizontal{
+      text-align: center;
+      margin-left: 22%;
+      margin-right: 22%;
+  }
+  section{
+    margin-left: 120px;
+    margin-right: 120px;
+    height: 90%;
+  
+  }
+ mat-horizontal-stepper{
+   margin-left: 60px;
+   margin-right: 60px;
+ }
+ .col-sm-8{
+   float: left;
+   margin-left: -90px;
+ }
 
 #submit1 {
     margin-top: 10px;
@@ -200,20 +318,6 @@ ul li table tr td {
 
 #input4 {
     margin-left: -65px;
-}
-
-#upload {
-    margin-left: 250px;
-    margin-top: -32px;
-}
-
-#chooseFile1 {
-    margin-left: -25px;
-}
-
-#upload1 {
-    margin-left: 250px;
-    margin-top: -32px;
 }
 
 img {
@@ -232,13 +336,8 @@ img {
     margin-left: 22%;
     margin-right: 22%;
 }
-
-section {
-    margin-top: 4%;
-    margin-left: 120px;
-    margin-right: 120px;
-    overflow: hidden;
-    margin-bottom: 1%;
+#bottmButton{
+  margin-bottom: 50px;
 }
 
 mat-horizontal-stepper {
@@ -252,13 +351,28 @@ mat-horizontal-stepper {
 }
 
 #date {
+
     margin-top: 5px;
     margin-left: -130px;
 }
 
 #date1 {
     margin-top: -10px;
-}
+
+  }
+  .form-group{
+      text-align: center;
+  }
+  .image-card{
+     width: 40%;
+     height: 50%;
+     
+  }
+  
+  .mat-card-sm-image{
+  margin-right: 10px;
+  }
+
 
 .form-group {
     text-align: center;
@@ -274,6 +388,7 @@ mat-horizontal-stepper {
 }
 
 .column {
+
     float: left;
     width: 45%;
     padding: 0 10px;
