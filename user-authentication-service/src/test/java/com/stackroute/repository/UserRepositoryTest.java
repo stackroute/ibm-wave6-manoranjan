@@ -59,11 +59,7 @@ public class UserRepositoryTest {
     @Test
     public void saveUserTest() {
         userRepository.save(user);
-<<<<<<< HEAD
         Assert.assertEquals("p@gmail.com",user.getEmailId());
-=======
-        Assert.assertEquals(user.getEmailId(), "p@gmail.com");
->>>>>>> ec5e1d5b171f2891a835da62153df5fdf28dfbfc
     }
 
     @Test

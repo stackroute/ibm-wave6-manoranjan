@@ -73,14 +73,6 @@ public class UserServiceTest {
         List<User> userlist = userService.getAllUsers();
         Assert.assertEquals(list, userlist);
     }
-    @Test
-    public void updateUserTest() throws UserNotFoundException {
-        userRepository.save(user);
-        User savedUser = userService.updateUser(user.getEmailId(), user);
-        when(userRepository.findAll()).thenReturn(list);
-        List<User> userlist = userService.getAllUsers();
-        Assert.assertEquals(list, userlist);
-    }
 
     @Test
     public void getByIdTest() throws UserNotFoundException {
