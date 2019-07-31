@@ -17,7 +17,7 @@ import java.util.Optional;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-public class StandaloneMediaServiceTest {
+public class MediaServiceTest {
     private StandaloneMedia standaloneMedia;
 
     @Mock

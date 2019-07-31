@@ -3,7 +3,9 @@ package com.stackroute.recommendationService.service;
 import com.stackroute.recommendationService.domain.Viewer;
 import com.stackroute.recommendationService.exception.ViewerAlreadyExistException;
 import com.stackroute.recommendationService.exception.ViewerNotFoundException;
+import com.stackroute.recommendationService.repository.EpisodicMediaRepository;
 import com.stackroute.recommendationService.repository.GenreRepository;
+import com.stackroute.recommendationService.repository.StandaloneMediaRepository;
 import com.stackroute.recommendationService.repository.ViewerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,10 @@ public class ViewerServiceImpl implements ViewerService {
 
     @Autowired
     private GenreRepository genreRepository;
+    @Autowired
+    EpisodicMediaRepository episodicMediaRepository;
+    @Autowired
+    StandaloneMediaRepository standaloneMediaRepository;
 
     public Collection<Viewer> getAll()throws ViewerNotFoundException {
         if (viewerRepository.getAllViewers()==null){
@@ -85,12 +91,21 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
-    public Viewer saveMediaRelation(String emailId,String title)throws ViewerNotFoundException {
+    public Viewer saveStandaloneMediaRelation(String emailId,String title)throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId)==null){
             throw new ViewerNotFoundException();
         }
         else {
-            return viewerRepository.createMediaRelation(emailId, title);
+            return viewerRepository.createStandaloneMediaRelation(emailId, title);
+        }
+    }
+
+    public Viewer saveEpisodicMediaRelation(String emailId,String title)throws ViewerNotFoundException {
+        if (viewerRepository.findByEmailId(emailId)==null){
+            throw new ViewerNotFoundException();
+        }
+        else {
+            return viewerRepository.createEpisodicMediaRelation(emailId, title);
         }
     }
 }

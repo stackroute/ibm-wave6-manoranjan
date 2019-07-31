@@ -1,9 +1,17 @@
 package com.stackroute.recommendationService.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @NodeEntity
 public class StandaloneMedia {
 
@@ -13,45 +21,9 @@ public class StandaloneMedia {
     private List<String> genre;
     private String language;
 
-    public StandaloneMedia() {
-    }
-
-    public StandaloneMedia(Long id, String title, List<String> genre, String language) {
-        this.id = id;
-        this.title = title;
-        this.genre = genre;
-        this.language = language;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public List<String> getGenre() {
-        return genre;
-    }
-
-    public void setGenre(List<String> genre) {
-        this.genre = genre;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
+    public String updateGenre(int i, String genreName)
+    {
+        genre.set(i, genreName);
+        return String.valueOf(genre);
     }
 }

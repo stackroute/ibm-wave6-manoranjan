@@ -11,5 +11,6 @@ public interface ViewerService {
     public Viewer getViewerByEmailId(String emailId)throws ViewerNotFoundException;
     public Viewer updateDetails(Viewer viewer)throws ViewerNotFoundException;
     public Collection<Viewer> deleteViewer(String emailId)throws ViewerNotFoundException;
-    public Viewer saveMediaRelation(String emailId,String title)throws ViewerNotFoundException;
+    public Viewer saveStandaloneMediaRelation(String emailId,String title)throws ViewerNotFoundException;
+    public Viewer saveEpisodicMediaRelation(String emailId,String title)throws ViewerNotFoundException;
 }
