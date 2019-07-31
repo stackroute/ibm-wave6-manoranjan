@@ -132,7 +132,6 @@
                                 <mat-grid-tile id="thirdImage">
                                     <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="action">
                                         <img mat-card-md-image src="/assets/images/anew.jpg" alt="action">
-
                                     </mat-button-toggle>
                                 </mat-grid-tile>
                             </mat-grid-list>
@@ -200,78 +199,6 @@
             </mat-step>
         </mat-horizontal-stepper>
     </mat-card>
-</section>
-<div style="margin-top: -21px">
-    <app-footer></app-footer>
-</div>
-
-</mat-button-toggle>
-</mat-grid-tile>
-</mat-grid-list>
-<mat-grid-list cols="3">
-    <mat-grid-tile id="fourthImage">
-        <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="mystery">
-            <img mat-card-md-image src="/assets/images/mysnew1.jpg" alt="mystery">
-        </mat-button-toggle>
-    </mat-grid-tile>
-    <mat-grid-tile id="fifthImage">
-        <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="mythology">
-            <img mat-card-md-image src="/assets/images/mnew.jpg" alt="mythology">
-        </mat-button-toggle>
-    </mat-grid-tile>
-    <mat-grid-tile id="sixthImage">
-        <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="comedy">
-            <img mat-card-md-image src="/assets/images/commedynew.jpg" alt="comedy">
-        </mat-button-toggle>
-    </mat-grid-tile>
-</mat-grid-list>
-<mat-grid-list cols="3" id="gridimages">
-    <mat-grid-tile id="seventhImage">
-        <mat-button-toggle (change)="onSubmInterest($event.value)" value="horror">
-            <img mat-card-md-image src="/assets/images/hnew1.jpg" alt="Horror">
-        </mat-button-toggle>
-    </mat-grid-tile>
-    <mat-grid-tile id="eighthImage">
-        <mat-button-toggle (change)="onSubmInterest($event.value)" value="biopic">
-            <img mat-card-md-image src="/assets/images/r.jpg" alt="biopic">
-        </mat-button-toggle>
-    </mat-grid-tile>
-    <mat-grid-tile id="ninthImage">
-        <mat-button-toggle (change)="onSubmInterest($event.value)" value="science">
-            <img mat-card-md-image src="/assets/images/scinew.jpg" alt="science">
-        </mat-button-toggle>
-    </mat-grid-tile>
-</mat-grid-list>
-<!-- 3rd row of cards is close -->
-</mat-card-content>
-<button mat-stroked-button matStepperPrevious>Back</button>&nbsp;
-<button mat-stroked-button matStepperNext class="nextButton">Next</button>
-</mat-card>
-</form>
-</mat-step>
-<!-- form 3rd is closed-->
-<mat-step [stepControl]="fourthForm">
-    <form #viewerForm="ngForm" class="form-horizontal">
-        <ng-template matStepLabel><span class="headingStyle">Status</span></ng-template>
-        <mat-card class="example-card" id="fourth-card">
-            <mat-card-content class="content">
-                <div class="container1" id="success">
-                    <h3>
-                        Thank you!
-                    </h3>
-                    <br>
-                    <p>You are successfully Registered here!</p>
-                </div>
-                <br>
-            </mat-card-content>
-            <div style="margin-top: 100px; margin-left: -30px">
-                <button type="submit" (click)="submitDetails()" mat-stroked-button matStepperNext>Submit</button>
-            </div>
-        </mat-card>
-    </form>
-</mat-step>
-</mat-horizontal-stepper>
-</mat-card>
 </section>
 <div style="margin-top: -21px">
     <app-footer></app-footer>
