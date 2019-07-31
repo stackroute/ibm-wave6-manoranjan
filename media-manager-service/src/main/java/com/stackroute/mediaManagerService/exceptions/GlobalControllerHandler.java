@@ -19,7 +19,7 @@ public class GlobalControllerHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> handleException(Exception exception){
-        return new ResponseEntity<>("Exception Occured",HttpStatus.CONFLICT);
+    public ResponseEntity<?> handleException(Exception exception) {
+        return new ResponseEntity<>("Exception Occured", HttpStatus.CONFLICT);
     }
 }

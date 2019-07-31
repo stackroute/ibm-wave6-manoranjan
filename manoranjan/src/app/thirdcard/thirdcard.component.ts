@@ -7,20 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThirdcardComponent implements OnInit {
 
-  items:Array<any> =[];
+  items: Array<any> = [];
   constructor() {
-    this.items=[
-      {name:'../../assets/tv1.webp'},
-      {name:'../../assets/tv2.webp'},
-      {name:'../../assets/tv3.webp'},
-      {name:'../../assets/tv4.webp'},
-      {name:'../../assets/tv5.webp'},
-      {name:'../../assets/luka-chupi.jpg'},
-      {name:'../../assets/rab-ne-bnad- jodi.jpg'},
-      {name:'../../assets/ddlj.jpg'},
-      {name:'../../assets/chennai-express.jpg'},
+    this.items = [
+      { name: '../../assets/tv1.webp' },
+      { name: '../../assets/tv2.webp' },
+      { name: '../../assets/tv3.webp' },
+      { name: '../../assets/tv4.webp' },
+      { name: '../../assets/tv5.webp' },
+      { name: '../../assets/luka-chupi.jpg' },
+      { name: '../../assets/rab-ne-bnad- jodi.jpg' },
+      { name: '../../assets/ddlj.jpg' },
+      { name: '../../assets/chennai-express.jpg' },
     ];
-   }
+  }
 
   ngOnInit() {
   }

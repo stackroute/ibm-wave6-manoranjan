@@ -1,10 +1,10 @@
 
 export class User {
-  public emailId?:string;
-  public  name?:string;
-  public  age?:number;
-  public gender?:string;
-  public mobileNo?:string;
-  public password?:string;
-  public genre:Array<string>;
+  public emailId?: string;
+  public name?: string;
+  public age?: number;
+  public gender?: string;
+  public mobileNo?: string;
+  public password?: string;
+  public genre: Array<string>;
 }

@@ -11,14 +11,14 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
     private UserRepository userRepository;
 
     @Autowired
-    public FeedDataApplicationListener(UserRepository userRepository){
-        this.userRepository=userRepository;
+    public FeedDataApplicationListener(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent)
     {
-//        userRepository.save(new User(0,"admin", "123", "admin"));
+        // default implementation ignored
     }
 
 

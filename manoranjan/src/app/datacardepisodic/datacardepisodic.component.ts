@@ -12,14 +12,14 @@ export class DatacardepisodicComponent implements OnInit {
 
   @Input() public list;
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  sendDetails(serial){
-    let x=JSON.stringify(serial)
-    sessionStorage.setItem("serial",x);
+  sendDetails(serial) {
+    let x = JSON.stringify(serial)
+    sessionStorage.setItem("serial", x);
     console.log(serial.episodicTitle)
     this.router.navigateByUrl("/image");
   }

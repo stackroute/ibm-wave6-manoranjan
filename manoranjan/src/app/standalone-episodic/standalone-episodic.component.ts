@@ -8,16 +8,16 @@ import { Router } from '@angular/router';
 })
 export class StandaloneEpisodicComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  sendStandalone(title,category,synopsis){
-    this.router.navigateByUrl('/standalonestepper/'+title+'/'+category+'/'+synopsis);
+  sendStandalone(title, category, synopsis) {
+    this.router.navigateByUrl('/standalonestepper/' + title + '/' + category + '/' + synopsis);
   }
 
-  sendEpisodic(title1,category1,synopsis1){
-    this.router.navigateByUrl('/episodic/'+title1+'/'+category1+'/'+synopsis1);
+  sendEpisodic(title1, category1, synopsis1) {
+    this.router.navigateByUrl('/episodic/' + title1 + '/' + category1 + '/' + synopsis1);
   }
 }

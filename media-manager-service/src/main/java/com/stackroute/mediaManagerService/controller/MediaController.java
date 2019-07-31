@@ -34,6 +34,7 @@ public class MediaController {
         Media media1;
         media1=mediaService.saveMedia(media);
         return new ResponseEntity<>(media1,HttpStatus.OK);
+
     }
 
     @PostMapping("/serial")
@@ -45,7 +46,7 @@ public class MediaController {
 
     @PostMapping("/episode/{serial-title}")
     public ResponseEntity<?> saveEpisode(@PathVariable("serial-title") String serialTitle, @RequestBody Episode episode) throws MediaNotFoundException, MediaAlreadyExistsException {
-        return new ResponseEntity<>(mediaService.addEpisode(serialTitle,episode),HttpStatus.OK);
+        return new ResponseEntity<>(mediaService.addEpisode(serialTitle, episode), HttpStatus.OK);
     }
 
     @GetMapping("/medias")
@@ -77,9 +78,10 @@ public class MediaController {
         return new ResponseEntity<>(mediaService.getSerialByTitle(serialTitle),HttpStatus.OK);
     }
 
+
     @GetMapping("/episode/{title}/{episode-num}")
-    public ResponseEntity<?> getEpisodeById(@PathVariable("title") String serialTitle,@PathVariable("episodeNum") int episodeNum) throws MediaNotFoundException {
-        return new ResponseEntity<>(mediaService.getEpisodeById(serialTitle, episodeNum),HttpStatus.OK);
+    public ResponseEntity<?> getEpisodeById(@PathVariable("title") String serialTitle, @PathVariable("episodeNum") int episodeNum) throws MediaNotFoundException {
+        return new ResponseEntity<>(mediaService.getEpisodeById(serialTitle, episodeNum), HttpStatus.OK);
     }
 
     @GetMapping("/media/movie/{genre}")

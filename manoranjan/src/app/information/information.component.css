@@ -1,40 +1,46 @@
-div{
+div {
     width: 1150px;
     height: 450px;
     margin-left: 13%;
     color: white;
     font-family: 'Merriweather', serif;
 }
-h3{
+
+h3 {
     font-weight: bold;
 }
-.jumbotron{
-	background-size: cover;
-	background-repeat: no-repeat;
-} 
-.two h3{
+
+.jumbotron {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.two h3 {
     margin-left: 700px;
 }
-.two p{
+
+.two p {
     margin-left: 700px;
 }
-.two a{
+
+.two a {
     margin-left: 700px;
 }
-.one{
+
+.one {
     background-image: url("../../assets/e6.jpg");
-    /* background-image: linear-gradient(to bottom right, rgb(92, 192, 218),rgb(175, 37, 37),black); */
 }
-.two{
+
+.two {
     background-image: url("../../assets/e3.jpg");
-    /* background-image: linear-gradient(to bottom right, rgb(92, 192, 218),rgb(175, 37, 37),black); */
 }
-.three{
+
+.three {
     background-image: url("../../assets/e7.jpg");
-    /* background-image: linear-gradient(to bottom right, rgb(92, 192, 218),rgb(175, 37, 37),black); */
 }
-.btn{
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  border-radius: 14px;
-  background:#000;
+
+.btn {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 14px;
+    background: #000;
 }

@@ -1,4 +1,4 @@
 export class Userauthen {
-    emailId:string;
-    password:string;
+    emailId: string;
+    password: string;
 }

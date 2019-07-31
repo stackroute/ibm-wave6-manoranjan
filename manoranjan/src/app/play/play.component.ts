@@ -13,13 +13,12 @@ export class PlayComponent implements OnInit {
   title;
   status:string ="false";
   constructor(private activatedRoute:ActivatedRoute,private sanitizer:DomSanitizer) {
-    // this.videoUrl=false
    }
 
   ngOnInit() {
-    this.activatedRoute.paramMap.subscribe(params=>{
-      this.title=params.get('title')
-      this.url=params.get('url')
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.title = params.get('title')
+      this.url = params.get('url')
       console.log(this.url);
     });
 

@@ -1,52 +1,12 @@
 <div class="total">
-   <!-- navbar -->
-   <app-main-nav></app-main-nav>
+    <!-- navbar -->
+    <app-main-nav></app-main-nav>
     <!--end of nevbar section-->
-
     <!-- WishList Section -->
-    <!-- <div class="container">
-        <h4>Wishlist</h4>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-2">
-                    <img src="../../assets/vivah.jpg" class="image" >
-                </div>
-                <div class="col-2">
-                    <img src="../../assets/tangled.jpg" class="image" >
-                </div>
-                <div class="col-2">
-                    <img src="../../assets/luka-chupi.jpg" class="image" >
-                </div> 
-                <div class="col-2">
-                    <img src="../../assets/mohabbatein.jpg" class="image" > 
-                </div>
-                <div class="col-2">
-                    <img src="../../assets/prdp.jpg" class="image">
-                </div>
-                <div class="col-2">
-                    <img src="../../assets/bumm-bumm-bole.jpg" class="image" >
-                </div>
-            </div> 
-            <div class="row">
-                <div class="col-2">
-                    <img src="../../assets/chennai-express.jpg" class="image">
-                </div>
-                <div class="col-2">
-                    <img src="../../assets/cyndrella.jpg" class="image" >
-                </div>
-                <div class="col-2">
-                    <img src="../../assets/ddlj.jpg" class="image" >
-                </div> 
-                <div class="col-2">
-                    <img src="../../assets/frozen.jpg" class="image" > 
-                </div>
-            </div>
-        </div> 
-    </div> -->
     <div class="container">
         <h4>Wishlist</h4>
         <div class="container-fluid">
-            <div class="row" >
+            <div class="row">
                 <div class="col-2" *ngFor="let item of media">
                     <img src="{{item.mediaPosterUrl}}" class="image" *ngIf="item.mediaTitle!=null" routerLink="/movie/{{item.mediaTitle}}">
                     <img src="{{item.episodicPosterUrl}}" class="image" *ngIf="item.episodicTitle!=null" (click)="sendDetails(item)">

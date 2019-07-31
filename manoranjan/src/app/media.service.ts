@@ -10,14 +10,14 @@ import { List } from 'lodash';
 })
 export class MediaService {
 
-  headers=new HttpHeaders({'Access-Control-Allow-Origin':'*'})
+  headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' })
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
- pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
-   let formdata: FormData = new FormData();
+  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+    let formdata: FormData = new FormData();
 
-   formdata.append('file', file);
+  formdata.append('file', file);
   //  const req = new HttpRequest('POST', 'http://13.235.52.81:8083/media-manager-service/post', formdata, {
     const req = new HttpRequest('POST', 'http://localhost:8083/media-manager-service/post', formdata, {
     
@@ -25,9 +25,8 @@ export class MediaService {
      responseType: 'text'
      
    });
-
    return this.http.request(req);
- }
+  }
 
  saveMedia(media:Media){
   //  return this.http.post<Media>("http://13.235.52.81:8083/media-manager-service/media",media);
@@ -39,9 +38,10 @@ export class MediaService {
       return this.http.get('http://localhost:8083/media-manager-service/medias',{
         headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
-      })
-    });
-  }
+   })
+  });
+ }
+  
 
   getMediaById(id){
     // return this.http.get('http://13.235.52.81:8083/media-manager-service/media/'+id,{
