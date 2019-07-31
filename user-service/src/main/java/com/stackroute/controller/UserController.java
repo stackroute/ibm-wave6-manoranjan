@@ -50,15 +50,15 @@ public class UserController {
         return new ResponseEntity<List<User>>(userService.getAllUsers(),HttpStatus.OK);
     }
     @GetMapping("user/wish/{email}")
-    public ResponseEntity<?> getAllWishlist(@PathVariable("emailId") String emailId) throws UserNotFoundException {
+    public ResponseEntity<?> getAllWishlist(@PathVariable("email") String emailId) throws UserNotFoundException {
         return new ResponseEntity<List<List<String>>>(userService.getAllWishlist(emailId),HttpStatus.OK);
     }
     @GetMapping("user/history/{email}")
-    public ResponseEntity<?> getAllHistory(@PathVariable("emailId") String emailId) throws UserNotFoundException {
+    public ResponseEntity<?> getAllHistory(@PathVariable("email") String emailId) throws UserNotFoundException {
         return new ResponseEntity<List<List<String>>>(userService.getAllHistory(emailId),HttpStatus.OK);
     }
     @GetMapping("/users/{email}")
-    public ResponseEntity<?> getById(@PathVariable("emailId") String emailId) throws UserNotFoundException{
+    public ResponseEntity<?> getById(@PathVariable("email") String emailId) throws UserNotFoundException{
         ResponseEntity responseEntity;
         User user=null;
         user=userService.getById(emailId);
@@ -66,7 +66,7 @@ public class UserController {
         return responseEntity;
     }
     @DeleteMapping("/user/{email}")
-    public ResponseEntity<?> deleteUser(@PathVariable String emailId) throws UserNotFoundException
+    public ResponseEntity<?> deleteUser(@PathVariable("email") String emailId) throws UserNotFoundException
     {
         ResponseEntity responseEntity;
         userService.deleteUser(emailId);
@@ -74,7 +74,7 @@ public class UserController {
         return responseEntity;
     }
     @PutMapping("/user/{email}")
-    public ResponseEntity<?> updateUser(@PathVariable("emailId") String emailId, @RequestBody User user) throws UserNotFoundException
+    public ResponseEntity<?> updateUser(@PathVariable("email") String emailId, @RequestBody User user) throws UserNotFoundException
     {
         ResponseEntity responseEntity;
         userService.updateUser(emailId,user);

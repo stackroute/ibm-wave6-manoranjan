@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user';
 import { FormBuilder, Form } from '@angular/forms';
-import{UsercardService} from '../usercard.service';
-import { Usercard } from '../usercard';
 import { Userpayment } from '../userpayment';
 import{PaymentService}from '../payment.service';
 import { Cardinfo } from '../cardinfo';
@@ -23,12 +21,11 @@ ptime;
    amount; date=new Date();
   cardName;cardNumber;expiryMonth;expiryYear;cvv;
    route:any;
-  usercard:Usercard=new Usercard();
   form: Form;
   cardinfo=new Cardinfo();
   submitted: boolean;
   registerForm: any;
-  constructor(private _formBuilder: FormBuilder,private router:Router,private usercardservice:UsercardService,
+  constructor(private _formBuilder: FormBuilder,private router:Router,
     private activatedRoute:ActivatedRoute,private paymentservice:PaymentService,public dialog: MatDialog,private datePipe: DatePipe) {
        
       }
