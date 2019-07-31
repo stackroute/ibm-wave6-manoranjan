@@ -42,8 +42,8 @@ public class MediaController {
         return new ResponseEntity<EpisodicMedia>(media1,HttpStatus.OK);
     }
 
-    @PostMapping("/episode/{serialTitle}")
-    public ResponseEntity<?> saveEpisode(@PathVariable("serialTitle") String serialTitle, @RequestBody Episode episode) throws MediaNotFoundException, MediaAlreadyExistsException {
+    @PostMapping("/episode/{serial-title}")
+    public ResponseEntity<?> saveEpisode(@PathVariable("serial-title") String serialTitle, @RequestBody Episode episode) throws MediaNotFoundException, MediaAlreadyExistsException {
         return new ResponseEntity<>(mediaService.addEpisode(serialTitle,episode),HttpStatus.OK);
     }
 
@@ -76,7 +76,7 @@ public class MediaController {
         return new ResponseEntity<EpisodicMedia>(mediaService.getSerialByTitle(serialTitle),HttpStatus.OK);
     }
 
-    @GetMapping("/episode/{title}/{episodeNum}")
+    @GetMapping("/episode/{title}/{episode-num}")
     public ResponseEntity<?> getEpisodeById(@PathVariable("title") String serialTitle,@PathVariable("episodeNum") int episodeNum) throws MediaNotFoundException {
         return new ResponseEntity<>(mediaService.getEpisodeById(serialTitle, episodeNum),HttpStatus.OK);
     }
@@ -117,7 +117,7 @@ public class MediaController {
 
     }
 
-    @DeleteMapping("/episode/{title}/{episodeNum}")
+    @DeleteMapping("/episode/{title}/{episode-num}")
     public ResponseEntity<?> deleteEpisode(@PathVariable("title") String serialTitle, @PathVariable("episodeNum") int episodeNum) throws MediaNotFoundException {
         return new ResponseEntity<Episode>(mediaService.deleteEpisode(serialTitle, episodeNum),HttpStatus.OK);
     }

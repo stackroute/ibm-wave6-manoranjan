@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Userauthen } from '../userauthen';
 import { UserauthenService } from '../userauthen.service';
 import {ActivatedRoute,Router} from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -29,11 +30,12 @@ user:Userauthen=new Userauthen();
         sessionStorage.setItem("email",this.user.emailId)
         if(data.message==="producer"){
           this.router.navigateByUrl('/producer');
+        
         }
         else if(data.message==="user"){
           this.router.navigateByUrl('/linkprilog');
         }
-
+    
           console.log("POST Request is successful ", data);},
           
         error => {

@@ -127,6 +127,7 @@ import { NavComponent } from './nav/nav.component';
 import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

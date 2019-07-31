@@ -66,7 +66,7 @@
                                                            <label>Mobile</label>
                                                        </div>
                                                        <div class="col-md-6">
-                                                           <p>{{users?.mobile}}</p>
+                                                           <p>{{users?.mobileNo}}</p>
                                                        </div>
                                                    </div>
                                        </div>
@@ -76,7 +76,7 @@
                        </form>
                        <br>
                        <div class="new">
-                            <input type="Edit Profile" class=" btn btn-info" routerLink="/editpro" value="Edit Profile">&nbsp;
+                            <input type="Edit Profile" class=" btn btn-info" (click)="sendEmail(users?.emailId)" value="Edit Profile">&nbsp;
                             <input type="Upload" class="btn btn-info btn-md" routerLink="/standaloneepisodic" value="Upload Media">
                        </div>
                    </div>

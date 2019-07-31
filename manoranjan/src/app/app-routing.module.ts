@@ -136,7 +136,7 @@ const routes: Routes = [
   {path :'paymentdialog/:time/:amount',component:PaymentdialogComponent},
   {path:'myaccount',component:MyaccountComponent},
   {path:'edit/:email',component:EditComponent},
-  {path:'editpro',component:EditproducerprofileComponent},
+  {path:'editpro/:email',component:EditproducerprofileComponent},
   {path :'payment',component:PaymentComponent},
   {path :'producerpro',component:ProducerprofileComponent},
   {path :'producer',component:ProducernavComponent},
