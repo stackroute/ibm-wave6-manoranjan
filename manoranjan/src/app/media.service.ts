@@ -10,82 +10,82 @@ import { List } from 'lodash';
 })
 export class MediaService {
 
-  headers=new HttpHeaders({'Access-Control-Allow-Origin':'*'})
+  headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' })
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
- pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
-   let formdata: FormData = new FormData();
+  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+    let formdata: FormData = new FormData();
 
-   formdata.append('file', file);
-   const req = new HttpRequest('POST', 'http://localhost:8083/media-manager-service/post', formdata, {
-    
-     reportProgress: true,
-     responseType: 'text'
-     
-   });
+    formdata.append('file', file);
+    const req = new HttpRequest('POST', 'http://localhost:8083/media-manager-service/post', formdata, {
 
-   return this.http.request(req);
- }
+      reportProgress: true,
+      responseType: 'text'
 
- saveMedia(media:Media){
-   return this.http.post<Media>("http://localhost:8083/media-manager-service/media",media);
- }
+    });
 
- getAllMedia(){
-    return this.http.get('http://localhost:8083/media-manager-service/medias',{
-      headers:new HttpHeaders({
-        'Access-Control-Allow-Origin' : '*'
+    return this.http.request(req);
+  }
+
+  saveMedia(media: Media) {
+    return this.http.post<Media>("http://localhost:8083/media-manager-service/media", media);
+  }
+
+  getAllMedia() {
+    return this.http.get('http://localhost:8083/media-manager-service/medias', {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
       })
     });
   }
 
-  getMediaById(id){
-    return this.http.get('http://localhost:8083/media-manager-service/media/'+id,{
-      headers:new HttpHeaders({
-        'Access-Control-Allow-Origin' : '*'
+  getMediaById(id) {
+    return this.http.get('http://localhost:8083/media-manager-service/media/' + id, {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
       })
     });
   }
 
-  saveSerial(serial:Episodic){
-    return this.http.post<Episodic>("http://localhost:8083/media-manager-service/serial",serial);
+  saveSerial(serial: Episodic) {
+    return this.http.post<Episodic>("http://localhost:8083/media-manager-service/serial", serial);
   }
 
-  getStandalone(type:string){
-    return this.http.get('http://localhost:8083/media-manager-service/media/category/'+type,{
-      headers:new HttpHeaders({
-        'Access-Control-Allow-Origin' : '*'
+  getStandalone(type: string) {
+    return this.http.get('http://localhost:8083/media-manager-service/media/category/' + type, {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
       })
     });
   }
 
-  getMovieByGenre(genre:string){
-    return this.http.get('http://localhost:8083/media-manager-service/media/movie/'+genre,{
-      headers:new HttpHeaders({
-        'Access-Control-Allow-Origin' : '*'
+  getMovieByGenre(genre: string) {
+    return this.http.get('http://localhost:8083/media-manager-service/media/movie/' + genre, {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
       })
     });
   }
 
-  getShowsByLanguage(language:string){
-    return this.http.get('http://localhost:8083/media-manager-service/series/tv/'+language,{
-      headers:new HttpHeaders({
-        'Access-Control-Allow-Origin' : '*'
+  getShowsByLanguage(language: string) {
+    return this.http.get('http://localhost:8083/media-manager-service/series/tv/' + language, {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
       })
     });
   }
 
-  getEpisodic(series:string){
-    return this.http.get('http://localhost:8083/media-manager-service/series/category/'+series,{
-      headers:new HttpHeaders({
-        'Access-Control-Allow-Origin' : '*'
+  getEpisodic(series: string) {
+    return this.http.get('http://localhost:8083/media-manager-service/series/category/' + series, {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
       })
     });
   }
 
-  getList(mediaList:List<List<string>>){
-    return this.http.post('http://localhost:8083/media-manager-service/media/list',mediaList);
+  getList(mediaList: List<List<string>>) {
+    return this.http.post('http://localhost:8083/media-manager-service/media/list', mediaList);
   }
 
 }

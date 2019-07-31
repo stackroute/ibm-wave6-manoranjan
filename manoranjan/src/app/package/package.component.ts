@@ -8,25 +8,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PackageComponent implements OnInit {
 
-  constructor(private router:Router,private route:ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params=>{
-      sessionStorage.setItem('email',params.get('email'));
-     
+    this.route.paramMap.subscribe(params => {
+      sessionStorage.setItem('email', params.get('email'));
+
     })
   }
-  sendPackage3(){
+  sendPackage3() {
     this.router.navigateByUrl('/payment/90days/449');
-    // this.route.paramMap.subscribe(params=>{
-    //   sessionStorage.setItem('time',params.get('time'));
-    
-     
-    // })
   }
-  sendPackage6(){
+  sendPackage6() {
     this.router.navigateByUrl('/payment/180days/749');
   }
-  
+
 
 }

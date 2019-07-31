@@ -28,9 +28,9 @@ public class UserServiceTest {
     private UserRepository userRepository;
 
     @Mock
-    KafkaTemplate<User,User> kafkaTemplate;
+    KafkaTemplate<User, User> kafkaTemplate;
 
-    private static String topic= "saveUser";
+    private static String topic = "saveUser";
 
     //Inject the mocks as dependencies into UserServiceImpl
     @InjectMocks
@@ -38,6 +38,7 @@ public class UserServiceTest {
     List<User> list = null;
 
     private Optional optional;
+
     @Before
     public void setUp() {
         //Initialising the mock object
@@ -56,47 +57,53 @@ public class UserServiceTest {
         user.setRole("user");
         list = new ArrayList<>();
         list.add(user);
-        optional=Optional.of(user);
+        optional = Optional.of(user);
     }
+
     @After
-    public void teardown()
-    {
-        optional=null;
+    public void teardown() {
+        optional = null;
     }
+
     @Test
     public void getAllUsers() throws UserNotFoundException {
         userRepository.save(user);
         //stubbing the mock to return specific data
         when(userRepository.findAll()).thenReturn(list);
         List<User> userlist = userService.getAllUsers();
-        Assert.assertEquals(list,userlist);
+        Assert.assertEquals(list, userlist);
     }
+
     @Test
     public void deleteUserTest() throws UserNotFoundException {
         when(userRepository.findById(user.getEmailId())).thenReturn(optional);
-        User deletedtrack=userService.deleteUser(user.getEmailId());
-        Assert.assertEquals("p@gmail.com",deletedtrack.getEmailId());
-        verify(userRepository,times(2)).findById(user.getEmailId());
-        verify(userRepository,times(1)).deleteById(user.getEmailId());
+        User deletedtrack = userService.deleteUser(user.getEmailId());
+        Assert.assertEquals("p@gmail.com", deletedtrack.getEmailId());
+        verify(userRepository, times(2)).findById(user.getEmailId());
+        verify(userRepository, times(1)).deleteById(user.getEmailId());
     }
+
     @Test
     public void updateUserTest() throws UserNotFoundException {
         userRepository.save(user);
-        User savedUser = userService.updateUser(user.getEmailId(),user);
+        User savedUser = userService.updateUser(user.getEmailId(), user);
         when(userRepository.findAll()).thenReturn(list);
         List<User> userlist = userService.getAllUsers();
-        Assert.assertEquals(list,userlist);
+        Assert.assertEquals(list, userlist);
     }
+
     @Test
     public void getByIdTest() throws UserNotFoundException {
         when(userRepository.findById(user.getEmailId())).thenReturn(optional);
-        User t=userService.getById(user.getEmailId());
-        Assert.assertEquals("p@gmail.com",t.getEmailId());
+        User t = userService.getById(user.getEmailId());
+        Assert.assertEquals("p@gmail.com", t.getEmailId());
     }
+
     @Test(expected = UserNotFoundException.class)
     public void getByIdFailureTest() throws UserNotFoundException {
         when(userRepository.findById("a@gmail.com")).thenReturn(optional);
-        User t=userService.getById(user.getEmailId());
-        Assert.assertNotEquals("a@gmail.com",t.getEmailId());;
+        User t = userService.getById(user.getEmailId());
+        Assert.assertNotEquals("a@gmail.com", t.getEmailId());
+        ;
     }
 }

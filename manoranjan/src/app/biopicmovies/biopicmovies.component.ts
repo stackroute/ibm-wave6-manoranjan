@@ -10,13 +10,13 @@ import { Media } from '../media';
 export class BiopicmoviesComponent implements OnInit {
 
   movies;
-  movies1=new Array<Media>()
-  constructor(private mediaService:MediaService) { }
+  movies1 = new Array<Media>()
+  constructor(private mediaService: MediaService) { }
 
   ngOnInit() {
-    this.mediaService.getMovieByGenre("biopic").subscribe(data=>{
-      this.movies=data
-      this.movies1=this.movies
+    this.mediaService.getMovieByGenre("biopic").subscribe(data => {
+      this.movies = data
+      this.movies1 = this.movies
       console.log(this.movies1)
     })
   }

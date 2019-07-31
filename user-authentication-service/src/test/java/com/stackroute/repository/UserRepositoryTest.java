@@ -20,12 +20,12 @@ import java.util.List;
 public class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
-    private User user,user1;
+    private User user, user1;
 
     @Before
     public void setUp() {
         user = new User();
-        user1=new User();
+        user1 = new User();
         user.setEmailId("p@gmail.com");
         user.setPassword("Pooja@110");
         user.setRole("user");
@@ -34,49 +34,55 @@ public class UserRepositoryTest {
         user1.setPassword("Pooja@110");
         user1.setRole("user");
     }
+
     @After
     public void tearDown() {
-
         userRepository.deleteAll();
     }
+
     @Test
-    public void getAllUsersTest(){
+    public void getAllUsersTest() {
         userRepository.save(user);
         List<User> list = userRepository.findAll();
         System.out.println(list);
-        Assert.assertEquals(user.getEmailId(),list.get(0).getEmailId());
+        Assert.assertEquals(user.getEmailId(), list.get(0).getEmailId());
     }
+
     @Test
-    public void getAllUsersFailureTest(){
+    public void getAllUsersFailureTest() {
         userRepository.save(user);
         List<User> list = userRepository.findAll();
         System.out.println(list);
-        Assert.assertNotEquals("a@gmail.com",list.get(0).getEmailId());
+        Assert.assertNotEquals("a@gmail.com", list.get(0).getEmailId());
     }
+
     @Test
-    public void saveUserTest(){
+    public void saveUserTest() {
         userRepository.save(user);
-        Assert.assertEquals(user.getEmailId(),"p@gmail.com");
+        Assert.assertEquals(user.getEmailId(), "p@gmail.com");
     }
+
     @Test
-    public void saveUserFailureTest(){
+    public void saveUserFailureTest() {
         userRepository.save(user);
-        Assert.assertNotEquals(user.getEmailId(),"a@gmail.com");
+        Assert.assertNotEquals(user.getEmailId(), "a@gmail.com");
     }
+
     @Test
-    public void deleteUserTest(){
+    public void deleteUserTest() {
         userRepository.save(user);
         userRepository.save(user1);
         userRepository.delete(user);
         List<User> list = userRepository.findAll();
-        Assert.assertEquals("a@gmail.com",list.get(0).getEmailId());
+        Assert.assertEquals("a@gmail.com", list.get(0).getEmailId());
     }
+
     @Test
-    public void deleteUserFailureTest(){
+    public void deleteUserFailureTest() {
         userRepository.save(user);
         userRepository.save(user1);
         userRepository.delete(user1);
         List<User> list = userRepository.findAll();
-        Assert.assertNotEquals("a@gmail.com",list.get(0).getEmailId());
+        Assert.assertNotEquals("a@gmail.com", list.get(0).getEmailId());
     }
 }

@@ -1,4 +1,4 @@
 export class Cast {
-    screenName:string;
-    realName:string;
+    screenName: string;
+    realName: string;
 }

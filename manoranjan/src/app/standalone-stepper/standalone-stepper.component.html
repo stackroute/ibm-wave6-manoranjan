@@ -1,11 +1,12 @@
+
 <app-nav></app-nav>
-<section fxLayout="row wrap" fxLayoutAlign="center center" class="section" style="background-color: black;margin-top: 150px" >
-<mat-card fxFlex="1000px" fxFlex.xs="50%" id="outerMatCard">
-<mat-horizontal-stepper labelPosition="bottom" #stepper >
-    <mat-step [stepControl]="firstForm">
-        <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal" (ngSubmit)="onFirstSubmit(firstFormGroup.value)" >
-            <ng-template matStepLabel><span class="headingStyle">Catalog</span></ng-template>
-      
+<section fxLayout="row wrap" fxLayoutAlign="center center"  class="section"  style="background-color: black ;margin-top: 150px" >
+    <mat-card fxFlex="1000px" fxFlex.xs="50%" id="outerMatCard" >
+  <mat-horizontal-stepper labelPosition="bottom" #stepper >
+
+      <mat-step [stepControl]="firstForm">
+          <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal" (ngSubmit)="onFirstSubmit(firstFormGroup.value)" >
+              <ng-template matStepLabel><span class="headingStyle">Catalog</span></ng-template>
             <mat-card class="example-card"  style="margin-top:-70px" >
                 <mat-card-content class="content" >
                   <div class="container3">
@@ -15,9 +16,7 @@
                           </div>
                           </div>
                     <mat-card class="example-card">
-              
                         <mat-card-content class="content">
-                    
                           <mat-grid-list cols="3" id="firstgrid">
                             <mat-grid-tile >
                                 <mat-button-toggle class="imageCard"  (change)="onSubmInterest($event.value)" value="romantic">
@@ -316,23 +315,20 @@
       <form #viewerForm="ngForm" class="form-horizontal" >
           <ng-template matStepLabel><span class="headingStyle">Status</span></ng-template>
           <mat-card class="example-card">
-        
               <mat-card-content class="content">
-                  <div class="container1">
+                  <div class="container3">
                     <h3>Thank you!</h3>
                     <br>
                     <p>Click PUBLISH to successfully upload!</p>
                     </div>
                    </mat-card-content>
-                   <div id="bottomButton">
-                <button id="publish" type="submit" (click)="saveMedia()" mat-stroked-button matStepperNext>Publish</button>
+                   <div id="bottomButton" >
+                <button type="submit" (click)="saveMedia()" mat-stroked-button matStepperNext>Publish</button>
               </div>
               </mat-card>   
-          
       </form>
       </mat-step>
 </mat-horizontal-stepper> 
 </mat-card>
 </section>
 <app-footer></app-footer>
-

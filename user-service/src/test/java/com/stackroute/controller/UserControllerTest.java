@@ -39,14 +39,13 @@ public class UserControllerTest {
     @InjectMocks
     private UserController userController;
 
-    private List<User> list =null;
+    private List<User> list = null;
 
     @Before
-    public void setUp(){
+    public void setUp() {
 
         MockitoAnnotations.initMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(userController).setControllerAdvice(new GlobalException()).build();
-//        mockMvc = MockMvcBuilders.standaloneSetup(trackController).build();
         user = new User();
         user.setEmailId("p@gmail.com");
         user.setName("Pooja");
@@ -62,6 +61,7 @@ public class UserControllerTest {
         list = new ArrayList();
         list.add(user);
     }
+
     @Test
     public void getAllUsersTest() throws Exception {
         userService.saveUser(user);
@@ -71,6 +71,7 @@ public class UserControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
+
     @Test
     public void saveUserTest() throws Exception {
         when(userService.saveUser(any())).thenReturn(user);
@@ -80,6 +81,7 @@ public class UserControllerTest {
                 .andDo(MockMvcResultHandlers.print());
 
     }
+
     @Test
     public void saveUserFailureTest() throws Exception {
         when(userService.saveUser(any())).thenThrow(UserAllReadyExistException.class);
@@ -88,34 +90,38 @@ public class UserControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isConflict())
                 .andDo(MockMvcResultHandlers.print());
     }
+
     @Test
     public void updateUserTest() throws Exception {
-        when(userService.updateUser(user.getEmailId(),user)).thenReturn(user);
-        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/user/emailId")
+        when(userService.updateUser(user.getEmailId(), user)).thenReturn(user);
+        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/user/email")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andDo(MockMvcResultHandlers.print());
     }
+
     @Test
     public void updateUserFailureTset() throws Exception {
-        when(userService.updateUser(any(),any())).thenThrow(UserNotFoundException.class);
-        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/user/emailId")
+        when(userService.updateUser(any(), any())).thenThrow(UserNotFoundException.class);
+        mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/user/email")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(MockMvcResultMatchers.status().isConflict())
                 .andDo(MockMvcResultHandlers.print());
     }
+
     @Test
     public void getByIdTest() throws Exception {
         when(userService.getById(user.getEmailId())).thenReturn(user);
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/users/emailId")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/users/email")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andDo(MockMvcResultHandlers.print());
     }
+
     @Test
     public void getByIdFailureTest() throws Exception {
         when(userService.getById(any())).thenThrow(UserNotFoundException.class);
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/users/emailId")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/users/email")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(MockMvcResultMatchers.status().isConflict())
                 .andDo(MockMvcResultHandlers.print());
@@ -124,25 +130,26 @@ public class UserControllerTest {
     @Test
     public void deleteUserTest() throws Exception {
         when(userService.deleteUser(user.getEmailId())).thenReturn(user);
-        mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/user/emailId")
+        mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/user/email")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andDo(MockMvcResultHandlers.print());
     }
+
     @Test
     public void deleteUserFailureTest() throws Exception {
         when(userService.deleteUser(any())).thenThrow(UserNotFoundException.class);
-        mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/user/emailId")
+        mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/user/email")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(MockMvcResultMatchers.status().isConflict())
                 .andDo(MockMvcResultHandlers.print());
     }
-    private static String asJsonString(final Object obj)
-    {
-        try{
+
+    private static String asJsonString(final Object obj) {
+        try {
             return new ObjectMapper().writeValueAsString(obj);
 
-        }catch(Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
