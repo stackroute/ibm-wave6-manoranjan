@@ -1,11 +1,6 @@
 <div id="container">
     <h4><span>{{heading}}</span></h4>
-    <div ng2-carouselamos class="slides-wrapper"
-        [items]="list"
-        [width]="1150"
-        [$prev]="prev"
-        [$next]="next"
-        [$item]="item">
+    <div ng2-carouselamos class="slides-wrapper" [items]="list" [width]="1150" [$prev]="prev" [$next]="next" [$item]="item">
     </div>
 
     <ng-template #prev>
@@ -21,4 +16,4 @@
             <img class="latest" src="{{ item.episodicPosterUrl }}" (click)="sendDetails(item)">
         </div>
     </ng-template>
-</div> 
+</div>

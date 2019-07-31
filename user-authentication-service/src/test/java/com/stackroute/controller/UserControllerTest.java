@@ -40,11 +40,10 @@ public class UserControllerTest {
     @InjectMocks
     private UserController userController;
 
-    private List<User> list =null;
+    private List<User> list = null;
 
     @Before
-    public void setUp(){
-
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(userController).setControllerAdvice(new GlobalException()).build();
         user = new User();
@@ -54,6 +53,7 @@ public class UserControllerTest {
         list = new ArrayList();
         list.add(user);
     }
+
     @Test
     public void getAllUserTest() throws Exception {
         when(userService.getAllUsers()).thenReturn(list);
@@ -62,6 +62,7 @@ public class UserControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
+
     @Test
     public void saveUserTest() throws Exception {
         when(userService.saveUser(any())).thenReturn(user);
@@ -70,6 +71,7 @@ public class UserControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
+
     @Test
     public void saveUserFailureTest() throws Exception {
         when(userService.saveUser(any())).thenThrow(UserAlreadyExistsException.class);
@@ -78,9 +80,10 @@ public class UserControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isConflict())
                 .andDo(MockMvcResultHandlers.print());
     }
+
     @Test
     public void findByEmailIdAndPasswordTest() throws Exception {
-        when(userService.findByEmailIdAndPassword(any(),any())).thenReturn(user);
+        when(userService.findByEmailIdAndPassword(any(), any())).thenReturn(user);
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/user")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -88,12 +91,11 @@ public class UserControllerTest {
 
     }
 
-    private static String asJsonString(final Object obj)
-    {
-        try{
+    private static String asJsonString(final Object obj) {
+        try {
             return new ObjectMapper().writeValueAsString(obj);
 
-        }catch(Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

@@ -13,14 +13,21 @@ import java.util.Collection;
 import java.util.List;
 
 public interface MediaService {
-    public Collection<StandaloneMedia> getStandaloneMedias()throws MediaNotFoundException;
-    public Collection<EpisodicMedia> getEpisodicMedias()throws MediaNotFoundException;
-    public List<StandaloneMedia> displayMedia() throws MediaNotFoundException;
-    public Collection<Language> getLanguages()throws LanguageNotFoundException;
-    public Collection<Genre> getGenres()throws GenreNotFoundException;
-    public StandaloneMedia getStandaloneMediaByTitle(String title)throws MediaNotFoundException;
-    public EpisodicMedia getEpisodicMediaByTitle(String title)throws MediaNotFoundException;
-    public StandaloneMedia saveStandaloneMedia(StandaloneMedia standaloneMedia)throws MediaAlreadyExistException;
-    public EpisodicMedia saveEpisodicMedia(EpisodicMedia episodicMedia)throws MediaAlreadyExistException;
+    public Collection<StandaloneMedia> getStandaloneMedias() throws MediaNotFoundException;
 
+    public Collection<EpisodicMedia> getEpisodicMedias() throws MediaNotFoundException;
+
+    public List<StandaloneMedia> displayMedia() throws MediaNotFoundException;
+
+    public Collection<Language> getLanguages() throws LanguageNotFoundException;
+
+    public Collection<Genre> getGenres() throws GenreNotFoundException;
+
+    public StandaloneMedia getStandaloneMediaByTitle(String title) throws MediaNotFoundException;
+
+    public EpisodicMedia getEpisodicMediaByTitle(String title) throws MediaNotFoundException;
+
+    public StandaloneMedia saveStandaloneMedia(StandaloneMedia standaloneMedia) throws MediaAlreadyExistException;
+
+    public EpisodicMedia saveEpisodicMedia(EpisodicMedia episodicMedia) throws MediaAlreadyExistException;
 }

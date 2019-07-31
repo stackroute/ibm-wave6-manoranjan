@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalException {
     @ExceptionHandler(UserAllReadyExistException.class)
-    public ResponseEntity<?> handleUserAllReadyExistException(UserAllReadyExistException e){
+    public ResponseEntity<?> handleUserAllReadyExistException(UserAllReadyExistException e) {
         return new ResponseEntity<String>("User Already exist", HttpStatus.CONFLICT);
     }
+
     @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<?> handleUserNotFoundException(UserNotFoundException e){
+    public ResponseEntity<?> handleUserNotFoundException(UserNotFoundException e) {
         return new ResponseEntity<String>("User Not Found", HttpStatus.CONFLICT);
     }
 }

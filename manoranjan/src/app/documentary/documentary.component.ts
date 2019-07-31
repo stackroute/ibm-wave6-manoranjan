@@ -10,13 +10,13 @@ import { MediaService } from '../media.service';
 export class DocumentaryComponent implements OnInit {
 
   documentaries;
-  documentaries1=new Array<Media>()
-  constructor(private mediaService:MediaService) { }
+  documentaries1 = new Array<Media>()
+  constructor(private mediaService: MediaService) { }
 
   ngOnInit() {
-    this.mediaService.getStandalone("Documentary").subscribe(data=>{
-      this.documentaries=data
-      this.documentaries1=this.documentaries
+    this.mediaService.getStandalone("Documentary").subscribe(data => {
+      this.documentaries = data
+      this.documentaries1 = this.documentaries
       console.log(this.documentaries1)
     })
   }

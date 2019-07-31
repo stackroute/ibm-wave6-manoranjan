@@ -20,35 +20,31 @@ import java.util.Optional;
 @Service
 public class UserPaymentServiceImpl implements UserPaymentService {
 
-    UserPayment userPayment=null;
+    UserPayment userPayment = null;
     UserPaymentRepository userPaymentRepository;
 
     @Autowired
     UserRepository userRepository;
 
-    public UserPaymentServiceImpl(UserRepository userRepository)
-    {
-        this.userRepository=userRepository;
+    public UserPaymentServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Autowired
-    public UserPaymentServiceImpl(UserPaymentRepository userPaymentRepository)
-    {
-        this.userPaymentRepository=userPaymentRepository;
+    public UserPaymentServiceImpl(UserPaymentRepository userPaymentRepository) {
+        this.userPaymentRepository = userPaymentRepository;
     }
 
     @Autowired
-    KafkaTemplate<UserPayment,UserPayment> kafkaTemplate;
+    KafkaTemplate<UserPayment, UserPayment> kafkaTemplate;
 
-    private static String topic= "savedUser";
+    private static String topic = "savedUser";
 
     @Override
-    public UserPayment saveUserPayment(UserPayment userPayment)  {
-
-            UserPayment saveUser = (UserPayment) userPaymentRepository.save(userPayment);
-
+    public UserPayment saveUserPayment(UserPayment userPayment) {
+        UserPayment saveUser = (UserPayment) userPaymentRepository.save(userPayment);
         System.out.println(saveUser);
-        kafkaTemplate.send(topic,saveUser);
+        kafkaTemplate.send(topic, saveUser);
         return saveUser;
 
 
@@ -59,9 +55,10 @@ public class UserPaymentServiceImpl implements UserPaymentService {
 
         return userPaymentRepository.findAll();
     }
+
     @Override
     public UserPayment deleteUser(String emailId) {
-        userPayment= null;
+        userPayment = null;
         Optional optional = userPaymentRepository.findById(emailId);
         if (optional.isPresent()) {
             userPayment = userPaymentRepository.findById(emailId).get();
@@ -71,7 +68,7 @@ public class UserPaymentServiceImpl implements UserPaymentService {
     }
 
     @Override
-    @KafkaListener(topics = "saveUser",groupId = "Group_JsonObject1")
+    @KafkaListener(topics = "saveUser", groupId = "Group_JsonObject1")
     public User saveUser(User user) {
         User saveUser = (User) userRepository.save(user);
         System.out.println(saveUser);

@@ -1,274 +1,339 @@
-.container{
-  height: 378px;
-  margin-left: -40px;
-}
-.container1{
-  margin-top: 30px;
-  height: 487px;
-}
-.container2{
-  height: 558px;
-}
-.container3{
-  height:282px;
-}
-h3{
-  margin-top: 250px;
-  color: green;
-}
-p{
-  color: green;
+.container {
+    height: 378px;
+    margin-left: -40px;
 }
 
-  .example-card {
+.container1 {
+    margin-top: 30px;
+    height: 487px;
+}
+
+.container2 {
+    height: 558px;
+}
+
+.container3 {
+    height: 282px;
+}
+
+h3 {
+    margin-top: 250px;
+    color: green;
+}
+
+p {
+    color: green;
+}
+
+.example-card {
     max-width: 100%;
-    width:100%;
+    width: 100%;
     font-family: 'Merriweather', serif;
     font-weight: bold;
     overflow: hidden;
-      }
-  .fill-remaining-space{
-  flex: 1 1 auto;
-  }
-  #language{
-    margin-top: 150px;
-  }
-  
-  #input{
-    margin-left: 10px;
-  }
-  #input1{
-    margin-left: 15px;
-  }
+}
 
-  #poster{
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+#language {
+    margin-top: 150px;
+}
+
+#input {
+    margin-left: 10px;
+}
+
+#input1 {
+    margin-left: 15px;
+}
+
+#poster {
     margin-left: -10px;
-  }
-  #type{
+}
+
+#type {
     margin-left: -15px;
-  }
-  #episodeList{
+}
+
+#episodeList {
     margin-left: 220px;
     color: blue;
-  }
-  #episodeList td{
-    width:100px;
-  }
-   mat-toolbar {
-   background-color: white;
-  }
-
-.addButton{
-  margin-left: 28%;
 }
-  table{
+
+#episodeList td {
+    width: 100px;
+}
+
+mat-toolbar {
+    background-color: white;
+}
+
+.addButton {
+    margin-left: 28%;
+}
+
+table {
     margin: auto;
-  }
-  ul li{
+}
+
+ul li {
     list-style-type: none;
-  }
-  ul{
+}
+
+ul {
     color: blue;
     list-style-type: none;
-  }
-  ul li table{
-    margin-left: 132px;
-  }
-  ul li table tr td{
-    border: 1px solid black;
-  }
- .name{
-   margin-left: -10px;
- }
- .role{
-  margin-left: -5px;
- }
-#submit1{
-  margin-left: 280px;
 }
- .screenName{
-  margin-left: -10px;
-}
-.realName{
-  margin-left: -5px;  
-}
-  mat-card{
-  height: 100%;
-  margin-top: 10px;
-  overflow: hidden;
-  }
 
-  .content1{
+ul li table {
+    margin-left: 132px;
+}
+
+ul li table tr td {
+    border: 1px solid black;
+}
+
+.name {
+    margin-left: -10px;
+}
+
+.role {
+    margin-left: -5px;
+}
+
+#submit1 {
+    margin-left: 280px;
+}
+
+.screenName {
+    margin-left: -10px;
+}
+
+.realName {
+    margin-left: -5px;
+}
+
+mat-card {
+    height: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.content1 {
     margin-left: 10px;
-    
-  } 
-  .form3 .form3-heading{
+}
+
+.form3 .form3-heading {
     font-weight: bold;
     margin-left: -64%;
-  }
-  .form3 .videoFile{
-    margin-left: -40px;
-  }
-  .form3 .description{
-    margin-left: -38px;
-  }
-  .form3 .poster{
-    margin-left: -60px;
-  }
-  .form3 .releaseDate{
-    margin-left: -20px;
-  }
-  p,tr td, .form-control,button,.headingStyle,mat-radio-button {
-    font-family: 'Merriweather', serif;
-  }
+}
 
-  mat-button-toggle{
-  height: 125px;
-  width: 175px;
-  margin-right: 10px;
-  
-  }
-  .mark{
+.form3 .videoFile {
+    margin-left: -40px;
+}
+
+.form3 .description {
+    margin-left: -38px;
+}
+
+.form3 .poster {
+    margin-left: -60px;
+}
+
+.form3 .releaseDate {
+    margin-left: -20px;
+}
+
+p,
+tr td,
+.form-control,
+button,
+.headingStyle,
+mat-radio-button {
+    font-family: 'Merriweather', serif;
+}
+
+mat-button-toggle {
+    height: 125px;
+    width: 175px;
+    margin-right: 10px;
+}
+
+.mark {
     color: red;
-  }
-  
-  .form-horizontal{
-      text-align: center;
-      margin-left: 22%;
-      margin-right: 22%;
-  }
-  
-  .form-group{
-      text-align: center;
-  }
-  
-  .column {
+}
+
+.form-horizontal {
+    text-align: center;
+    margin-left: 22%;
+    margin-right: 22%;
+}
+
+.form-group {
+    text-align: center;
+}
+
+.column {
     float: left;
     width: 45%;
-  }
-  
-  /* Remove extra left and right margins, due to padding */
-  .row {margin: 0 -5px;}
-  
-  /* Clear floats after the columns */
-  .row:after {
+}
+
+
+/* Remove extra left and right margins, due to padding */
+
+.row {
+    margin: 0 -5px;
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
     content: "";
     display: table;
     clear: both;
-  }
-  
-  /* Responsive columns */
-  @media screen and (max-width: 600px) {
+}
+
+
+/* Responsive columns */
+
+@media screen and (max-width: 600px) {
     .column {
-      width: 100%;
-      display: block;
+        width: 100%;
+        display: block;
     }
-  }
-  label{
-    font-size:15px;
+}
+
+label {
+    font-size: 15px;
     font-weight: bold;
-  }
-  #studioName{
+}
+
+#studioName {
     margin-left: -6px;
     margin-top: 50px;
-  }
-  #input4{
+}
+
+#input4 {
     margin-left: 5px;
     margin-top: 50px;
-  }
-  #screenName{
-    margin-left:90px;
+}
+
+#screenName {
+    margin-left: 90px;
     margin-top: -50px;
-  }
-  #realName{
+}
+
+#realName {
     margin-top: -50px;
     margin-left: -12px;
-  }
-  #input5{
+}
+
+#input5 {
     margin-top: 20px;
     margin-left: 160px;
-  }
+}
 
-  #input6{
+#input6 {
     margin-top: 20px;
-  }
+}
 
-  #name{
+#name {
     margin-top: -50px;
     margin-left: 90px;
-  }
-  #role{
+}
+
+#role {
     margin-left: -33px;
     margin-top: -50px;
-  }
-  #input2{
+}
+
+#input2 {
     margin-top: 20px;
-    margin-left:160px;
-  }
-  #input3{
+    margin-left: 160px;
+}
+
+#input3 {
     margin-top: 20px;
-  }
-  
-  /* Style the counter cards */
-  .card {
+}
+
+
+/* Style the counter cards */
+
+.card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
     background-color: #f1f1f1;
-  }
-  section{
+}
+
+section {
     margin-top: 4%;
     margin-left: 140px;
     margin-right: 135px;
-    height:100%;
+    height: 100%;
     overflow: hidden;
     margin-bottom: 1%;
-  }
-  
-    .person-icon{
-        width: 200px;
-        height: 200px;
-    }
-  form{
-  border-block-start-color: black;
-  border-block-end-color: black;
-  border-block-start-width: 10px;
-  }
-  mat-form-field input{
+}
+
+.person-icon {
+    width: 200px;
+    height: 200px;
+}
+
+form {
+    border-block-start-color: black;
+    border-block-end-color: black;
+    border-block-start-width: 10px;
+}
+
+mat-form-field input {
     margin-top: -70px;
-  }
-  #episodeNumber{
-    margin-top:100px;
-  }
-  
-  #input7{
+}
+
+#episodeNumber {
     margin-top: 100px;
-  }
-  #videoFile{
+}
+
+#input7 {
+    margin-top: 100px;
+}
+
+#videoFile {
     margin-left: -23px;
-  }
-  #input8{
+}
+
+#input8 {
     margin-left: 25px;
-  }
-  #upload{
+}
+
+#upload {
     margin-left: 495px;
     margin-top: -34px;
-  }
-  #description{
+}
+
+#description {
     margin-left: -16px;
-  }
-  #input9{
+}
+
+#input9 {
     margin-left: 16px;
-  }
-  #poster1{
+}
+
+#poster1 {
     margin-left: -33px;
-  }
-  #input10{
+}
+
+#input10 {
     margin-left: 33px;
-  }
-  #releaseDate{
+}
+
+#releaseDate {
     margin-left: -10px;
     margin-top: 22px;
-  }
-  #date{
+}
+
+#date {
     margin-left: -58px;
-  }
+}

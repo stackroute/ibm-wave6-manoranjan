@@ -26,6 +26,7 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+
 @RunWith(SpringRunner.class)
 @WebMvcTest
 public class UserPaymentControllerTest {
@@ -48,7 +49,7 @@ public class UserPaymentControllerTest {
         userPayment = new UserPayment();
         userPayment.setEmailId("an@gmail.com");
         userPayment.setPackageName("180days");
-        Date date= Date.valueOf(java.time.LocalDate.now());
+        Date date = Date.valueOf(java.time.LocalDate.now());
         userPayment.setMydate(date);
         list = new ArrayList();
         list.add(userPayment);
@@ -58,16 +59,17 @@ public class UserPaymentControllerTest {
     @Test
     //testcase for saving user package details
     public void saveUser() throws Exception {
-        when(userPaymentService.saveUserPayment((UserPayment)any())).thenReturn(userPayment);
+        when(userPaymentService.saveUserPayment((UserPayment) any())).thenReturn(userPayment);
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/user")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(userPayment)))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andDo(MockMvcResultHandlers.print());
     }
+
     @Test
     //failure case for saving the user package details
     public void saveUserFailure() throws Exception {
-        when(userPaymentService.saveUserPayment((UserPayment)any())).thenThrow();
+        when(userPaymentService.saveUserPayment((UserPayment) any())).thenThrow();
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/user")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(userPayment)))
                 .andExpect(MockMvcResultMatchers.status().isConflict())

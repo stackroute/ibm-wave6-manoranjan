@@ -1,139 +1,22 @@
 <div class="main">
     <!--documentry cards-->
-    <!-- <div class="container">
+    <div class="container">
         <h4>Biopic Movies</h4>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-2">
+                <div class="col-sm-2" *ngFor="let movie of movies1">
                     <div class="box">
                         <div class="imgbox">
-                            <img src="../../assets/biopic/bio1.webp" class="image" routerLink="/movie">
+                            <img src="{{movie.mediaPosterUrl}}" class="image" routerLink="/movie/{{movie.mediaTitle}}">
                         </div>
                         <div class="content">
-                            <h3>MS Dhoni: The Untold Story</h3>
-                            <p>A tell-all tale about the life and times of Indian cricketer Mahendra Singh Dhoni,
-                                 mapping his journ ...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="box">
-                        <div class="imgbox">
-                            <img src="../../assets/biopic/bio2.webp" class="image" routerLink="/movie">
-                        </div>
-                        <div class="content">
-                            <h3>Neerja</h3>
-                            <p>A biopic on Head Purser, Neerja Bhanot; who sacrificed her life at a young age for
-                                 the safety of the ...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="box">
-                        <div class="imgbox">
-                            <img src="../../assets/biopic/bio3.webp" class="image">
-                        </div>
-                        <div class="content">
-                            <h3>Gandhi</h3>
-                            <p>Spanning 56 out of his 79 years, the film traces Gandhi's life starting with his
-                                 days in South Afric ...</p>
-                        </div>
-                    </div>
-                </div> 
-                <div class="col-sm-2">
-                    <div class="box">
-                        <div class="imgbox">
-                            <img src="../../assets/biopic/bio4.webp" class="image">
-                        </div>
-                        <div class="content">
-                            <h3>Sanju</h3>
-                            <p>A heartwarming, real-life story of actor Sanjay Dutt throwing light on his 
-                                complicated relationships ...</p>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-sm-2">
-                    <div class="box">
-                        <div class="imgbox">
-                            <img src="../../assets/biopic/bio5.webp" class="image">
-                        </div>
-                        <div class="content">
-                            <h3>MS Dhoni: The Untold Story</h3>
-                            <p>MS Dhoni - The Untold Story (2016) is a dubbed Telugu version of the Hindi movie by
-                                 the same name. A ...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="box">
-                        <div class="imgbox">
-                            <img src="../../assets/biopic/bio6.jpg" class="image">
-                        </div>
-                        <div class="content">
-                            <h3>Bhaag Milkha Bhaag</h3>
-                            <p>A biopic on Milkha Singh aka 'The Flying Sikh,' the film chronicles his incredible
-                                 struggle; from be ...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="box">
-                        <div class="imgbox">
-                            <img src="../../assets/biopic/bio7.jpg" class="image"routerLink="/movie" >
-                        </div>
-                        <div class="content">
-                            <h3>Sachin: A Billion Dreams</h3>
-                            <p>Sachin: A Billion Dreams is a 2017 Indian docudrama-biographical sports film directed
-                                 by James Erskine and produced by Ravi Bhagchandka...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="box">
-                        <div class="imgbox">
-                            <img src="../../assets/biopic/bio8.jpg" class="image">
-                        </div>
-                        <div class="content">
-                            <h3>PM Narendra Modi</h3>
-                            <p>PM Narendra Modi is a 2019 Hindi-language biographical drama film, directed by Omung
-                                 ... Initially actor Paresh Rawal was to play Narendra Modi </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="box">
-                        <div class="imgbox">
-                            <img src="../../assets/biopic/bio9.jpg" class="image">
-                        </div>
-                        <div class="content">
-                            <h3>Mary Kom</h3>
-                            <p>When Mary Kom encounters a renowned coach in a boxing gym, she shares her boxing 
-                                aspirations with him and convinces him to teach her. </p>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-        </div> 
-    </div> -->
-    <!-- endcard -->
-        <div class="container">
-            <h4>Biopic Movies</h4>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-2" *ngFor="let movie of movies1">
-                        <div class="box">
-                            <div class="imgbox">
-                                <img src="{{movie.mediaPosterUrl}}" class="image" 
-                                routerLink="/movie/{{movie.mediaTitle}}">
-                            </div>
-                            <div class="content">
-                                <h3>{{movie.mediaTitle}}</h3>
-                                <p>{{movie.mediaSynopsis}}</p>
-                            </div>
+                            <h3>{{movie.mediaTitle}}</h3>
+                            <p>{{movie.mediaSynopsis}}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-<br><br><br><br>
+    </div>
+    <br><br><br><br>
 </div>

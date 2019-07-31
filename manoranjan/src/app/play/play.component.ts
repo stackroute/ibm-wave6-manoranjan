@@ -11,17 +11,16 @@ export class PlayComponent implements OnInit {
 
   url;
   title
-  constructor(private activatedRoute:ActivatedRoute,private sanitizer:DomSanitizer) {
-    // this.videoUrl=false
-   }
+  constructor(private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) {
+  }
 
   ngOnInit() {
-    this.activatedRoute.paramMap.subscribe(params=>{
-      this.title=params.get('title')
-      this.url=params.get('url')
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.title = params.get('title')
+      this.url = params.get('url')
       console.log(this.url);
     });
 
-    this.url=this.sanitizer.bypassSecurityTrustResourceUrl("rtmp://localhost:1935/vod/mp4:"+this.url)
+    this.url = this.sanitizer.bypassSecurityTrustResourceUrl("rtmp://localhost:1935/vod/mp4:" + this.url)
   }
 }
