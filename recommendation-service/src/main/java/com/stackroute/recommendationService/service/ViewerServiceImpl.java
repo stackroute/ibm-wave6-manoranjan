@@ -19,10 +19,6 @@ public class ViewerServiceImpl implements ViewerService {
 
     @Autowired
     private GenreRepository genreRepository;
-    @Autowired
-    EpisodicMediaRepository episodicMediaRepository;
-    @Autowired
-    StandaloneMediaRepository standaloneMediaRepository;
 
     public Collection<Viewer> getAll()throws ViewerNotFoundException {
         if (viewerRepository.getAllViewers()==null){
