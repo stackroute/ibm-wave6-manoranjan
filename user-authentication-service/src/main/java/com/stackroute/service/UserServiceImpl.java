@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    User user;
+    private User user;
 
     private UserRepository userRepo;
 
@@ -36,7 +36,6 @@ public class UserServiceImpl implements UserService {
             throw new UserAlreadyExistsException();
         }
         else
-            System.out.println(user);
             return userRepo.save(user);
 
     }

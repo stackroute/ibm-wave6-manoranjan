@@ -26,7 +26,7 @@ public class UserController {
     {
         ResponseEntity responseEntity;
         userService.saveUser(user);
-        responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.OK);
+        responseEntity=new ResponseEntity<>("Successfully created", HttpStatus.OK);
         return responseEntity;
     }
 
@@ -36,33 +36,33 @@ public class UserController {
         ResponseEntity responseEntity;
         try {
             userService.saveUserPayment(userPackage);
-            responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.OK);
+            responseEntity=new ResponseEntity<>("Successfully created", HttpStatus.OK);
         }
 
         catch(Exception e)
         {
-            responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);
+            responseEntity=new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
         }
         return responseEntity;
     }
     @GetMapping("users")
-    public ResponseEntity<?> getAllUsers() throws UserNotFoundException {
-        return new ResponseEntity<List<User>>(userService.getAllUsers(),HttpStatus.OK);
+    public ResponseEntity<?> getAllUsers()  {
+        return new ResponseEntity<>(userService.getAllUsers(),HttpStatus.OK);
     }
     @GetMapping("user/wish/{email}")
     public ResponseEntity<?> getAllWishlist(@PathVariable("email") String emailId) throws UserNotFoundException {
-        return new ResponseEntity<List<List<String>>>(userService.getAllWishlist(emailId),HttpStatus.OK);
+        return new ResponseEntity<>(userService.getAllWishlist(emailId),HttpStatus.OK);
     }
     @GetMapping("user/history/{email}")
     public ResponseEntity<?> getAllHistory(@PathVariable("email") String emailId) throws UserNotFoundException {
-        return new ResponseEntity<List<List<String>>>(userService.getAllHistory(emailId),HttpStatus.OK);
+        return new ResponseEntity<>(userService.getAllHistory(emailId),HttpStatus.OK);
     }
     @GetMapping("/users/{email}")
     public ResponseEntity<?> getById(@PathVariable("email") String emailId) throws UserNotFoundException{
         ResponseEntity responseEntity;
         User user=null;
         user=userService.getById(emailId);
-        responseEntity=new ResponseEntity<User>(user, HttpStatus.CREATED);
+        responseEntity=new ResponseEntity<>(user, HttpStatus.CREATED);
         return responseEntity;
     }
     @DeleteMapping("/user/{email}")
@@ -70,7 +70,7 @@ public class UserController {
     {
         ResponseEntity responseEntity;
         userService.deleteUser(emailId);
-        responseEntity=new ResponseEntity<String>("Deleted Successfully", HttpStatus.CREATED);
+        responseEntity=new ResponseEntity<>("Deleted Successfully", HttpStatus.CREATED);
         return responseEntity;
     }
     @PutMapping("/user/{email}")
@@ -78,7 +78,7 @@ public class UserController {
     {
         ResponseEntity responseEntity;
         userService.updateUser(emailId,user);
-        responseEntity = new ResponseEntity<User>(user, HttpStatus.CREATED);
+        responseEntity = new ResponseEntity<>(user, HttpStatus.CREATED);
         return responseEntity;
     }
 

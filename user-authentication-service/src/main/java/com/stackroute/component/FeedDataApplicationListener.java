@@ -18,7 +18,7 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent)
     {
-//        userRepository.save(new User(0,"admin", "123", "admin"));
+        // default implementation ignored
     }
 
 

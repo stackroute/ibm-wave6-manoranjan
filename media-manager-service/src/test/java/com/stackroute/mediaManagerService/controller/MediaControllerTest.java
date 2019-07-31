@@ -49,10 +49,10 @@ public class MediaControllerTest {
     private Media media;
     private EpisodicMedia episodicMedia;
 
-    List<Media> mediaList=null;
-    List<EpisodicMedia> episodicMediaList=null;
+    private List<Media> mediaList=null;
+    private List<EpisodicMedia> episodicMediaList=null;
 
-    List<Episode> episodes;
+    private List<Episode> episodes;
 
     private Episode episode;
     private Episode episode1;

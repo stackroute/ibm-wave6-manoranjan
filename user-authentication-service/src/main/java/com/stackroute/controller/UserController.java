@@ -6,7 +6,6 @@ import com.stackroute.jwt.SecurityTokenGenerator;
 import com.stackroute.service.UserService;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,8 +63,6 @@ public class UserController {
 
             map1.put("token", jwtToken);
 
-//            map1.put("message", "User successfully logged in");
-
             map1.put("message", user.getRole());
 
             return map1;
@@ -73,21 +70,19 @@ public class UserController {
         };
         Map<String, String> map = securityTokenGenrator.generateToken(user);
         return new ResponseEntity<>(map, HttpStatus.OK);
-//        return new ResponseEntity<>(user.getRole(),HttpStatus.OK);
-
     }
     @ApiOperation(value = "Gets all the user details(username,password,role)")
     @GetMapping("/users")
     public ResponseEntity<?> getAllUser() throws UserNotFoundException
     {
-        return new ResponseEntity<List<User>>(userService.getAllUsers(), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
     @ApiOperation(value = "It saves all the user details")
     @PostMapping("/users/user")
     public ResponseEntity<?> saveEvent(@RequestBody User user) throws UserAlreadyExistsException {
 
-        return new ResponseEntity<User>(userService.saveUser(user), HttpStatus.OK);
+        return new ResponseEntity<>(userService.saveUser(user), HttpStatus.OK);
 
     }
 
