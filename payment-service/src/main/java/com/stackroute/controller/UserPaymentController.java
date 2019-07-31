@@ -34,6 +34,7 @@ public class UserPaymentController {
 
             return responseEntity;
         }
+        return responseEntity;
     }
 
     @PostMapping("user-email")

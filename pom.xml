@@ -110,25 +110,12 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-<<<<<<< HEAD
-
-=======
->>>>>>> ec5e1d5b171f2891a835da62153df5fdf28dfbfc
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<pluginManagement>
-       			<plugins>
-           			<plugin>
-           		    		<groupId>org.sonarsource.scanner.maven</groupId>
-              				 <artifactId>sonar-maven-plugin</artifactId>
-               				<version>3.6.0.1398</version>
-           			</plugin>
-       			</plugins>
-   		</pluginManagement>
 	</build>
 
 </project>
