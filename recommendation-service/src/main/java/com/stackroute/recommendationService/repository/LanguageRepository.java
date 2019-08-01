@@ -4,7 +4,6 @@ import com.stackroute.recommendationService.domain.Language;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
-
 import java.util.Collection;
 
 public interface LanguageRepository extends Neo4jRepository<Language, Long> {

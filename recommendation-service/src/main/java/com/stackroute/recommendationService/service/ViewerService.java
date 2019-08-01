@@ -3,7 +3,6 @@ package com.stackroute.recommendationService.service;
 import com.stackroute.recommendationService.domain.Viewer;
 import com.stackroute.recommendationService.exception.ViewerAlreadyExistException;
 import com.stackroute.recommendationService.exception.ViewerNotFoundException;
-
 import java.util.Collection;
 
 public interface ViewerService {

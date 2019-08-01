@@ -12,9 +12,11 @@ import org.neo4j.ogm.annotation.NodeEntity;
 @AllArgsConstructor
 @Builder
 @NodeEntity
-public class Language {
+public class WebSeries {
 
     @GraphId
     private Long id;
-    private String language;
+    private String title;
+    private String episodeCategory;
+    private String episodeLanguage;
 }
