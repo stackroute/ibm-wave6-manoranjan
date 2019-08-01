@@ -19,6 +19,7 @@ import java.util.Map;
 @EnableKafka
 public class UserConfiguration {
 
+    //kafka producer factory configuration for user
     @Bean
     public ProducerFactory<User, User> producerFactory() {
         Map<Object, Object> config = new HashMap<>();
@@ -30,12 +31,14 @@ public class UserConfiguration {
 
     }
 
+    //kafka template for storing user details
     @Bean
     public KafkaTemplate<User, User> kafkaTemplate() {
         return new KafkaTemplate<User, User>(producerFactory());
 
     }
 
+    //consumer factory for user payment
     @Bean
     public ConsumerFactory<UserPayment, UserPayment> consumerFactory() {
         Map<String, Object> config = new HashMap<>();
@@ -48,6 +51,7 @@ public class UserConfiguration {
 
     }
 
+    //consurrent kafka listener factory for consuming user payment details from kafka
     @Bean
     public ConcurrentKafkaListenerContainerFactory<UserPayment, UserPayment> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<UserPayment, UserPayment> factory = new ConcurrentKafkaListenerContainerFactory();

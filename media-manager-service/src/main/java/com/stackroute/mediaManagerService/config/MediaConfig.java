@@ -17,6 +17,7 @@ import java.util.Map;
 @Configuration
 public class MediaConfig {
 
+    //kafka producer factory for standalone media
     @Bean
     public ProducerFactory<Media, Media> producerFactory() {
         Map<Object, Object> config = new HashMap<>();
@@ -28,12 +29,14 @@ public class MediaConfig {
 
     }
 
+    //sending standalone media to kafkatemplate
     @Bean
     public KafkaTemplate<Media, Media> kafkaTemplate() {
         return new KafkaTemplate<Media, Media>(producerFactory());
 
     }
 
+    //kafka producer factory for episodic media
     @Bean
     public ProducerFactory<EpisodicMedia, EpisodicMedia> producerFactory1() {
         Map<Object, Object> config = new HashMap<>();
@@ -45,12 +48,14 @@ public class MediaConfig {
 
     }
 
+    //sending episodic media to kafkaTemplate1
     @Bean
     public KafkaTemplate<EpisodicMedia, EpisodicMedia> kafkaTemplate1() {
         return new KafkaTemplate<EpisodicMedia, EpisodicMedia>(producerFactory1());
 
     }
 
+    //kafka producer factory for episodes
     @Bean
     public ProducerFactory<Episode, Episode> producerFactory2() {
         Map<Object, Object> config = new HashMap<>();
@@ -62,6 +67,7 @@ public class MediaConfig {
 
     }
 
+    //sending episodes to kafkatemplate2
     @Bean
     public KafkaTemplate<Episode, Episode> kafkaTemplate2() {
         return new KafkaTemplate<Episode, Episode>(producerFactory2());

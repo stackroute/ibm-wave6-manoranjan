@@ -28,6 +28,7 @@ public class MediaController {
     @Autowired
     private MediaService mediaService;
 
+    //posting standalone media
     @PostMapping("/media")
     public ResponseEntity<?> saveMedia(@RequestBody Media media) throws MediaAlreadyExistsException {
         Media media1;
@@ -35,6 +36,7 @@ public class MediaController {
         return new ResponseEntity<Media>(media1, HttpStatus.OK);
     }
 
+    //posting episodic media
     @PostMapping("/serial")
     public ResponseEntity<?> saveSerial(@RequestBody EpisodicMedia media) throws MediaAlreadyExistsException {
         EpisodicMedia media1 = new EpisodicMedia();
@@ -42,11 +44,13 @@ public class MediaController {
         return new ResponseEntity<EpisodicMedia>(media1, HttpStatus.OK);
     }
 
+    //posting single episode
     @PostMapping("/episode/{serial-title}")
     public ResponseEntity<?> saveEpisode(@PathVariable("serial-title") String serialTitle, @RequestBody Episode episode) throws MediaNotFoundException, MediaAlreadyExistsException {
         return new ResponseEntity<>(mediaService.addEpisode(serialTitle, episode), HttpStatus.OK);
     }
 
+    //getting all the standalone media
     @GetMapping("/medias")
     public ResponseEntity<?> getAllMedias() throws MediaNotFoundException {
         List<Media> mediaList;
@@ -54,6 +58,7 @@ public class MediaController {
         return new ResponseEntity<List<Media>>(mediaList, HttpStatus.OK);
     }
 
+    //getting all the episodic media
     @GetMapping("/serials")
     public ResponseEntity<?> getAllSerials() throws MediaNotFoundException {
         List<EpisodicMedia> episodicMediaList;
@@ -61,63 +66,74 @@ public class MediaController {
         return new ResponseEntity<List<EpisodicMedia>>(episodicMediaList, HttpStatus.OK);
     }
 
+    //searching all the episodes of single episodic media
     @GetMapping("/episodes/{title}")
     public ResponseEntity<?> getAllEpisodes(@PathVariable("title") String serialTitle) throws MediaNotFoundException {
         return new ResponseEntity<List<Episode>>(mediaService.getAllEpisodes(serialTitle), HttpStatus.OK);
     }
 
+    //searching single standalone media by title
     @GetMapping("/media/{title}")
     public ResponseEntity<?> getMediaById(@PathVariable("title") String mediaTitle) throws MediaNotFoundException {
         return new ResponseEntity<Media>(mediaService.getMediaById(mediaTitle), HttpStatus.OK);
     }
 
+    //searching single episodic media by title
     @GetMapping("/serial/{title}")
     public ResponseEntity<?> getSerialById(@PathVariable("title") String serialTitle) throws MediaNotFoundException {
         return new ResponseEntity<EpisodicMedia>(mediaService.getSerialByTitle(serialTitle), HttpStatus.OK);
     }
 
-
+    //seraching the episode by episode title and episode number
     @GetMapping("/episode/{title}/{episode-num}")
     public ResponseEntity<?> getEpisodeById(@PathVariable("title") String serialTitle, @PathVariable("episodeNum") int episodeNum) throws MediaNotFoundException {
         return new ResponseEntity<>(mediaService.getEpisodeById(serialTitle, episodeNum), HttpStatus.OK);
     }
 
+    //searching the standalone media by genre
     @GetMapping("/media/movie/{genre}")
     public ResponseEntity<?> getMediaByGenre(@PathVariable("genre") String genre) throws MediaNotFoundException {
         return new ResponseEntity<List<Media>>(mediaService.getMediaByGenre(genre), HttpStatus.OK);
     }
 
+    //searching the episodic media by language
     @GetMapping("/series/tv/{language}")
     public ResponseEntity<?> getSerialByLanguage(@PathVariable("language") String language) throws MediaNotFoundException {
         return new ResponseEntity<List<EpisodicMedia>>(mediaService.getTvSerialByLanguage(language), HttpStatus.OK);
     }
 
+    //searching the standalone media by category
     @GetMapping("/media/category/{category}")
     public ResponseEntity<?> getSpecificCategoryMedia(@PathVariable("category") String category) throws MediaNotFoundException {
         return new ResponseEntity<List<Media>>(mediaService.getMediaByCategory(category), HttpStatus.OK);
     }
 
+    //searching the episodic media by category
     @GetMapping("/series/category/{category}")
     public ResponseEntity<?> getEpisodicByCategory(@PathVariable("category") String category) throws MediaNotFoundException {
         return new ResponseEntity<List<EpisodicMedia>>(mediaService.getSerialByCategory(category), HttpStatus.OK);
     }
 
+    //displaying all the standalone media
     @PostMapping("/media/list")
     public ResponseEntity<?> getMediaList(@RequestBody List<List<String>> medias) {
         return new ResponseEntity<List<Object>>(mediaService.getMediaList(medias), HttpStatus.OK);
     }
 
+    //deleting standalone media by title
     @DeleteMapping("/media/{title}")
     public ResponseEntity<?> deleteMedia(@PathVariable("title") String mediaTitle) throws MediaNotFoundException {
         return new ResponseEntity<Media>(mediaService.deleteMedia(mediaTitle), HttpStatus.OK);
     }
 
+    //deleting episodic media by title
     @DeleteMapping("/serial/{title}")
     public ResponseEntity<?> deleteSerial(@PathVariable("title") String serialTitle) throws MediaNotFoundException {
         return new ResponseEntity<EpisodicMedia>(mediaService.deleteSerial(serialTitle), HttpStatus.OK);
 
     }
 
+    //deleting episodic media by tiel an episode number
     @DeleteMapping("/episode/{title}/{episode-num}")
     public ResponseEntity<?> deleteEpisode(@PathVariable("title") String serialTitle, @PathVariable("episodeNum") int episodeNum) throws MediaNotFoundException {
         return new ResponseEntity<Episode>(mediaService.deleteEpisode(serialTitle, episodeNum), HttpStatus.OK);
@@ -125,6 +141,7 @@ public class MediaController {
 
     List<String> files = new ArrayList<String>();
 
+    //uploading files
     @PostMapping("/post")
     public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) {
         String message = "";
@@ -151,6 +168,7 @@ public class MediaController {
         return ResponseEntity.ok().body(fileNames);
     }
 
+    //searching file by filenames
     @GetMapping("/files/{filename:.+}")
     @ResponseBody
     public ResponseEntity<Resource> getFile(@PathVariable String filename) {

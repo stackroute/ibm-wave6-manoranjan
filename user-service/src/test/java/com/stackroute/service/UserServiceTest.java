@@ -65,6 +65,7 @@ public class UserServiceTest {
         optional = null;
     }
 
+    //testcase for get all users
     @Test
     public void getAllUsers() throws UserNotFoundException {
         userRepository.save(user);
@@ -74,6 +75,7 @@ public class UserServiceTest {
         Assert.assertEquals(list, userlist);
     }
 
+    //testcase for delete user
     @Test
     public void deleteUserTest() throws UserNotFoundException {
         when(userRepository.findById(user.getEmailId())).thenReturn(optional);
@@ -83,6 +85,7 @@ public class UserServiceTest {
         verify(userRepository, times(1)).deleteById(user.getEmailId());
     }
 
+    //testcase for update user
     @Test
     public void updateUserTest() throws UserNotFoundException {
         userRepository.save(user);
@@ -92,6 +95,7 @@ public class UserServiceTest {
         Assert.assertEquals(list, userlist);
     }
 
+    //testcase for get by id
     @Test
     public void getByIdTest() throws UserNotFoundException {
         when(userRepository.findById(user.getEmailId())).thenReturn(optional);
@@ -99,6 +103,7 @@ public class UserServiceTest {
         Assert.assertEquals("p@gmail.com", t.getEmailId());
     }
 
+    //testcase for get by id failure
     @Test(expected = UserNotFoundException.class)
     public void getByIdFailureTest() throws UserNotFoundException {
         when(userRepository.findById("a@gmail.com")).thenReturn(optional);

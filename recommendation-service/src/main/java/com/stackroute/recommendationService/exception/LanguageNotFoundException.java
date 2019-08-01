@@ -6,6 +6,7 @@ public class LanguageNotFoundException extends Exception {
     public LanguageNotFoundException() {
     }
 
+    //language not found exception handling method
     public LanguageNotFoundException(String message) {
         super(message);
         this.message1 = message;

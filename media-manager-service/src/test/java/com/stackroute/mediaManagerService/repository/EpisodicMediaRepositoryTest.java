@@ -90,18 +90,21 @@ public class EpisodicMediaRepositoryTest {
         episodicMediaRepository.deleteAll();
     }
 
+    //testcase for save episodic media
     @Test
     public void saveEpisodicMediaTest_returnTrueIfSavedMediaExist() {
         episodicMediaRepository.save(episodicMedia);
         Assert.assertEquals(true, episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle()));
     }
 
+    //testcase for save episodic media failure
     @Test
     public void saveEpisodicMediaFailureTest_returnFalseAsSavedMediaExists() {
         episodicMediaRepository.save(episodicMedia);
         Assert.assertNotEquals(false, episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle()));
     }
 
+    //testcase for delete episode media
     @Test
     public void deleteEpisodicMediaTest_returnFalseAsDeletedMediaDoesNotExist() {
         episodicMediaRepository.save(episodicMedia);
@@ -109,6 +112,7 @@ public class EpisodicMediaRepositoryTest {
         Assert.assertEquals(false, episodicMediaRepository.findAll().contains(episodicMedia));
     }
 
+    //testcase for delete episodic media failure
     @Test
     public void deleteEpisodicMediaFailureTest_returnTrueAsDeletedMediaDoesNotExist() {
         episodicMediaRepository.save(episodicMedia);
@@ -116,6 +120,7 @@ public class EpisodicMediaRepositoryTest {
         Assert.assertNotEquals(true, episodicMediaRepository.findAll().contains(episodicMedia));
     }
 
+    //testcase for getallmedia
     @Test
     public void getAllMediaTest_returnListOfEpisodiCMediaContainingEpisodicMedia() {
         episodicMediaRepository.save(episodicMedia);
@@ -123,6 +128,7 @@ public class EpisodicMediaRepositoryTest {
         Assert.assertEquals(true, episodicMediaList.contains(episodicMedia));
     }
 
+    //testcase for getallmedia failure
     @Test
     public void getAllMediaTestFailureTest_returnListOfEpisodiCMediaContainingEpisodicMedia() {
         episodicMediaRepository.save(episodicMedia);

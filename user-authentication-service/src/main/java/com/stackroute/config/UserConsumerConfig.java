@@ -17,6 +17,7 @@ import java.util.Map;
 @Configuration
 public class UserConsumerConfig {
 
+    //kafka consumer factory onfigurtion
     @Bean
     public ConsumerFactory<User, User> consumerFactory() {
         Map<String, Object> config = new HashMap<>();
@@ -29,6 +30,7 @@ public class UserConsumerConfig {
 
     }
 
+    //concurrent kafka listener container factory for listening to kafka template
     @Bean
     public ConcurrentKafkaListenerContainerFactory<User, User> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<User, User> factory = new ConcurrentKafkaListenerContainerFactory();

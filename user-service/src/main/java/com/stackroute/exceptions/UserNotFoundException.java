@@ -6,6 +6,7 @@ public class UserNotFoundException extends Exception {
     public UserNotFoundException() {
     }
 
+    //user not found exception handler method
     public UserNotFoundException(String message) {
         super(message);
         this.message = message;

@@ -54,6 +54,7 @@ public class UserControllerTest {
         list.add(user);
     }
 
+    //testcase for get all all users
     @Test
     public void getAllUserTest() throws Exception {
         when(userService.getAllUsers()).thenReturn(list);
@@ -63,6 +64,7 @@ public class UserControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for save user
     @Test
     public void saveUserTest() throws Exception {
         when(userService.saveUser(any())).thenReturn(user);
@@ -72,6 +74,7 @@ public class UserControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for save user failure
     @Test
     public void saveUserFailureTest() throws Exception {
         when(userService.saveUser(any())).thenThrow(UserAlreadyExistsException.class);
@@ -81,6 +84,7 @@ public class UserControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for find by emailId and password
     @Test
     public void findByEmailIdAndPasswordTest() throws Exception {
         when(userService.findByEmailIdAndPassword(any(), any())).thenReturn(user);
