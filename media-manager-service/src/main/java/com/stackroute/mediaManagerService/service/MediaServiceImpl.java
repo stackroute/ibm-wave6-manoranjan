@@ -68,7 +68,8 @@ public class MediaServiceImpl implements MediaService {
     public Media getMediaById(String mediaTitle) throws MediaNotFoundException {
         if (mediaRepository.existsById(mediaTitle)) {
             return mediaRepository.findById(mediaTitle).get();
-        } else throw new MediaNotFoundException("Media not found");
+        }
+        else throw new MediaNotFoundException("Media not found");
     }
 
     @Override

@@ -23,14 +23,14 @@ public class UserPaymentController {
 
     @PostMapping("user")
     //posting the data in to the database
-    public ResponseEntity<String> saveUser(UserPayment userPayment) throws EmailIdNotFoundException {
+    public ResponseEntity<?> saveUser(@RequestBody UserPayment userPayment) throws EmailIdNotFoundException {
         ResponseEntity responseEntity;
 
         try {
             userPackageService.saveUserPayment(userPayment);
-            responseEntity = new ResponseEntity<String>("Successfully created", HttpStatus.CREATED);
+            responseEntity = new ResponseEntity<>("Successfully created", HttpStatus.CREATED);
         } catch (Exception e) {
-            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+            responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
 
             return responseEntity;
         }

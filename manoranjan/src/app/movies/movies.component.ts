@@ -61,14 +61,15 @@ export class MoviesComponent implements OnInit {
   }
 
   addWishlist(title,category){
-    // this.id = sessionStorage.getItem('email')
-    // if(this.id!==null){
-    //   this.userService.addToWishlist(this.id,title,category).subscribe(data=>{
-    //     console.log(data);
-    //   })
-    // }
-    // else{
-    //   this.router.navigateByUrl('/login');
-    // }
+    this.id = sessionStorage.getItem('email')
+    console.log(this.id)
+    if(this.id!==null){
+      this.userService.addToWishlist(this.id,title,category).subscribe(data=>{
+        console.log(data);
+      })
+    }
+    else{
+      this.router.navigateByUrl('/login');
+    }
   }
 }
