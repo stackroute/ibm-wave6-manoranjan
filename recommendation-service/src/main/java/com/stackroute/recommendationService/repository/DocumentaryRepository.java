@@ -1,8 +1,6 @@
 package com.stackroute.recommendationService.repository;
 
 import com.stackroute.recommendationService.domain.Documentary;
-import com.stackroute.recommendationService.domain.EpisodicMedia;
-import com.stackroute.recommendationService.domain.StandaloneMedia;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
