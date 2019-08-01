@@ -5,11 +5,14 @@ import com.stackroute.exception.UserAlreadyExistsException;
 import com.stackroute.exception.UserNotFoundException;
 import com.stackroute.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@CacheConfig(cacheNames = "user")
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -22,8 +25,18 @@ public class UserServiceImpl implements UserService {
         this.userRepo = repo;
     }
 
+    //to handle delay
+    public void simulateDelay(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     //finding user by emailId and password
+    @Cacheable
     @Override
     public User findByEmailIdAndPassword(String emailId, String password) {
         return userRepo.findByEmailIdAndPassword(emailId, password);
@@ -41,6 +54,7 @@ public class UserServiceImpl implements UserService {
     }
 
     //getting all the users
+    @Cacheable
     @Override
     public List<User> getAllUsers() throws UserNotFoundException {
         return userRepo.findAll();
