@@ -10,11 +10,14 @@ import java.util.Collection;
 @Repository
 public interface ViewerRepository extends Neo4jRepository<Viewer, Long> {
 
+    //Get all viewers
     @Query("MATCH (v:Viewer) RETURN v")
     Collection<Viewer> getAllViewers();
 
+    //find a viewer by its email id
     Viewer findByEmailId(@Param("emailId") String emailId);
 
+    //
     @Query("CREATE (v:Viewer {name:{name}, emailId:{emailId}})")
     Viewer createViewer(@Param("name") String name, @Param("emailId") String emailId);
 
