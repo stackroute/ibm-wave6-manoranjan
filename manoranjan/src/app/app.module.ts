@@ -125,9 +125,6 @@ import { DatacardComponent } from './datacard/datacard.component';
 import { DatacardepisodicComponent } from './datacardepisodic/datacardepisodic.component';
 import { NavComponent } from './nav/nav.component';
 import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component';
-import { StandaloneMediaComponent } from './standalone-media/standalone-media.component';
-
-
 
 @NgModule({
   declarations: [
@@ -235,8 +232,7 @@ import { StandaloneMediaComponent } from './standalone-media/standalone-media.co
     DatacardepisodicComponent,
     ProducernavComponent,
     NavComponent,
-    PaymentdialogComponent,
-    StandaloneMediaComponent
+    PaymentdialogComponent
   ],
   imports: [
     BrowserModule,

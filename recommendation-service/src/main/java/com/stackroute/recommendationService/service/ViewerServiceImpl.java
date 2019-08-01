@@ -3,16 +3,15 @@ package com.stackroute.recommendationService.service;
 import com.stackroute.recommendationService.domain.Viewer;
 import com.stackroute.recommendationService.exception.ViewerAlreadyExistException;
 import com.stackroute.recommendationService.exception.ViewerNotFoundException;
-import com.stackroute.recommendationService.repository.EpisodicMediaRepository;
 import com.stackroute.recommendationService.repository.GenreRepository;
-import com.stackroute.recommendationService.repository.StandaloneMediaRepository;
 import com.stackroute.recommendationService.repository.ViewerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-
 import java.util.Collection;
 
 @Service
+@Primary
 public class ViewerServiceImpl implements ViewerService {
 
     @Autowired
@@ -21,6 +20,7 @@ public class ViewerServiceImpl implements ViewerService {
     @Autowired
     private GenreRepository genreRepository;
 
+    //Method to get all viewers
     public Collection<Viewer> getAll() throws ViewerNotFoundException {
         if (viewerRepository.getAllViewers() == null) {
             throw new ViewerNotFoundException();
@@ -29,30 +29,22 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    //method to save viewer
     public Viewer saveViewer(Viewer viewer) throws ViewerAlreadyExistException {
         if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
+            viewerRepository.createViewer(viewer.getName(), viewer.getEmailId());
             int length = viewer.getGenre().size();
             for (int i = 0; i < length; i++) {
-                if (genreRepository.findGenreByName(viewer.getGenre().get(i)) == null) {
-                    if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
-                        viewerRepository.createNewViewerWithGenre(viewer.getName(), viewer.getEmailId(), viewer.getGenre().get(i));
-                    } else {
-                        viewerRepository.createGenreNode(viewer.getGenre().get(i));
-                        viewerRepository.createGenreRelation(viewer.getEmailId(), viewer.getGenre().get(i));
-                    }
-                } else if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
-                    viewerRepository.createViewer(viewer.getName(), viewer.getEmailId(), viewer.getGenre().get(i));
-                    viewerRepository.createGenreRelation(viewer.getEmailId(), viewer.getGenre().get(i));
-                } else {
-                    viewerRepository.createGenreRelation(viewer.getEmailId(), viewer.getGenre().get(i));
-                }
+                viewerRepository.createGenreRelation(viewer.getEmailId(), viewer.getGenre().get(i));
             }
-        } else {
+        }
+        else {
             throw new ViewerAlreadyExistException();
         }
         return viewer;
     }
 
+    //method to get viewer by emailId
     public Viewer getViewerByEmailId(String emailId) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
@@ -61,6 +53,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    //method to update viewer details
     public Viewer updateDetails(Viewer viewer) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
             throw new ViewerNotFoundException();
@@ -73,6 +66,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    //method to delete viewer by emailId
     public Collection<Viewer> deleteViewer(String emailId) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
@@ -83,19 +77,39 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
-    public Viewer saveStandaloneMediaRelation(String emailId, String title) throws ViewerNotFoundException {
+    //method to save viewer and documentary relation
+    public Viewer saveDocumentaryRelation(String emailId, String title) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
         } else {
-            return viewerRepository.createStandaloneMediaRelation(emailId, title);
+            return viewerRepository.createDocumentaryRelation(emailId, title);
         }
     }
 
-    public Viewer saveEpisodicMediaRelation(String emailId, String title) throws ViewerNotFoundException {
+    //method to save viewer and movie relation
+    public Viewer saveMovieRelation(String emailId, String title) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
         } else {
-            return viewerRepository.createEpisodicMediaRelation(emailId, title);
+            return viewerRepository.createMovieRelation(emailId, title);
+        }
+    }
+
+    //method to save viewer and TvEpisodes relation
+    public Viewer saveTvEpisodesRelation(String emailId, String title) throws ViewerNotFoundException {
+        if (viewerRepository.findByEmailId(emailId) == null) {
+            throw new ViewerNotFoundException();
+        } else {
+            return viewerRepository.createTvEpisodesRelation(emailId, title);
+        }
+    }
+
+    //method to save viewer and WebSeries relation
+    public Viewer saveWebSeriesRelation(String emailId, String title) throws ViewerNotFoundException {
+        if (viewerRepository.findByEmailId(emailId) == null) {
+            throw new ViewerNotFoundException();
+        } else {
+            return viewerRepository.createWebSeriesRelation(emailId, title);
         }
     }
 }

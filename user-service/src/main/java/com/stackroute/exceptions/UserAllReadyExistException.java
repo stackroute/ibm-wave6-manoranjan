@@ -6,6 +6,7 @@ public class UserAllReadyExistException extends Exception {
     public UserAllReadyExistException() {
     }
 
+    //user alredy exists exception handler method
     public UserAllReadyExistException(String message) {
         super(message);
         this.message = message;

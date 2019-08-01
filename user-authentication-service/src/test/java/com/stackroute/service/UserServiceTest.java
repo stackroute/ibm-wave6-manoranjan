@@ -57,6 +57,7 @@ public class UserServiceTest {
         optional = null;
     }
 
+    //testcase for save user
     @Test
     public void saveUserTest() throws UserAlreadyExistsException {
         when(userRepository.save((User) any())).thenReturn(user);
@@ -68,6 +69,7 @@ public class UserServiceTest {
 
     }
 
+    //testcase for get all users
     @Test
     public void getAllUsersTest() throws UserNotFoundException {
         userRepository.save(user);

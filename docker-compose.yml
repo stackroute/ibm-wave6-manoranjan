@@ -137,6 +137,36 @@ services:
     expose:
       - 8060
 
+  standalone-media-service:
+    image: standalone-media-service:1.0.0
+    build: standalone-media-service/
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - kafka
+      - mongo
+      - eureka-server
+      - zuul-api
+    ports:
+      - 8072:8072
+    expose:
+      - 8072
+
+  episodic-media-service:
+    image: episodic-media-service:1.0.0
+    build: episodic-media-service/
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - kafka
+      - mongo
+      - eureka-server
+      - zuul-api
+    ports:
+      - 8071:8071
+    expose:
+      - 8071
+
   payment-service:
     image: payment-service:1.0.0
     build: payment-service/

@@ -6,6 +6,7 @@ public class GenreNotFoundException extends Exception {
     public GenreNotFoundException() {
     }
 
+    //genre not found exception handler method
     public GenreNotFoundException(String message) {
         super(message);
         this.message1 = message;

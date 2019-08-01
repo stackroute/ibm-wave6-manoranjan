@@ -6,6 +6,7 @@ public class MediaAlreadyExistException extends Exception {
     public MediaAlreadyExistException() {
     }
 
+    //media already exists exception handler method
     public MediaAlreadyExistException(String message) {
         super(message);
         this.message1 = message;

@@ -19,7 +19,6 @@ public class EpisodicController {
     @Autowired
     private EpisodicService mediaService;
 
-
     @PostMapping("/serial")
     public ResponseEntity<?> saveSerial(@RequestBody EpisodicMedia media) throws MediaAlreadyExistsException {
         EpisodicMedia media1;
