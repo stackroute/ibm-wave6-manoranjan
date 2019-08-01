@@ -74,27 +74,6 @@ public class UserServiceTest {
         List<User> userlist = userService.getAllUsers();
         Assert.assertEquals(list, userlist);
     }
-
-    //testcase for delete user
-    @Test
-    public void deleteUserTest() throws UserNotFoundException {
-        when(userRepository.findById(user.getEmailId())).thenReturn(optional);
-        User deletedtrack = userService.deleteUser(user.getEmailId());
-        Assert.assertEquals("p@gmail.com", deletedtrack.getEmailId());
-        verify(userRepository, times(2)).findById(user.getEmailId());
-        verify(userRepository, times(1)).deleteById(user.getEmailId());
-    }
-
-    //testcase for update user
-    @Test
-    public void updateUserTest() throws UserNotFoundException {
-        userRepository.save(user);
-        User savedUser = userService.updateUser(user.getEmailId(), user);
-        when(userRepository.findAll()).thenReturn(list);
-        List<User> userlist = userService.getAllUsers();
-        Assert.assertEquals(list, userlist);
-    }
-
     //testcase for get by id
     @Test
     public void getByIdTest() throws UserNotFoundException {
