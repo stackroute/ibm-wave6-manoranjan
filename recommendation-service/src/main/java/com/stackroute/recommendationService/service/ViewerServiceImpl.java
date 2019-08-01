@@ -3,13 +3,10 @@ package com.stackroute.recommendationService.service;
 import com.stackroute.recommendationService.domain.Viewer;
 import com.stackroute.recommendationService.exception.ViewerAlreadyExistException;
 import com.stackroute.recommendationService.exception.ViewerNotFoundException;
-import com.stackroute.recommendationService.repository.EpisodicMediaRepository;
 import com.stackroute.recommendationService.repository.GenreRepository;
-import com.stackroute.recommendationService.repository.StandaloneMediaRepository;
 import com.stackroute.recommendationService.repository.ViewerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Collection;
 
 @Service
@@ -31,23 +28,13 @@ public class ViewerServiceImpl implements ViewerService {
 
     public Viewer saveViewer(Viewer viewer) throws ViewerAlreadyExistException {
         if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
+            viewerRepository.createViewer(viewer.getName(), viewer.getEmailId());
             int length = viewer.getGenre().size();
             for (int i = 0; i < length; i++) {
-                if (genreRepository.findGenreByName(viewer.getGenre().get(i)) == null) {
-                    if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
-                        viewerRepository.createNewViewerWithGenre(viewer.getName(), viewer.getEmailId(), viewer.getGenre().get(i));
-                    } else {
-                        viewerRepository.createGenreNode(viewer.getGenre().get(i));
-                        viewerRepository.createGenreRelation(viewer.getEmailId(), viewer.getGenre().get(i));
-                    }
-                } else if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
-                    viewerRepository.createViewer(viewer.getName(), viewer.getEmailId(), viewer.getGenre().get(i));
-                    viewerRepository.createGenreRelation(viewer.getEmailId(), viewer.getGenre().get(i));
-                } else {
-                    viewerRepository.createGenreRelation(viewer.getEmailId(), viewer.getGenre().get(i));
-                }
+                viewerRepository.createGenreRelation(viewer.getEmailId(), viewer.getGenre().get(i));
             }
-        } else {
+        }
+        else {
             throw new ViewerAlreadyExistException();
         }
         return viewer;

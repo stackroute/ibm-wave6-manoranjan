@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
-
 import java.util.List;
 
 @Data
@@ -21,5 +20,4 @@ public class Viewer {
     private String name;
     private String emailId;
     private List<String> genre;
-
 }

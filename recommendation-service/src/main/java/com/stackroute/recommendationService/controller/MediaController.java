@@ -6,7 +6,6 @@ import com.stackroute.recommendationService.service.MediaServiceImpl;
 import com.stackroute.recommendationService.service.ViewerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collection;
 
 @RestController
@@ -19,16 +18,24 @@ public class MediaController {
     @Autowired
     private ViewerServiceImpl viewerService;
 
-    //getting all the standalone media
-    @GetMapping("/standaloneMedias")
-    public Collection<StandaloneMedia> getStandaloneMedias() throws MediaNotFoundException {
-        return mediaService.getStandaloneMedias();
+    @GetMapping("/documentaries")
+    public Collection<Documentary> getDocumentary() throws MediaNotFoundException {
+        return mediaService.getDocumentary();
     }
 
-    //getting all the episodic media
-    @GetMapping("/episodicMedias")
-    public Collection<EpisodicMedia> getEpisodicMedias() throws MediaNotFoundException {
-        return mediaService.getEpisodicMedias();
+    @GetMapping("/movies")
+    public Collection<Movie> getMovie() throws MediaNotFoundException {
+        return mediaService.getMovie();
+    }
+
+    @GetMapping("/tvEpisodes")
+    public Collection<TvEpisodes> getTvEpisodes() throws MediaNotFoundException {
+        return mediaService.getTvEpisodes();
+    }
+
+    @GetMapping("/webSeries")
+    public Collection<WebSeries> getWebSeries() throws MediaNotFoundException {
+        return mediaService.getWebSeries();
     }
 
     //getting all the languages
@@ -43,28 +50,44 @@ public class MediaController {
         return mediaService.getGenres();
     }
 
-    //posting standalone media
-    @PostMapping("/standaloneMedia")
-    public StandaloneMedia saveNewStandaloneMedia(@RequestBody StandaloneMedia standaloneMedia) throws MediaAlreadyExistException {
-        return mediaService.saveStandaloneMedia(standaloneMedia);
+    @GetMapping("/documentary/{title}")
+    public Documentary getDocumentaryByTitle(@PathVariable("title") String title) throws MediaNotFoundException {
+        return mediaService.getDocumentaryByTitle(title);
     }
 
-    //posting episodic media
-    @PostMapping("/episodicMedia")
-    public EpisodicMedia saveNewEpisodicMedia(@RequestBody EpisodicMedia episodicMedia) throws MediaAlreadyExistException {
-        return mediaService.saveEpisodicMedia(episodicMedia);
+    @GetMapping("/movie/{title}")
+    public Movie getMovieByTitle(@PathVariable("title") String title) throws MediaNotFoundException {
+        return mediaService.getMovieByTitle(title);
     }
 
-    //getting standalone media by title
-    @GetMapping("/standaloneMedia/{title}")
-    public StandaloneMedia getStandaloneMediaByTitle(@PathVariable("title") String title) throws MediaNotFoundException {
-        return mediaService.getStandaloneMediaByTitle(title);
+    @GetMapping("/tvEpisodes/{title}")
+    public TvEpisodes getTvEpisodesByTitle(@PathVariable("title") String title) throws MediaNotFoundException {
+        return mediaService.getTvEpisodesByTitle(title);
     }
 
-    //getting episodic media by title
-    @GetMapping("/episodicMedia/{title}")
-    public EpisodicMedia getEpisodicMediaByTitle(@PathVariable("title") String title) throws MediaNotFoundException {
-        return mediaService.getEpisodicMediaByTitle(title);
+    @GetMapping("/webSeries/{title}")
+    public WebSeries getWebSeriesByTitle(@PathVariable("title") String title) throws MediaNotFoundException {
+        return mediaService.getWebSeriesByTitle(title);
+    }
+
+    @PostMapping("/standalone/documentary")
+    public Documentary saveNewDocumentary(@RequestBody Documentary documentary) throws MediaAlreadyExistException {
+        return mediaService.saveDocumentary(documentary);
+    }
+
+    @PostMapping("/standalone/movie")
+    public Movie saveNewMovie(@RequestBody Movie movie) throws MediaAlreadyExistException {
+        return mediaService.saveMovie(movie);
+    }
+
+    @PostMapping("/episodicMedia/tvEpisode")
+    public TvEpisodes saveNewTvEpisodes(@RequestBody TvEpisodes tvEpisodes) throws MediaAlreadyExistException {
+        return mediaService.saveTvEpisodes(tvEpisodes);
+    }
+
+    @PostMapping("/episodicMedia/webSeries")
+    public WebSeries saveNewWebSeries(@RequestBody WebSeries webSeries) throws MediaAlreadyExistException {
+        return mediaService.saveWebSeries(webSeries);
     }
 
     //getting all the viewers

@@ -4,19 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.NodeEntity;
+import org.springframework.data.annotation.Id;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@NodeEntity
 public class EpisodicMedia {
 
-    @GraphId
-    private Long id;
-    private String title;
-    private String language;
-
+    @Id
+    private String episodeTitle;
+    private String episodeCategory;
+    private String episodeLanguage;
+    private String episodeType;
 }
