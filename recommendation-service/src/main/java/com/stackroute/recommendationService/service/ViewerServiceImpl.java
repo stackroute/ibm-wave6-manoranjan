@@ -70,19 +70,35 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
-    public Viewer saveStandaloneMediaRelation(String emailId, String title) throws ViewerNotFoundException {
+    public Viewer saveDocumentaryRelation(String emailId, String title) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
         } else {
-            return viewerRepository.createStandaloneMediaRelation(emailId, title);
+            return viewerRepository.createDocumentaryRelation(emailId, title);
         }
     }
 
-    public Viewer saveEpisodicMediaRelation(String emailId, String title) throws ViewerNotFoundException {
+    public Viewer saveMovieRelation(String emailId, String title) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
         } else {
-            return viewerRepository.createEpisodicMediaRelation(emailId, title);
+            return viewerRepository.createMovieRelation(emailId, title);
+        }
+    }
+
+    public Viewer saveTvEpisodesRelation(String emailId, String title) throws ViewerNotFoundException {
+        if (viewerRepository.findByEmailId(emailId) == null) {
+            throw new ViewerNotFoundException();
+        } else {
+            return viewerRepository.createTvEpisodesRelation(emailId, title);
+        }
+    }
+
+    public Viewer saveWebSeriesRelation(String emailId, String title) throws ViewerNotFoundException {
+        if (viewerRepository.findByEmailId(emailId) == null) {
+            throw new ViewerNotFoundException();
+        } else {
+            return viewerRepository.createWebSeriesRelation(emailId, title);
         }
     }
 }

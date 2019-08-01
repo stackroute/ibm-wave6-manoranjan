@@ -22,10 +22,16 @@ public interface ViewerRepository extends Neo4jRepository<Viewer, Long> {
     @Query("MATCH (v:Viewer),(g:Genre) WHERE v.emailId={emailId} and g.genre={genre} CREATE (v)-[r:Interested_In]->(g) RETURN v")
     public Viewer createGenreRelation(@Param("emailId") String emailId, @Param("genre") String genre);
 
-    @Query("MATCH (v:Viewer),(s:StandaloneMedia) WHERE v.emailId={emailId} and s.title={title} CREATE (v)-[r:Watches]->(s) RETURN r")
-    public Viewer createStandaloneMediaRelation(@Param("emailId") String emailId, @Param("title") String title);
+    @Query("MATCH (v:Viewer),(d:Documentary) WHERE v.emailId={emailId} and d.title={title} CREATE (v)-[r:Watches]->(d) RETURN r")
+    public Viewer createDocumentaryRelation(@Param("emailId") String emailId, @Param("title") String title);
 
-    @Query("MATCH (v:Viewer),(e:EpisodicMedia) WHERE v.emailId={emailId} and e.title={title} CREATE (v)-[r:Watches]->(e) RETURN r")
-    public Viewer createEpisodicMediaRelation(@Param("emailId") String emailId, @Param("title") String title);
+    @Query("MATCH (v:Viewer),(m:Movie) WHERE v.emailId={emailId} and m.title={title} CREATE (v)-[r:Watches]->(m) RETURN r")
+    public Viewer createMovieRelation(@Param("emailId") String emailId, @Param("title") String title);
+
+    @Query("MATCH (v:Viewer),(t:TvEpisodes) WHERE v.emailId={emailId} and t.title={title} CREATE (v)-[r:Watches]->(t) RETURN r")
+    public Viewer createTvEpisodesRelation(@Param("emailId") String emailId, @Param("title") String title);
+
+    @Query("MATCH (v:Viewer),(w:WebSeries) WHERE v.emailId={emailId} and w.title={title} CREATE (v)-[r:Watches]->(w) RETURN r")
+    public Viewer createWebSeriesRelation(@Param("emailId") String emailId, @Param("title") String title);
 
 }
