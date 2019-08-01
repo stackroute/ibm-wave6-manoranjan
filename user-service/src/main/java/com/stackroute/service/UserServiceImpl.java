@@ -8,6 +8,9 @@ import com.stackroute.repository.UserPaymentRepository;
 import com.stackroute.repository.UserRepository;
 import com.stackroute.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -16,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@CacheConfig(cacheNames = "user")
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -38,7 +42,17 @@ public class UserServiceImpl implements UserService {
 
     private static String topic = "saveUser";
 
+    //to handle delay
+    public void simulateDelay(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     //adding new user
+    @CacheEvict(allEntries = true)
     @Override
     public User saveUser(User user) throws UserAllReadyExistException {
         if (userRepository.existsById(user.getEmailId())) {
@@ -56,6 +70,7 @@ public class UserServiceImpl implements UserService {
     }
 
     //fetching all the registered users
+    @Cacheable
     @Override
     public List<User> getAllUsers() {
 
@@ -63,6 +78,7 @@ public class UserServiceImpl implements UserService {
     }
 
     //delete user by email
+    @CacheEvict(allEntries = true)
     @Override
     public User deleteUser(String emailId) throws UserNotFoundException {
         User user = null;
@@ -76,6 +92,7 @@ public class UserServiceImpl implements UserService {
     }
 
     //updating user details by email
+    @CacheEvict(allEntries = true)
     @Override
     public User updateUser(String emailId, User user) throws UserNotFoundException {
         User user1 = new User();
@@ -93,12 +110,13 @@ public class UserServiceImpl implements UserService {
     }
 
     //fetching user by email id
+    @Cacheable
     @Override
     public User getById(String emailId) throws UserNotFoundException {
         User user;
         Optional optional = userRepository.findById(emailId);
         if (optional.isPresent()) {
-            user = (User) optional.get();
+            user = userRepository.findById(emailId).get();
 
         } else
             throw new UserNotFoundException("track");
@@ -106,6 +124,7 @@ public class UserServiceImpl implements UserService {
     }
 
     //getting all the wishlist elements by emailid
+    @Cacheable
     @Override
     public List<List<String>> getAllWishlist(String emailId) throws UserNotFoundException {
         List<List<String>> wish;
@@ -118,6 +137,7 @@ public class UserServiceImpl implements UserService {
     }
 
     //fetching the history by emailId
+    @Cacheable
     @Override
     public List<List<String>> getAllHistory(String emailId) throws UserNotFoundException {
         List<List<String>> history;
@@ -130,6 +150,7 @@ public class UserServiceImpl implements UserService {
     }
 
     //getting userpayment details from payment-service
+    @CacheEvict(allEntries = true)
     @Override
     public List<String> addToWishlish(String emailId, String title, String category) throws UserNotFoundException, DataAlreadyExistException {
         User user;
@@ -150,6 +171,8 @@ public class UserServiceImpl implements UserService {
         return data;
     }
 
+    //add to history
+    @CacheEvict(allEntries = true)
     @Override
     public List<String> addToHistory(String emailId, String title, String category) throws UserNotFoundException {
         User user;
