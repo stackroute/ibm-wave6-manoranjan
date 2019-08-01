@@ -10,9 +10,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class PlayComponent implements OnInit {
 
   url;
-  title
-  constructor(private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) {
-  }
+  title;
+  status:string ="false";
+  constructor(private activatedRoute:ActivatedRoute,private sanitizer:DomSanitizer) {
+   }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
@@ -21,6 +22,9 @@ export class PlayComponent implements OnInit {
       console.log(this.url);
     });
 
-    this.url = this.sanitizer.bypassSecurityTrustResourceUrl("rtmp://localhost:1935/vod/mp4:" + this.url)
+    this.url=this.sanitizer.bypassSecurityTrustResourceUrl("rtmp://13.235.52.81:1935/vod/mp4:"+this.url);
+    if(sessionStorage.getItem('email')!==null){
+      this.status="true";
+    }
   }
 }

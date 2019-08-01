@@ -133,7 +133,6 @@ export class StandaloneStepperComponent implements OnInit {
   }
 
   onFirstSubmit(value) {
-    console.log(this.firstFormGroup.controls.language.value)
     console.log("first");
     console.log(value);
     this.mediaDetails.push(value);
@@ -202,7 +201,7 @@ export class StandaloneStepperComponent implements OnInit {
       'mediaTitle': this.title,
       'mediaCategory': this.category,
       'mediaSynopsis': this.synopsis,
-      'mediaLanguage': this.mediaDetails[0].language,
+      'mediaLanguage': this.mediaDetails[2].language,
       'mediaReleaseDate': this.mediaDetails[0].date,
       'mediaStudioName': this.mediaDetails[1].studio,
       'mediaCrew': this.crewList,

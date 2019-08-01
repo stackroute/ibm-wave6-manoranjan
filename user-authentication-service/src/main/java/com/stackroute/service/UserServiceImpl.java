@@ -23,28 +23,27 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    //finding user by emailId and password
     @Override
     public User findByEmailIdAndPassword(String emailId, String password) {
         return userRepo.findByEmailIdAndPassword(emailId, password);
     }
 
 
+    //consuming user details from user-service using kafka
     @Override
     @KafkaListener(topics = "saveUser", groupId = "Group_JsonObject")
     public User saveUser(User user) throws UserAlreadyExistsException {
         if (userRepo.existsByEmailId(user.getEmailId())) {
             throw new UserAlreadyExistsException();
-        }
-        else
+        } else
             return userRepo.save(user);
-        }
+    }
 
-
-
+    //getting all the users
     @Override
     public List<User> getAllUsers() throws UserNotFoundException {
         return userRepo.findAll();
     }
-
 
 }

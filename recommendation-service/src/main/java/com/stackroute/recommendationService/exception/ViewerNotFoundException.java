@@ -6,6 +6,7 @@ public class ViewerNotFoundException extends Exception {
     public ViewerNotFoundException() {
     }
 
+    //viewer not found exception handler method
     public ViewerNotFoundException(String message) {
         super(message);
         this.message1 = message;

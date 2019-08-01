@@ -33,6 +33,7 @@ public class MediaServiceImpl implements MediaService {
     @Autowired
     private GenreRepository genreRepository;
 
+    //getting all standalone media's
     public Collection<StandaloneMedia> getStandaloneMedias() throws MediaNotFoundException {
         if (standaloneMediaRepository.getAllStandaloneMedias() == null) {
             throw new MediaNotFoundException();
@@ -41,6 +42,7 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //getting all episodic media's
     public Collection<EpisodicMedia> getEpisodicMedias() throws MediaNotFoundException {
         if (episodicMediaRepository.getAllEpisodicMedias() == null) {
             throw new MediaNotFoundException();
@@ -48,6 +50,7 @@ public class MediaServiceImpl implements MediaService {
             return episodicMediaRepository.getAllEpisodicMedias();
         }
     }
+
 
     public List<StandaloneMedia> displayMedia() throws MediaNotFoundException {
         if (standaloneMediaRepository.findAll() == null) {

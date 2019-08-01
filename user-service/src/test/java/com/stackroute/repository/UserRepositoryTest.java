@@ -58,6 +58,7 @@ public class UserRepositoryTest {
         userRepository.deleteAll();
     }
 
+    //testcase for get all users failure
     @Test
     public void getAllUsersFailureTest() {
         userRepository.save(user);
@@ -66,12 +67,14 @@ public class UserRepositoryTest {
         Assert.assertNotEquals("a@gmail.com", list.get(0).getEmailId());
     }
 
+    //testcase for save user
     @Test
     public void saveUserTest() {
         userRepository.save(user);
         Assert.assertEquals("p@gmail.com",user.getEmailId());
     }
 
+    //testcase for save user failure
     @Test
     public void saveUserFailureTest() {
         userRepository.save(user);
@@ -79,6 +82,7 @@ public class UserRepositoryTest {
 
     }
 
+    //testcase for delete user
     @Test
     public void deleteUserTest() {
         userRepository.save(user);
@@ -88,6 +92,7 @@ public class UserRepositoryTest {
         Assert.assertEquals("a@gmail.com", list.get(0).getEmailId());
     }
 
+    //testcase for delete user failure
     @Test
     public void deleteUserFailureTest() {
         userRepository.save(user);
@@ -97,6 +102,7 @@ public class UserRepositoryTest {
         Assert.assertNotEquals("a@gmail.com", list.get(0).getEmailId());
     }
 
+    //testcase for get by name
     @Test
     public void getByNameTest() throws UserNotFoundException {
         userRepository.save(user);
@@ -105,6 +111,7 @@ public class UserRepositoryTest {
         Assert.assertEquals(user1, t3);
     }
 
+    //testcase for delete name failure
     @Test
     public void getByNameFailureTest() throws UserNotFoundException {
         userRepository.save(user);

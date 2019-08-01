@@ -7,9 +7,12 @@ import com.stackroute.exception.UserNotFoundException;
 import java.util.List;
 
 public interface UserService {
-    User saveUser(User user) throws UserAlreadyExistsException; //Added new viewer
+    //Added new viewer
+    User saveUser(User user) throws UserAlreadyExistsException;
 
-    List<User> getAllUsers() throws UserNotFoundException;  // get all viewer
+    // get all viewers
+    List<User> getAllUsers() throws UserNotFoundException;
 
-    User findByEmailIdAndPassword(String emailId, String password); //find viewer by id and password
+    //find viewer by id and password
+    User findByEmailIdAndPassword(String emailId, String password);
 }

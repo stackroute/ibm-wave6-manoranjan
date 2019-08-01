@@ -1,6 +1,7 @@
 package com.stackroute.service;
 
 import com.stackroute.domain.UserPayment;
+import com.stackroute.exceptions.DataAlreadyExistException;
 import com.stackroute.exceptions.UserAllReadyExistException;
 import com.stackroute.domain.User;
 import com.stackroute.exceptions.UserNotFoundException;
@@ -28,6 +29,9 @@ public interface UserService {
     //get all history
     public List<List<String>> getAllHistory(String emailId) throws UserNotFoundException;
 
+    public List<String> addToWishlish(String emailId,String title,String category) throws UserNotFoundException, DataAlreadyExistException;
+
+    public List<String> addToHistory(String emailId,String title,String category) throws UserNotFoundException;
     //cosuming userservice through KAFKA
     public UserPayment saveUserPayment(UserPayment userPayment);
 

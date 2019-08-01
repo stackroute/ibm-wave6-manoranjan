@@ -1,40 +1,46 @@
 <div class="main">
-    <!--navbar section-->
-    <app-nav-norm></app-nav-norm>
-    <!--end of nevbar section-->
-    <!-- movie image -->
-    <div class="detail-page">
-        <div class="masthead-container">
-            <div class="masthead-card masthead-hover" style="background-color: rgb(18, 63, 68);">
-                <div class="content-holder">
-                    <div class="badge-wrapper"></div>
-                    <div class="toptitle clear-both">{{serial1.episodicTitle}}</div>
-                    <div class="content-meta">
-                        <span>
-                            <span class="meta-data">{{serial1.episodicLanguage}}</span>
-                        </span>
-                    </div>
-                    <div class="description">
-                        <!-- Based on a novel by Chetan Bhagat; North and South India come together in this chholey-bhaturey-idli-dosa romance of Punjabi Krish Malhotra and Tamilian Ananya Swaminathan, who meet at the IIM campus. -->
-                        {{serial1.episodicSynopsis}}
-                    </div>
-                </div>
-                <div class="image-holder">
-                    <div class="imageloader loaded">
-                        <span class="imageloader loaded">
-                            <img src="{{serial1.episodicPosterUrl}}">
-                        </span>
-                    </div>
-                    <div class="watch-share">
-                        <div class="watchlist-holder ">
-                            <div class="add-to-watchlist ">
-                                <div class="click-icon " title="Add to Watchlist">
-                                    <div class="click-icon-wrapper">
-                                        <div class="watchlist-icon bottom-right">
-                                            <i class="fa fa-list-ul" style="font-size:24px;color:white"></i>
-                                        </div>
-                                        <p class="icon-title bottom-right2">Wishlist</p>
-                                    </div>
+        <!--navbar section-->
+        <app-nav-norm *ngIf="status==='false'"></app-nav-norm>
+        <app-main-nav *ngIf="status==='true'"></app-main-nav>
+        <!--end of nevbar section-->
+        <!-- movie image -->
+            <div class="detail-page">
+                <div class="masthead-container">
+                    <div class="masthead-card masthead-hover" style="background-color: rgb(18, 63, 68);">
+                        <div class="content-holder">
+                            <div class="badge-wrapper"></div>
+                            <div class="toptitle clear-both">{{serial1.episodicTitle}}</div>
+                            <div class="content-meta"> 
+                                <span>
+                                    <!-- <span class="meta-data">2 hr 23 min</span> -->
+                                    <!-- <span class="meta-data">{{date|date:'short'}}</span> -->
+                                    <!-- <span class="meta-data">{{media1.mediaGenre}}</span> -->
+                                    <!-- <span class="meta-data">PG</span> -->
+                                    <span class="meta-data">{{serial1.episodicLanguage}}</span>
+                                </span> 
+                            </div>
+                            <div class="description">
+                                <!-- Based on a novel by Chetan Bhagat; North and South India come together in this chholey-bhaturey-idli-dosa romance of Punjabi Krish Malhotra and Tamilian Ananya Swaminathan, who meet at the IIM campus. -->
+                                {{serial1.episodicSynopsis}}
+                            </div>
+                        </div>
+                        <div class="image-holder">
+                            <div class="imageloader loaded">
+                                <span class="imageloader loaded">
+                                    <!-- <img src="https://secure-media1.hotstarext.com/r1/thumbs/PCTV/02/1000034502/PCTV-1000034502-hcdl.jpg"> -->
+                                    <img src="{{serial1.episodicPosterUrl}}">
+                                </span>
+                            </div>
+                            <div class="watch-share">
+                                <div class="watchlist-holder ">
+                                    <div class="add-to-watchlist ">
+                                        <div class="click-icon " title="Add to Watchlist">
+                                            <div class="click-icon-wrapper">    
+                                                <div class="watchlist-icon bottom-right">
+                                                    <i class="fa fa-list-ul" style="font-size:24px;color:white"></i> 
+                                                </div>
+                                                <p class="icon-title bottom-right2">Wishlist</p>
+                                            </div>
                                 </div>
                             </div>
                         </div>

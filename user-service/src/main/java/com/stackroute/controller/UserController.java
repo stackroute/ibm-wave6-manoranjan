@@ -1,6 +1,7 @@
 package com.stackroute.controller;
 
 import com.stackroute.domain.UserPayment;
+import com.stackroute.exceptions.DataAlreadyExistException;
 import com.stackroute.exceptions.UserAllReadyExistException;
 import com.stackroute.domain.User;
 import com.stackroute.exceptions.UserNotFoundException;
@@ -21,6 +22,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    //posting user details
     @PostMapping("user")
     public ResponseEntity<?> saveUser(@RequestBody User user) throws UserAllReadyExistException {
         ResponseEntity responseEntity;
@@ -29,6 +31,7 @@ public class UserController {
         return responseEntity;
     }
 
+    //posting user payment details
     @PostMapping("user-payment")
     public ResponseEntity<?> saveUser(@RequestBody UserPayment userPackage) {
         ResponseEntity responseEntity;
@@ -44,22 +47,36 @@ public class UserController {
         return responseEntity;
     }
 
+    //fetching all the users
     @GetMapping("users")
     public ResponseEntity<?> getAllUsers()  {
         return new ResponseEntity<>(userService.getAllUsers(),HttpStatus.OK);
     }
 
+    //fetchhing the user wishlist details by email
     @GetMapping("user/wish/{email}")
     public ResponseEntity<?> getAllWishlist(@PathVariable("email") String emailId) throws UserNotFoundException {
         return new ResponseEntity<>(userService.getAllWishlist(emailId),HttpStatus.OK);
 
     }
 
+    //fetching user history by email
     @GetMapping("user/history/{email}")
     public ResponseEntity<?> getAllHistory(@PathVariable("email") String emailId) throws UserNotFoundException {
         return new ResponseEntity<>(userService.getAllHistory(emailId),HttpStatus.OK);
     }
 
+    @PostMapping("/user/wish/{email}/{title}/{category}")
+    public ResponseEntity<?> addToWishlish(@PathVariable("email") String emailId,@PathVariable("title") String title,@PathVariable("category") String category) throws UserNotFoundException, DataAlreadyExistException {
+        return new ResponseEntity<>(userService.addToWishlish(emailId, title, category),HttpStatus.OK);
+    }
+
+    @PostMapping("/user/history/{email}/{title}/{category}")
+    public ResponseEntity<?> addToHistory(@PathVariable("email") String emailId,@PathVariable("title") String title,@PathVariable("category") String category) throws UserNotFoundException {
+        return new ResponseEntity<>(userService.addToHistory(emailId, title, category),HttpStatus.OK);
+    }
+
+    //fetching user by emailId
     @GetMapping("/users/{email}")
     public ResponseEntity<?> getById(@PathVariable("email") String emailId) throws UserNotFoundException {
         ResponseEntity responseEntity;
@@ -69,6 +86,7 @@ public class UserController {
         return responseEntity;
     }
 
+    //delting user by email
     @DeleteMapping("/user/{email}")
     public ResponseEntity<?> deleteUser(@PathVariable("email") String emailId) throws UserNotFoundException {
         ResponseEntity responseEntity;
@@ -77,6 +95,7 @@ public class UserController {
         return responseEntity;
     }
 
+    //updating user details by email
     @PutMapping("/user/{email}")
     public ResponseEntity<?> updateUser(@PathVariable("email") String emailId, @RequestBody User user) throws UserNotFoundException {
         ResponseEntity responseEntity;

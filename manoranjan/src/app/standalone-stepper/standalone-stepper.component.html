@@ -57,11 +57,12 @@
             <mat-grid-list cols="3" id="gridimages">
                 <mat-grid-tile>
                         <mat-button-toggle (change)="onSubmInterest($event.value)"  value="horror">
-                          <img  mat-card-md-image src="/assets/images/hnew.jpg" alt="Horror">
+                          <img  mat-card-md-image src="/assets/images/hnew.jpg" alt="horror">
                         </mat-button-toggle>
                   </mat-grid-tile>
                   <mat-grid-tile>
                           <mat-button-toggle (change)="onSubmInterest($event.value)" value="romantic">
+
                            <img  mat-card-md-image src="/assets/images/rnew.jpg" alt="romantic">
                           </mat-button-toggle>
                  </mat-grid-tile>
@@ -323,7 +324,7 @@
                     </div>
                    </mat-card-content>
                    <div id="bottomButton" >
-                <button type="submit" (click)="saveMedia()" mat-stroked-button matStepperNext>Publish</button>
+                <button id="publish" type="submit" (click)="saveMedia()" mat-stroked-button matStepperNext>Publish</button>
               </div>
               </mat-card>   
       </form>

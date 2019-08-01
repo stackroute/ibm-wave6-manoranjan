@@ -10,6 +10,7 @@ import java.util.Collection;
 @Repository
 public interface EpisodicMediaRepository extends Neo4jRepository<EpisodicMedia,Long> {
 
+    //query for get all episodes
     @Query("MATCH (e:EpisodicMedia) RETURN e")
     Collection<EpisodicMedia> getAllEpisodicMedias();
 
