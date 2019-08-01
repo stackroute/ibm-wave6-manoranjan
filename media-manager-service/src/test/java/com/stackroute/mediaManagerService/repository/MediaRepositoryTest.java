@@ -73,6 +73,7 @@ public class MediaRepositoryTest {
         mediaRepository.deleteAll();
     }
 
+    //testcase for save media
     @Test
     public void testSaveMedia_returnSavedMedia() {
         mediaRepository.save(media);
@@ -81,6 +82,7 @@ public class MediaRepositoryTest {
         Assert.assertEquals(media, media1);
     }
 
+    //testcase for save media failure
     @Test
     public void testSaveMediaFailure_returnSavedMedia() {
         mediaRepository.save(media);
@@ -89,6 +91,7 @@ public class MediaRepositoryTest {
 
     }
 
+    //testcase for all media
     @Test
     public void testAllMedia_returnListOfMedia() {
         mediaRepository.save(media);
@@ -96,6 +99,7 @@ public class MediaRepositoryTest {
         Assert.assertEquals(true, mediaList.contains(media));
     }
 
+    //test case for all media failure
     @Test
     public void testAllMediaFailure_returnListOfMedia() {
         mediaRepository.save(media);
@@ -103,7 +107,7 @@ public class MediaRepositoryTest {
         Assert.assertNotEquals(false, mediaList.contains(media));
     }
 
-
+    //testcase for delete media
     @Test
     public void testDeleteMedia_returnDeletedMedia() {
         mediaRepository.save(media);
@@ -112,6 +116,7 @@ public class MediaRepositoryTest {
         Assert.assertEquals(false, mediaList.contains(media));
     }
 
+    //testcase for delete media failure
     @Test
     public void testDeleteMediaFailure_returnDeletedMedia() {
         mediaRepository.save(media);

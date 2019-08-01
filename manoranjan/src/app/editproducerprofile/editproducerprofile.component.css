@@ -28,14 +28,31 @@ h2 {
 }
 
 personal-info {
-    margin-top: 70px;
+    margin-top: 75px;
     position: relative;
+    left: 0;
+    bottom:0;
+    top:0;
+    right:0;
+    overflow-x: hidden;
     overflow-y: hidden;
 }
+/* div{
+    overflow-x:auto;
+    overflow-y: hidden;
+} */
 
 .container {
     position: absolute;
     left: 0;
+    bottom:0;
+    top:0;
+    right:0;
     overflow-x: hidden;
     overflow-y: hidden;
+    width: auto;
+    height: auto;
+}
+.footer{
+    margin-top:650px;
 }

@@ -86,6 +86,25 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.8.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-cache -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -99,7 +118,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -110,10 +129,6 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-<<<<<<< HEAD
-
-=======
->>>>>>> ec5e1d5b171f2891a835da62153df5fdf28dfbfc
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -123,4 +138,3 @@
 	</build>
 
 </project>
-

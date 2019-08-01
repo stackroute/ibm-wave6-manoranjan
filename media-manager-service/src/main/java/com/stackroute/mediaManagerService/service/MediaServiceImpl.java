@@ -10,6 +10,9 @@ import com.stackroute.mediaManagerService.repository.MediaRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -25,6 +28,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+@CacheConfig(cacheNames = "media")
 @Service
 public class MediaServiceImpl implements MediaService {
 
@@ -47,10 +51,25 @@ public class MediaServiceImpl implements MediaService {
     private static String topic1 = "saveEpisodicMedia";
     private static String topic2 = "saveEpisode";
 
+    private String mediaNotFound="Media not found";
+    private String mediaAlreadyExist="Media already exists";
+    private String fail="Fail";
+
+    //to handle delay
+    public void simulateDelay(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
     private final Path rootLocation = Paths.get("/home/sakshi/stackroute/manoranjan-task/red5-server-1.1.0/red5-server/webapps/vod/streams");
 
+    //displaying all the standalone media
+    @Cacheable
     @Override
     public List<Media> getAllMedia() throws MediaNotFoundException {
         List<Media> medias = mediaRepository.findAll();
@@ -59,6 +78,8 @@ public class MediaServiceImpl implements MediaService {
         } else return medias;
     }
 
+    //searching standalone media by passing mediaTitle
+    @Cacheable
     @Override
     public Media getMediaById(String mediaTitle) throws MediaNotFoundException {
         if (mediaRepository.existsById(mediaTitle)) {
@@ -66,6 +87,8 @@ public class MediaServiceImpl implements MediaService {
         } else throw new MediaNotFoundException("Media not found");
     }
 
+    //saving standalone media by sending media object
+    @CacheEvict(allEntries = true)
     @Override
     public Media saveMedia(Media media) throws MediaAlreadyExistsException {
         Media media1;
@@ -81,6 +104,8 @@ public class MediaServiceImpl implements MediaService {
         return media1;
     }
 
+    //deleting statndalone media by media tilte
+    @CacheEvict(allEntries = true)
     @Override
     public Media deleteMedia(String mediaTitle) throws MediaNotFoundException {
         Media media;
@@ -91,6 +116,8 @@ public class MediaServiceImpl implements MediaService {
         } else throw new MediaNotFoundException("Media not found");
     }
 
+    //seraching standalone media by genre
+    @Cacheable
     @Override
     public List<Media> getMediaByGenre(String genre) throws MediaNotFoundException {
         List<Media> allMedia = mediaRepository.findAll();
@@ -111,6 +138,8 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //searching standalone media by category
+    @Cacheable
     @Override
     public List<Media> getMediaByCategory(String category) throws MediaNotFoundException {
         List<Media> allMedia = mediaRepository.findAll();
@@ -129,6 +158,8 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //saving episodic media by sending episodic media object
+    @CacheEvict(allEntries = true)
     @Override
     public EpisodicMedia saveSerial(EpisodicMedia serial) throws MediaAlreadyExistsException {
         EpisodicMedia media;
@@ -144,6 +175,8 @@ public class MediaServiceImpl implements MediaService {
         return media;
     }
 
+    //displaying all episodic media
+    @Cacheable
     @Override
     public List<EpisodicMedia> getAllSerials() throws MediaNotFoundException {
         List<EpisodicMedia> episodicMediaList = episodicMediaRepository.findAll();
@@ -152,6 +185,8 @@ public class MediaServiceImpl implements MediaService {
         } else return episodicMediaList;
     }
 
+    //seraching episodic media by episodicTitle
+    @Cacheable
     @Override
     public EpisodicMedia getSerialByTitle(String episodicTitle) throws MediaNotFoundException {
         EpisodicMedia media;
@@ -161,6 +196,8 @@ public class MediaServiceImpl implements MediaService {
         } else throw new MediaNotFoundException("Media not found");
     }
 
+    //deleting episodic media by serialTitle
+    @CacheEvict(allEntries = true)
     @Override
     public EpisodicMedia deleteSerial(String serialTitle) throws MediaNotFoundException {
         EpisodicMedia media;
@@ -171,6 +208,8 @@ public class MediaServiceImpl implements MediaService {
         } else throw new MediaNotFoundException("Media not found");
     }
 
+    //seraching episodic media by category
+    @Cacheable
     @Override
     public List<EpisodicMedia> getSerialByCategory(String category) throws MediaNotFoundException {
         List<EpisodicMedia> allSerials = episodicMediaRepository.findAll();
@@ -189,6 +228,8 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //searching episodic media by language
+    @Cacheable
     @Override
     public List<EpisodicMedia> getTvSerialByLanguage(String language) throws MediaNotFoundException {
         List<EpisodicMedia> allSerials = episodicMediaRepository.findAll();
@@ -209,6 +250,8 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //adding episode to episodic media
+    @CacheEvict(allEntries = true)
     @Override
     public Episode addEpisode(String serialTitle, Episode episode) throws MediaAlreadyExistsException, MediaNotFoundException {
         if (episodicMediaRepository.existsById(serialTitle)) {
@@ -227,6 +270,8 @@ public class MediaServiceImpl implements MediaService {
         } else throw new MediaNotFoundException("Media not found");
     }
 
+    //deleting episode from episodic media by serialTitle and episodeNumber
+    @CacheEvict(allEntries = true)
     @Override
     public Episode deleteEpisode(String serialTitle, int episodeNumber) throws MediaNotFoundException {
         if (episodicMediaRepository.existsById(serialTitle)) {
@@ -252,6 +297,8 @@ public class MediaServiceImpl implements MediaService {
         } else throw new MediaNotFoundException("Media not found");
     }
 
+    //searching episode by serialTitle and episodeNumber
+    @Cacheable
     @Override
     public Episode getEpisodeById(String serialTitle, int episodeNumber) throws MediaNotFoundException {
         if (episodicMediaRepository.existsById(serialTitle)) {
@@ -273,6 +320,8 @@ public class MediaServiceImpl implements MediaService {
         } else throw new MediaNotFoundException("Media not found");
     }
 
+    //get all episodes
+    @Cacheable
     @Override
     public List<Episode> getAllEpisodes(String serialTitle) throws MediaNotFoundException {
         if (episodicMediaRepository.existsById(serialTitle)) {
@@ -286,6 +335,8 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //getting all the mediaList
+    @Cacheable
     @Override
     public List<Object> getMediaList(List<List<String>> mediaList) {
         List<Object> medias = new ArrayList<>();
@@ -309,6 +360,7 @@ public class MediaServiceImpl implements MediaService {
         return medias;
     }
 
+    //stores files
     public void store(MultipartFile file) {
         try {
             Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
@@ -317,6 +369,7 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //load files
     public Resource loadFile(String filename) {
         try {
             Path file = rootLocation.resolve(filename);
@@ -331,10 +384,12 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //deleting all media from rootLocation
     public void deleteAll() {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
 
+    //creating rootLocation directory
     public void init() {
         try {
             Files.createDirectory(rootLocation);

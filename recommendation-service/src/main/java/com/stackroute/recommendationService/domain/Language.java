@@ -17,5 +17,4 @@ public class Language {
     @GraphId
     private Long id;
     private String language;
-
 }

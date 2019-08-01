@@ -5,8 +5,15 @@ import { FormBuilder, Form } from '@angular/forms';
 import { Userpayment } from '../userpayment';
 import { PaymentService } from '../payment.service';
 import { Cardinfo } from '../cardinfo';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {MatDialog} from '@angular/material';
 import { DatePipe } from '@angular/common';
+import { PaymentdialogComponent } from '../paymentdialog/paymentdialog.component';
+
+
+export interface DialogData {
+  
+}
+
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -26,9 +33,8 @@ ptime;
   submitted: boolean;
   registerForm: any;
 
-  constructor(private _formBuilder: FormBuilder,private router:Router,
-    private activatedRoute:ActivatedRoute,private paymentservice:PaymentService,public dialog: MatDialog,private datePipe: DatePipe) {
-       
+  constructor(private router:Router,
+    private activatedRoute:ActivatedRoute,private paymentservice:PaymentService,public dialog: MatDialog) {
       }
     submit(time,amount,cardName,cardNumber,expiryMonth,expiryYear,cvv){
       this.time=time;
@@ -37,7 +43,6 @@ ptime;
       this.cardinfo.expiryMonth=expiryMonth;
       this.cardinfo.expiryYear=expiryYear;
       this.cardinfo.cvv=cvv;
-      let form = document.getElementsByTagName("form")[0];
           (<any>window).Stripe.card.createToken({
             number:this.cardinfo.cardNumber,
             exp_month: this.cardinfo.expiryMonth,
@@ -54,8 +59,15 @@ ptime;
       this.paymentservice.save(this.payment).
         subscribe(
             data => {
-              this.ptime = sessionStorage.getItem('packageTime');
+              this.ptime=sessionStorage.getItem('packageTime');
+              this.router.navigateByUrl('/paymentdialog/'+this.ptime+'/'+amount);
               console.log("POST Request is successful ", data)
+              const dialogRef = this.dialog.open(PaymentdialogComponent, {
+                width: '350px',
+              
+                disableClose: true,
+               
+              });
             },
             error => {
               console.log("1234567")
@@ -80,7 +92,23 @@ ptime;
       console.log("time- " + this.time + " amount- " + this.amount);
     });
   }
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+        return;
+    }
+
+   const dialogRef = this.dialog.open(PaymentdialogComponent, {
+    width: '350px',
+  
+    disableClose: true,
+   
+  });
+
+  dialogRef.afterClosed().subscribe(() => {
+    console.log('The dialog was closed');
+  });
 }
-
-
-
+}

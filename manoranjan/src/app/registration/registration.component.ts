@@ -62,6 +62,8 @@ export class RegistrationComponent implements OnInit {
       'gender': this.completeDetails[1].gender,
       'mobileNo': this.completeDetails[1].mobileNo,
       'genre': this.genre,
+      'wishList':null,
+      'history':null
     }
 
     this.userService.saveUser(m).subscribe(data => {

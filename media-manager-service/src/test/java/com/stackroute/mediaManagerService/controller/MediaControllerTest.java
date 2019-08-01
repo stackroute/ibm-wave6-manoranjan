@@ -1,9 +1,7 @@
 package com.stackroute.mediaManagerService.controller;
 
 import com.stackroute.mediaManagerService.domain.*;
-import com.stackroute.mediaManagerService.exceptions.GlobalException;
-import com.stackroute.mediaManagerService.exceptions.MediaAlreadyExistsException;
-import com.stackroute.mediaManagerService.exceptions.MediaNotFoundException;
+import com.stackroute.mediaManagerService.exceptions.GlobalControllerHandler;
 import com.stackroute.mediaManagerService.service.MediaService;
 import org.junit.After;
 import org.junit.Before;
@@ -17,7 +15,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -28,7 +25,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -61,8 +57,9 @@ public class MediaControllerTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(mediaController).setControllerAdvice(new GlobalException()).build();
-        media = new Media();
+        mockMvc= MockMvcBuilders.standaloneSetup(mediaController).setControllerAdvice(new GlobalControllerHandler()).build();
+        media=new Media();
+
         media.setMediaTitle("2 states");
         media.setMediaCategory("Movie");
         media.setMediaSynopsis("Movies based on people from 2 different states");
@@ -169,6 +166,7 @@ public class MediaControllerTest {
         }
     }
 
+    //test case for savemedia
     @Test
     public void saveMediaTest_returnOkHttpStatus() throws Exception {
         when(mediaService.saveMedia(any())).thenReturn(media);
@@ -178,6 +176,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for save media failure
     @Test
     public void saveMediaTest_returnConflictHttpStatus() throws Exception {
         when(mediaService.saveMedia(any())).thenReturn(null);
@@ -187,6 +186,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for save serial
     @Test
     public void saveSerialTest_returnOkHttpStatus() throws Exception {
         when(mediaService.saveSerial(any())).thenReturn(episodicMedia);
@@ -196,6 +196,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for saveserial failure
     @Test
     public void saveSerialTest_returnConflictHttpStatus() throws Exception {
         when(mediaService.saveSerial(any())).thenReturn(null);
@@ -205,6 +206,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for save episode
     @Test
     public void saveEpisodeTest_returnOkHttpStatus() throws Exception {
         when(mediaService.addEpisode(any(), any())).thenReturn(episode);
@@ -214,6 +216,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for save serial failure
     @Test
     public void saveEpisodeTest_returnConflictHttpStatus() throws Exception {
         when(mediaService.addEpisode(any(), any())).thenReturn(null);
@@ -223,6 +226,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for getAllMedia
     @Test
     public void getAllMediasTest_returnOkHttpStatus() throws Exception {
         when(mediaService.getAllMedia()).thenReturn(mediaList);
@@ -232,6 +236,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for getallserials
     @Test
     public void getAllSerialsTest() throws Exception {
         when(mediaService.getAllSerials()).thenReturn(episodicMediaList);
@@ -241,6 +246,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for getallepisodes
     @Test
     public void getAllEpisodesTest() throws Exception {
         when(mediaService.getAllEpisodes("Yeh rishta")).thenReturn(episodes);
@@ -250,6 +256,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for getmediabyid
     @Test
     public void getMediaByIdTest() throws Exception {
         when(mediaService.getMediaById("2 states")).thenReturn(media);
@@ -259,6 +266,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for getserialbyId
     @Test
     public void getSerialByIdTest() throws Exception {
         when(mediaService.getSerialByTitle("Yeh rishta")).thenReturn(episodicMedia);
@@ -268,6 +276,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for getmediabygenre
     @Test
     public void getMediaByGenreTest() throws Exception {
         when(mediaService.getMediaByGenre("action")).thenReturn(mediaList);
@@ -277,6 +286,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for get serial by language
     @Test
     public void getSerialByLanguageTest() throws Exception {
         when(mediaService.getTvSerialByLanguage("Hindi")).thenReturn(episodicMediaList);
@@ -286,6 +296,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for get specific category media
     @Test
     public void getSpecificCategoryMediaTest() throws Exception {
         when(mediaService.getMediaByCategory("Movie")).thenReturn(mediaList);
@@ -295,6 +306,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for get episode by category
     @Test
     public void getEpisodicByCategoryTest() throws Exception {
         when(mediaService.getSerialByCategory("TV Episodes")).thenReturn(episodicMediaList);
@@ -304,6 +316,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for deleting media
     @Test
     public void deleteMediaTest() throws Exception {
         when(mediaService.deleteMedia(media.getMediaTitle())).thenReturn(media);
@@ -313,6 +326,7 @@ public class MediaControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for deleting serial
     @Test
     public void deleteSerialTest() throws Exception {
         when(mediaService.deleteSerial(episodicMedia.getEpisodicTitle())).thenReturn(episodicMedia);

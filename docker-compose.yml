@@ -177,3 +177,15 @@ services:
 #      - 8060:8060
 #    expose:
 #      - 8060
+  manoranjan:
+    build:
+      context: ./manoranjan
+      args:
+        NG_CLI_ANYALYTICS: ci
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8081:8081
+    restart: always
+    environment:
+      NG_CLI_ANYALYTICS: ci
