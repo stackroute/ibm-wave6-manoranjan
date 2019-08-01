@@ -1,6 +1,7 @@
 package com.stackroute.service;
 
 import com.stackroute.domain.UserPayment;
+import com.stackroute.exceptions.DataAlreadyExistException;
 import com.stackroute.exceptions.UserAllReadyExistException;
 import com.stackroute.exceptions.UserNotFoundException;
 import com.stackroute.repository.UserPaymentRepository;
@@ -11,13 +12,14 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
     UserPaymentRepository userPaymentRepository;
@@ -36,39 +38,44 @@ public class UserServiceImpl implements UserService {
 
     private static String topic = "saveUser";
 
+    //adding new user
     @Override
     public User saveUser(User user) throws UserAllReadyExistException {
         if (userRepository.existsById(user.getEmailId())) {
             throw new UserAllReadyExistException();
         }
-        User saveUser = (User) userRepository.save(user);
+        User saveUser = userRepository.save(user);
         if (saveUser == null) {
             throw new UserAllReadyExistException();
+
         } else {
             kafkaTemplate.send(topic, user);
-
         }
 
         return saveUser;
     }
 
+    //fetching all the registered users
     @Override
-    public List<User> getAllUsers() throws UserNotFoundException {
+    public List<User> getAllUsers() {
+
         return userRepository.findAll();
     }
 
+    //delete user by email
     @Override
     public User deleteUser(String emailId) throws UserNotFoundException {
         User user = null;
         Optional optional = userRepository.findById(emailId);
         if (optional.isPresent()) {
-            user = userRepository.findById(emailId).get();
+            user = (User) optional.get();
             userRepository.deleteById(emailId);
         } else
             throw new UserNotFoundException();
         return user;
     }
 
+    //updating user details by email
     @Override
     public User updateUser(String emailId, User user) throws UserNotFoundException {
         User user1 = new User();
@@ -80,22 +87,25 @@ public class UserServiceImpl implements UserService {
             user1.setAge(user.getAge());
             userRepository.save(user1);
         }
-        if (user1 == null)
+        else
             throw new UserNotFoundException();
         return userRepository.save(user1);
     }
 
+    //fetching user by email id
     @Override
     public User getById(String emailId) throws UserNotFoundException {
         User user;
         Optional optional = userRepository.findById(emailId);
         if (optional.isPresent()) {
-            user = userRepository.findById(emailId).get();
+            user = (User) optional.get();
+
         } else
             throw new UserNotFoundException("track");
         return user;
     }
 
+    //getting all the wishlist elements by emailid
     @Override
     public List<List<String>> getAllWishlist(String emailId) throws UserNotFoundException {
         List<List<String>> wish;
@@ -107,6 +117,7 @@ public class UserServiceImpl implements UserService {
         return wish;
     }
 
+    //fetching the history by emailId
     @Override
     public List<List<String>> getAllHistory(String emailId) throws UserNotFoundException {
         List<List<String>> history;
@@ -118,15 +129,49 @@ public class UserServiceImpl implements UserService {
         return history;
     }
 
+    //getting userpayment details from payment-service
     @Override
-    @KafkaListener(topics = "savedUser", groupId = "Group_JsonObject")
-    public UserPayment saveUserPayment(UserPayment userPayment) {
-        UserPayment saveUser = (UserPayment) userPaymentRepository.save(userPayment);
+    public List<String> addToWishlish(String emailId, String title, String category) throws UserNotFoundException, DataAlreadyExistException {
+        User user;
+        List<String> data=new ArrayList<>();
+        data.add(title);
+        data.add(category);
+        if(userRepository.existsById(emailId)){
+            user=userRepository.findById(emailId).get();
+            if(user.getWishList().contains(data)){
+                throw new DataAlreadyExistException();
+            }
+            List<List<String>> wishlist=user.getWishList();
+            wishlist.add(data);
+            user.setWishList(wishlist);
+            userRepository.save(user);
+        }
+        else throw new UserNotFoundException();
+        return data;
+    }
 
-        System.out.println(saveUser);
+    @Override
+    public List<String> addToHistory(String emailId, String title, String category) throws UserNotFoundException {
+        User user;
+        List<String> data=new ArrayList<>();
+        data.add(title);
+        data.add(category);
+        if(userRepository.existsById(emailId)){
+            user=userRepository.findById(emailId).get();
+            List<List<String>> history=user.getHistory();
+            history.add(data);
+            user.setHistory(history);
+            userRepository.save(user);
+        }
+        else throw new UserNotFoundException();
+        return data;
+    }
+
+    @Override
+    @KafkaListener(topics = "savedUser",groupId = "Group_JsonObject")
+    public UserPayment saveUserPayment(UserPayment userPayment) {
+        UserPayment saveUser =  userPaymentRepository.save(userPayment);
         return saveUser;
 
     }
-
-
 }

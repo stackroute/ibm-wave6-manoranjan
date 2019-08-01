@@ -18,6 +18,7 @@ public interface ViewerRepository extends Neo4jRepository<Viewer, Long> {
     @Query("CREATE (v:Viewer {name:{name}, emailId:{emailId}})")
     Viewer createViewer(@Param("name") String name, @Param("emailId") String emailId);
 
+    //creating viewer and genre relation
     @Query("MATCH (v:Viewer),(g:Genre) WHERE v.emailId={emailId} and g.genre={genre} CREATE (v)-[r:Interested_In]->(g) RETURN v")
     public Viewer createGenreRelation(@Param("emailId") String emailId, @Param("genre") String genre);
 

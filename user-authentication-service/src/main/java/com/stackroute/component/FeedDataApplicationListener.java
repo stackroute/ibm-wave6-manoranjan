@@ -10,13 +10,16 @@ import org.springframework.stereotype.Component;
 public class FeedDataApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
     private UserRepository userRepository;
 
+    //constructor autowiring
     @Autowired
     public FeedDataApplicationListener(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent)
+    {
+        // default implementation ignored
     }
 
 

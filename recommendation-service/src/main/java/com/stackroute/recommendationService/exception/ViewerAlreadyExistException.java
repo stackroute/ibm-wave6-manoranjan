@@ -6,6 +6,7 @@ public class ViewerAlreadyExistException extends Exception {
     public ViewerAlreadyExistException() {
     }
 
+    //viewer already exists exception handler method
     public ViewerAlreadyExistException(String message) {
         super(message);
         this.message1 = message;

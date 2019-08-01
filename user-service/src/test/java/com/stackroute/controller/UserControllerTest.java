@@ -1,7 +1,7 @@
 package com.stackroute.controller;
 
 import com.stackroute.domain.User;
-import com.stackroute.exceptions.GlobalException;
+import com.stackroute.exceptions.GlobalControllerHandler;
 import com.stackroute.exceptions.UserAllReadyExistException;
 import com.stackroute.exceptions.UserNotFoundException;
 import com.stackroute.service.UserService;
@@ -45,7 +45,8 @@ public class UserControllerTest {
     public void setUp() {
 
         MockitoAnnotations.initMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(userController).setControllerAdvice(new GlobalException()).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(userController).setControllerAdvice(new GlobalControllerHandler()).build();
+
         user = new User();
         user.setEmailId("p@gmail.com");
         user.setName("Pooja");
@@ -62,6 +63,7 @@ public class UserControllerTest {
         list.add(user);
     }
 
+    //testcase for get all users
     @Test
     public void getAllUsersTest() throws Exception {
         userService.saveUser(user);
@@ -72,6 +74,7 @@ public class UserControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for save user
     @Test
     public void saveUserTest() throws Exception {
         when(userService.saveUser(any())).thenReturn(user);
@@ -82,6 +85,7 @@ public class UserControllerTest {
 
     }
 
+    //testcase for save user failure
     @Test
     public void saveUserFailureTest() throws Exception {
         when(userService.saveUser(any())).thenThrow(UserAllReadyExistException.class);
@@ -91,6 +95,7 @@ public class UserControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for update user
     @Test
     public void updateUserTest() throws Exception {
         when(userService.updateUser(user.getEmailId(), user)).thenReturn(user);
@@ -100,6 +105,7 @@ public class UserControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for update user failure
     @Test
     public void updateUserFailureTset() throws Exception {
         when(userService.updateUser(any(), any())).thenThrow(UserNotFoundException.class);
@@ -109,6 +115,7 @@ public class UserControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for get by id
     @Test
     public void getByIdTest() throws Exception {
         when(userService.getById(user.getEmailId())).thenReturn(user);
@@ -118,6 +125,7 @@ public class UserControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for get by id failure
     @Test
     public void getByIdFailureTest() throws Exception {
         when(userService.getById(any())).thenThrow(UserNotFoundException.class);
@@ -127,6 +135,7 @@ public class UserControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for delete user
     @Test
     public void deleteUserTest() throws Exception {
         when(userService.deleteUser(user.getEmailId())).thenReturn(user);
@@ -136,6 +145,7 @@ public class UserControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    //testcase for delete user failure
     @Test
     public void deleteUserFailureTest() throws Exception {
         when(userService.deleteUser(any())).thenThrow(UserNotFoundException.class);

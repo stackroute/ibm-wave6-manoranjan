@@ -2,33 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user';
 import { FormBuilder, Form } from '@angular/forms';
-<<<<<<< HEAD
-import { UsercardService } from '../usercard.service';
-import { Usercard } from '../usercard';
-=======
->>>>>>> 859c9fd89e96b7d686a63fc530323d4656a0b8f0
 import { Userpayment } from '../userpayment';
 import { PaymentService } from '../payment.service';
 import { Cardinfo } from '../cardinfo';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {MatDialog} from '@angular/material';
 import { DatePipe } from '@angular/common';
+import { PaymentdialogComponent } from '../paymentdialog/paymentdialog.component';
+
+
+export interface DialogData {
+  
+}
+
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-<<<<<<< HEAD
-  ptime;
-  user = new User();
-  payment = new Userpayment();
-  emailId; packageName;
-  time;
-  amount; date = new Date();
-  cardName; cardNumber; expiryMonth; expiryYear; cvv;
-  route: any;
-  usercard: Usercard = new Usercard();
-=======
 ptime;
   user= new User();
   payment=new Userpayment();
@@ -37,43 +28,13 @@ ptime;
    amount; date=new Date();
   cardName;cardNumber;expiryMonth;expiryYear;cvv;
    route:any;
->>>>>>> 859c9fd89e96b7d686a63fc530323d4656a0b8f0
   form: Form;
   cardinfo = new Cardinfo();
   submitted: boolean;
   registerForm: any;
-<<<<<<< HEAD
-  constructor(private _formBuilder: FormBuilder, private router: Router, private usercardservice: UsercardService,
-    private activatedRoute: ActivatedRoute, private paymentservice: PaymentService, public dialog: MatDialog, private datePipe: DatePipe) {
 
-  }
-  submit(time, amount, cardName, cardNumber, expiryMonth, expiryYear, cvv) {
-    this.time = time;
-    this.cardinfo.cardName = cardName;
-    this.cardinfo.cardNumber = cardNumber;
-    this.cardinfo.expiryMonth = expiryMonth;
-    this.cardinfo.expiryYear = expiryYear;
-    this.cardinfo.cvv = cvv;
-    let form = document.getElementsByTagName("form")[0];
-    (<any>window).Stripe.card.createToken({
-      number: this.cardinfo.cardNumber,
-      exp_month: this.cardinfo.expiryMonth,
-      exp_year: this.cardinfo.expiryYear,
-      cvc: this.cardinfo.cvv
-    }, (status: number, response: any) => {
-      if (status === 200) {
-        let token = response.id;
-        console.log(token);
-        this.payment.emailId = this.user.emailId;
-        this.payment.packageName = time;
-        sessionStorage.setItem("packageTime", this.payment.packageName)
-        this.payment.mydate = this.date;
-        this.paymentservice.save(this.payment).
-          subscribe(
-=======
-  constructor(private _formBuilder: FormBuilder,private router:Router,
-    private activatedRoute:ActivatedRoute,private paymentservice:PaymentService,public dialog: MatDialog,private datePipe: DatePipe) {
-       
+  constructor(private router:Router,
+    private activatedRoute:ActivatedRoute,private paymentservice:PaymentService,public dialog: MatDialog) {
       }
     submit(time,amount,cardName,cardNumber,expiryMonth,expiryYear,cvv){
       this.time=time;
@@ -82,7 +43,6 @@ ptime;
       this.cardinfo.expiryMonth=expiryMonth;
       this.cardinfo.expiryYear=expiryYear;
       this.cardinfo.cvv=cvv;
-      let form = document.getElementsByTagName("form")[0];
           (<any>window).Stripe.card.createToken({
             number:this.cardinfo.cardNumber,
             exp_month: this.cardinfo.expiryMonth,
@@ -98,10 +58,16 @@ ptime;
             this.payment.mydate=this.date;
       this.paymentservice.save(this.payment).
         subscribe(
->>>>>>> 859c9fd89e96b7d686a63fc530323d4656a0b8f0
             data => {
-              this.ptime = sessionStorage.getItem('packageTime');
+              this.ptime=sessionStorage.getItem('packageTime');
+              this.router.navigateByUrl('/paymentdialog/'+this.ptime+'/'+amount);
               console.log("POST Request is successful ", data)
+              const dialogRef = this.dialog.open(PaymentdialogComponent, {
+                width: '350px',
+              
+                disableClose: true,
+               
+              });
             },
             error => {
               console.log("1234567")
@@ -126,7 +92,23 @@ ptime;
       console.log("time- " + this.time + " amount- " + this.amount);
     });
   }
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+        return;
+    }
+
+   const dialogRef = this.dialog.open(PaymentdialogComponent, {
+    width: '350px',
+  
+    disableClose: true,
+   
+  });
+
+  dialogRef.afterClosed().subscribe(() => {
+    console.log('The dialog was closed');
+  });
 }
-
-
-
+}

@@ -36,11 +36,12 @@ public class MediaServiceTest {
 
     private Media media;
 
-    List<Media> mediaList = null;
-    List<EpisodicMedia> episodicMediaList = null;
 
-    Optional optional;
-    Optional optional1;
+    private List<Media> mediaList=null;
+    private List<EpisodicMedia> episodicMediaList=null;
+
+    private Optional optional;
+    private Optional optional1;
 
     private EpisodicMedia episodicMedia;
 
@@ -153,6 +154,8 @@ public class MediaServiceTest {
         episodicMediaRepository.deleteAll();
     }
 
+
+    //testcase for get all media
     @Test
     public void getAllMediaTest_returnListOfMediaContainingMedia() throws MediaNotFoundException {
         mediaRepository.save(media);
@@ -161,6 +164,7 @@ public class MediaServiceTest {
         Assert.assertEquals(true, mediaList1.contains(media));
     }
 
+    //testcase for getall media failure
     @Test(expected = MediaNotFoundException.class)
     public void getAllMediaFailureTest_returnListOfMediaContainingNull() throws MediaNotFoundException {
         when(mediaRepository.findAll()).thenReturn(null);
@@ -168,6 +172,7 @@ public class MediaServiceTest {
         Assert.assertEquals(true, mediaList1.contains(media));
     }
 
+    //testcase for getmedia by id
     @Test
     public void getMediaByIdTest_returnMediaContainingGivenMediaTitle() throws MediaNotFoundException {
         mediaRepository.save(media);
@@ -177,6 +182,7 @@ public class MediaServiceTest {
         Assert.assertEquals(optional.get(), foundMedia);
     }
 
+    //testcase for getmedia by id failure
     @Test(expected = MediaNotFoundException.class)
     public void getMediaByIdFailureTest_returnNull() throws MediaNotFoundException {
         mediaRepository.save(media);
@@ -186,6 +192,7 @@ public class MediaServiceTest {
         Assert.assertEquals(media.getMediaTitle(), foundMedia.getMediaTitle());
     }
 
+    //testcase for save media failure
     @Test(expected = MediaAlreadyExistsException.class)
     public void saveMediaFailureTest_returnSavedMediaAsNull() throws MediaAlreadyExistsException {
         when(mediaRepository.save(any())).thenReturn(null);
@@ -193,6 +200,7 @@ public class MediaServiceTest {
         Assert.assertEquals(media, savedMedia);
     }
 
+    //testcase for delete media
     @Test
     public void deleteMediaTest_returnDeletedMedia() throws MediaNotFoundException {
         mediaRepository.save(media);
@@ -202,6 +210,7 @@ public class MediaServiceTest {
         Assert.assertEquals(media, mediaService.deleteMedia(media.getMediaTitle()));
     }
 
+    //testcase for delete media failure
     @Test(expected = MediaNotFoundException.class)
     public void deleteMediaFailureTest_returnNull() throws MediaNotFoundException {
         mediaRepository.save(media);
@@ -211,6 +220,7 @@ public class MediaServiceTest {
         Assert.assertEquals(media, mediaService.deleteMedia(media.getMediaTitle()));
     }
 
+    //testcase for gtemedia by genre
     @Test
     public void getMediaByGenreTest_returnListOfMediaOfGivenGenre() throws MediaNotFoundException {
         mediaRepository.save(media);
@@ -219,6 +229,7 @@ public class MediaServiceTest {
         Assert.assertEquals(true, mediaList.contains(media));
     }
 
+    //testcase for get media by genre failure
     @Test(expected = MediaNotFoundException.class)
     public void getMediaByGenreFailureTest_returnNull() throws MediaNotFoundException {
         mediaRepository.save(media);
@@ -227,6 +238,7 @@ public class MediaServiceTest {
         Assert.assertEquals(false, mediaList.contains(media));
     }
 
+    //testcase for getmedia by category
     @Test
     public void getMediaByCategoryTest_returnListOfMediaOfGivenCategory() throws MediaNotFoundException {
         mediaRepository.save(media);
@@ -235,6 +247,7 @@ public class MediaServiceTest {
         Assert.assertEquals(true, mediaList.contains(media));
     }
 
+    //testcase for get media by category negative
     @Test
     public void getMediaByCategoryNegativeTest_returnMediaList() throws MediaNotFoundException {
         mediaRepository.save(media);
@@ -243,6 +256,7 @@ public class MediaServiceTest {
         Assert.assertNotEquals(true, mediaList.contains(media));
     }
 
+    //testcase for getmedia by category failure
     @Test(expected = MediaNotFoundException.class)
     public void getMediaByCategoryFailureTest_returnNullMediaList() throws MediaNotFoundException {
         mediaRepository.save(media);
@@ -251,6 +265,7 @@ public class MediaServiceTest {
         Assert.assertEquals(false, mediaList.contains(media));
     }
 
+    //testcase for saveserial failure
     @Test(expected = MediaAlreadyExistsException.class)
     public void saveSerialTestFailure_returnSavedSerial() throws MediaAlreadyExistsException {
         when(episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle())).thenReturn(true);
@@ -260,6 +275,7 @@ public class MediaServiceTest {
 
     }
 
+    //testcase for get all serials
     @Test
     public void getAllSerialsTest_returnListOfEpisodicMedia() throws MediaNotFoundException {
         when(episodicMediaRepository.findAll()).thenReturn(episodicMediaList);
@@ -268,6 +284,7 @@ public class MediaServiceTest {
         Assert.assertEquals(true, mediaList.contains(episodicMedia));
     }
 
+    //testcase for get all serials failure
     @Test(expected = MediaNotFoundException.class)
     public void getAllSerialsTestFailure_returnNull() throws MediaNotFoundException {
         when(episodicMediaRepository.findAll()).thenReturn(null);
@@ -276,6 +293,7 @@ public class MediaServiceTest {
         Assert.assertEquals(true, mediaList.contains(episodicMedia));
     }
 
+    //testcase for get serial by title
     @Test
     public void getSerialByTitleTest_returnEpisodicMediaByItsTitle() throws MediaNotFoundException {
         when(episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle())).thenReturn(true);
@@ -285,6 +303,7 @@ public class MediaServiceTest {
 
     }
 
+    //testcase for get serial by title failure
     @Test(expected = MediaNotFoundException.class)
     public void getSerialByTitleTestFailure_throwsMediaNotFoundException() throws MediaNotFoundException {
         when(episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle())).thenReturn(false);
@@ -293,6 +312,7 @@ public class MediaServiceTest {
         Assert.assertEquals(optional1.get(), foundMedia);
     }
 
+    //testcase for delete serial
     @Test
     public void deleteSerialTest_returnsDeletedEpisodicMedia() throws MediaNotFoundException {
         episodicMediaRepository.save(episodicMedia);
@@ -303,6 +323,7 @@ public class MediaServiceTest {
         Assert.assertEquals(episodicMedia, mediaService.deleteSerial(episodicMedia.getEpisodicTitle()));
     }
 
+    //testcase for delete serial failure
     @Test(expected = MediaNotFoundException.class)
     public void deleteSerialFailureTest_throwsMediaNotFoundException() throws MediaNotFoundException {
         episodicMediaRepository.save(episodicMedia);
@@ -313,6 +334,7 @@ public class MediaServiceTest {
         Assert.assertEquals(episodicMedia, mediaService.deleteSerial(episodicMedia.getEpisodicTitle()));
     }
 
+    //testcase for get serial by category
     @Test
     public void getSerialByCategoryTest_returnEpisodicMediaByItsCategory() throws MediaNotFoundException {
         episodicMediaRepository.save(episodicMedia);
@@ -321,6 +343,7 @@ public class MediaServiceTest {
         Assert.assertEquals(true, mediaList.contains(episodicMedia));
     }
 
+    //testcase for test serial by category failure
     @Test(expected = MediaNotFoundException.class)
     public void getSerialByCategoryFailureTest_throwsMediaNotFoundException() throws MediaNotFoundException {
         when(episodicMediaRepository.findAll()).thenReturn(null);
@@ -328,6 +351,7 @@ public class MediaServiceTest {
         Assert.assertEquals(true, mediaList.contains(episodicMedia));
     }
 
+    //testcase for get tv serial by language
     @Test
     public void getTvSerialByLanguageTest_returnTvEpisodesByLanguage() throws MediaNotFoundException {
         episodicMediaRepository.save(episodicMedia);
@@ -336,6 +360,7 @@ public class MediaServiceTest {
         Assert.assertEquals(true, mediaList.contains(episodicMedia));
     }
 
+    //testcase for get tv serial by language
     @Test(expected = MediaNotFoundException.class)
     public void getTvSerialByLanguageFailureTest_throwsMediaNotFoundException() throws MediaNotFoundException {
         when(episodicMediaRepository.findAll()).thenReturn(null);
@@ -343,6 +368,7 @@ public class MediaServiceTest {
         Assert.assertEquals(true, mediaList.contains(episodicMedia));
     }
 
+    //testcase for add episode failure
     @Test(expected = MediaNotFoundException.class)
     public void addEpisodeFailureTest_throwsMediaNotFoundException() throws MediaNotFoundException, MediaAlreadyExistsException {
         when(episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle())).thenReturn(false);
@@ -354,6 +380,7 @@ public class MediaServiceTest {
 
     }
 
+    //testcase for add episode failure
     @Test(expected = MediaAlreadyExistsException.class)
     public void addEpisodeFailureTest_throwsMediaAlreadyExistsException() throws MediaNotFoundException, MediaAlreadyExistsException {
         when(episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle())).thenReturn(true);
@@ -365,6 +392,7 @@ public class MediaServiceTest {
 
     }
 
+    //testcase for delete episode
     @Test
     public void deleteEpisodeTest_returnsDeletedEpisodeFromGivenEpisodicMedia() throws MediaNotFoundException {
         when(episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle())).thenReturn(true);
@@ -375,6 +403,7 @@ public class MediaServiceTest {
         Assert.assertEquals(episode, episode2);
     }
 
+    //testcase for delete episode failure
     @Test(expected = MediaNotFoundException.class)
     public void deleteEpisodeFailureTest_throwsMediaNotFoundException() throws MediaNotFoundException {
         when(episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle())).thenReturn(false);
@@ -385,6 +414,7 @@ public class MediaServiceTest {
         Assert.assertEquals(episode, episode2);
     }
 
+    //testcase for delete episode failure 2
     @Test(expected = MediaNotFoundException.class)
     public void deleteEpisodeFailure2Test_throwsMediaNotFoundException() throws MediaNotFoundException {
         when(episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle())).thenReturn(true);
@@ -395,6 +425,7 @@ public class MediaServiceTest {
         Assert.assertEquals(episode, episode2);
     }
 
+    //testcase for get episode by id
     @Test
     public void getEpisodeByIdTest_returnsEpisodeOfEpisodicMedia() throws MediaNotFoundException {
         when(episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle())).thenReturn(true);
@@ -404,6 +435,7 @@ public class MediaServiceTest {
         Assert.assertEquals(episode, episode2);
     }
 
+    //testcase for get episode by id failure
     @Test(expected = MediaNotFoundException.class)
     public void getEpisodeByIdFailureTest_throwsMediaNotFoundException() throws MediaNotFoundException {
         when(episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle())).thenReturn(false);
@@ -413,6 +445,7 @@ public class MediaServiceTest {
         Assert.assertEquals(episode, episode2);
     }
 
+    //testcase for get episode by id  failure 2
     @Test(expected = MediaNotFoundException.class)
     public void getEpisodeByIdFailure2Test_throwsMediaNotFoundException() throws MediaNotFoundException {
         when(episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle())).thenReturn(true);
@@ -422,6 +455,7 @@ public class MediaServiceTest {
         Assert.assertEquals(episode, episode2);
     }
 
+    //testcase for get all episodes
     @Test
     public void getAllEpisodesTest_returnsListOfEpisodesOfEpisodicMedia() throws MediaNotFoundException {
         when(episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle())).thenReturn(true);
@@ -431,6 +465,7 @@ public class MediaServiceTest {
         Assert.assertEquals(true, episodes.contains(episode));
     }
 
+    //testcase for get all episodes failure
     @Test(expected = MediaNotFoundException.class)
     public void getAllEpisodesFailureTest_throwsMediaNotFoundException() throws MediaNotFoundException {
         when(episodicMediaRepository.existsById(episodicMedia.getEpisodicTitle())).thenReturn(false);

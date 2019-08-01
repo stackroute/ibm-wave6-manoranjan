@@ -19,6 +19,7 @@ import java.util.Map;
 @EnableKafka
 public class UserConfiguration {
 
+    //kafka producer factory configuration for user
     @Bean
     public ProducerFactory<User, User> producerFactory() {
         Map<Object, Object> config = new HashMap<>();
@@ -30,12 +31,14 @@ public class UserConfiguration {
 
     }
 
+    //kafka template for storing user details
     @Bean
-    public KafkaTemplate<User, User> kafkaTemplate() {
-        return new KafkaTemplate<User, User>(producerFactory());
-
+    public KafkaTemplate<User, User> kafkaTemplate()
+    {
+        return new KafkaTemplate<>(producerFactory());
     }
 
+    //consumer factory for user payment
     @Bean
     public ConsumerFactory<UserPayment, UserPayment> consumerFactory() {
         Map<String, Object> config = new HashMap<>();
@@ -43,11 +46,11 @@ public class UserConfiguration {
         config.put(ConsumerConfig.GROUP_ID_CONFIG, "Group_JsonObject");
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-
-        return new DefaultKafkaConsumerFactory<UserPayment, UserPayment>(config, new JsonDeserializer<UserPayment>(), new JsonDeserializer<UserPayment>(UserPayment.class));
+        return new DefaultKafkaConsumerFactory<>(config,new JsonDeserializer<UserPayment>(),new JsonDeserializer<UserPayment>(UserPayment.class));
 
     }
 
+    //consurrent kafka listener factory for consuming user payment details from kafka
     @Bean
     public ConcurrentKafkaListenerContainerFactory<UserPayment, UserPayment> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<UserPayment, UserPayment> factory = new ConcurrentKafkaListenerContainerFactory();

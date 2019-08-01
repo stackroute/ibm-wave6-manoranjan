@@ -1,3 +1,39 @@
+
+section{
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+  height:100%; 
+}
+
+#outerMatCard{
+  margin-top: 75px;
+}
+#error{
+  margin-left: 45%;
+}
+
+.example-card{
+  font-family: 'Merriweather', serif;
+  width:800px;
+  margin-top: 10px;
+  margin-bottom: 1px;
+  margin-left:-80px;
+  height: 500px;
+  box-shadow: none;
+} 
+mat-card-content .imageCard{
+ margin-left: 40px;
+}
+#first-card{
+margin-top: -14px;
+}
+#second-card{
+  margin-top: -14px;
+  }
+  #third-card{
+    margin-top: -14px;  
+  }
+  
 section {
     font-family: 'Merriweather', serif;
     font-weight: bold;
@@ -31,7 +67,11 @@ section {
 }
 
 #third-card {
+
     margin-top: -14px;
+}
+form .row1{
+  margin-top: 25px;
 }
 
 #fourth-card {
@@ -41,6 +81,7 @@ section {
 label {
     font-size: 15px;
     font-family: 'Merriweather', serif;
+
 }
 
 form .row1 {
@@ -73,12 +114,17 @@ table {
     margin: auto;
 }
 
+
+img:hover{
+ opacity: 0.5; 
+}
 .mat-button-toggle {
     border: 0;
 }
 
 img:hover {
     opacity: 0.5;
+
 }
 
 .mat-button-toggle-checked {
@@ -109,6 +155,32 @@ mat-grid-list {
     margin-bottom: -100px;
 }
 
+mat-grid-list mat-grid-tile{
+  height:100px;
+  width:100px
+}
+  #firstImage{
+  margin-left:80px;
+}
+#thirdImage{
+  margin-left: -80px;
+}
+#fourthImage{
+  margin-left:80px;
+}
+#sixthImage{
+  margin-left: -80px;
+}
+#seventhImage{
+  margin-left: 80px;
+}
+
+#ninthImage{
+  margin-left: -20px;
+} 
+#firstgrid{
+  margin-top: -60px;
+}
 mat-button-toggle {
     height: 40%;
     width: 60%;
@@ -146,6 +218,7 @@ mat-grid-list mat-grid-tile {
 
 #firstgrid {
     margin-top: -30px;
+
 }
 
 .nextButton {
@@ -243,6 +316,43 @@ img {
     margin-bottom: 10px;
     height: 100%;
     width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+.user-profile{
+  width: 50%;
+  margin-left: 24px;
+  margin-top: 10px;
+}
+  .person-icon{
+      width: 200px;
+      height: 200px;
+  }
+form{
+padding-top: 30px;
+border-block-start-color: black;
+border-block-end-color: black;
+border-block-start-width: 10px;
+}
+img{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height:100%;
+  width: 100%;
+} 
+#success{
+  margin-top: -60px;
+  font-family: 'Merriweather', serif;
+  color:green;
+}
+#success img{
+  height:50px;
+  width:50px;
+}
+h3{
+  margin-top: 180px;
+
 }
 
 #success {
@@ -258,4 +368,5 @@ img {
 
 h3 {
     margin-top: 180px;
+
 }

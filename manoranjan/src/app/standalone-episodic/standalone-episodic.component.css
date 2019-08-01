@@ -9,8 +9,15 @@
     background-color: #343a40;
     font-size: 20px;
     width: 100%;
-}
-
+    
+  }
+  .nav-item2{
+    margin-left:10px;
+  }
+  .container3{
+    margin-top: 10%;
+    margin-left: 28%;
+  }
 .nav-item2 {
     margin-left: 10px;
 }
@@ -21,6 +28,7 @@
 }
 
 .tab-content {
+
     margin-top: -56px;
     background-color: white;
 }
@@ -62,4 +70,7 @@ textarea {
 
 .btn-info {
     margin-left: 5%;
+}
+.footer{
+    margin-top: 70px;
 }
