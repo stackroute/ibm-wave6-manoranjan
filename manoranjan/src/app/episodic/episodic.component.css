@@ -1,21 +1,10 @@
 .container {
     height: 378px;
-    margin-left: -40px;
+    margin-left: 15px;
 }
-
-.container1 {
-    margin-top: 30px;
-    height: 487px;
+#container2{
+    margin-left: -80px;
 }
-
-.container2 {
-    height: 558px;
-}
-
-.container3 {
-    height: 282px;
-}
-
 h3 {
     margin-top: 250px;
     color: green;
@@ -31,14 +20,26 @@ p {
     font-family: 'Merriweather', serif;
     font-weight: bold;
     overflow: hidden;
+    box-shadow: none;
 }
+
+section{
+    margin-left: 160px;
+    margin-right: 145px;
+    height: 90%;  
+}
+mat-horizontal-stepper form{
+    margin-left: 16%; 
+    margin-right: 15%;   
+  }
+ 
 
 .fill-remaining-space {
     flex: 1 1 auto;
 }
 
 #language {
-    margin-top: 150px;
+    margin-top: 50px;
 }
 
 #input {
@@ -56,7 +57,9 @@ p {
 #type {
     margin-left: -15px;
 }
-
+#button1{
+    margin-top: 200px;
+}
 #episodeList {
     margin-left: 220px;
     color: blue;
@@ -73,7 +76,15 @@ mat-toolbar {
 .addButton {
     margin-left: 28%;
 }
-
+.addButton3 {
+    margin-left: 36%;
+}
+#button2{
+margin-top: -70px;
+}
+#button3{
+    margin-top: 50px;
+}
 table {
     margin: auto;
 }
@@ -100,18 +111,6 @@ ul li table tr td {
 }
 
 .role {
-    margin-left: -5px;
-}
-
-#submit1 {
-    margin-left: 280px;
-}
-
-.screenName {
-    margin-left: -10px;
-}
-
-.realName {
     margin-left: -5px;
 }
 
@@ -179,8 +178,17 @@ mat-button-toggle {
     float: left;
     width: 45%;
 }
-
-
+#success{
+    margin-top: -60px;
+    font-family: 'Merriweather', serif;
+    color:green;
+  }
+#publish{
+    margin-top: 170px;
+  }
+  #fourth-card {
+    margin-top: -14px;
+}
 /* Remove extra left and right margins, due to padding */
 
 .row {
@@ -210,55 +218,30 @@ label {
     font-size: 15px;
     font-weight: bold;
 }
-
-#studioName {
-    margin-left: -6px;
-    margin-top: 50px;
-}
-
-#input4 {
-    margin-left: 5px;
-    margin-top: 50px;
-}
-
-#screenName {
-    margin-left: 90px;
-    margin-top: -50px;
-}
-
-#realName {
-    margin-top: -50px;
-    margin-left: -12px;
-}
-
-#input5 {
-    margin-top: 20px;
-    margin-left: 160px;
-}
-
-#input6 {
-    margin-top: 20px;
-}
-
 #name {
-    margin-top: -50px;
-    margin-left: 90px;
+    margin-left: -20px;
 }
 
 #role {
     margin-left: -33px;
-    margin-top: -50px;
+}
+#crewInput{
+    margin-top: 50px;
+}
+#castInput{
+    margin-top: 50px;
+}
+#studioName{
+    margin-top: 55px;
 }
 
-#input2 {
-    margin-top: 20px;
-    margin-left: 160px;
+#screenName {
+    margin-left: -10px;
 }
 
-#input3 {
-    margin-top: 20px;
+#realName {
+    margin-left: -60px;
 }
-
 
 /* Style the counter cards */
 
@@ -268,15 +251,9 @@ label {
     background-color: #f1f1f1;
 }
 
-section {
-    margin-top: 4%;
-    margin-left: 140px;
-    margin-right: 135px;
-    height: 100%;
-    overflow: hidden;
-    margin-bottom: 1%;
-}
-
+#outerMatCard{
+    margin-top:75px;
+  }
 .person-icon {
     width: 200px;
     height: 200px;
@@ -309,14 +286,18 @@ mat-form-field input {
 }
 
 #upload {
-    margin-left: 495px;
+    margin-left: -20px;
     margin-top: -34px;
+    width: 80px;
 }
 
 #description {
     margin-left: -16px;
 }
-
+.container3{
+    margin-top: 10%;
+    margin-left: 28%;
+  }
 #input9 {
     margin-left: 16px;
 }
