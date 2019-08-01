@@ -6,9 +6,13 @@ import com.stackroute.recommendationService.exception.ViewerNotFoundException;
 import com.stackroute.recommendationService.repository.GenreRepository;
 import com.stackroute.recommendationService.repository.ViewerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
 
+@CacheConfig(cacheNames = "viewer")
 @Service
 public class ViewerServiceImpl implements ViewerService {
 
@@ -18,6 +22,16 @@ public class ViewerServiceImpl implements ViewerService {
     @Autowired
     private GenreRepository genreRepository;
 
+    //to handle delay
+    public void simulateDelay(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Cacheable
     public Collection<Viewer> getAll() throws ViewerNotFoundException {
         if (viewerRepository.getAllViewers() == null) {
             throw new ViewerNotFoundException();
@@ -26,6 +40,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    @CacheEvict(allEntries = true)
     public Viewer saveViewer(Viewer viewer) throws ViewerAlreadyExistException {
         if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
             viewerRepository.createViewer(viewer.getName(), viewer.getEmailId());
@@ -40,6 +55,7 @@ public class ViewerServiceImpl implements ViewerService {
         return viewer;
     }
 
+    @Cacheable
     public Viewer getViewerByEmailId(String emailId) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
@@ -48,6 +64,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    @CacheEvict(allEntries = true)
     public Viewer updateDetails(Viewer viewer) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
             throw new ViewerNotFoundException();
@@ -60,6 +77,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    @CacheEvict(allEntries = true)
     public Collection<Viewer> deleteViewer(String emailId) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
@@ -70,6 +88,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    @CacheEvict(allEntries = true)
     public Viewer saveStandaloneMediaRelation(String emailId, String title) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
@@ -78,6 +97,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    @CacheEvict(allEntries = true)
     public Viewer saveEpisodicMediaRelation(String emailId, String title) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();

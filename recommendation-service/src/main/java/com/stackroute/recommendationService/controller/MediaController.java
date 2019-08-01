@@ -4,11 +4,15 @@ import com.stackroute.recommendationService.domain.*;
 import com.stackroute.recommendationService.exception.*;
 import com.stackroute.recommendationService.service.MediaServiceImpl;
 import com.stackroute.recommendationService.service.ViewerServiceImpl;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @RestController
+@Api(value = "RecommendationServiceApi",produces = MediaType.APPLICATION_JSON_VALUE)
 @RequestMapping("/rest/neo4j")
 public class MediaController {
 
@@ -18,115 +22,136 @@ public class MediaController {
     @Autowired
     private ViewerServiceImpl viewerService;
 
+    @ApiOperation("Get all documentaries")
     @GetMapping("/documentaries")
     public Collection<Documentary> getDocumentary() throws MediaNotFoundException {
         return mediaService.getDocumentary();
     }
 
+    @ApiOperation("Get all movies")
     @GetMapping("/movies")
     public Collection<Movie> getMovie() throws MediaNotFoundException {
         return mediaService.getMovie();
     }
 
+    @ApiOperation("Get tv episodes")
     @GetMapping("/tvEpisodes")
     public Collection<TvEpisodes> getTvEpisodes() throws MediaNotFoundException {
         return mediaService.getTvEpisodes();
     }
 
+    @ApiOperation("Get web series")
     @GetMapping("/webSeries")
     public Collection<WebSeries> getWebSeries() throws MediaNotFoundException {
         return mediaService.getWebSeries();
     }
 
     //getting all the languages
+    @ApiOperation("Get languages")
     @GetMapping("/languages")
     public Collection<Language> getLanguages() throws LanguageNotFoundException {
         return mediaService.getLanguages();
     }
 
     //getting all the genres
+    @ApiOperation("Get geners")
     @GetMapping("/genres")
     public Collection<Genre> getGenres() throws GenreNotFoundException {
         return mediaService.getGenres();
     }
 
+    @ApiOperation("Get document by title")
     @GetMapping("/documentary/{title}")
     public Documentary getDocumentaryByTitle(@PathVariable("title") String title) throws MediaNotFoundException {
         return mediaService.getDocumentaryByTitle(title);
     }
 
+    @ApiOperation("Get movie by title")
     @GetMapping("/movie/{title}")
     public Movie getMovieByTitle(@PathVariable("title") String title) throws MediaNotFoundException {
         return mediaService.getMovieByTitle(title);
     }
 
+    @ApiOperation("Get episode by title")
     @GetMapping("/tvEpisodes/{title}")
     public TvEpisodes getTvEpisodesByTitle(@PathVariable("title") String title) throws MediaNotFoundException {
         return mediaService.getTvEpisodesByTitle(title);
     }
 
+    @ApiOperation("Get web series by title")
     @GetMapping("/webSeries/{title}")
     public WebSeries getWebSeriesByTitle(@PathVariable("title") String title) throws MediaNotFoundException {
         return mediaService.getWebSeriesByTitle(title);
     }
 
+    @ApiOperation("save new documentory")
     @PostMapping("/standalone/documentary")
     public Documentary saveNewDocumentary(@RequestBody Documentary documentary) throws MediaAlreadyExistException {
         return mediaService.saveDocumentary(documentary);
     }
 
+    @ApiOperation("Save new movie")
     @PostMapping("/standalone/movie")
     public Movie saveNewMovie(@RequestBody Movie movie) throws MediaAlreadyExistException {
         return mediaService.saveMovie(movie);
     }
 
+    @ApiOperation("Save new episode")
     @PostMapping("/episodicMedia/tvEpisode")
     public TvEpisodes saveNewTvEpisodes(@RequestBody TvEpisodes tvEpisodes) throws MediaAlreadyExistException {
         return mediaService.saveTvEpisodes(tvEpisodes);
     }
 
+    @ApiOperation("Save new web series")
     @PostMapping("/episodicMedia/webSeries")
     public WebSeries saveNewWebSeries(@RequestBody WebSeries webSeries) throws MediaAlreadyExistException {
         return mediaService.saveWebSeries(webSeries);
     }
 
     //getting all the viewers
+    @ApiOperation("Get viewer")
     @GetMapping("/viewers")
     public Collection<Viewer> getViewer() throws ViewerNotFoundException {
         return viewerService.getAll();
     }
 
     //posting the viewer
+    @ApiOperation("Save viewer")
     @PostMapping("/viewer")
     public Viewer saveViewer(@RequestBody Viewer viewer) throws ViewerAlreadyExistException {
         return viewerService.saveViewer(viewer);
     }
 
     //getting viewer by emailId
+    @ApiOperation("Get by email")
     @GetMapping("/viewer/{emailId}")
     public Viewer getByEmailId(@PathVariable("emailId") String emailId) throws ViewerNotFoundException {
         return viewerService.getViewerByEmailId(emailId);
     }
 
     //updating viewer details
+    @ApiOperation("Update details")
     @PutMapping("/viewer")
     public Viewer updateDetails(@RequestBody Viewer viewer) throws ViewerNotFoundException {
         return viewerService.updateDetails(viewer);
     }
 
     //deleting viewer
+    @ApiOperation("delete viewer")
     @DeleteMapping("/viewer")
     public Collection<Viewer> deleteViewer(@RequestBody Viewer viewer) throws ViewerNotFoundException {
         return viewerService.deleteViewer(viewer.getEmailId());
     }
 
     //posting the emailId of viewer and title of standalone media
+    @ApiOperation("save standalone media relation")
     @PostMapping("graphStandaloneMedia/{emailId}/{title}")
     public Viewer saveStandaloneMediaRelation(@PathVariable String emailId, @PathVariable String title) throws ViewerNotFoundException {
         return viewerService.saveStandaloneMediaRelation(emailId, title);
     }
 
     //posting the emailId of viewer and title of episodic media
+    @ApiOperation("Save episodic media relation")
     @PostMapping("graphEpisodicMedia/{emailId}/{title}")
     public Viewer saveEpisodicMediaRelation(@PathVariable String emailId, @PathVariable String title) throws ViewerNotFoundException {
         return viewerService.saveEpisodicMediaRelation(emailId, title);
