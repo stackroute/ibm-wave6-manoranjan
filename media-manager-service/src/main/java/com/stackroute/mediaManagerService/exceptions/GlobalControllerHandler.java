@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class GlobalException {
+public class GlobalControllerHandler {
 
     //media not found exception handler
     @ExceptionHandler(MediaNotFoundException.class)
-    public ResponseEntity<?> handleMediaNotFoundException(MediaNotFoundException mediaNotFound) {
-        return new ResponseEntity<String>("Media not found", HttpStatus.CONFLICT);
+    public ResponseEntity<?> handleMediaNotFoundException(MediaNotFoundException mediaNotFound){
+        return new ResponseEntity<>("Media not found", HttpStatus.CONFLICT);
     }
 
     //media already exists exception handler
     @ExceptionHandler(MediaAlreadyExistsException.class)
-    public ResponseEntity<?> handleMediaAlreadyExistsException(MediaAlreadyExistsException mediaAlreadyExists) {
-        return new ResponseEntity<String>("Media already exists", HttpStatus.CONFLICT);
+    public ResponseEntity<?> handleMediaAlreadyExistsException(MediaAlreadyExistsException mediaAlreadyExists){
+        return new ResponseEntity<>("Media already exists",HttpStatus.CONFLICT);
     }
 
     //global exception handler
@@ -25,5 +25,4 @@ public class GlobalException {
     public ResponseEntity<?> handleException(Exception exception) {
         return new ResponseEntity<>("Exception Occured", HttpStatus.CONFLICT);
     }
-
 }

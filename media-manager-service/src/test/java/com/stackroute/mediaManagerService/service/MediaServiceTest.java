@@ -36,11 +36,12 @@ public class MediaServiceTest {
 
     private Media media;
 
-    List<Media> mediaList = null;
-    List<EpisodicMedia> episodicMediaList = null;
 
-    Optional optional;
-    Optional optional1;
+    private List<Media> mediaList=null;
+    private List<EpisodicMedia> episodicMediaList=null;
+
+    private Optional optional;
+    private Optional optional1;
 
     private EpisodicMedia episodicMedia;
 

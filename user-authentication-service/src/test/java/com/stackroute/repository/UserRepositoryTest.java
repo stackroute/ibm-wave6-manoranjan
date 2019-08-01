@@ -62,7 +62,7 @@ public class UserRepositoryTest {
     @Test
     public void saveUserTest() {
         userRepository.save(user);
-        Assert.assertEquals(user.getEmailId(), "p@gmail.com");
+        Assert.assertEquals("p@gmail.com",user.getEmailId());
     }
 
     //testcase for save user failure

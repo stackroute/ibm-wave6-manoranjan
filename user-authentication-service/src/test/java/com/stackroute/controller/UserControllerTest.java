@@ -1,9 +1,8 @@
 package com.stackroute.controller;
 
 import com.stackroute.domain.User;
-import com.stackroute.exception.GlobalException;
+import com.stackroute.exception.GlobalControllerHandler;
 import com.stackroute.exception.UserAlreadyExistsException;
-import com.stackroute.exception.UserNotFoundException;
 
 import com.stackroute.service.UserService;
 import org.junit.Before;
@@ -45,7 +44,7 @@ public class UserControllerTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(userController).setControllerAdvice(new GlobalException()).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(userController).setControllerAdvice(new GlobalControllerHandler()).build();
         user = new User();
         user.setEmailId("p@gmail.com");
         user.setPassword("Pooja@110");

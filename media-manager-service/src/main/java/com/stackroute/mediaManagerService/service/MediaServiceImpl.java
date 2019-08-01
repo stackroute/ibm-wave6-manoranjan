@@ -3,6 +3,7 @@ package com.stackroute.mediaManagerService.service;
 import com.stackroute.mediaManagerService.domain.Episode;
 import com.stackroute.mediaManagerService.domain.EpisodicMedia;
 import com.stackroute.mediaManagerService.domain.Media;
+import com.stackroute.mediaManagerService.exceptions.FileNotUploadedException;
 import com.stackroute.mediaManagerService.exceptions.MediaAlreadyExistsException;
 import com.stackroute.mediaManagerService.exceptions.MediaNotFoundException;
 import com.stackroute.mediaManagerService.repository.EpisodicMediaRepository;
@@ -46,6 +47,10 @@ public class MediaServiceImpl implements MediaService {
     private static String topic = "saveMedia";
     private static String topic1 = "saveEpisodicMedia";
     private static String topic2 = "saveEpisode";
+
+    private String mediaNotFound="Media not found";
+    private String mediaAlreadyExist="Media already exists";
+    private String fail="Fail";
 
 
     Logger log = LoggerFactory.getLogger(this.getClass().getName());

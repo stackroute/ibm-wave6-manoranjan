@@ -1,9 +1,7 @@
 package com.stackroute.mediaManagerService.controller;
 
 import com.stackroute.mediaManagerService.domain.*;
-import com.stackroute.mediaManagerService.exceptions.GlobalException;
-import com.stackroute.mediaManagerService.exceptions.MediaAlreadyExistsException;
-import com.stackroute.mediaManagerService.exceptions.MediaNotFoundException;
+import com.stackroute.mediaManagerService.exceptions.GlobalControllerHandler;
 import com.stackroute.mediaManagerService.service.MediaService;
 import org.junit.After;
 import org.junit.Before;
@@ -17,7 +15,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -28,7 +25,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -50,10 +46,10 @@ public class MediaControllerTest {
     private Media media;
     private EpisodicMedia episodicMedia;
 
-    List<Media> mediaList = null;
-    List<EpisodicMedia> episodicMediaList = null;
+    private List<Media> mediaList=null;
+    private List<EpisodicMedia> episodicMediaList=null;
 
-    List<Episode> episodes;
+    private List<Episode> episodes;
 
     private Episode episode;
     private Episode episode1;
@@ -61,8 +57,9 @@ public class MediaControllerTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(mediaController).setControllerAdvice(new GlobalException()).build();
-        media = new Media();
+        mockMvc= MockMvcBuilders.standaloneSetup(mediaController).setControllerAdvice(new GlobalControllerHandler()).build();
+        media=new Media();
+
         media.setMediaTitle("2 states");
         media.setMediaCategory("Movie");
         media.setMediaSynopsis("Movies based on people from 2 different states");

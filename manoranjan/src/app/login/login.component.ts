@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Userauthen } from '../userauthen';
 import { UserauthenService } from '../userauthen.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import {ActivatedRoute,Router} from '@angular/router';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -32,7 +34,6 @@ export class LoginComponent implements OnInit {
 
           console.log("POST Request is successful ", data);
         },
-
         error => {
           alert("Login Unsuccessful, tryagain")
           this.router.navigate(["/login"], { relativeTo: this.route });

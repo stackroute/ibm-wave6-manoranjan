@@ -1,6 +1,7 @@
 package com.stackroute.controller;
 
 import com.stackroute.domain.UserPayment;
+import com.stackroute.exceptions.DataAlreadyExistException;
 import com.stackroute.exceptions.UserAllReadyExistException;
 import com.stackroute.domain.User;
 import com.stackroute.exceptions.UserNotFoundException;
@@ -26,7 +27,7 @@ public class UserController {
     public ResponseEntity<?> saveUser(@RequestBody User user) throws UserAllReadyExistException {
         ResponseEntity responseEntity;
         userService.saveUser(user);
-        responseEntity = new ResponseEntity<String>("Successfully created", HttpStatus.OK);
+        responseEntity=new ResponseEntity<>("Successfully created", HttpStatus.OK);
         return responseEntity;
     }
 
@@ -36,38 +37,52 @@ public class UserController {
         ResponseEntity responseEntity;
         try {
             userService.saveUserPayment(userPackage);
-            responseEntity = new ResponseEntity<String>("Successfully created", HttpStatus.OK);
-        } catch (Exception e) {
-            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+            responseEntity=new ResponseEntity<>("Successfully created", HttpStatus.OK);
+        }
+
+        catch(Exception e)
+        {
+            responseEntity=new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
         }
         return responseEntity;
     }
 
     //fetching all the users
     @GetMapping("users")
-    public ResponseEntity<?> getAllUsers() throws UserNotFoundException {
-        return new ResponseEntity<List<User>>(userService.getAllUsers(), HttpStatus.OK);
+    public ResponseEntity<?> getAllUsers()  {
+        return new ResponseEntity<>(userService.getAllUsers(),HttpStatus.OK);
     }
 
     //fetchhing the user wishlist details by email
     @GetMapping("user/wish/{email}")
     public ResponseEntity<?> getAllWishlist(@PathVariable("email") String emailId) throws UserNotFoundException {
-        return new ResponseEntity<List<List<String>>>(userService.getAllWishlist(emailId), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getAllWishlist(emailId),HttpStatus.OK);
+
     }
 
     //fetching user history by email
     @GetMapping("user/history/{email}")
     public ResponseEntity<?> getAllHistory(@PathVariable("email") String emailId) throws UserNotFoundException {
-        return new ResponseEntity<List<List<String>>>(userService.getAllHistory(emailId), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getAllHistory(emailId),HttpStatus.OK);
+    }
+
+    @PostMapping("/user/wish/{email}/{title}/{category}")
+    public ResponseEntity<?> addToWishlish(@PathVariable("email") String emailId,@PathVariable("title") String title,@PathVariable("category") String category) throws UserNotFoundException, DataAlreadyExistException {
+        return new ResponseEntity<>(userService.addToWishlish(emailId, title, category),HttpStatus.OK);
+    }
+
+    @PostMapping("/user/history/{email}/{title}/{category}")
+    public ResponseEntity<?> addToHistory(@PathVariable("email") String emailId,@PathVariable("title") String title,@PathVariable("category") String category) throws UserNotFoundException {
+        return new ResponseEntity<>(userService.addToHistory(emailId, title, category),HttpStatus.OK);
     }
 
     //fetching user by emailId
     @GetMapping("/users/{email}")
     public ResponseEntity<?> getById(@PathVariable("email") String emailId) throws UserNotFoundException {
         ResponseEntity responseEntity;
-        User user = null;
-        user = userService.getById(emailId);
-        responseEntity = new ResponseEntity<User>(user, HttpStatus.CREATED);
+        User user=null;
+        user=userService.getById(emailId);
+        responseEntity=new ResponseEntity<>(user, HttpStatus.CREATED);
         return responseEntity;
     }
 
@@ -76,7 +91,7 @@ public class UserController {
     public ResponseEntity<?> deleteUser(@PathVariable("email") String emailId) throws UserNotFoundException {
         ResponseEntity responseEntity;
         userService.deleteUser(emailId);
-        responseEntity = new ResponseEntity<String>("Deleted Successfully", HttpStatus.CREATED);
+        responseEntity=new ResponseEntity<>("Deleted Successfully", HttpStatus.CREATED);
         return responseEntity;
     }
 
@@ -84,8 +99,8 @@ public class UserController {
     @PutMapping("/user/{email}")
     public ResponseEntity<?> updateUser(@PathVariable("email") String emailId, @RequestBody User user) throws UserNotFoundException {
         ResponseEntity responseEntity;
-        userService.updateUser(emailId, user);
-        responseEntity = new ResponseEntity<User>(user, HttpStatus.CREATED);
+        userService.updateUser(emailId,user);
+        responseEntity = new ResponseEntity<>(user, HttpStatus.CREATED);
         return responseEntity;
     }
 

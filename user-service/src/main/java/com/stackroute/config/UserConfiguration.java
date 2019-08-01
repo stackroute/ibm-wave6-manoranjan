@@ -33,9 +33,9 @@ public class UserConfiguration {
 
     //kafka template for storing user details
     @Bean
-    public KafkaTemplate<User, User> kafkaTemplate() {
-        return new KafkaTemplate<User, User>(producerFactory());
-
+    public KafkaTemplate<User, User> kafkaTemplate()
+    {
+        return new KafkaTemplate<>(producerFactory());
     }
 
     //consumer factory for user payment
@@ -46,8 +46,7 @@ public class UserConfiguration {
         config.put(ConsumerConfig.GROUP_ID_CONFIG, "Group_JsonObject");
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-
-        return new DefaultKafkaConsumerFactory<UserPayment, UserPayment>(config, new JsonDeserializer<UserPayment>(), new JsonDeserializer<UserPayment>(UserPayment.class));
+        return new DefaultKafkaConsumerFactory<>(config,new JsonDeserializer<UserPayment>(),new JsonDeserializer<UserPayment>(UserPayment.class));
 
     }
 

@@ -163,17 +163,29 @@ services:
       - 7474
       - 7687
 
-  recommendation-service:
-    image: recommendation-service:1.0.0
-    build: recommendation-service/
-    restart: always
+#  recommendation-service:
+#    image: recommendation-service:1.0.0
+#    build: recommendation-service/
+#    restart: always
+#    network_mode: "host"
+#    depends_on:
+#      - neo4j
+#      - kafka
+#      - zuul-api
+#      - eureka-server
+#    ports:
+#      - 8060:8060
+#    expose:
+#      - 8060
+  manoranjan:
+    build:
+      context: ./manoranjan
+      args:
+        NG_CLI_ANYALYTICS: ci
     network_mode: "host"
-    depends_on:
-      - neo4j
-      - kafka
-      - zuul-api
-      - eureka-server
+    hostname: localhost
     ports:
-      - 8060:8060
-    expose:
-      - 8060
+      - 8081:8081
+    restart: always
+    environment:
+      NG_CLI_ANYALYTICS: ci

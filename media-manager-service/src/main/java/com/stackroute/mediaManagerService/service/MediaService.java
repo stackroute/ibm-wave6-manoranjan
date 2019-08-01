@@ -3,6 +3,7 @@ package com.stackroute.mediaManagerService.service;
 import com.stackroute.mediaManagerService.domain.Episode;
 import com.stackroute.mediaManagerService.domain.EpisodicMedia;
 import com.stackroute.mediaManagerService.domain.Media;
+import com.stackroute.mediaManagerService.exceptions.FileNotUploadedException;
 import com.stackroute.mediaManagerService.exceptions.MediaAlreadyExistsException;
 import com.stackroute.mediaManagerService.exceptions.MediaNotFoundException;
 import com.stackroute.mediaManagerService.repository.MediaRepository;
@@ -67,14 +68,15 @@ public interface MediaService {
     public List<Object> getMediaList(List<List<String>> mediaList);
 
     //adding file to a directory
-    public void store(MultipartFile file);
+    public void store(MultipartFile file) throws FileNotUploadedException;
 
     //loading resource file
-    public Resource loadFile(String filename);
+    public Resource loadFile(String filename) throws FileNotUploadedException;
 
     //deleting all files from directory
     public void deleteAll();
 
     //initializing
-    public void init();
+    public void init() throws FileNotUploadedException;
+
 }

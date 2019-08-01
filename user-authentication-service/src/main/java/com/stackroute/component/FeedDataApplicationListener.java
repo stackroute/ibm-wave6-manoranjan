@@ -17,7 +17,9 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
     }
 
     @Override
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent)
+    {
+        // default implementation ignored
     }
 
 

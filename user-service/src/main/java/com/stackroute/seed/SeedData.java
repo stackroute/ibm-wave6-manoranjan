@@ -2,16 +2,12 @@ package com.stackroute.seed;
 
 import com.stackroute.domain.User;
 import com.stackroute.repository.UserRepository;
-import org.hibernate.validator.constraints.EAN;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import org.springframework.core.env.Environment;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 @PropertySource("classpath:config.properties")

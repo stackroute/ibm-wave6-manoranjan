@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    User user;
+    private User user;
 
     private UserRepository userRepo;
 
@@ -37,17 +37,13 @@ public class UserServiceImpl implements UserService {
         if (userRepo.existsByEmailId(user.getEmailId())) {
             throw new UserAlreadyExistsException();
         } else
-            System.out.println(user);
-        return userRepo.save(user);
-
+            return userRepo.save(user);
     }
-
 
     //getting all the users
     @Override
     public List<User> getAllUsers() throws UserNotFoundException {
         return userRepo.findAll();
     }
-
 
 }
