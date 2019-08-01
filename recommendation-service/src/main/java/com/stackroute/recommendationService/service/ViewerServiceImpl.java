@@ -6,10 +6,12 @@ import com.stackroute.recommendationService.exception.ViewerNotFoundException;
 import com.stackroute.recommendationService.repository.GenreRepository;
 import com.stackroute.recommendationService.repository.ViewerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
+@Primary
 public class ViewerServiceImpl implements ViewerService {
 
     @Autowired
@@ -18,6 +20,7 @@ public class ViewerServiceImpl implements ViewerService {
     @Autowired
     private GenreRepository genreRepository;
 
+    //Method to get all viewers
     public Collection<Viewer> getAll() throws ViewerNotFoundException {
         if (viewerRepository.getAllViewers() == null) {
             throw new ViewerNotFoundException();
@@ -26,6 +29,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    //method to save viewer
     public Viewer saveViewer(Viewer viewer) throws ViewerAlreadyExistException {
         if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
             viewerRepository.createViewer(viewer.getName(), viewer.getEmailId());
@@ -40,6 +44,7 @@ public class ViewerServiceImpl implements ViewerService {
         return viewer;
     }
 
+    //method to get viewer by emailId
     public Viewer getViewerByEmailId(String emailId) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
@@ -48,6 +53,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    //method to update viewer details
     public Viewer updateDetails(Viewer viewer) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
             throw new ViewerNotFoundException();
@@ -60,6 +66,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    //method to delete viewer by emailId
     public Collection<Viewer> deleteViewer(String emailId) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
@@ -70,6 +77,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    //method to save viewer and documentary relation
     public Viewer saveDocumentaryRelation(String emailId, String title) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
@@ -78,6 +86,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    //method to save viewer and movie relation
     public Viewer saveMovieRelation(String emailId, String title) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
@@ -86,6 +95,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    //method to save viewer and TvEpisodes relation
     public Viewer saveTvEpisodesRelation(String emailId, String title) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
@@ -94,6 +104,7 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+    //method to save viewer and WebSeries relation
     public Viewer saveWebSeriesRelation(String emailId, String title) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();

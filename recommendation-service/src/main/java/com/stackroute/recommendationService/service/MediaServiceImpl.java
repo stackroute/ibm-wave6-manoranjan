@@ -31,6 +31,7 @@ public class MediaServiceImpl implements MediaService {
     @Autowired
     private GenreRepository genreRepository;
 
+    //method to get all documentaries
     public Collection<Documentary> getDocumentary() throws MediaNotFoundException {
         if (documentaryRepository.getAllDocumentary() == null) {
             throw new MediaNotFoundException();
@@ -40,6 +41,7 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //method to get all movies
     public Collection<Movie> getMovie() throws MediaNotFoundException {
         if (movieRepository.getAllMovie() == null) {
             throw new MediaNotFoundException();
@@ -49,6 +51,7 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //method to get all Tv Episodes
     public Collection<TvEpisodes> getTvEpisodes() throws MediaNotFoundException {
         if (tvEpisodesRepository.getAllTvEpisodes() == null) {
             throw new MediaNotFoundException();
@@ -58,6 +61,7 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //method to get all Web Series
     public Collection<WebSeries> getWebSeries() throws MediaNotFoundException {
         if (webSeriesRepository.getAllWebSeries() == null) {
             throw new MediaNotFoundException();
@@ -67,6 +71,7 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //method to get all languages
     public Collection<Language> getLanguages() throws LanguageNotFoundException {
         if (languageRepository.getAllLanguages() == null) {
             throw new LanguageNotFoundException();
@@ -75,6 +80,7 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //method to get all genres
     public Collection<Genre> getGenres() throws GenreNotFoundException {
         if (genreRepository.getAllGenres() == null) {
             throw new GenreNotFoundException();
@@ -83,6 +89,7 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //method to get documentary by title
     public Documentary getDocumentaryByTitle(String title) throws MediaNotFoundException {
         if (documentaryRepository.findDocumentaryByTitle(title) == null) {
             throw new MediaNotFoundException();
@@ -91,6 +98,7 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //method to get movie by title
     public Movie getMovieByTitle(String title) throws MediaNotFoundException {
         if (movieRepository.findMovieByTitle(title) == null) {
             throw new MediaNotFoundException();
@@ -99,6 +107,7 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //method to get Tv Episodes by title
     public TvEpisodes getTvEpisodesByTitle(String title) throws MediaNotFoundException {
         if (tvEpisodesRepository.findTvEpisodeByTitle(title) == null) {
             throw new MediaNotFoundException();
@@ -107,6 +116,7 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //method to get Web Series by title
     public WebSeries getWebSeriesByTitle(String title) throws MediaNotFoundException {
         if (webSeriesRepository.findWebSeriesByTitle(title) == null) {
             throw new MediaNotFoundException();
@@ -115,6 +125,7 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //method to save Documentary
     public Documentary saveDocumentary(Documentary documentary) throws MediaAlreadyExistException{
         if (documentaryRepository.findDocumentaryByTitle(documentary.getTitle()) == null)
         {
@@ -134,6 +145,7 @@ public class MediaServiceImpl implements MediaService {
       return documentary;
     }
 
+    //method to save movie
     public Movie saveMovie(Movie movie) throws MediaAlreadyExistException{
         if (movieRepository.findMovieByTitle(movie.getTitle()) == null) {
             movieRepository.createMovieNode(movie.getTitle());
@@ -151,6 +163,7 @@ public class MediaServiceImpl implements MediaService {
        return movie;
     }
 
+    //method to save tv episodes
     public TvEpisodes saveTvEpisodes(TvEpisodes tvEpisodes) throws MediaAlreadyExistException{
         if (tvEpisodesRepository.findTvEpisodeByTitle(tvEpisodes.getTitle()) == null) {
 
@@ -165,6 +178,7 @@ public class MediaServiceImpl implements MediaService {
         return tvEpisodes;
     }
 
+    //method to save web series
     public WebSeries saveWebSeries(WebSeries webSeries) throws MediaAlreadyExistException{
         if (webSeriesRepository.findWebSeriesByTitle(webSeries.getTitle()) == null) {
 
