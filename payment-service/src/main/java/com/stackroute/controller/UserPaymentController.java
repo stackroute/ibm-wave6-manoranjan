@@ -32,7 +32,7 @@ public class UserPaymentController {
     @ApiOperation("Save user payment")
     @ApiResponses(value = {@ApiResponse(code = 201,message = "CREATED"),@ApiResponse(code = 409,message = "CONFLICT")})
     @PostMapping("user")
-    public ResponseEntity<String> saveUser(UserPayment userPayment) throws EmailIdNotFoundException {
+    public ResponseEntity<String> saveUser(@RequestBody UserPayment userPayment) throws EmailIdNotFoundException {
         ResponseEntity responseEntity;
 
         try {

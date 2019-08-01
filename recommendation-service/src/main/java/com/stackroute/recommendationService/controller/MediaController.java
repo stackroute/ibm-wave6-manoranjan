@@ -124,9 +124,9 @@ public class MediaController {
 
     //getting viewer by emailId
     @ApiOperation("Get by email")
-    @GetMapping("/viewer/{emailId}")
-    public Viewer getByEmailId(@PathVariable("emailId") String emailId) throws ViewerNotFoundException {
-        return viewerService.getViewerByEmailId(emailId);
+    @GetMapping("/viewer/{email}")
+    public Viewer getByEmailId(@PathVariable("email") String email) throws ViewerNotFoundException {
+        return viewerService.getViewerByEmailId(email);
     }
 
     //updating viewer details
@@ -143,17 +143,26 @@ public class MediaController {
         return viewerService.deleteViewer(viewer.getEmailId());
     }
 
-    //posting the emailId of viewer and title of standalone media
-    @ApiOperation("save standalone media relation")
-    @PostMapping("graphStandaloneMedia/{emailId}/{title}")
-    public Viewer saveStandaloneMediaRelation(@PathVariable String emailId, @PathVariable String title) throws ViewerNotFoundException {
-        return viewerService.saveStandaloneMediaRelation(emailId, title);
+    //posting the emailId of viewer and title of episodic media
+    @ApiOperation("Save episodic media relation")
+    @PostMapping("graphDocumentary/{email}/{title}")
+    public Viewer saveDocumentaryRelation(@PathVariable String email, @PathVariable String title) throws ViewerNotFoundException {
+        return viewerService.saveDocumentaryRelation(email, title);
     }
 
     //posting the emailId of viewer and title of episodic media
-    @ApiOperation("Save episodic media relation")
-    @PostMapping("graphEpisodicMedia/{emailId}/{title}")
-    public Viewer saveEpisodicMediaRelation(@PathVariable String emailId, @PathVariable String title) throws ViewerNotFoundException {
-        return viewerService.saveEpisodicMediaRelation(emailId, title);
+    @PostMapping("graphMovie/{email}/{title}")
+    public Viewer saveMovieRelation(@PathVariable String email, @PathVariable String title) throws ViewerNotFoundException {
+        return viewerService.saveMovieRelation(email, title);
+    }
+
+    @PostMapping("graphTvEpisodes/{email}/{title}")
+    public Viewer saveTvEpisodesRelation(@PathVariable String email, @PathVariable String title) throws ViewerNotFoundException {
+        return viewerService.saveTvEpisodesRelation(email, title);
+    }
+
+    @PostMapping("graphWebSeries/{email}/{title}")
+    public Viewer saveWebSeriesRelation(@PathVariable String email, @PathVariable String title) throws ViewerNotFoundException {
+        return viewerService.saveWebSeriesRelation(email, title);
     }
 }

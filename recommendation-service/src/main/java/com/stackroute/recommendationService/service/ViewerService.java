@@ -17,7 +17,12 @@ public interface ViewerService {
 
     public Collection<Viewer> deleteViewer(String emailId) throws ViewerNotFoundException;
 
-    public Viewer saveStandaloneMediaRelation(String emailId, String title) throws ViewerNotFoundException;
+    public Viewer saveDocumentaryRelation(String emailId, String title) throws ViewerNotFoundException;
 
-    public Viewer saveEpisodicMediaRelation(String emailId, String title) throws ViewerNotFoundException;
+    public Viewer saveMovieRelation(String emailId, String title) throws ViewerNotFoundException;
+
+    public Viewer saveTvEpisodesRelation(String emailId, String title) throws ViewerNotFoundException;
+
+    public Viewer saveWebSeriesRelation(String emailId, String title) throws ViewerNotFoundException;
+
 }
