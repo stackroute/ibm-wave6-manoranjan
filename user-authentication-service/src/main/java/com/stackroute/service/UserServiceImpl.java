@@ -39,7 +39,6 @@ public class UserServiceImpl implements UserService {
             return userRepo.save(user);
     }
 
-
     @Override
     public List<User> getAllUsers() throws UserNotFoundException {
         return userRepo.findAll();

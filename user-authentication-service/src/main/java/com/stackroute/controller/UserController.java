@@ -60,7 +60,6 @@ public class UserController {
 
             Map<String, String> map1 = new HashMap<>();
             map1.put("token", jwtToken);
-
             map1.put("message", user.getRole());
             return map1;
         };

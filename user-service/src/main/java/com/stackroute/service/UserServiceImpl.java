@@ -133,7 +133,9 @@ public class UserServiceImpl implements UserService {
             if(user.getWishList().contains(data)){
                 throw new DataAlreadyExistException();
             }
-            user.getWishList().add(data);
+            List<List<String>> wishlist=user.getWishList();
+            wishlist.add(data);
+            user.setWishList(wishlist);
             userRepository.save(user);
         }
         else throw new UserNotFoundException();
@@ -148,7 +150,9 @@ public class UserServiceImpl implements UserService {
         data.add(category);
         if(userRepository.existsById(emailId)){
             user=userRepository.findById(emailId).get();
-            user.getHistory().add(data);
+            List<List<String>> history=user.getHistory();
+            history.add(data);
+            user.setHistory(history);
             userRepository.save(user);
         }
         else throw new UserNotFoundException();
