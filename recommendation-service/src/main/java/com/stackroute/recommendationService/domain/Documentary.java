@@ -7,14 +7,19 @@ import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @NodeEntity
-public class Language {
+public class Documentary {
 
     @GraphId
     private Long id;
-    private String language;
+    private String title;
+    private String mediaCategory;
+    private List<String> mediaGenre;
+    private String mediaLanguage;
 }

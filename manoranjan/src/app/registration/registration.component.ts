@@ -33,7 +33,7 @@ export class RegistrationComponent implements OnInit {
       age: ["", Validators.compose([Validators.required, Validators.pattern('^[0-9]{1,2}')])],
       gender: ["", Validators.compose([Validators.required])],
       mobileNo: ["", Validators.compose([Validators.maxLength(10), Validators.required,
-      Validators.minLength(10), Validators.pattern("^[6-9]+[0-9]+")])]
+      Validators.minLength(10), Validators.pattern("^[6-9][0-9]{9}")])]
     });
   }
 

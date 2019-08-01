@@ -1,31 +1,29 @@
 package com.stackroute.recommendationService.service;
 
-import com.stackroute.recommendationService.domain.EpisodicMedia;
-import com.stackroute.recommendationService.domain.Genre;
-import com.stackroute.recommendationService.domain.Language;
-import com.stackroute.recommendationService.domain.StandaloneMedia;
+import com.stackroute.recommendationService.domain.*;
 import com.stackroute.recommendationService.exception.GenreNotFoundException;
 import com.stackroute.recommendationService.exception.LanguageNotFoundException;
 import com.stackroute.recommendationService.exception.MediaAlreadyExistException;
 import com.stackroute.recommendationService.exception.MediaNotFoundException;
-import com.stackroute.recommendationService.repository.EpisodicMediaRepository;
-import com.stackroute.recommendationService.repository.GenreRepository;
-import com.stackroute.recommendationService.repository.LanguageRepository;
-import com.stackroute.recommendationService.repository.StandaloneMediaRepository;
+import com.stackroute.recommendationService.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Collection;
-import java.util.List;
 
 @Service
 public class MediaServiceImpl implements MediaService {
 
     @Autowired
-    private StandaloneMediaRepository standaloneMediaRepository;
+    private DocumentaryRepository documentaryRepository;
 
     @Autowired
-    private EpisodicMediaRepository episodicMediaRepository;
+    private MovieRepository movieRepository;
+
+    @Autowired
+    private TvEpisodesRepository tvEpisodesRepository;
+
+    @Autowired
+    private WebSeriesRepository webSeriesRepository;
 
     @Autowired
     private LanguageRepository languageRepository;
@@ -33,33 +31,47 @@ public class MediaServiceImpl implements MediaService {
     @Autowired
     private GenreRepository genreRepository;
 
-    //getting all standalone media's
-    public Collection<StandaloneMedia> getStandaloneMedias() throws MediaNotFoundException {
-        if (standaloneMediaRepository.getAllStandaloneMedias() == null) {
+    //method to get all documentaries
+    public Collection<Documentary> getDocumentary() throws MediaNotFoundException {
+        if (documentaryRepository.getAllDocumentary() == null) {
             throw new MediaNotFoundException();
-        } else {
-            return standaloneMediaRepository.getAllStandaloneMedias();
+        }
+        else {
+            return documentaryRepository.getAllDocumentary();
         }
     }
 
-    //getting all episodic media's
-    public Collection<EpisodicMedia> getEpisodicMedias() throws MediaNotFoundException {
-        if (episodicMediaRepository.getAllEpisodicMedias() == null) {
+    //method to get all movies
+    public Collection<Movie> getMovie() throws MediaNotFoundException {
+        if (movieRepository.getAllMovie() == null) {
             throw new MediaNotFoundException();
-        } else {
-            return episodicMediaRepository.getAllEpisodicMedias();
+        }
+        else {
+            return movieRepository.getAllMovie();
         }
     }
 
-
-    public List<StandaloneMedia> displayMedia() throws MediaNotFoundException {
-        if (standaloneMediaRepository.findAll() == null) {
+    //method to get all Tv Episodes
+    public Collection<TvEpisodes> getTvEpisodes() throws MediaNotFoundException {
+        if (tvEpisodesRepository.getAllTvEpisodes() == null) {
             throw new MediaNotFoundException();
-        } else {
-            return (List<StandaloneMedia>) standaloneMediaRepository.findAll();
+        }
+        else {
+            return tvEpisodesRepository.getAllTvEpisodes();
         }
     }
 
+    //method to get all Web Series
+    public Collection<WebSeries> getWebSeries() throws MediaNotFoundException {
+        if (webSeriesRepository.getAllWebSeries() == null) {
+            throw new MediaNotFoundException();
+        }
+        else {
+            return webSeriesRepository.getAllWebSeries();
+        }
+    }
+
+    //method to get all languages
     public Collection<Language> getLanguages() throws LanguageNotFoundException {
         if (languageRepository.getAllLanguages() == null) {
             throw new LanguageNotFoundException();
@@ -68,6 +80,7 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
+    //method to get all genres
     public Collection<Genre> getGenres() throws GenreNotFoundException {
         if (genreRepository.getAllGenres() == null) {
             throw new GenreNotFoundException();
@@ -76,72 +89,107 @@ public class MediaServiceImpl implements MediaService {
         }
     }
 
-    public StandaloneMedia getStandaloneMediaByTitle(String title) throws MediaNotFoundException {
-        if (standaloneMediaRepository.getStandaloneMediaByTitle(title) == null) {
+    //method to get documentary by title
+    public Documentary getDocumentaryByTitle(String title) throws MediaNotFoundException {
+        if (documentaryRepository.findDocumentaryByTitle(title) == null) {
             throw new MediaNotFoundException();
         } else {
-            return standaloneMediaRepository.getStandaloneMediaByTitle(title);
+            return documentaryRepository.findDocumentaryByTitle(title);
         }
     }
 
-    public EpisodicMedia getEpisodicMediaByTitle(String title) throws MediaNotFoundException {
-        if (episodicMediaRepository.findByTitle(title) == null) {
+    //method to get movie by title
+    public Movie getMovieByTitle(String title) throws MediaNotFoundException {
+        if (movieRepository.findMovieByTitle(title) == null) {
             throw new MediaNotFoundException();
         } else {
-            return episodicMediaRepository.findByTitle(title);
+            return movieRepository.findMovieByTitle(title);
         }
     }
 
-    public StandaloneMedia saveStandaloneMedia(StandaloneMedia standaloneMedia) throws MediaAlreadyExistException {
-        if (standaloneMediaRepository.getStandaloneMediaByTitle(standaloneMedia.getTitle()) == null) {
-            int length = standaloneMedia.getGenre().size();
-            for (int i = 0; i < length; i++) {
-                if (languageRepository.findLanguageByName(standaloneMedia.getLanguage()) == null) {
-                    if (genreRepository.findGenreByName(standaloneMedia.getGenre().get(i)) == null) {
-                        standaloneMediaRepository.saveNewStandaloneMediaLanguage(standaloneMedia.getTitle(), standaloneMedia.updateGenre(i, standaloneMedia.getGenre().get(i)), standaloneMedia.getLanguage());
-                        standaloneMediaRepository.createGenreNode(standaloneMedia.getGenre().get(i));
-                        standaloneMediaRepository.createGenreRelation(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i));
-                    } else {
-                        standaloneMediaRepository.saveNewStandaloneMediaLanguage(standaloneMedia.getTitle(), standaloneMedia.updateGenre(i, standaloneMedia.getGenre().get(i)), standaloneMedia.getLanguage());
-                        standaloneMediaRepository.createGenreRelation(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i));
-                    }
-                } else if (genreRepository.findGenreByName(standaloneMedia.getGenre().get(i)) == null) {
-                    if (standaloneMediaRepository.getStandaloneMediaByTitle(standaloneMedia.getTitle()) == null) {
-                        standaloneMediaRepository.createStandaloneMediaNode(standaloneMedia.getTitle(), standaloneMedia.updateGenre(i, standaloneMedia.getGenre().get(i)), standaloneMedia.getLanguage());
-                        standaloneMediaRepository.createLanguageRelation(standaloneMedia.getTitle(), standaloneMedia.getLanguage());
-                        standaloneMediaRepository.createGenreNode(standaloneMedia.getGenre().get(i));
-                        standaloneMediaRepository.createGenreRelation(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i));
-                    } else {
-                        standaloneMediaRepository.createGenreNode(standaloneMedia.getGenre().get(i));
-                        standaloneMediaRepository.createGenreRelation(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i));
-                    }
-                } else {
-                    if (standaloneMediaRepository.getStandaloneMediaByTitle(standaloneMedia.getTitle()) == null) {
-                        standaloneMediaRepository.createStandaloneMediaNode(standaloneMedia.getTitle(), standaloneMedia.updateGenre(i, standaloneMedia.getGenre().get(i)), standaloneMedia.getLanguage());
-                        standaloneMediaRepository.createLanguageRelation(standaloneMedia.getTitle(), standaloneMedia.getLanguage());
-                        standaloneMediaRepository.createGenreRelation(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i));
-                    } else {
-                        standaloneMediaRepository.createGenreRelation(standaloneMedia.getTitle(), standaloneMedia.getGenre().get(i));
-                    }
-                }
-            }
+    //method to get Tv Episodes by title
+    public TvEpisodes getTvEpisodesByTitle(String title) throws MediaNotFoundException {
+        if (tvEpisodesRepository.findTvEpisodeByTitle(title) == null) {
+            throw new MediaNotFoundException();
         } else {
-            throw new MediaAlreadyExistException();
+            return tvEpisodesRepository.findTvEpisodeByTitle(title);
         }
-        return standaloneMedia;
     }
 
-    public EpisodicMedia saveEpisodicMedia(EpisodicMedia episodicMedia) throws MediaAlreadyExistException {
-        if (episodicMediaRepository.findByTitle(episodicMedia.getTitle()) == null) {
-            if (languageRepository.findLanguageByName(episodicMedia.getLanguage()) == null) {
-                episodicMediaRepository.saveNewEpisodicMediaLanguage(episodicMedia.getTitle(), episodicMedia.getLanguage());
-            } else {
-                episodicMediaRepository.createEpisodicMediaNode(episodicMedia.getTitle(), episodicMedia.getLanguage());
-                episodicMediaRepository.createLanguageRelation(episodicMedia.getTitle(), episodicMedia.getLanguage());
-            }
+    //method to get Web Series by title
+    public WebSeries getWebSeriesByTitle(String title) throws MediaNotFoundException {
+        if (webSeriesRepository.findWebSeriesByTitle(title) == null) {
+            throw new MediaNotFoundException();
         } else {
+            return webSeriesRepository.findWebSeriesByTitle(title);
+        }
+    }
+
+    //method to save Documentary
+    public Documentary saveDocumentary(Documentary documentary) throws MediaAlreadyExistException{
+        if (documentaryRepository.findDocumentaryByTitle(documentary.getTitle()) == null)
+        {
+            documentaryRepository.createDocumentaryNode(documentary.getTitle());
+            documentaryRepository.createLanguageRelation(documentary.getTitle(), documentary.getMediaLanguage());
+            documentaryRepository.createCategoryRelation(documentary.getTitle(), documentary.getMediaCategory());
+
+            for (int i = 0; i < documentary.getMediaGenre().size(); i++) {
+                System.out.println(documentary.getMediaGenre().get(i));
+                documentaryRepository.createGenreRelation(documentary.getTitle(), documentary.getMediaGenre().get(i));
+            }
+        }
+        else
+        {
             throw new MediaAlreadyExistException();
         }
-        return episodicMedia;
+      return documentary;
+    }
+
+    //method to save movie
+    public Movie saveMovie(Movie movie) throws MediaAlreadyExistException{
+        if (movieRepository.findMovieByTitle(movie.getTitle()) == null) {
+            movieRepository.createMovieNode(movie.getTitle());
+            movieRepository.createLanguageRelation(movie.getTitle(), movie.getMediaLanguage());
+            movieRepository.createCategoryRelation(movie.getTitle(), movie.getMediaCategory());
+
+            for (int i = 0; i < movie.getMediaGenre().size(); i++) {
+                movieRepository.createGenreRelation(movie.getTitle(), movie.getMediaGenre().get(i));
+            }
+        }
+        else
+        {
+            throw new MediaAlreadyExistException();
+        }
+       return movie;
+    }
+
+    //method to save tv episodes
+    public TvEpisodes saveTvEpisodes(TvEpisodes tvEpisodes) throws MediaAlreadyExistException{
+        if (tvEpisodesRepository.findTvEpisodeByTitle(tvEpisodes.getTitle()) == null) {
+
+            tvEpisodesRepository.createTvEpisodesNode(tvEpisodes.getTitle());
+            tvEpisodesRepository.createLanguageRelation (tvEpisodes.getTitle(), tvEpisodes.getEpisodeLanguage());
+            tvEpisodesRepository.createCategoryRelation (tvEpisodes.getTitle(), tvEpisodes.getEpisodeCategory());
+        }
+        else
+        {
+            throw new MediaAlreadyExistException();
+        }
+        return tvEpisodes;
+    }
+
+    //method to save web series
+    public WebSeries saveWebSeries(WebSeries webSeries) throws MediaAlreadyExistException{
+        if (webSeriesRepository.findWebSeriesByTitle(webSeries.getTitle()) == null) {
+
+            webSeriesRepository.createWebSeriesNode(webSeries.getTitle());
+            webSeriesRepository.createLanguageRelation(webSeries.getTitle(), webSeries.getEpisodeLanguage());
+            webSeriesRepository.createCategoryRelation(webSeries.getTitle(), webSeries.getEpisodeCategory());
+        }
+        else
+        {
+            throw new MediaAlreadyExistException();
+        }
+        return webSeries;
     }
 }
