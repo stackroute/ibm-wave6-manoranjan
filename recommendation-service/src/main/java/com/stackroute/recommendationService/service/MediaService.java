@@ -5,6 +5,8 @@ import com.stackroute.recommendationService.exception.GenreNotFoundException;
 import com.stackroute.recommendationService.exception.LanguageNotFoundException;
 import com.stackroute.recommendationService.exception.MediaAlreadyExistException;
 import com.stackroute.recommendationService.exception.MediaNotFoundException;
+
+import javax.print.Doc;
 import java.util.Collection;
 
 public interface MediaService {
@@ -25,4 +27,13 @@ public interface MediaService {
     public Movie saveMovie(Movie movie) throws MediaAlreadyExistException;
     public TvEpisodes saveTvEpisodes(TvEpisodes tvEpisodes) throws MediaAlreadyExistException;
     public WebSeries saveWebSeries(WebSeries webSeries) throws MediaAlreadyExistException;
+
+    public Collection<Documentary> getRecInterestDoc(String emailId);
+    public Collection<Movie> getRecInterestMovie(String emilId);
+
+    public Collection<Documentary> getRecLangDocumentary(String emailId);
+    public Collection<Movie> getRecLangMovie(String emailId);
+    public Collection<TvEpisodes> getRecLangTvEpisodes(String emailId);
+    public Collection<WebSeries> getRecLangWebSeries(String emailId);
+
 }
