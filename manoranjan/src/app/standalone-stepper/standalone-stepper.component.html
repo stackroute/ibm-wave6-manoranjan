@@ -1,20 +1,19 @@
 
 <app-nav></app-nav>
-<section fxLayout="row wrap" fxLayoutAlign="center center"  class="section"  style="background-color: black ;margin-top: 150px" >
-    <mat-card fxFlex="1000px" fxFlex.xs="50%" id="outerMatCard" >
-  <mat-horizontal-stepper labelPosition="bottom" #stepper >
-
-      <mat-step [stepControl]="firstForm">
-          <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal" (ngSubmit)="onFirstSubmit(firstFormGroup.value)" >
-              <ng-template matStepLabel><span class="headingStyle">Catalog</span></ng-template>
-            <mat-card class="example-card"  style="margin-top:-70px" >
-                <mat-card-content class="content" >
-                  <div class="container3">
-                      <div class="row">
+<section fxLayout="row wrap" fxLayoutAlign="center center"  class="section"  style="  background-color: black ;margin-top: 150px" >
+   <mat-card fxFlex="1000px" fxFlex.xs="50%" id="outerMatCard">
+      <mat-horizontal-stepper labelPosition="bottom" #stepper  style="height: 100%;margin-left: 100px;margin-right:100px  ">
+         <mat-step [stepControl]="firstForm">
+            <form #viewerForm="ngForm" [formGroup]="firstFormGroup"  class="form-horizontal" (ngSubmit)="onFirstSubmit(firstFormGroup.value)" >
+              <ng-template matStepLabel ><span class="headingStyle" >Catalog</span></ng-template>
+                <mat-card class="example-card"  style="margin-top:-70px" >
+                  <mat-card-content class="content" >
+                    <div class="container3">
+                       <div class="row">
                           <div class="col-4" id="genre">
                           <label>Genre</label>
-                          </div>
-                          </div>
+                        </div>
+                       </div>
                     <mat-card class="example-card">
                         <mat-card-content class="content">
                           <mat-grid-list cols="3" id="firstgrid">
@@ -127,7 +126,6 @@
     <div class="col-2">
     <label id="crew">Crew</label>
     </div>
-    <!-- <div class="col-2"></div> -->
     <div class="col-4" >
     <label id="name">Name</label>
     </div>
@@ -140,7 +138,6 @@
     <div class="row">
     <div class="col-3"></div>
     <div class="col-4">
-    <!-- <input class="form-control" type="text" #crewName formControlName="crewName" placeholder="new" matInput> -->
     <input type="text" rows="1" cols="20" class="form-control" #crewName formControlName="crewName">
     </div>
     <div class="col-4">
@@ -151,7 +148,7 @@
     <option value="music">Music</option>
     </select>
     </div>
-    </div>
+    </div><br>
     <div class="row" id="submit">
     <button type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
     </div>
@@ -270,8 +267,7 @@
                               accept="video/*">
                             </div>
                               <div class="col-2">
-                            <!-- <input type="file" class="form-control" formControlName="video" (change)="selectVideo($event)"> -->
-                            <button id="upload" style="width: 110px" mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo">Upload</button>
+                            <button id="upload"  mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo">Upload</button>
                           </div>
                       </div><br><br>
 
@@ -284,7 +280,7 @@
                           accept="video/*">
                           </div>
                           <div class="col-2" >
-                          <button id="upload" style="width: 110px" mat-raised-button (click)="uploadTrailer()" [disabled]="!selectedTrailer">Upload</button>
+                          <button id="upload" mat-raised-button (click)="uploadTrailer()" [disabled]="!selectedTrailer">Upload</button>
                           </div>
                           </div><br><br>
                     <div class="row">
@@ -324,7 +320,7 @@
                     </div>
                    </mat-card-content>
                    <div id="bottomButton" >
-                <button id="publish" type="submit" (click)="saveMedia()" mat-stroked-button matStepperNext>Publish</button>
+                <button id="publish" type="submit" routerLink="/producer" (click)="saveMedia()" mat-stroked-button matStepperNext>Publish</button>
               </div>
               </mat-card>   
       </form>

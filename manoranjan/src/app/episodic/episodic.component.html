@@ -1,37 +1,37 @@
 <app-nav></app-nav>
 <section fxLayout="row wrap" fxLayoutAlign="center center" class="section">
-    <mat-card fxFlex="1000px" fxFlex.xs="50%" style="background-color: black">
-
-        <mat-horizontal-stepper labelPosition="bottom" linear style="height: 100%">
-            <mat-step [stepControl]="firstForm">
+    <mat-card fxFlex="1000px" fxFlex.xs="50%"   id="outerMatCard">
+            <!-- <mat-toolbar></mat-toolbar> -->
+        <mat-horizontal-stepper labelPosition="bottom" linear   style="height: 100%;margin-left: 100px;margin-right:100px  ">
+            <mat-step [stepControl]="firstForm" >
                 <form #viewerForm="ngForm" [formGroup]="firstFormGroup" class="form-horizontal form1" (ngSubmit)="onFirstSubmit(firstFormGroup.value)">
-                    <ng-template matStepLabel><span class="headingStyle">Series Details</span></ng-template>
+                    <ng-template matStepLabel ><span class="headingStyle">Series Details</span></ng-template>
                     <mat-card class="example-card first-card" style="padding-bottom: 20px;">
                         <mat-card-content class="content">
-                            <div class="container">
+                            <div id="container2">
                                 <div class="row" id="language">
-                                    <div class="col-5">
+                                    <div class="col-4">
                                         <label>Language</label>
                                     </div>
                                     <div class="col-7">
                                         <select class="selectpicker" class="form-control" #crewRole formControlName="episodeLanguage" width="150px" data-size="5" data-width="fit">
-                      <option value="Hindi">Hindi</option>
-                      <option value="Telugu">Telugu</option>
-                      <option value="Tamil">Tamil</option>
-                      <option value="Marati">Marati</option>
-                      <option value="English">English</option>
-                      <option value="Gujarathi">Gujarathi</option>
-                      <option value="Bengali">Bengali</option>
-                    </select>
+                                            <option value="Hindi">Hindi</option>
+                                            <option value="Telugu">Telugu</option>
+                                            <option value="Tamil">Tamil</option>
+                                            <option value="Marati">Marati</option>
+                                            <option value="English">English</option>
+                                            <option value="Gujarathi">Gujarathi</option>
+                                            <option value="Bengali">Bengali</option>
+                                        </select>
                                         <mat-error>
                                             <span *ngIf="!firstFormGroup.get('episodeLanguage').valid && firstFormGroup.get('episodeLanguage').touched">Please
-                        select language !!!</span>
+                                             select language !!!</span>
                                         </mat-error>
                                     </div>
                                 </div>
                                 <br><br>
                                 <div class="row">
-                                    <div class="col-5" id="poster">
+                                    <div class="col-4" id="poster">
                                         <label>Poster</label>
                                     </div>
                                     <div class="col-7" id="input">
@@ -45,7 +45,7 @@
                                 </div>
                                 <br><br>
                                 <div class="row">
-                                    <div class="col-5" id="type">
+                                    <div class="col-4" id="type">
                                         <label>Type</label>
                                     </div>
                                     <div class="col-7" id="input1">
@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                         </mat-card-content>
-                        <button mat-stroked-button matStepperNext [disabled]="!firstFormGroup.valid">Next</button>
+                        <button mat-stroked-button matStepperNext [disabled]="!firstFormGroup.valid" id="button1">Next</button>
                     </mat-card>
                 </form>
             </mat-step>
@@ -72,63 +72,56 @@
                     <ng-template matStepLabel><span class="headingStyle">Cast & Crew</span></ng-template>
                     <mat-card class="example-card">
                         <mat-card-content class="content">
-                            <div class="container1">
-                                <div class="row" id="StudioDetails">
-                                    <div class="col-3" id="studioName">
+                            <div class="container">
+                                    <div class="row" id="studioName">
+                                    <div class="col-3" >
                                         <label>Studio Name</label>
                                     </div>
                                     <div class="col-8" id="input4">
-                                        <input class="form-control" type="text" formControlName="EpisodeStudioName">
+                                        <input class="form-control" type="text" rows="1" cols="20" formControlName="EpisodeStudioName">
                                         <mat-error *ngFor="let validation of validation_messages.EpisodeStudioName">
                                             <mat-error class="error-message" *ngIf="secondFormGroup.get('EpisodeStudioName').hasError(validation.type) && (secondFormGroup.get('EpisodeStudioName').dirty ||secondFormGroup.get('EpisodeStudioName').touched)">
                                                 {{validation.message}}
                                             </mat-error>
                                         </mat-error>
                                     </div>
-                                </div><br><br>
+                                </div><br>
                                 <div class="row">
-                                    <label style="font-weight: bold; margin-left:30px; margin-top: 5px">Crew</label>
+                                        <div class="col-2">
+                                        <label id="crew">Crew</label>
+                                        </div>
+                                        <div class="col-4" >
+                                        <label id="name">Name</label>
+                                        </div>
+                                        <div class="col-4" >
+                                        <label id="role">Role</label>
+                                        </div>
                                 </div>
-                                <br><br>
-                                <div class="row">
-                                    <div class="col-4 name" id="name">
-                                        <div>Name</div>
-                                    </div>
-                                    <div class="col-5 role" id="role">
-                                        <div>Role</div>
-                                    </div>
-                                </div>
-                                <form #viewerForm="ngForm" [formGroup]="sixthFormGroup" class="form-horizontal sixseven" style="margin-left: 0px; margin-right: 0px; margin-top: -50px">
-                                    <div class="row">
-                                        <!-- <div class="col-3"></div> -->
-                                        <div class="col-4" id="input2">
-                                            <!-- <mat-form-field> -->
-                                            <!-- <input class="form-control" type="text" #crewName formControlName="crewName" placeholder="new" matInput> -->
+                                <form #viewerForm="ngForm" [formGroup]="sixthFormGroup" class="form-horizontal " style="margin-left: 0px; margin-right: 0px; margin-top: -50px">
+                                    <div class="row" id="crewInput">
+                                        <div class="col-3"></div>
+                                        <div class="col-4" >
                                             <input type="text" rows="1" cols="20" class="form-control" #crewName formControlName="crewName">
                                             <mat-error *ngFor="let validation of validation_messages.crewName">
                                                 <mat-error class="error-message" *ngIf="sixthFormGroup.get('crewName').hasError(validation.type) && (sixthFormGroup.get('crewName').dirty || sixthFormGroup.get('crewName').touched)">
                                                     {{validation.message}}
                                                 </mat-error>
                                             </mat-error>
-                                            <!-- </mat-form-field>        -->
                                         </div>
-                                        <div class="col-4" id="input3">
-                                            <!-- <mat-form-field> -->
-                                            <!-- <select matNativeControl #crewRole class="form-control" formControlName="crewRole" data-width="fit"> -->
+                                        <div class="col-4">
                                             <select class="selectpicker" class="form-control" #crewRole formControlName="crewRole" width="150px" data-size="5" data-width="fit">
-                        <option value="director">Director</option>
-                        <option value="producer">Producer</option>
-                        <option value="writer">Writer</option>
-                        <option value="music">Music</option>
-                      </select>
-                                            <!-- </mat-form-field> -->
+                                                <option value="director">Director</option>
+                                                <option value="producer">Producer</option>
+                                                <option value="writer">Writer</option>
+                                                <option value="music">Music</option>
+                                            </select>
                                         </div>
                                     </div><br>
                                     <div class="row">
                                         <button type="submit" (click)="addCrew(crewName.value,crewRole.value)" class="addButton">Add</button>
                                     </div>
-
-                                </form><br>
+                                </form>
+                                <br>
                                 <ul>
                                     <li>
                                         <table *ngFor="let crew of crewList">
@@ -144,21 +137,21 @@
                                     </li>
                                 </ul>
                                 <div class="row">
-                                    <label style="font-weight: bold; margin-left:30px; margin-top: 5px ">Cast</label>
-                                </div><br><br>
-                                <div class="row">
-                                    <div class="col-5 screenName" id="screenName">
-                                        <div>Screen Name</div>
-                                    </div>
-
-                                    <div class="col-3 realName" id="realName">
-                                        <div>Real Name</div>
-                                    </div>
-                                </div>
-                                <!-- background-color: rgb(104, 230, 230);  -->
+                                        <div class="col-2" id="cast">
+                                        <label>Cast</label>
+                                        </div>
+                                        <!-- <div class="col-2"></div> -->
+                                        <div class="col-5" id="screenName">
+                                        <label>Screen Name</label>
+                                        </div>
+                                        <div class="col-5" id="realName">
+                                        <label>Real Name</label>
+                                        </div>
+                                        </div>
                                 <form #viewerForm="ngForm" [formGroup]="seventhFormGroup" class="form-horizontal sixseven" style="margin-left: 0px; margin-right: 0px; margin-top: -50px">
-                                    <div class="row">
-                                        <div class="col-4" id="input5">
+                                    <div class="row" id="castInput">
+                                            <div class="col-3"></div>
+                                        <div class="col-4" >
                                             <!-- <mat-form-field>   -->
                                             <input class="form-control" type="text" rows="1" cols="20" #screenName formControlName="screenName">
                                             <mat-error *ngFor="let validation of validation_messages.screenName">
@@ -167,7 +160,7 @@
                                                 </mat-error>
                                             </mat-error>
                                         </div>
-                                        <div class="col-4" id="input6">
+                                        <div class="col-4" >
                                             <input class="form-control" type="text" #realName formControlName="realName">
                                             <mat-error *ngFor="let validation of validation_messages.realName">
                                                 <mat-error class="error-message" *ngIf="seventhFormGroup.get('realName').hasError(validation.type) && (seventhFormGroup.get('realName').dirty || seventhFormGroup.get('realName').touched)">
@@ -179,7 +172,8 @@
                                     <div class="row">
                                         <button type="submit" (click)="addCast(screenName.value,realName.value)" class="addButton">Add</button>
                                     </div>
-                                </form><br>
+                                </form>
+                            </div>
                                 <ul>
                                     <li>
                                         <table *ngFor="let cast of castList">
@@ -194,10 +188,12 @@
                                         </table>
                                     </li>
                                 </ul><br>
-                            </div><br>
+                            <br>
                         </mat-card-content><br>
-                        <button mat-stroked-button matStepperPrevious>Back</button>
+                        <div id="button2" >
+                        <button mat-stroked-button matStepperPrevious>Back</button>&nbsp; &nbsp;
                         <button mat-stroked-button matStepperNext [disabled]="!secondFormGroup.valid">Next</button>
+                        </div>
                     </mat-card>
                 </form>
             </mat-step>
@@ -208,10 +204,10 @@
                     <ng-template matStepLabel><span class="headingStyle">Episode Details</span></ng-template>
                     <mat-card class="example-card">
                         <mat-card-content class="content">
-                            <div class="container2">
+                            <div class="container">
                                 <form #viewerForm="ngForm" [formGroup]="eightFormGroup" class="form-horizontal eight" style="margin-left: 0px; margin-right: 0px; margin-top: -50px">
                                     <div class="row">
-                                        <div class="col-5" id="episodeNumber">
+                                        <div class="col-4" id="episodeNumber">
                                             <label>Episode Number</label> </div>
                                         <div class="col-7" id="input7">
                                             <input class="form-control" type="number" #episodeNo name="episodeNo" formControlName="episodeNo" required>
@@ -219,19 +215,19 @@
                                     </div>
                                     <br><br>
                                     <div class="row">
-                                        <div class="col-5" id="videoFile">
+                                        <div class="col-4" id="videoFile">
                                             <label>Video File</label>
                                         </div>
-                                        <div class="col-4" id="input8">
+                                        <div class="col-5" id="input8">
                                             <input class="aligns" type="file" #episodeUrl formControlName="episodeUrl" (change)="selectVideo($event)" accept="video/*">
                                         </div>
-                                        <div class="col-3" id="upload">
-                                            <button mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo">Upload</button>
+                                        <div class="col-2" >
+                                            <button  id="upload" mat-raised-button (click)="uploadVideo()" [disabled]="!selectedVideo">Upload</button>
                                         </div>
                                     </div>
                                     <br><br>
                                     <div class="row">
-                                        <div class="col-5" id="description">
+                                        <div class="col-4" id="description">
                                             <label>Description</label>
                                         </div>
                                         <div class="col-7" id="input9">
@@ -240,7 +236,7 @@
                                     </div>
                                     <br><br>
                                     <div class="row">
-                                        <div class="col-5" id="poster1">
+                                        <div class="col-4" id="poster1">
                                             <label>Poster</label>
                                         </div>
                                         <div class="col-7" id="input10">
@@ -254,22 +250,22 @@
                                     </div>
                                     <br>
                                     <div class="row">
-                                        <div class="col-5" id="releaseDate">
+                                        <div class="col-4" id="releaseDate">
                                             <label>Release Date</label>
                                         </div>
                                         <div class="col-7" id="date">
-                                            <mat-form-field>
+                                            <mat-form-field style="width:315px !important ;margin-left: 70px;" >
                                                 <input matInput [matDatepicker]="picker" placeholder="Choose a date" #episodeReleaseDate formControlName="episodeReleaseDate">
                                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                                 <mat-datepicker #picker></mat-datepicker>
                                             </mat-form-field>
                                         </div>
                                     </div>
-                                    <div class="row" id="submit1">
-                                        <button type="submit" (click)="addEpisode(episodeNo.value,episodeUrl.value,episodeDescription.value,episodePosterUrl.value,episodeReleaseDate.value)">Add</button>
+                                    <div class="row">
+                                        <button type="submit" (click)="addEpisode(episodeNo.value,episodeUrl.value,episodeDescription.value,episodePosterUrl.value,episodeReleaseDate.value)" class="addButton3">Add</button>
                                     </div>
                                 </form>
-                            </div>
+                            
                             <ul>
                                 <li>
                                     <table *ngFor="let episode of episodePreview" id="episodeList">
@@ -295,26 +291,29 @@
                                         </tr>
                                     </table>
                                 </li>
-                            </ul>
+                            </ul><br>
+                        </div><br>
                         </mat-card-content>
-                        <button mat-stroked-button matStepperPrevious>Back</button>&nbsp;
+                        <br><br>
+                        <div id="button3" >
+                        <button mat-stroked-button matStepperPrevious>Back</button>&nbsp; &nbsp;
                         <button mat-stroked-button matStepperNext>Next</button>
+                    </div>
                     </mat-card>
-                </form><br>
+                </form>
             </mat-step>
             <mat-step [stepControl]="fourthForm">
-                <form #viewerForm="ngForm" class="form-horizontal" style="height: 100%">
+                <form #viewerForm="ngForm" class="form-horizontal">
                     <ng-template matStepLabel><span class="headingStyle">Status</span></ng-template>
-                    <mat-card class="example-card">
-                        <mat-card-content class="content">
-                            <div class="container3">
+                    <mat-card class="example-card" id="fourth-card">
+                        <mat-card-content class="content"  id="success">
+                            <div id="container3">
                                 <h3>Thank you!</h3>
                                 <br>
                                 <p>Successfully uploaded</p>
                             </div>
                         </mat-card-content>
-                        <button mat-stroked-button matStepperPrevious>Back</button>
-                        <button type="submit" (click)="saveMedia()" mat-stroked-button matStepperNext>Publish</button>
+                        <button id="publish" type="submit" (click)="saveMedia()" mat-stroked-button matStepperNext>Publish</button>
                     </mat-card>
                 </form>
             </mat-step>

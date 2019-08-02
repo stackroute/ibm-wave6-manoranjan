@@ -41,7 +41,7 @@ section {
 }
 
 #outerMatCard {
-    margin-top: 75px;
+    margin-top: 61px;
 }
 
 #error {
@@ -361,12 +361,14 @@ h3{
     color: green;
 }
 
-#success img {
-    height: 50px;
-    width: 50px;
-}
 
 h3 {
     margin-top: 180px;
 
 }
+.mat-stroked-button{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 14px;
+    background: #36c5ff;
+    color: white;
+  }
