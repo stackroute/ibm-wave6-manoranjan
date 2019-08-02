@@ -19,5 +19,5 @@ public class Viewer {
     private Long id;
     private String name;
     private String emailId;
-    private List<String> genre;
+    private List<String> interest;
 }

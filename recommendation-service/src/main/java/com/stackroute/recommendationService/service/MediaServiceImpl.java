@@ -127,15 +127,15 @@ public class MediaServiceImpl implements MediaService {
 
     //method to save Documentary
     public Documentary saveDocumentary(Documentary documentary) throws MediaAlreadyExistException{
-        if (documentaryRepository.findDocumentaryByTitle(documentary.getTitle()) == null)
+        if (documentaryRepository.findDocumentaryByTitle(documentary.getMediaTitle()) == null)
         {
-            documentaryRepository.createDocumentaryNode(documentary.getTitle());
-            documentaryRepository.createLanguageRelation(documentary.getTitle(), documentary.getMediaLanguage());
-            documentaryRepository.createCategoryRelation(documentary.getTitle(), documentary.getMediaCategory());
+            documentaryRepository.createDocumentaryNode(documentary.getMediaTitle());
+            documentaryRepository.createLanguageRelation(documentary.getMediaTitle(), documentary.getMediaLanguage());
+            documentaryRepository.createCategoryRelation(documentary.getMediaTitle(), documentary.getMediaCategory());
 
             for (int i = 0; i < documentary.getMediaGenre().size(); i++) {
                 System.out.println(documentary.getMediaGenre().get(i));
-                documentaryRepository.createGenreRelation(documentary.getTitle(), documentary.getMediaGenre().get(i));
+                documentaryRepository.createGenreRelation(documentary.getMediaTitle(), documentary.getMediaGenre().get(i));
             }
         }
         else
@@ -147,13 +147,13 @@ public class MediaServiceImpl implements MediaService {
 
     //method to save movie
     public Movie saveMovie(Movie movie) throws MediaAlreadyExistException{
-        if (movieRepository.findMovieByTitle(movie.getTitle()) == null) {
-            movieRepository.createMovieNode(movie.getTitle());
-            movieRepository.createLanguageRelation(movie.getTitle(), movie.getMediaLanguage());
-            movieRepository.createCategoryRelation(movie.getTitle(), movie.getMediaCategory());
+        if (movieRepository.findMovieByTitle(movie.getMediaTitle()) == null) {
+            movieRepository.createMovieNode(movie.getMediaTitle());
+            movieRepository.createLanguageRelation(movie.getMediaTitle(), movie.getMediaLanguage());
+            movieRepository.createCategoryRelation(movie.getMediaTitle(), movie.getMediaCategory());
 
             for (int i = 0; i < movie.getMediaGenre().size(); i++) {
-                movieRepository.createGenreRelation(movie.getTitle(), movie.getMediaGenre().get(i));
+                movieRepository.createGenreRelation(movie.getMediaTitle(), movie.getMediaGenre().get(i));
             }
         }
         else
@@ -165,11 +165,11 @@ public class MediaServiceImpl implements MediaService {
 
     //method to save tv episodes
     public TvEpisodes saveTvEpisodes(TvEpisodes tvEpisodes) throws MediaAlreadyExistException{
-        if (tvEpisodesRepository.findTvEpisodeByTitle(tvEpisodes.getTitle()) == null) {
+        if (tvEpisodesRepository.findTvEpisodeByTitle(tvEpisodes.getEpisodeTitle()) == null) {
 
-            tvEpisodesRepository.createTvEpisodesNode(tvEpisodes.getTitle());
-            tvEpisodesRepository.createLanguageRelation (tvEpisodes.getTitle(), tvEpisodes.getEpisodeLanguage());
-            tvEpisodesRepository.createCategoryRelation (tvEpisodes.getTitle(), tvEpisodes.getEpisodeCategory());
+            tvEpisodesRepository.createTvEpisodesNode(tvEpisodes.getEpisodeTitle());
+            tvEpisodesRepository.createLanguageRelation (tvEpisodes.getEpisodeTitle(), tvEpisodes.getEpisodeLanguage());
+            tvEpisodesRepository.createCategoryRelation (tvEpisodes.getEpisodeTitle(), tvEpisodes.getEpisodeCategory());
         }
         else
         {
@@ -180,11 +180,11 @@ public class MediaServiceImpl implements MediaService {
 
     //method to save web series
     public WebSeries saveWebSeries(WebSeries webSeries) throws MediaAlreadyExistException{
-        if (webSeriesRepository.findWebSeriesByTitle(webSeries.getTitle()) == null) {
+        if (webSeriesRepository.findWebSeriesByTitle(webSeries.getEpisodeTitle()) == null) {
 
-            webSeriesRepository.createWebSeriesNode(webSeries.getTitle());
-            webSeriesRepository.createLanguageRelation(webSeries.getTitle(), webSeries.getEpisodeLanguage());
-            webSeriesRepository.createCategoryRelation(webSeries.getTitle(), webSeries.getEpisodeCategory());
+            webSeriesRepository.createWebSeriesNode(webSeries.getEpisodeTitle());
+            webSeriesRepository.createLanguageRelation(webSeries.getEpisodeTitle(), webSeries.getEpisodeLanguage());
+            webSeriesRepository.createCategoryRelation(webSeries.getEpisodeTitle(), webSeries.getEpisodeCategory());
         }
         else
         {

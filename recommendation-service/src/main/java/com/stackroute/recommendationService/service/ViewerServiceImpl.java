@@ -33,9 +33,9 @@ public class ViewerServiceImpl implements ViewerService {
     public Viewer saveViewer(Viewer viewer) throws ViewerAlreadyExistException {
         if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
             viewerRepository.createViewer(viewer.getName(), viewer.getEmailId());
-            int length = viewer.getGenre().size();
+            int length = viewer.getInterest().size();
             for (int i = 0; i < length; i++) {
-                viewerRepository.createGenreRelation(viewer.getEmailId(), viewer.getGenre().get(i));
+                viewerRepository.createGenreRelation(viewer.getEmailId(), viewer.getInterest().get(i));
             }
         }
         else {
@@ -60,7 +60,7 @@ public class ViewerServiceImpl implements ViewerService {
         } else {
             Viewer viewer1 = viewerRepository.findByEmailId(viewer.getEmailId());
             viewer1.setEmailId(viewer.getEmailId());
-            viewer1.setGenre(viewer.getGenre());
+            viewer1.setInterest(viewer.getInterest());
             viewerRepository.save(viewer1);
             return viewer1;
         }
