@@ -1,7 +1,6 @@
 package com.stackroute.recommendationService.repository;
 
 import com.stackroute.recommendationService.domain.Documentary;
-import com.stackroute.recommendationService.domain.EpisodicMedia;
 import com.stackroute.recommendationService.domain.TvEpisodes;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
@@ -17,17 +16,17 @@ public interface TvEpisodesRepository extends Neo4jRepository<TvEpisodes, Long> 
     Collection<TvEpisodes> getAllTvEpisodes();
 
     //query to find TvEpisodes by title
-    TvEpisodes findTvEpisodeByTitle(@Param("title") String title);
+    TvEpisodes findTvEpisodeByTitle(@Param("episodeTitle") String episodeTitle);
 
     //query to create TvEpisodes node
-    @Query("CREATE (t:TvEpisodes {title:{title}})")
-    TvEpisodes createTvEpisodesNode(@Param("title") String title);
+    @Query("CREATE (t:TvEpisodes {episodeTitle:{episodeTitle}})")
+    TvEpisodes createTvEpisodesNode(@Param("episodeTitle") String episodeTitle);
 
     //query to create TvEpisodes and language relation
-    @Query("MATCH (t:TvEpisodes),(l:Language) WHERE t.title={title} and l.language={language} CREATE (t)-[r:In_Language]->(l) RETURN t, r, l")
-    TvEpisodes createLanguageRelation(@Param("title") String title, @Param("language") String language);
+    @Query("MATCH (t:TvEpisodes),(l:Language) WHERE t.episodeTitle={episodeTitle} and l.language={language} CREATE (t)-[r:In_Language]->(l) RETURN t, r, l")
+    TvEpisodes createLanguageRelation(@Param("episodeTitle") String episodeTitle, @Param("language") String language);
 
     //query to create TvEpisodes and category relation
-    @Query("MATCH (t:TvEpisodes),(c:Category) WHERE t.title={title} and c.category={category} CREATE (t)-[r:Of_Category]->(c) RETURN t, r, c")
-    Documentary createCategoryRelation(@Param("title") String title, @Param("category") String category);
+    @Query("MATCH (t:TvEpisodes),(c:Category) WHERE t.episodeTitle={episodeTitle} and c.category={category} CREATE (t)-[r:Of_Category]->(c) RETURN t, r, c")
+    Documentary createCategoryRelation(@Param("episodeTitle") String episodeTitle, @Param("category") String category);
 }

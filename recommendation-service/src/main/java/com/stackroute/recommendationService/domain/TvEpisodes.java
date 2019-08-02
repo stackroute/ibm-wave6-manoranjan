@@ -16,7 +16,7 @@ public class TvEpisodes {
 
     @GraphId
     private Long id;
-    private String title;
+    private String episodeTitle;
     private String episodeCategory;
     private String episodeLanguage;
 }

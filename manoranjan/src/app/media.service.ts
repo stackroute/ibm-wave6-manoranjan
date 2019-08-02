@@ -98,5 +98,4 @@ export class MediaService {
     return this.http.post('http://localhost:8083/media-manager-service/media/list',mediaList);
 
   }
-
 }

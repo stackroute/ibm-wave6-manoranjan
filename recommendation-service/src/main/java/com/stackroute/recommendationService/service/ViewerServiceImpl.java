@@ -6,10 +6,14 @@ import com.stackroute.recommendationService.exception.ViewerNotFoundException;
 import com.stackroute.recommendationService.repository.GenreRepository;
 import com.stackroute.recommendationService.repository.ViewerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
 
+@CacheConfig(cacheNames = "viewer")
 @Service
 @Primary
 public class ViewerServiceImpl implements ViewerService {
@@ -20,7 +24,17 @@ public class ViewerServiceImpl implements ViewerService {
     @Autowired
     private GenreRepository genreRepository;
 
+    //to handle delay
+    public void simulateDelay(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     //Method to get all viewers
+    @Cacheable
     public Collection<Viewer> getAll() throws ViewerNotFoundException {
         if (viewerRepository.getAllViewers() == null) {
             throw new ViewerNotFoundException();
@@ -30,12 +44,13 @@ public class ViewerServiceImpl implements ViewerService {
     }
 
     //method to save viewer
+    @CacheEvict(allEntries = true)
     public Viewer saveViewer(Viewer viewer) throws ViewerAlreadyExistException {
         if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
             viewerRepository.createViewer(viewer.getName(), viewer.getEmailId());
-            int length = viewer.getGenre().size();
+            int length = viewer.getInterest().size();
             for (int i = 0; i < length; i++) {
-                viewerRepository.createGenreRelation(viewer.getEmailId(), viewer.getGenre().get(i));
+                viewerRepository.createGenreRelation(viewer.getEmailId(), viewer.getInterest().get(i));
             }
         }
         else {
@@ -45,6 +60,7 @@ public class ViewerServiceImpl implements ViewerService {
     }
 
     //method to get viewer by emailId
+    @Cacheable
     public Viewer getViewerByEmailId(String emailId) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
@@ -54,19 +70,21 @@ public class ViewerServiceImpl implements ViewerService {
     }
 
     //method to update viewer details
+    @CacheEvict(allEntries = true)
     public Viewer updateDetails(Viewer viewer) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(viewer.getEmailId()) == null) {
             throw new ViewerNotFoundException();
         } else {
             Viewer viewer1 = viewerRepository.findByEmailId(viewer.getEmailId());
             viewer1.setEmailId(viewer.getEmailId());
-            viewer1.setGenre(viewer.getGenre());
+            viewer1.setInterest(viewer.getInterest());
             viewerRepository.save(viewer1);
             return viewer1;
         }
     }
 
     //method to delete viewer by emailId
+    @CacheEvict(allEntries = true)
     public Collection<Viewer> deleteViewer(String emailId) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
@@ -77,7 +95,9 @@ public class ViewerServiceImpl implements ViewerService {
         }
     }
 
+
     //method to save viewer and documentary relation
+    @CacheEvict(allEntries = true)
     public Viewer saveDocumentaryRelation(String emailId, String title) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();
@@ -87,6 +107,7 @@ public class ViewerServiceImpl implements ViewerService {
     }
 
     //method to save viewer and movie relation
+    @CacheEvict(allEntries = true)
     public Viewer saveMovieRelation(String emailId, String title) throws ViewerNotFoundException {
         if (viewerRepository.findByEmailId(emailId) == null) {
             throw new ViewerNotFoundException();

@@ -34,10 +34,26 @@ a {
     float: left;
 }
 
-.second {
-    text-align: center;
-}
+/* col-3{
+ height:auto;
+ width:
+}. */
+/* .col-lg-8{
+    margin-top: -80px;
+} */
 
-.third {
-    float: left;
-}
+ .second {
+    text-align: center;
+    float:right;
+} 
+
+ .third {
+    text-align: center;
+    float: right;
+
+} 
+.four {
+    text-align: center;
+    margin-left: 60px;
+
+} 

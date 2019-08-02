@@ -37,6 +37,6 @@ export class UserService {
   }
 
   addToWishlist(emailId,title,category){
-    // return this.http.post("http://localhost:8083/user-service/user/wish/"+emailId+"/"+title+"/"+category,{});
+    return this.http.post("http://localhost:8083/user-service/user/wish/"+emailId+"/"+title+"/"+category,{});
   }
 }

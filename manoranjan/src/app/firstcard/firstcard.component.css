@@ -2,12 +2,12 @@
     width: 90%;
     margin: 3.5em auto;
     padding: 10;
-    margin-bottom: 0%;
+    margin-bottom: -30px;
 }
 
 #container H4 {
     padding-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 img-clicked {
@@ -24,11 +24,11 @@ button {
 }
 
 .latest {
-    height: 180px;
-    width: 165px;
+    height: 247px;
+    width: 232px;
     border-radius: 14px;
     margin-top: 15px;
-    padding: 5px;
+    padding: 10px;
     margin-bottom: 30px;
 }
 
