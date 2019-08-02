@@ -1,4 +1,4 @@
-package com.stackroute.recommendationService.repository;
-
-public class EpisodicMediaRepositoryTest {
-}
+//package com.stackroute.recommendationService.repository;
+//
+//public class EpisodicMediaRepositoryTest {
+//}
