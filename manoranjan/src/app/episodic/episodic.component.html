@@ -120,22 +120,7 @@
                                     <div class="row">
                                         <button type="submit" (click)="addCrew(crewName.value,crewRole.value)" class="addButton">Add</button>
                                     </div>
-                                </form>
-                                <br>
-                                <ul>
-                                    <li>
-                                        <table *ngFor="let crew of crewList">
-                                            <tr>
-                                                <td width="300px">
-                                                    {{crew.crewName}} {{crew.crewRole}}
-                                                </td>
-                                                <td width="90px">
-                                                    <button (click)="deleteCrew(crew.crewName,crew.crewRole)">Delete</button>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </li>
-                                </ul>
+                                </form><br>
                                 <div class="row">
                                         <div class="col-2" id="cast">
                                         <label>Cast</label>
@@ -174,28 +159,31 @@
                                     </div>
                                 </form>
                             </div>
-                                <ul>
-                                    <li>
-                                        <table *ngFor="let cast of castList">
-                                            <tr>
-                                                <td width="300px">
-                                                    {{cast.screenName}} {{cast.realName}}
-                                                </td>
-                                                <td width="90px">
-                                                    <button (click)="deleteCast(cast.screenName,cast.realName)">Delete</button>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </li>
-                                </ul><br>
-                            <br>
                         </mat-card-content><br>
-                        <div id="button2" >
+                        <div id="button2">
                         <button mat-stroked-button matStepperPrevious>Back</button>&nbsp; &nbsp;
                         <button mat-stroked-button matStepperNext [disabled]="!secondFormGroup.valid">Next</button>
                         </div>
                     </mat-card>
                 </form>
+                <div class="row" style="width:100%;margin-bottom: 10px;">
+                        <div class="col-2" *ngFor="let crew of crewList">
+                          <div class="card" style="background-color: black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
+                        <h6 style="margin-top: 10px">{{crew.crewName}} </h6> 
+                        <h6>AS&nbsp;{{crew.crewRole}}</h6> 
+                        </div>
+                        </div>
+                        <div class="col-2" *ngFor="let cast of castList">
+                          <div class="card" style="background-color:black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
+                        <h6 style="margin-top: 10px">
+                        {{cast.realName}}  
+                        </h6>
+                        <h6>
+                        As&nbsp;{{cast.screenName}} 
+                        </h6>
+                        </div>
+                        </div>
+                        </div>
             </mat-step>
             <!--end second form group-->
 
@@ -265,33 +253,6 @@
                                         <button type="submit" (click)="addEpisode(episodeNo.value,episodeUrl.value,episodeDescription.value,episodePosterUrl.value,episodeReleaseDate.value)" class="addButton3">Add</button>
                                     </div>
                                 </form>
-                            
-                            <ul>
-                                <li>
-                                    <table *ngFor="let episode of episodePreview" id="episodeList">
-                                        <tr>
-                                            <td>
-                                                {{episode.episodeNo}}
-                                            </td>
-                                            <td>
-                                                {{episode.episodeUrl}}
-                                            </td>
-                                            <td>
-                                                {{episode.episodeDescription}}
-                                            </td>
-                                            <td>
-                                                {{episode.episodePosterUrl}}
-                                            </td>
-                                            <td>
-                                                {{episode.episodeReleaseDate}}
-                                            </td>
-                                            <td>
-                                                <button (click)="deleteEpisode(episode.episodeNo,episode.episodeUrl,episode.episodeDescription,episode.episodePosterUrl,episode.episodeReleaseDate)">Delete</button>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                            </ul><br>
                         </div><br>
                         </mat-card-content>
                         <br><br>
@@ -301,6 +262,13 @@
                     </div>
                     </mat-card>
                 </form>
+                <div class="col-2" *ngFor="let episode of episodePreview">
+                        <div class="card" style="background-color:black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
+                      <h6 style="margin-top: 10px">
+                         {{episode.episodeNo}} 
+                      </h6>
+                      </div>
+                      </div>
             </mat-step>
             <mat-step [stepControl]="fourthForm">
                 <form #viewerForm="ngForm" class="form-horizontal">
