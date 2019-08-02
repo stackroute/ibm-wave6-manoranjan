@@ -19,69 +19,63 @@
                           <mat-grid-list cols="3" id="firstgrid">
                             <mat-grid-tile >
                                 <mat-button-toggle class="imageCard"  (change)="onSubmInterest($event.value)" value="biopic">
-                                  <img  mat-card-md-image src="/assets/images/binew1.jpg" alt="biopic">
-                                 
+                                  <img  mat-card-md-image src="/assets/images/b.jpg" alt="biopic">
                               </mat-button-toggle>
                             </mat-grid-tile>
                             <mat-grid-tile>   
                               <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="kid">
-                               <img mat-card-md-image src="/assets/images/knew2.jpg" alt="kid">
-                                <!-- <p>Kid</p> -->
+                               <img mat-card-md-image src="/assets/images/k.jpg" alt="kid">
                               </mat-button-toggle>
                            </mat-grid-tile>
                           <mat-grid-tile>
                               <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="action">
-                                <img  mat-card-md-image src="/assets/images/anew.jpg" alt="action">
-                                  
+                                <img  mat-card-md-image src="/assets/images/a3.jpg" alt="action"> 
                               </mat-button-toggle>
                           </mat-grid-tile>
                        </mat-grid-list>
-                       <mat-grid-list cols="3">
+                       <mat-grid-list cols="3" id="gridimages1">
                          <mat-grid-tile>
                           <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="mystery">
-                            <img  mat-card-md-image src="/assets/images/mysnew1.jpg" alt="mystery">
+                            <img  mat-card-md-image src="/assets/images/my.jpg" alt="mystery">
                           </mat-button-toggle>
                        </mat-grid-tile>
                       <mat-grid-tile>
                             <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="mythology">
-                          <img mat-card-md-image src="/assets/images/mnew.jpg" alt="mythology">
+                          <img mat-card-md-image src="/assets/images/m.jpg" alt="mythology">
                             </mat-button-toggle>
                       </mat-grid-tile>
                       <mat-grid-tile>
                               <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="comedy">
-                                <img mat-card-md-image src="/assets/images/cnew.jpg" alt="comedy">
+                                <img mat-card-md-image src="/assets/images/cm.jpg" alt="comedy">
                               </mat-button-toggle>
                       </mat-grid-tile>
                    </mat-grid-list>
-            <mat-grid-list cols="3" id="gridimages">
+            <mat-grid-list cols="3" id="gridimages2">
                 <mat-grid-tile>
                         <mat-button-toggle (change)="onSubmInterest($event.value)"  value="horror">
-                          <img  mat-card-md-image src="/assets/images/hnew.jpg" alt="horror">
+                          <img  mat-card-md-image src="/assets/images/h.jpg" alt="horror">
                         </mat-button-toggle>
                   </mat-grid-tile>
                   <mat-grid-tile>
                           <mat-button-toggle (change)="onSubmInterest($event.value)" value="romantic">
 
-                           <img  mat-card-md-image src="/assets/images/rnew.jpg" alt="romantic">
+                           <img  mat-card-md-image src="/assets/images/r.jpg" alt="romantic">
                           </mat-button-toggle>
                  </mat-grid-tile>
                  <mat-grid-tile>
                     <mat-button-toggle (change)="onSubmInterest($event.value)"  value="science">
-                     <img  mat-card-md-image src="/assets/images/snew.jpg" alt="science">
+                     <img  mat-card-md-image src="/assets/images/s.jpg" alt="science">
                     </mat-button-toggle>
                </mat-grid-tile>
              </mat-grid-list> 
-            
               <!-- 3rd row of cards is close -->
-            <!-- </mat-button-toggle-group> -->   
                   </mat-card-content>
                   </mat-card>
                   </div>
-                  <br>
-                      
-                  <div class="row">
+                  <br>  
+                  <div class="row" id="releaseRow">
                       <div class="col-4" >
-                      <label id="releaseDate">Release Date</label>
+                      <label id="releaseDate" style="margin-left: -10px">Release Date</label>
                       </div>
                       <div class="col-8" id="date" style="margin-top: -40px">
                       <mat-form-field style="width:300px !important ;margin-left: 80px;" >
@@ -153,16 +147,19 @@
     <button type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
     </div>
     </form><br>
-    <ul>
+    <ul class="table">
     <li>
     <table *ngFor="let crew of crewList">
     <tr>
-    <td width="300px">
-    {{crew.crewName}} --> {{crew.crewRole}} 
+    <td width="180px">
+    {{crew.crewName}} 
     </td>
-    <td width="110px">
+    <td width="180px">
+    {{crew.crewRole}} 
+      </td>
+    <!-- <td width="110px">
     <button (click)="deleteCrew(crew.crewName,crew.crewRole)" id="delete">Delete</button>
-    </td>
+    </td> -->
     </tr>
     </table>
     </li>
@@ -195,16 +192,19 @@
     </div>
     </form>
     </div>
-    <ul>
+    <ul class="table1">
     <li>
     <table *ngFor="let cast of castList">
     <tr>
-    <td width="300px">
-    {{cast.realName}} As {{cast.screenName}} 
+    <td width="180px" style="padding:12px;" >
+    {{cast.realName}}  
     </td>
-    <td width="110px">
+    <td width="180px" style="padding:12px;">
+    {{cast.screenName}} 
+      </td>
+    <!-- <td width="110px">
     <button (click)="deleteCast(cast.screenName,cast.realName)" id="delete">Delete</button>
-    </td>
+    </td> -->
     </tr>
     </table>
     </li>
@@ -320,7 +320,7 @@
                     </div>
                    </mat-card-content>
                    <div id="bottomButton" >
-                <button id="publish" type="submit" (click)="saveMedia()" mat-stroked-button matStepperNext>Publish</button>
+                <button id="publish" type="submit" routerLink="/producer" (click)="saveMedia()" mat-stroked-button matStepperNext>Publish</button>
               </div>
               </mat-card>   
       </form>
