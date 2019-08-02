@@ -180,4 +180,29 @@ public class MediaController {
     public Viewer saveWebSeriesRelation(@PathVariable String email, @PathVariable String title) throws ViewerNotFoundException {
         return viewerService.saveWebSeriesRelation(email, title);
     }
+
+    @PostMapping("/recommendedInterestDocumentary")
+    public Collection<Documentary> getRecInterestDocumentary(@PathVariable String email) throws MediaNotFoundException {
+        return mediaService.getRecInterestDoc(email);
+    }
+    @PostMapping("/recommendedInterestMovie")
+    public Collection<Movie> getRecInterestMovie(@PathVariable String email) throws MediaNotFoundException {
+        return mediaService.getRecInterestMovie(email);
+    }
+    @PostMapping("/recLangDocumentary")
+    public Collection<Documentary> getrecLangDoc(@PathVariable String email){
+        return mediaService.getRecLangDocumentary(email);
+    }
+    @PostMapping("/recLangMovie")
+    public Collection<Movie> getrecLangMovie(@PathVariable String email){
+        return mediaService.getRecLangMovie(email);
+    }
+    @PostMapping("/recLangTvEpisodes")
+    public Collection<TvEpisodes> getrecLangTvEpisodes(@PathVariable String email){
+        return mediaService.getRecLangTvEpisodes(email);
+    }
+    @PostMapping("/recLangWebSeries")
+    public Collection<WebSeries> getrecLangWebSeries(@PathVariable String email){
+        return mediaService.getRecLangWebSeries(email);
+    }
 }
