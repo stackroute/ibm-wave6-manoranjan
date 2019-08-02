@@ -1,36 +1,28 @@
+section{
+    overflow: hidden;
+}
 .container {
     margin-top: 5%;
-    width: 100%;
     font-family: 'Merriweather', serif;
     font-weight: bold;
 }
 
 .nav-tabs {
-    background-color: #343a40;
+    /* background-color: #17a2b8; */
     font-size: 20px;
-    width: 100%;
-    
   }
   .nav-item2{
     margin-left:10px;
   }
-  .container3{
-    margin-top: 10%;
-    margin-left: 28%;
-  }
-.nav-item2 {
-    margin-left: 10px;
-}
-
 .container1 {
-    margin-top: 10%;
-    margin-left: 25%;
+    margin-left: 30%;
 }
 
 .tab-content {
-
     margin-top: -56px;
-    background-color: white;
+  height: 550px;
+  margin-bottom: -10px;
+  background-color: white;
 }
 
 .row {
@@ -58,19 +50,20 @@ textarea {
 }
 
 .nav-link:hover {
-    background-color: #e0f7f4;
-    color: black;
+    background-color: #36c5ff;
+    color: white;
 }
 
 .nav-tabs .nav-link.active {
-    color: white;
-    background-color: #36e5ff;
-    border-color: black;
+    color: black;
+    background-color: white;
+    /* border-color: black; */
 }
 
 .btn-info {
     margin-left: 5%;
 }
 .footer{
-    margin-top: 70px;
+    margin-top: -10px;
+  margin-bottom: -20px;
 }
