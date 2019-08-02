@@ -35,7 +35,7 @@
                             <div class="row" id="row3">
                                 <div class="col-5"> <label id="password">Password </label> </div>
                                 <!-- <mat-form-field> -->
-                                <div class="col-5"><input name="password" class="form-control" type="text" formControlName="password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password" required>
+                                <div class="col-5"><input name="password" class="form-control" type="text" formControlName="password" [type]="!hide ? 'password' : 'text'" [(ngModel)]="password" required>
                                 </div>
                                 <div class="col-1" id="passwordIcon">
                                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -195,7 +195,7 @@
 </mat-horizontal-stepper>  
 </mat-card>
 </section>
-<div style="margin-top: -21px" >
+<div style="margin-top: -7px" >
 <app-footer></app-footer>
 </div>
 

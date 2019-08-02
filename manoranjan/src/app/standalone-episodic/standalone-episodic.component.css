@@ -11,9 +11,9 @@ section{
     /* background-color: #17a2b8; */
     font-size: 20px;
   }
-  .nav-item2{
+  /* .nav-item2{
     margin-left:10px;
-  }
+  } */
 .container1 {
     margin-left: 30%;
 }
@@ -66,4 +66,9 @@ textarea {
 .footer{
     margin-top: -10px;
   margin-bottom: -20px;
+}
+.btn {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 14px;
+    background: #36c5ff;
 }

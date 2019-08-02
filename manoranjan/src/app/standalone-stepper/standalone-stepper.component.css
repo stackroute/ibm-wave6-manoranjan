@@ -42,15 +42,24 @@ margin-top: 100px;
 }
 #firstgrid{
   margin-top: -30px;
+  margin-bottom: 1px;
 }
 #gridimages1{
-  margin-bottom: 5px;
+  /* margin-top:-10px; */
+  margin-bottom: 0.5px;
 }
-#gridimages2{
+/* #gridimages2{
   margin-bottom: 5px;
-}
+} */
 img:hover{
   opacity: 0.5; 
+ }
+ .table1{
+   margin-right: -200px;
+   margin-left:10px;
+ }
+ .table{
+   margin-left:-20px;
  }
 
  .mat-button-toggle-checked {
@@ -225,6 +234,13 @@ ul li table {
 ul li table tr td {
   border: 1px solid gainsboro;
 
+}
+ul li table1 {
+  margin-left: 290px;
+}
+
+ul li table1 tr td {
+  border: 1px solid gainsboro;
 }
  #submit1{
    margin-top:12px;
