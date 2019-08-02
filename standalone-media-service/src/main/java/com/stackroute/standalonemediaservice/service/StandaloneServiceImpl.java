@@ -123,6 +123,20 @@ public class StandaloneServiceImpl implements StandaloneService{
         }
     }
 
+    @Override
+    public List<StandaloneMedia> getWishlist(List<String> titles) throws MediaNotFoundException {
+        List<StandaloneMedia> wishlist=new ArrayList<>();
+        for (String title:titles) {
+            if(mediaRepository.existsById(title)){
+                wishlist.add(mediaRepository.findById(title).get());
+            }
+        }
+        if(wishlist==null){
+            throw new MediaNotFoundException(mediaNotFound);
+        }
+        return wishlist;
+    }
+
 
     public void store(MultipartFile file) {
         try {

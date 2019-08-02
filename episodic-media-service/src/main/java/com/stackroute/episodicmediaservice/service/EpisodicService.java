@@ -28,4 +28,6 @@ public interface EpisodicService {
 
     public List<Episode> getAllEpisodes(String serialTitle) throws MediaNotFoundException;
 
+    public List<EpisodicMedia> getWishlist(List<String> titles) throws MediaNotFoundException;
+
 }

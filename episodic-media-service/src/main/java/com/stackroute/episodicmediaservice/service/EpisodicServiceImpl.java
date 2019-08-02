@@ -7,12 +7,14 @@ import com.stackroute.episodicmediaservice.exception.MediaNotFoundException;
 import com.stackroute.episodicmediaservice.repository.EpisodicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class EpisodicServiceImpl implements EpisodicService {
 
     @Autowired
@@ -188,6 +190,20 @@ public class EpisodicServiceImpl implements EpisodicService {
         } else {
             throw new MediaNotFoundException("Media not found");
         }
+    }
+
+    @Override
+    public List<EpisodicMedia> getWishlist(List<String> titles) throws MediaNotFoundException {
+        List<EpisodicMedia> wishlist=new ArrayList<>();
+        for (String title:titles) {
+            if(episodicMediaRepository.existsById(title)){
+                wishlist.add(episodicMediaRepository.findById(title).get());
+            }
+        }
+        if(wishlist==null){
+            throw new MediaNotFoundException(mediaNotFound);
+        }
+        return wishlist;
     }
 
 }

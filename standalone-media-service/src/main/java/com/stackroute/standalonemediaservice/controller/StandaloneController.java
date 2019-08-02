@@ -56,11 +56,11 @@ public class StandaloneController {
     public ResponseEntity<?> getSpecificCategoryMedia(@PathVariable("category") String category) throws MediaNotFoundException {
         return new ResponseEntity<>(mediaService.getMediaByCategory(category),HttpStatus.OK);
     }
-//
-//    @PostMapping("/media/list")
-//    public ResponseEntity<?> getMediaList(@RequestBody List<List<String>> medias){
-//        return new ResponseEntity<>(mediaService.getMediaList(medias),HttpStatus.OK);
-//    }
+
+    @PatchMapping("/wish")
+    public ResponseEntity<?> getWishlist(@RequestBody List<String> titles) throws MediaNotFoundException {
+        return new ResponseEntity<>(mediaService.getWishlist(titles),HttpStatus.OK);
+    }
 
     @DeleteMapping("/media/{title}")
     public ResponseEntity<?> deleteMedia(@PathVariable("title") String mediaTitle) throws MediaNotFoundException {

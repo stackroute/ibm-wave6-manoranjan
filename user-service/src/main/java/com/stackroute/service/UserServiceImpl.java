@@ -119,75 +119,155 @@ public class UserServiceImpl implements UserService {
             user = userRepository.findById(emailId).get();
 
         } else
-            throw new UserNotFoundException("track");
+            throw new UserNotFoundException();
         return user;
     }
 
     //getting all the wishlist elements by emailid
     @Cacheable
     @Override
-    public List<List<String>> getAllWishlist(String emailId) throws UserNotFoundException {
-        List<List<String>> wish;
-        User user = userRepository.findById(emailId).get();
-        wish = user.getWishList();
-        if (wish == null) {
-            throw new UserNotFoundException();
+    public List<String> getStandaloneWishlist(String emailId) throws UserNotFoundException {
+        List<String> wish;
+        List<String> wish2;
+        if(userRepository.existsById(emailId)){
+            User user = userRepository.findById(emailId).get();
+            wish = user.getWishListStandalone();
+            if (wish == null) {
+                throw new UserNotFoundException();
+            }
         }
+        else throw new UserNotFoundException();
+        return wish;
+    }
+
+    //getting all the wishlist elements by emailid
+    @Cacheable
+    @Override
+    public List<String> getEpisodicWishlist(String emailId) throws UserNotFoundException {
+        List<String> wish;
+        List<String> wish2;
+        if(userRepository.existsById(emailId)){
+            User user = userRepository.findById(emailId).get();
+            wish=user.getWishListEpisodic();
+            if (wish == null) {
+                throw new UserNotFoundException();
+            }
+        }
+        else throw new UserNotFoundException();
         return wish;
     }
 
     //fetching the history by emailId
     @Cacheable
     @Override
-    public List<List<String>> getAllHistory(String emailId) throws UserNotFoundException {
-        List<List<String>> history;
-        User user = userRepository.findById(emailId).get();
-        history = user.getHistory();
-        if (history == null) {
-            throw new UserNotFoundException();
+    public List<String> getStandaloneHistory(String emailId) throws UserNotFoundException {
+        List<String> history;
+        if(userRepository.existsById(emailId)){
+            User user = userRepository.findById(emailId).get();
+            history = user.getHistoryStandalone();
+            if (history == null) {
+                throw new UserNotFoundException();
+            }
         }
+        else throw new UserNotFoundException();
         return history;
     }
 
-    //getting userpayment details from payment-service
+    //fetching the history by emailId
+    @Cacheable
+    @Override
+    public List<String> getEpisodicHistory(String emailId) throws UserNotFoundException {
+        List<String> history;
+        if(userRepository.existsById(emailId)){
+            User user = userRepository.findById(emailId).get();
+            history=user.getHistoryEpisodic();
+            if (history == null) {
+                throw new UserNotFoundException();
+            }
+        }
+        else throw new UserNotFoundException();
+        return history;
+    }
+
+    //add to wishlist
     @CacheEvict(allEntries = true)
     @Override
-    public List<String> addToWishlish(String emailId, String title, String category) throws UserNotFoundException, DataAlreadyExistException {
+    public List<String> addToStandaloneWishlish(String emailId, String title) throws UserNotFoundException, DataAlreadyExistException {
         User user;
-        List<String> data=new ArrayList<>();
-        data.add(title);
-        data.add(category);
+        List<String> wishlist;
         if(userRepository.existsById(emailId)){
             user=userRepository.findById(emailId).get();
-            if(user.getWishList().contains(data)){
+            if(user.getWishListStandalone().contains(title)){
                 throw new DataAlreadyExistException();
             }
-            List<List<String>> wishlist=user.getWishList();
-            wishlist.add(data);
-            user.setWishList(wishlist);
+            wishlist=user.getWishListStandalone();
+            wishlist.add(title);
+            user.setWishListStandalone(wishlist);
             userRepository.save(user);
         }
         else throw new UserNotFoundException();
-        return data;
+        return wishlist;
+    }
+
+    //add to wishlist
+    @CacheEvict(allEntries = true)
+    @Override
+    public List<String> addToEpisodicWishlish(String emailId, String title) throws UserNotFoundException, DataAlreadyExistException {
+        User user;
+        List<String> wishlist;
+        if(userRepository.existsById(emailId)){
+            user=userRepository.findById(emailId).get();
+            if(user.getWishListEpisodic().contains(title)){
+                throw new DataAlreadyExistException();
+            }
+            wishlist=user.getWishListEpisodic();
+            wishlist.add(title);
+            user.setWishListEpisodic(wishlist);
+            userRepository.save(user);
+        }
+        else throw new UserNotFoundException();
+        return wishlist;
+    }
+
+
+    //add to history
+    @CacheEvict(allEntries = true)
+    @Override
+    public List<String> addToStandaloneHistory(String emailId, String title) throws UserNotFoundException, DataAlreadyExistException {
+        User user;
+        List<String> history;
+        if(userRepository.existsById(emailId)){
+            user=userRepository.findById(emailId).get();
+            if(user.getWishListEpisodic().contains(title)){
+                throw new DataAlreadyExistException();
+            }
+            history=user.getHistoryStandalone();
+            history.add(title);
+            user.setHistoryStandalone(history);
+            userRepository.save(user);
+        }
+        else throw new UserNotFoundException();
+        return history;
     }
 
     //add to history
     @CacheEvict(allEntries = true)
     @Override
-    public List<String> addToHistory(String emailId, String title, String category) throws UserNotFoundException {
+    public List<String> addToEpisodicHistory(String emailId, String title) throws UserNotFoundException, DataAlreadyExistException {
         User user;
-        List<String> data=new ArrayList<>();
-        data.add(title);
-        data.add(category);
+        List<String> history;
         if(userRepository.existsById(emailId)){
             user=userRepository.findById(emailId).get();
-            List<List<String>> history=user.getHistory();
-            history.add(data);
-            user.setHistory(history);
+            if(user.getWishListEpisodic().contains(title)){
+                throw new DataAlreadyExistException();
+            }
+            history=user.getHistoryEpisodic();
+            history.add(title);
+            user.setHistoryEpisodic(history);
             userRepository.save(user);
         }
         else throw new UserNotFoundException();
-        return data;
+        return history;
     }
 
     @Override

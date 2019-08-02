@@ -75,4 +75,8 @@ public class EpisodicController {
         return new ResponseEntity<>(mediaService.deleteEpisode(serialTitle, episodeNum),HttpStatus.OK);
     }
 
+    @PatchMapping("/wish")
+    public ResponseEntity<?> getWishlist(@RequestBody List<String> titles) throws MediaNotFoundException {
+        return new ResponseEntity<>(mediaService.getWishlist(titles),HttpStatus.OK);
+    }
 }

@@ -24,6 +24,8 @@ public interface StandaloneService {
 
     public List<StandaloneMedia> getMediaByCategory(String category) throws MediaNotFoundException;
 
+    public List<StandaloneMedia> getWishlist(List<String> titles) throws MediaNotFoundException;
+
     public void store(MultipartFile file) throws FileNotUploadedException;
     public Resource loadFile(String filename) throws FileNotUploadedException;
     public void deleteAll();
