@@ -20,23 +20,20 @@
                             <mat-grid-tile >
                                 <mat-button-toggle class="imageCard"  (change)="onSubmInterest($event.value)" value="biopic">
                                   <img  mat-card-md-image src="/assets/images/binew1.jpg" alt="biopic">
-                                 
                               </mat-button-toggle>
                             </mat-grid-tile>
                             <mat-grid-tile>   
                               <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="kid">
                                <img mat-card-md-image src="/assets/images/knew2.jpg" alt="kid">
-                                <!-- <p>Kid</p> -->
                               </mat-button-toggle>
                            </mat-grid-tile>
                           <mat-grid-tile>
                               <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="action">
-                                <img  mat-card-md-image src="/assets/images/anew.jpg" alt="action">
-                                  
+                                <img  mat-card-md-image src="/assets/images/anew.jpg" alt="action"> 
                               </mat-button-toggle>
                           </mat-grid-tile>
                        </mat-grid-list>
-                       <mat-grid-list cols="3">
+                       <mat-grid-list cols="3" id="gridimages1">
                          <mat-grid-tile>
                           <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="mystery">
                             <img  mat-card-md-image src="/assets/images/mysnew1.jpg" alt="mystery">
@@ -53,7 +50,7 @@
                               </mat-button-toggle>
                       </mat-grid-tile>
                    </mat-grid-list>
-            <mat-grid-list cols="3" id="gridimages">
+            <mat-grid-list cols="3" id="gridimages2">
                 <mat-grid-tile>
                         <mat-button-toggle (change)="onSubmInterest($event.value)"  value="horror">
                           <img  mat-card-md-image src="/assets/images/hnew.jpg" alt="horror">
@@ -71,17 +68,14 @@
                     </mat-button-toggle>
                </mat-grid-tile>
              </mat-grid-list> 
-            
               <!-- 3rd row of cards is close -->
-            <!-- </mat-button-toggle-group> -->   
                   </mat-card-content>
                   </mat-card>
                   </div>
-                  <br>
-                      
-                  <div class="row">
+                  <br>  
+                  <div class="row" id="releaseRow">
                       <div class="col-4" >
-                      <label id="releaseDate">Release Date</label>
+                      <label id="releaseDate" style="margin-left: -10px">Release Date</label>
                       </div>
                       <div class="col-8" id="date" style="margin-top: -40px">
                       <mat-form-field style="width:300px !important ;margin-left: 80px;" >

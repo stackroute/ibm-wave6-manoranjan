@@ -5,11 +5,11 @@
   height: 100%;
   overflow: hidden;
   box-shadow: none;
-    }
-    #outerMatCard{
+  }
+ #outerMatCard{
       margin-top:-75px;
     }
-label{
+ label{
       font-size:15px;
     font-family: 'Merriweather', serif;
     }
@@ -43,8 +43,11 @@ margin-top: 100px;
 #firstgrid{
   margin-top: -30px;
 }
-#gridimages{
-  margin-bottom: -50px;
+#gridimages1{
+  margin-bottom: 5px;
+}
+#gridimages2{
+  margin-bottom: 5px;
 }
 img:hover{
   opacity: 0.5; 
@@ -74,6 +77,9 @@ img:hover{
   margin-top: 25px;
   margin-left: -28px;
 }
+#releaseRow{
+  margin-top: -40px;
+}
  #releaseDate{
    margin-left: 0px;
  }
@@ -88,7 +94,7 @@ img:hover{
    margin-left: -30px;
  }
  #role{
-   margin-left: -40px;
+   margin-left: -50px;
  }
  #input{
    margin-top: -50px;
@@ -109,7 +115,7 @@ img:hover{
    margin-left: -20px;
  }
  #realName{
-   margin-left: -60px;
+   margin-left: -55px;
  }
 
 
@@ -122,9 +128,6 @@ img:hover{
   margin-top: -50px;
 }
 
-#gridimages {
-  margin-bottom: -50px;
-}
 
 img:hover {
   opacity: 0.5;
@@ -209,9 +212,6 @@ li {
   margin-left: -10px;
 }
 
-#realName {
-  margin-left: -6px;
-}
 
 ul {
 
@@ -336,18 +336,6 @@ mat-horizontal-stepper {
 #date1 {
   margin-top: -10px;
 
-}
-.form-group{
-    text-align: center;
-}
-.image-card{
-   width: 40%;
-   height: 50%;
-   
-}
-
-.mat-card-sm-image{
-margin-right: 10px;
 }
 
 
