@@ -54,13 +54,9 @@ public class UserPaymentServiceImpl implements UserPaymentService {
     @CacheEvict(allEntries = true)
     @Override//saving user package details
     public UserPayment saveUserPayment(UserPayment userPayment) throws EmailIdNotFoundException {
-        if(userPaymentRepository.existsById(userPayment.getEmailId())) {
             UserPayment saveUser = userPaymentRepository.save(userPayment);
             kafkaTemplate.send(topic, saveUser);
             return saveUser;
-        }
-        else throw new EmailIdNotFoundException("Email Id not found");
-
 
     }
 

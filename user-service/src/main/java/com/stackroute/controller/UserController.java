@@ -98,35 +98,35 @@ public class UserController {
 
     //fetching user by emailId
     @ApiOperation(value = "Get user by email")
-    @ApiResponses(value = {@ApiResponse(code = 201,message = "CREATED")})
+    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
     @GetMapping("/users/{email}")
     public ResponseEntity<?> getById(@PathVariable("email") String emailId) throws UserNotFoundException {
         ResponseEntity responseEntity;
         User user=null;
         user=userService.getById(emailId);
-        responseEntity=new ResponseEntity<>(user, HttpStatus.CREATED);
+        responseEntity=new ResponseEntity<>(user, HttpStatus.OK);
         return responseEntity;
     }
 
     //deleting user by email
     @ApiOperation(value = "Delete user by email")
-    @ApiResponses(value = {@ApiResponse(code = 201,message = "CREATED")})
+    @ApiResponses(value = {@ApiResponse(code = 201,message = "OK")})
     @DeleteMapping("/user/{email}")
     public ResponseEntity<?> deleteUser(@PathVariable("email") String emailId) throws UserNotFoundException {
         ResponseEntity responseEntity;
         userService.deleteUser(emailId);
-        responseEntity=new ResponseEntity<>("Deleted Successfully", HttpStatus.CREATED);
+        responseEntity=new ResponseEntity<>("Deleted Successfully", HttpStatus.OK);
         return responseEntity;
     }
 
     //updating user details by email
     @ApiOperation(value = "Update user")
-    @ApiResponses(value = {@ApiResponse(code = 201,message = "CREATED")})
+    @ApiResponses(value = {@ApiResponse(code = 201,message = "OK")})
     @PutMapping("/user/{email}")
     public ResponseEntity<?> updateUser(@PathVariable("email") String emailId, @RequestBody User user) throws UserNotFoundException {
         ResponseEntity responseEntity;
         userService.updateUser(emailId,user);
-        responseEntity = new ResponseEntity<>(user, HttpStatus.CREATED);
+        responseEntity = new ResponseEntity<>(user, HttpStatus.OK);
         return responseEntity;
     }
 
