@@ -7,6 +7,8 @@ export class User {
   public mobileNo?: string;
   public password?: string;
   public genre: Array<string>;
-  public wishList:Array<Array<string>>;
-  public history:Array<Array<string>>;
+  public wishListStandalone:Array<string>;
+  public wishListEpisodic:Array<string>;
+  public historyStandalone:Array<string>;
+  public historyEpisodic:Array<string>;
 }

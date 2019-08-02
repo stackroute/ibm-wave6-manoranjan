@@ -18,7 +18,7 @@ export class StandaloneService {
   formdata.append('file', file);
   //  const req = new HttpRequest('POST', 'http://13.235.52.81:8083/standalone-media-service/post', formdata, {
     const req = new HttpRequest('POST', 'http://localhost:8083/standalone-media-service/post', formdata, {
-    
+      
      reportProgress: true,
      responseType: 'text'
      

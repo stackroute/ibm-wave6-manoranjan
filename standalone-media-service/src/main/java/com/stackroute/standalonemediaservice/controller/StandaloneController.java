@@ -13,9 +13,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -70,13 +74,29 @@ public class StandaloneController {
     List<String> files = new ArrayList<>();
 
     @PostMapping("/post")
-    public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<String> handleFileUpload(HttpServletRequest request) {
+
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+        CommonsMultipartFile file =  null;
+
+        Iterator<String> iterator = multipartRequest.getFileNames();
+
+        while (iterator.hasNext()) {
+            String key = (String) iterator.next();
+            file = (CommonsMultipartFile) multipartRequest.getFile(key);
+        }
+
+
+        System.out.println("In controller method");
         String message = "";
         try {
             mediaService.store(file);
+            System.out.println("after service");
             files.add(file.getOriginalFilename());
 
             message = "You successfully uploaded " + file.getOriginalFilename() + "!";
+
+            System.out.println("uctwdfig"+message);
             return ResponseEntity.status(HttpStatus.OK).body(message);
         } catch (Exception e) {
             message = "FAIL to upload " + file.getOriginalFilename() + "!";

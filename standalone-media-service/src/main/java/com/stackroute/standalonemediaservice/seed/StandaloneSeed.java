@@ -1,3 +1,4 @@
+/*
 package com.stackroute.standalonemediaservice.seed;
 
 import com.stackroute.standalonemediaservice.domain.Cast;
@@ -14,13 +15,17 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+@Component
 public class StandaloneSeed implements ApplicationListener<ContextRefreshedEvent> {
     @Autowired
     StandaloneRepository mediaRepository;
@@ -52,7 +57,11 @@ public class StandaloneSeed implements ApplicationListener<ContextRefreshedEvent
                         genres.add(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
                         media.setMediaGenre(genres);
                         media.setMediaLanguage(workbook.getSheetAt(0).getRow(i).getCell(j + 4).toString());
-                        media.setMediaReleaseDate(workbook.getSheetAt(0).getRow(i).getCell(j + 5).getDateCellValue());
+                        // media.setMediaReleaseDate(timestamp);
+                        String pattern = "yyyy-MM-dd";
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        Date date = simpleDateFormat.parse(workbook.getSheetAt(0).getRow(i).getCell(j + 5).toString());
+                        media.setMediaReleaseDate(date);
                         media.setMediaPosterUrl(workbook.getSheetAt(0).getRow(i).getCell(j + 6).toString());
                         media.setMediaStudioName(workbook.getSheetAt(0).getRow(i).getCell(j + 7).toString());
                         List<Crew> crews=new ArrayList<>();
@@ -67,8 +76,9 @@ public class StandaloneSeed implements ApplicationListener<ContextRefreshedEvent
                         cast.setRealName(workbook.getSheetAt(0).getRow(i).getCell(j + 11).toString());
                         casts.add(cast);
                         media.setMediaCast(casts);
-                        media.setMediaTrailerUrl(workbook.getSheetAt(0).getRow(i).getCell(j + 12).toString());
-                        media.setMediaType(workbook.getSheetAt(0).getRow(i).getCell(j + 13).toString());
+                        media.setMediaUrl(workbook.getSheetAt(0).getRow(i).getCell(j + 12).toString());
+                        media.setMediaTrailerUrl(workbook.getSheetAt(0).getRow(i).getCell(j + 13).toString());
+                        media.setMediaType(workbook.getSheetAt(0).getRow(i).getCell(j + 14).toString());
                         mediaRepository.save(media);
                         System.out.println(media);
                     }
@@ -80,3 +90,4 @@ public class StandaloneSeed implements ApplicationListener<ContextRefreshedEvent
         }
     }
 }
+*/

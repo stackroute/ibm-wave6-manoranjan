@@ -3,6 +3,7 @@ import { MediaService } from '../media.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Media } from '../media';
 import { UserService } from '../user.service';
+import { StandaloneService } from '../standalone.service';
 
 @Component({
   selector: 'app-movies',
@@ -18,7 +19,7 @@ export class MoviesComponent implements OnInit {
   media1 = new Media()
   date = new Date()
 
-  constructor(private mediaService: MediaService, private activatedRoute: ActivatedRoute, private router: Router,private userService:UserService) {
+  constructor(private mediaService: StandaloneService, private activatedRoute: ActivatedRoute, private router: Router,private userService:UserService) {
   }
 
   ngOnInit() {
@@ -60,11 +61,11 @@ export class MoviesComponent implements OnInit {
 
   }
 
-  addWishlist(title,category){
+  addWishlist(title){
     this.id = sessionStorage.getItem('email')
     console.log(this.id)
     if(this.id!==null){
-      this.userService.addToWishlist(this.id,title,category).subscribe(data=>{
+      this.userService.addToStandaloneWishlist(this.id,title).subscribe(data=>{
         console.log(data);
       })
     }

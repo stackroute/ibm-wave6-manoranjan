@@ -6,6 +6,7 @@ import com.stackroute.standalonemediaservice.exception.MediaNotFoundException;
 import com.stackroute.standalonemediaservice.repository.StandaloneRepository;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,12 @@ public class StandaloneServiceImpl implements StandaloneService{
     @Autowired
     KafkaTemplate<StandaloneMedia,StandaloneMedia> kafkaTemplate;
 
+//    @Autowired
+//    private Environment env;
+//
+  private String Home = System.getenv("HOME");
+
+
     private static String topic = "saveMedia";
     private static String topic1 = "saveEpisodicMedia";
     private static String topic2 = "saveEpisode";
@@ -42,8 +49,8 @@ public class StandaloneServiceImpl implements StandaloneService{
 
 
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
-    private final Path rootLocation = Paths.get("/home/sakshi/stackroute/manoranjan-task/red5-server-1.1.0/red5-server/webapps/vod/streams");
-
+    private final Path rootLocation = Paths.get(this.Home+"/uploads");
+// stackroute/manoranjan-task/red5-server-1.1.0/red5-server/webapps/vod/streams
     @Override
     public List<StandaloneMedia> getAllMedia() throws MediaNotFoundException {
         List<StandaloneMedia> medias = mediaRepository.findAll();
@@ -140,6 +147,7 @@ public class StandaloneServiceImpl implements StandaloneService{
 
     public void store(MultipartFile file) {
         try {
+            System.out.println("location of file"+this.rootLocation);
             Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
         } catch (Exception e) {
             throw new RuntimeException("FAIL!");

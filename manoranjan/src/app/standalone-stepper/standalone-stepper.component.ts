@@ -8,6 +8,7 @@ import { MediaService } from '../media.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Crew } from '../crew';
 import { Cast } from '../cast';
+import { StandaloneService } from '../standalone.service';
 @Component({
   selector: 'app-standalone-stepper',
   templateUrl: './standalone-stepper.component.html',
@@ -58,7 +59,7 @@ export class StandaloneStepperComponent implements OnInit {
 
 
   constructor(private _formBuilder: FormBuilder, private router: Router,
-    private mediaService: MediaService, private activatedRoute: ActivatedRoute) { }
+    private mediaService: StandaloneService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
 

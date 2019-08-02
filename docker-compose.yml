@@ -142,6 +142,10 @@ services:
     build: standalone-media-service/
     restart: always
     network_mode: "host"
+    volumes:
+      - ~/data/videos:/root/uploads
+#    entrypoint:
+#      sh -c "cd; mkdir uploads; java -jar standalone-media-service-0.0.1-SNAPSHOT.jar"
     depends_on:
       - kafka
       - mongo
@@ -219,3 +223,10 @@ services:
     restart: always
     environment:
       NG_CLI_ANYALYTICS: ci
+
+  red5:
+    image: mondain/red5
+    restart: always
+    network_mode: "host"
+    volumes:
+      - "~/data/videos:/opt/red5/webapps/vod/streams"
