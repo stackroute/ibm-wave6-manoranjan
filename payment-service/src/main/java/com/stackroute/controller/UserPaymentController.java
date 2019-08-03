@@ -37,9 +37,9 @@ public class UserPaymentController {
 
         try {
             userPackageService.saveUserPayment(userPayment);
-            responseEntity = new ResponseEntity<String>("Successfully created", HttpStatus.CREATED);
+            responseEntity = new ResponseEntity<>("Successfully created", HttpStatus.CREATED);
         } catch (Exception e) {
-            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+            responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
 
             return responseEntity;
         }

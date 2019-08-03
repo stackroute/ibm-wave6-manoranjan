@@ -4,6 +4,7 @@ import com.stackroute.domain.User;
 import com.stackroute.exceptions.GlobalControllerHandler;
 import com.stackroute.exceptions.UserAllReadyExistException;
 import com.stackroute.exceptions.UserNotFoundException;
+import com.stackroute.service.ProducerService;
 import com.stackroute.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,6 +37,8 @@ public class UserControllerTest {
     private User user;
     @MockBean
     private UserService userService;
+    @MockBean
+    private ProducerService producerService;
     @InjectMocks
     private UserController userController;
 

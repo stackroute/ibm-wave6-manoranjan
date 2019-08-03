@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MediaService } from '../media.service';
-import { List } from 'lodash';
 import { Router } from '@angular/router';
+import { StandaloneService } from '../standalone.service';
+import { EpisodicService } from '../episodic.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -10,18 +11,38 @@ import { Router } from '@angular/router';
 })
 export class WishlistComponent implements OnInit {
 
+  id;
   media: any;
-  constructor(private mediaService: MediaService, private router: Router) {
+  standalone:any;
+  episodic:any;
+  nomedia:any;
+  constructor(private standaloneService: StandaloneService,private episodicService:EpisodicService, 
+    private router: Router,private userService:UserService) {
 
+      this.standalone=false;
+      this.episodic=false;
+      this.nomedia=true;
   }
 
   ngOnInit() {
 
-    var m = [["yeh hai mohabbatein", "TV Episodes"], ["kahaani", "Movie"]];
-    this.mediaService.getList(m).subscribe(data => {
-      this.media = data;
-      console.log(data);
-    })
+    this.id=sessionStorage.getItem('email');
+    if(this.id!==null){
+      this.userService.getEpisodicWishlist(this.id).subscribe((data:any)=>{
+        this.episodicService.getWishlist(data).subscribe(list=>{
+          console.log("episodic"+list);
+          this.episodic=list;
+          this.nomedia=false;
+        })
+      });
+      this.userService.getStandaloneWishlist(this.id).subscribe((data:any)=>{
+        this.standaloneService.getWishlist(data).subscribe(list=>{
+          console.log("standalone - "+list);
+          this.standalone=list;
+          this.nomedia=false;
+        })
+      })
+    }
   }
   sendDetails(serial) {
     let x = JSON.stringify(serial)

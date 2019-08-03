@@ -128,8 +128,6 @@ import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component'
 import { ProducerdialogComponent } from './producerdialog/producerdialog.component';
 import { UserdialogComponent } from './userdialog/userdialog.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

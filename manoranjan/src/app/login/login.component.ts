@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
           console.log("POST Request is successful ", data);
         },
         error => {
-          alert("Login Unsuccessful, tryagain")
           this.router.navigate(["/login"], { relativeTo: this.route });
           console.log("Error", error);
         }
