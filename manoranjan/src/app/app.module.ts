@@ -125,6 +125,8 @@ import { DatacardComponent } from './datacard/datacard.component';
 import { DatacardepisodicComponent } from './datacardepisodic/datacardepisodic.component';
 import { NavComponent } from './nav/nav.component';
 import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component';
+import { ProducerdialogComponent } from './producerdialog/producerdialog.component';
+import { UserdialogComponent } from './userdialog/userdialog.component';
 
 
 
@@ -234,7 +236,9 @@ import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component'
     DatacardepisodicComponent,
     ProducernavComponent,
     NavComponent,
-    PaymentdialogComponent
+    PaymentdialogComponent,
+    ProducerdialogComponent,
+    UserdialogComponent
   ],
   imports: [
     BrowserModule,
