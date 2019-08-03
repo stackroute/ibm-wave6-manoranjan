@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MediaService } from '../media.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Media } from '../media';
 import { UserService } from '../user.service';

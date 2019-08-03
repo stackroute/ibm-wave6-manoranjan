@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MediaService } from '../media.service';
-import { Media } from '../media';
 import { Episodic } from '../episodic';
+import { StandaloneService } from '../standalone.service';
+import { EpisodicService } from '../episodic.service';
+import { StandaloneMedia } from '../standalone-media';
 
 @Component({
   selector: 'app-linkpriview',
@@ -16,10 +17,10 @@ export class LinkpriviewComponent implements OnInit {
   heading4 = "Documentries";
 
   allMedia;
-  allMedia1 = new Array<Media>()
-  movie = new Array<Media>()
+  allMedia1 = new Array<StandaloneMedia>()
+  movie = new Array<StandaloneMedia>()
 
-  docs = new Array<Media>();
+  docs = new Array<StandaloneMedia>();
 
   weblist;
   weblist2 = new Array<Episodic>();
@@ -28,10 +29,10 @@ export class LinkpriviewComponent implements OnInit {
   tvlist;
   tvlist2 = new Array<Episodic>();
   tv = new Array<Episodic>();
-  constructor(private mediaService: MediaService) { }
+  constructor(private standaloneService:StandaloneService,private episodicService:EpisodicService) { }
 
   ngOnInit() {
-    this.mediaService.getEpisodic("Web Series").subscribe(data => {
+    this.episodicService.getEpisodic("Web Series").subscribe(data => {
       this.weblist = data
       this.weblist2 = this.weblist
       this.weblist2.forEach(element => {
@@ -44,7 +45,7 @@ export class LinkpriviewComponent implements OnInit {
       console.log(this.web)
     });
 
-    this.mediaService.getEpisodic("TV Episodes").subscribe(data => {
+    this.episodicService.getEpisodic("TV Episodes").subscribe(data => {
       this.tvlist = data
       this.tvlist2 = this.tvlist
       this.tvlist2.forEach(element => {
@@ -57,7 +58,7 @@ export class LinkpriviewComponent implements OnInit {
       console.log(this.tv)
     });
 
-    this.mediaService.getAllMedia().subscribe(data => {
+    this.standaloneService.getAllMedia().subscribe(data => {
       this.allMedia = data;
       this.allMedia1 = this.allMedia
       console.log(this.allMedia)

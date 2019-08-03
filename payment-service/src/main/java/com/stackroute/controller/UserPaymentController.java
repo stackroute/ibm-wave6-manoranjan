@@ -28,11 +28,12 @@ public class UserPaymentController {
     }
 
     //posting the data in to the database
-    @PostMapping("user")
+
     @ApiOperation("Save user payment")
     @ApiResponses(value = {@ApiResponse(code = 201,message = "CREATED"),@ApiResponse(code = 409,message = "CONFLICT")})
+    @PostMapping("user")
     public ResponseEntity<String> saveUser(@RequestBody UserPayment userPayment) throws EmailIdNotFoundException {
-       ResponseEntity responseEntity;
+        ResponseEntity responseEntity;
 
         try {
             userPackageService.saveUserPayment(userPayment);
@@ -45,9 +46,10 @@ public class UserPaymentController {
         return responseEntity;
     }
 
-    @PostMapping("user-email")
+   //save user
     @ApiOperation("Save user")
     @ApiResponses(value = {@ApiResponse(code = 201,message = "CREATED"),@ApiResponse(code = 409,message = "CONFLICT")})
+    @PostMapping("user-email")
     public ResponseEntity<String> saveUser(User user)
     {
         ResponseEntity responseEntity;
@@ -61,9 +63,9 @@ public class UserPaymentController {
     }
 
     //getting the users from the database
-    @GetMapping("users")
     @ApiOperation("Get all users")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
+    @GetMapping("users")
     public ResponseEntity<List<UserPayment>> getAllUsers() {
         return new ResponseEntity<>(userPackageService.getAllUsers(), HttpStatus.OK);
     }

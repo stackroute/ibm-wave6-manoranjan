@@ -16,22 +16,22 @@ public interface MovieRepository extends Neo4jRepository<Movie,Long> {
     Collection<Movie> getAllMovie();
 
     //query to find movie by title
-    Movie findMovieByTitle(@Param("title") String title);
+    Movie findMovieByTitle(@Param("mediaTitle") String mediaTitle);
 
     //query to create movie node
-    @Query("CREATE (m:Movie {title:{title}})")
-    Movie createMovieNode(@Param("title") String title);
+    @Query("CREATE (m:Movie {mediaTitle:{mediaTitle}})")
+    Movie createMovieNode(@Param("mediaTitle") String mediaTitle);
 
     //query to create movie and language relation
-    @Query("MATCH (m:Movie),(l:Language) WHERE m.title={title} and l.language={language} CREATE (m)-[r:In_Language]->(l) RETURN m, r, l")
-    Movie createLanguageRelation(@Param("title") String title, @Param("language") String language);
+    @Query("MATCH (m:Movie),(l:Language) WHERE m.mediaTitle={mediaTitle} and l.language={language} CREATE (m)-[r:In_Language]->(l) RETURN m, r, l")
+    Movie createLanguageRelation(@Param("mediaTitle") String mediaTitle, @Param("language") String language);
 
     //query to create movie and genre relation
-    @Query("MATCH (m:Movie),(g:Genre) WHERE m.title={title} and g.genre={genre} CREATE (m)-[r:Of_Genre]->(g) RETURN m, r, g")
-    Movie createGenreRelation(@Param("title") String title, @Param("genre") String genre);
+    @Query("MATCH (m:Movie),(g:Genre) WHERE m.mediaTitle={mediaTitle} and g.genre={genre} CREATE (m)-[r:Of_Genre]->(g) RETURN m, r, g")
+    Movie createGenreRelation(@Param("mediaTitle") String mediaTitle, @Param("genre") String genre);
 
     //query to create movie and category relation
-    @Query("MATCH (m:Movie),(c:Category) WHERE m.title={title} and c.category={category} CREATE (m)-[r:Of_Category]->(c) RETURN m, r, c")
-    Documentary createCategoryRelation(@Param("title") String title, @Param("category") String category);
+    @Query("MATCH (m:Movie),(c:Category) WHERE m.mediaTitle={mediaTitle} and c.category={category} CREATE (m)-[r:Of_Category]->(c) RETURN m, r, c")
+    Documentary createCategoryRelation(@Param("mediaTitle") String mediaTitle, @Param("category") String category);
 
 }

@@ -35,7 +35,7 @@
                             <div class="row" id="row3">
                                 <div class="col-5"> <label id="password">Password </label> </div>
                                 <!-- <mat-form-field> -->
-                                <div class="col-5"><input name="password" class="form-control" type="text" formControlName="password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password" required>
+                                <div class="col-5"><input name="password" class="form-control" type="text" formControlName="password" [type]="!hide ? 'password' : 'text'" [(ngModel)]="password" required>
                                 </div>
                                 <div class="col-1" id="passwordIcon">
                                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -116,51 +116,51 @@
                 <mat-grid-list cols="3" id="firstgrid">
                     <mat-grid-tile id="firstImage" >
                         <mat-button-toggle class="imageCard"  (change)="onSubmInterest($event.value)" value="biopic">
-                          <img  mat-card-md-image src="/assets/images/binew1.jpg" alt="biopic">
+                          <img  mat-card-md-image src="/assets/images/b.jpg" alt="biopic">
                       </mat-button-toggle>
                     </mat-grid-tile>
                     <mat-grid-tile id="secondImage">   
                       <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="kid">
-                       <img mat-card-md-image src="/assets/images/knew2.jpg" alt="kid">
+                       <img mat-card-md-image src="/assets/images/k.jpg" alt="kid">
                       </mat-button-toggle>
                    </mat-grid-tile>
                   <mat-grid-tile id="thirdImage">
                       <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="action">
-                        <img  mat-card-md-image src="/assets/images/anew.jpg" alt="action">     
+                        <img  mat-card-md-image src="/assets/images/a3.jpg" alt="action">     
                       </mat-button-toggle>
                   </mat-grid-tile>
                </mat-grid-list>
                <mat-grid-list cols="3">
                  <mat-grid-tile id="firstImage">
                   <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="mystery">
-                    <img  mat-card-md-image src="/assets/images/mysnew1.jpg" alt="mystery">
+                    <img  mat-card-md-image src="/assets/images/my.jpg" alt="mystery">
                   </mat-button-toggle>
                </mat-grid-tile>
               <mat-grid-tile id="fifthImage">
                     <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="mythology">
-                  <img mat-card-md-image src="/assets/images/mnew.jpg" alt="mythology">
+                  <img mat-card-md-image src="/assets/images/m.jpg" alt="mythology">
                     </mat-button-toggle>
               </mat-grid-tile>
               <mat-grid-tile id="sixthImage">
                       <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="comedy">
-                        <img mat-card-md-image src="/assets/images/cnew.jpg" alt="comedy">
+                        <img mat-card-md-image src="/assets/images/cm.jpg" alt="comedy">
                       </mat-button-toggle>
               </mat-grid-tile>
            </mat-grid-list>
     <mat-grid-list cols="3" id="gridimages">
         <mat-grid-tile id="seventhImage">
                 <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)"  value="horror">
-                  <img  mat-card-md-image src="/assets/images/hnew.jpg" alt="horror">
+                  <img  mat-card-md-image src="/assets/images/h.jpg" alt="horror">
                 </mat-button-toggle>
           </mat-grid-tile>
           <mat-grid-tile id="eighthImage">
                   <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="romantic">
-                   <img  mat-card-md-image src="/assets/images/rnew.jpg" alt="romantic">
+                   <img  mat-card-md-image src="/assets/images/r.jpg" alt="romantic">
                   </mat-button-toggle>
          </mat-grid-tile>
          <mat-grid-tile id="thirdImage">
             <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)"  value="science">
-             <img  mat-card-md-image src="/assets/images/snew.jpg" alt="science">
+             <img  mat-card-md-image src="/assets/images/s.jpg" alt="science">
             </mat-button-toggle>
        </mat-grid-tile>
      </mat-grid-list> 
@@ -186,7 +186,7 @@
                     </div>
                    <br>
                  </mat-card-content>
-                 <div style="margin-top: 100px; margin-left: -30px">
+                 <div id="submit">
                     <button type="submit" (click)="submitDetails()" mat-stroked-button matStepperNext>Submit</button>
                </div> 
               </mat-card>  
@@ -195,7 +195,7 @@
 </mat-horizontal-stepper>  
 </mat-card>
 </section>
-<div style="margin-top: -21px" >
+<div style="margin-top: -7px" >
 <app-footer></app-footer>
 </div>
 

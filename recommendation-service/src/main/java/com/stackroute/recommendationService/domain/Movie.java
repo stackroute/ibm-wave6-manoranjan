@@ -18,7 +18,7 @@ public class Movie {
 
     @GraphId
     private Long id;
-    private String title;
+    private String mediaTitle;
     private String mediaCategory;
     private List<String> mediaGenre;
     private String mediaLanguage;

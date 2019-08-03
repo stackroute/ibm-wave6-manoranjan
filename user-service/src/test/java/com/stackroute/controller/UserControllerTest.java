@@ -101,7 +101,7 @@ public class UserControllerTest {
         when(userService.updateUser(user.getEmailId(), user)).thenReturn(user);
         mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/user/email")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
 
@@ -121,7 +121,7 @@ public class UserControllerTest {
         when(userService.getById(user.getEmailId())).thenReturn(user);
         mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/users/email")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
 
@@ -141,7 +141,7 @@ public class UserControllerTest {
         when(userService.deleteUser(user.getEmailId())).thenReturn(user);
         mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/user/email")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
 

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Episodic } from '../episodic';
-import { MediaService } from '../media.service';
 import { EpisodicService } from '../episodic.service';
 
 @Component({

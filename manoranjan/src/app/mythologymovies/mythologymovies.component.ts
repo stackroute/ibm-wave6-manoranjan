@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Media } from '../media';
-import { MediaService } from '../media.service';
 import { StandaloneService } from '../standalone.service';
 
 @Component({

@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { UserService } from '../user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Media } from '../media';
-import { MediaService } from '../media.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Crew } from '../crew';
 import { Cast } from '../cast';

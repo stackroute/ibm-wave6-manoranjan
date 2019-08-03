@@ -11,4 +11,8 @@ body{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Merriweather', serif; }
+.mat-step-header .mat-step-icon {
+  background-color:skyblue;
+  color: #fff;
+ }
 

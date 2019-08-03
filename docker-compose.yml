@@ -122,21 +122,6 @@ services:
       expose:
         - 8050
 
-  media-manager-service:
-    image: media-manager-service:1.0.0
-    build: media-manager-service/
-    restart: always
-    network_mode: "host"
-    depends_on:
-      - kafka
-      - mongo
-      - eureka-server
-      - zuul-api
-    ports:
-      - 8060:8060
-    expose:
-      - 8060
-
   standalone-media-service:
     image: standalone-media-service:1.0.0
     build: standalone-media-service/
@@ -144,8 +129,6 @@ services:
     network_mode: "host"
     volumes:
       - ~/data/videos:/root/uploads
-#    entrypoint:
-#      sh -c "cd; mkdir uploads; java -jar standalone-media-service-0.0.1-SNAPSHOT.jar"
     depends_on:
       - kafka
       - mongo
@@ -182,9 +165,9 @@ services:
       - zuul-api
       - eureka-server
     ports:
-      - 8060:8060
+      - 8070:8070
     expose:
-      - 8060
+      - 8070
 
   neo4j:
     image: neo4j:latest
@@ -197,20 +180,6 @@ services:
       - 7474
       - 7687
 
-#  recommendation-service:
-#    image: recommendation-service:1.0.0
-#    build: recommendation-service/
-#    restart: always
-#    network_mode: "host"
-#    depends_on:
-#      - neo4j
-#      - kafka
-#      - zuul-api
-#      - eureka-server
-#    ports:
-#      - 8060:8060
-#    expose:
-#      - 8060
   manoranjan:
     build:
       context: ./manoranjan
@@ -230,3 +199,23 @@ services:
     network_mode: "host"
     volumes:
       - "~/data/videos:/opt/red5/webapps/vod/streams"
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    restart: always
+    network_mode: host
+    hostname: localhost
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    network_mode: "host"
+    hostname: localhost
+

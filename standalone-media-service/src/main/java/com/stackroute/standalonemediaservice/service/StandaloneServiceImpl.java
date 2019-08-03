@@ -1,11 +1,15 @@
 package com.stackroute.standalonemediaservice.service;
 
 import com.stackroute.standalonemediaservice.domain.StandaloneMedia;
+import com.stackroute.standalonemediaservice.exception.FileNotUploadedException;
 import com.stackroute.standalonemediaservice.exception.MediaAlreadyExistsException;
 import com.stackroute.standalonemediaservice.exception.MediaNotFoundException;
 import com.stackroute.standalonemediaservice.repository.StandaloneRepository;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.env.Environment;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -24,6 +28,7 @@ import org.slf4j.Logger;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+@CacheConfig(cacheNames = "media")
 @Service
 public class StandaloneServiceImpl implements StandaloneService{
 
@@ -33,15 +38,10 @@ public class StandaloneServiceImpl implements StandaloneService{
     @Autowired
     KafkaTemplate<StandaloneMedia,StandaloneMedia> kafkaTemplate;
 
-//    @Autowired
-//    private Environment env;
-//
   private String Home = System.getenv("HOME");
 
 
     private static String topic = "saveMedia";
-    private static String topic1 = "saveEpisodicMedia";
-    private static String topic2 = "saveEpisode";
 
     private String mediaNotFound="Media not found";
     private String mediaAlreadyExist="Media already exists";
@@ -50,38 +50,55 @@ public class StandaloneServiceImpl implements StandaloneService{
 
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
     private final Path rootLocation = Paths.get(this.Home+"/uploads");
-// stackroute/manoranjan-task/red5-server-1.1.0/red5-server/webapps/vod/streams
+
+    //to handle delay
+    public void simulateDelay(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //displaying all the standalone media
+    @Cacheable
     @Override
     public List<StandaloneMedia> getAllMedia() throws MediaNotFoundException {
         List<StandaloneMedia> medias = mediaRepository.findAll();
         if (medias == null) {
-            throw new MediaNotFoundException("Media not found");
+            throw new MediaNotFoundException(mediaNotFound);
         } else return medias;
     }
 
+    //searching standalone media by passing mediaTitle
+    @Cacheable
     @Override
     public StandaloneMedia getMediaById(String mediaTitle) throws MediaNotFoundException {
         if (mediaRepository.existsById(mediaTitle)) {
             return mediaRepository.findById(mediaTitle).get();
         }
-        else throw new MediaNotFoundException("Media not found");
+        else throw new MediaNotFoundException(mediaNotFound);
     }
 
+    //saving standalone media by sending media object
+    @CacheEvict(allEntries = true)
     @Override
     public StandaloneMedia saveMedia(StandaloneMedia media) throws MediaAlreadyExistsException {
         StandaloneMedia media1;
         if (mediaRepository.existsById(media.getMediaTitle())) {
-            throw new MediaAlreadyExistsException("Media already exists");
+            throw new MediaAlreadyExistsException(mediaAlreadyExist);
         } else {
             media1 = mediaRepository.save(media);
             if (media1 == null) {
-                throw new MediaAlreadyExistsException("Media already exists");
+                throw new MediaAlreadyExistsException(mediaAlreadyExist);
             }
         }
         kafkaTemplate.send(topic, media1);
         return media1;
     }
 
+    //deleting statndalone media by media tilte
+    @CacheEvict(allEntries = true)
     @Override
     public StandaloneMedia deleteMedia(String mediaTitle) throws MediaNotFoundException {
         StandaloneMedia media;
@@ -89,14 +106,16 @@ public class StandaloneServiceImpl implements StandaloneService{
             media = mediaRepository.findById(mediaTitle).get();
             mediaRepository.deleteById(mediaTitle);
             return media;
-        } else throw new MediaNotFoundException("Media not found");
+        } else throw new MediaNotFoundException(mediaNotFound);
     }
 
+    //seraching standalone media by genre
+    @Cacheable
     @Override
     public List<StandaloneMedia> getMediaByGenre(String genre) throws MediaNotFoundException {
         List<StandaloneMedia> allMedia = mediaRepository.findAll();
         if (allMedia == null) {
-            throw new MediaNotFoundException("Media not found");
+            throw new MediaNotFoundException(mediaNotFound);
         } else {
             List<StandaloneMedia> genreMedia = new ArrayList<>();
             for (StandaloneMedia media : allMedia) {
@@ -107,16 +126,18 @@ public class StandaloneServiceImpl implements StandaloneService{
                 }
             }
             if (genreMedia == null) {
-                throw new MediaNotFoundException("Media not found");
+                throw new MediaNotFoundException(mediaNotFound);
             } else return genreMedia;
         }
     }
 
+    //searching standalone media by category
+    @Cacheable
     @Override
     public List<StandaloneMedia> getMediaByCategory(String category) throws MediaNotFoundException {
         List<StandaloneMedia> allMedia = mediaRepository.findAll();
         if (allMedia == null) {
-            throw new MediaNotFoundException("Media not found");
+            throw new MediaNotFoundException(mediaNotFound);
         } else {
             List<StandaloneMedia> catMedia = new ArrayList<>();
             for (StandaloneMedia media : allMedia) {
@@ -125,11 +146,13 @@ public class StandaloneServiceImpl implements StandaloneService{
                 }
             }
             if (catMedia == null) {
-                throw new MediaNotFoundException("Media not found");
+                throw new MediaNotFoundException(mediaNotFound);
             } else return catMedia;
         }
     }
 
+    //getting the mediaList
+    @Cacheable
     @Override
     public List<StandaloneMedia> getWishlist(List<String> titles) throws MediaNotFoundException {
         List<StandaloneMedia> wishlist=new ArrayList<>();
@@ -145,38 +168,42 @@ public class StandaloneServiceImpl implements StandaloneService{
     }
 
 
-    public void store(MultipartFile file) {
+    //stores files
+    public void store(MultipartFile file) throws FileNotUploadedException {
         try {
             System.out.println("location of file"+this.rootLocation);
             Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
         } catch (Exception e) {
-            throw new RuntimeException("FAIL!");
+            throw new FileNotUploadedException(fail);
         }
     }
 
-    public Resource loadFile(String filename) {
+    //load files
+    public Resource loadFile(String filename) throws FileNotUploadedException {
         try {
             Path file = rootLocation.resolve(filename);
             Resource resource = new UrlResource(file.toUri());
             if (resource.exists() || resource.isReadable()) {
                 return resource;
             } else {
-                throw new RuntimeException("FAIL!");
+                throw new FileNotUploadedException(fail);
             }
         } catch (MalformedURLException e) {
-            throw new RuntimeException("FAIL!");
+            throw new FileNotUploadedException(fail);
         }
     }
 
+    //deleting all media from rootLocation
     public void deleteAll() {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
 
-    public void init() {
+    //creating rootLocation directory
+    public void init() throws FileNotUploadedException {
         try {
             Files.createDirectory(rootLocation);
         } catch (IOException e) {
-            throw new RuntimeException("Could not initialize storage!");
+            throw new FileNotUploadedException("Could not initialize storage!");
         }
     }
 }

@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpResponse, HttpEventType } from '@angular/common/http';
-import { MediaService } from '../media.service';
 import { Crew } from '../crew';
 import { Cast } from '../cast';
 import { Episode } from '../episode';

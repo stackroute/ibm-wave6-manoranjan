@@ -16,6 +16,8 @@ import java.util.Map;
 public class StandaloneConfiguration {
 
     private String address="127.0.0.1:9092";
+
+    //kafka producer factory for standalone media
     @Bean
     public ProducerFactory<StandaloneMedia, StandaloneMedia> producerFactory() {
         Map<Object, Object> config = new HashMap<>();
@@ -24,6 +26,8 @@ public class StandaloneConfiguration {
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
         return new DefaultKafkaProducerFactory(config);
     }
+
+    //sending standalone media to kafkatemplate
     @Bean
     public KafkaTemplate<StandaloneMedia, StandaloneMedia> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
