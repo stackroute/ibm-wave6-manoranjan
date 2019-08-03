@@ -246,5 +246,4 @@ public class MediaServiceImpl implements MediaService {
     public Collection<WebSeries> getRecLangWebSeries(String emailId){
         return inLanguageRelationshipRepository.getRecommendedWebSeries(emailId);
     }
-
 }

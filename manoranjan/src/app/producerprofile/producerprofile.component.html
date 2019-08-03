@@ -28,7 +28,7 @@
                                 <label>Name</label>
                             </div>
                             <div class="col-md-6">
-                                <p>{{users?.name}}</p>
+                                <p>{{producers?.name}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -36,7 +36,7 @@
                                 <label>Email</label>
                             </div>
                             <div class="col-md-6">
-                                <p>{{users?.emailId}}</p>
+                                <p>{{producers?.emailId}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -44,23 +44,23 @@
                                 <label>Age</label>
                             </div>
                             <div class="col-md-6">
-                                <p>{{users?.age}}</p>
+                                <p>{{producers?.age}}</p>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-6">
                                 <label>Gender</label>
                             </div>
                             <div class="col-md-6">
-                                <p>{{users?.gender}}</p>
+                                <p>{{producers?.gender}}</p>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                             <div class="col-md-6">
                                 <label>Mobile</label>
                             </div>
                             <div class="col-md-6">
-                                <p>{{users?.mobileNo}}</p>
+                                <p>{{producers?.mobileNo}}</p>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,8 @@
     </form>
     <br>
     <div class="button">
-        <input type="Edit Profile" class=" btn btn-info" (click)="sendEmail(users?.emailId)" value="Edit Profile">&nbsp; &nbsp;
+        <input type="Edit Profile" class=" btn btn-info" (click)="sendEmail(producers?.emailId)" value="Edit Profile">&nbsp;
+
         <input type="Upload" class="btn btn-info btn-mid" routerLink="/standaloneepisodic" value="Upload Media">
     </div>
  </div>

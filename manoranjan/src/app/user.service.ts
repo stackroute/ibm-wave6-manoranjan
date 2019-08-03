@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { User } from './user';
+import {Producer} from './producer';
 
 @Injectable({
   providedIn: 'root'
@@ -75,4 +76,21 @@ export class UserService {
     // return this.http.get("http://13.235.52.81:8083/user-service/user/history/episodic/"+emailId,{});
     return this.http.get("http://localhost:8083/user-service/user/history/episodic/"+emailId,{});
   }
+  updateProducer(emailId,producer:Producer):any{
+    // return this.http.put("http://13.235.52.81:8083/user-service/user/"+emailId,user,{
+      return this.http.put("http://localhost:8083/user-service/producer/"+emailId,producer,{
+      headers:new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    });
+  }
+  getByEmailId(emailId):any{
+    // return this.http.get("http://13.235.52.81:8083/user-service/users/"+emailId,{
+      return this.http.get("http://localhost:8083/user-service/producers/"+emailId,{
+      headers:new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    });
+   }
+
 }

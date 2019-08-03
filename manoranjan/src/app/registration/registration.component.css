@@ -342,7 +342,7 @@ section{
     width: 100%;
   } 
   #success{
-    margin-top: -80px;
+    margin-top: -20px;
     font-family: 'Merriweather', serif;
     color:green;
   }
