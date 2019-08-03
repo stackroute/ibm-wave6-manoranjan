@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Collection;
 
 @Repository
-public interface DocumentaryRepository extends Neo4jRepository<Documentary, Long> {
+public interface
+DocumentaryRepository extends Neo4jRepository<Documentary, Long> {
 
     //query to get all documentaries
     @Query("MATCH (d:Documentary) RETURN d")
