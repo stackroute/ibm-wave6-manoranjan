@@ -86,3 +86,11 @@ h4 {
 .box .content .btnD:hover {
     color: white;
 }
+
+app-footer {
+    margin-top: 33%;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}

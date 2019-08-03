@@ -4,6 +4,8 @@ import { UserService } from '../user.service';
 import { Producer } from '../producer';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { Overlay } from '@angular/cdk/overlay';
+
 @Component({
   selector: 'app-editproducerprofile',
   templateUrl: './editproducerprofile.component.html',
@@ -15,7 +17,8 @@ export class EditproducerprofileComponent implements OnInit {
   producer=new Producer();
   user=new User();
   emailId;
-  constructor(private activatedRoute:ActivatedRoute,private userService: UserService,private router: Router) { }
+  
+  constructor(private activatedRoute:ActivatedRoute,private userService: UserService,private router: Router,private overlay:Overlay) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params=>{

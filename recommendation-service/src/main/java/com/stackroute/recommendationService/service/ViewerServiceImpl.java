@@ -15,7 +15,6 @@ import java.util.Collection;
 
 @CacheConfig(cacheNames = "viewer")
 @Service
-@Primary
 public class ViewerServiceImpl implements ViewerService {
 
     @Autowired

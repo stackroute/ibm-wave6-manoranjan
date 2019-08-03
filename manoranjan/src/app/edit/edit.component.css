@@ -16,9 +16,9 @@
     margin-top: 5%;
     margin-left: 30%;
     left: 0;
-    bottom:0;
-    top:0;
-    right:0;
+    bottom: 0;
+    top: 0;
+    right: 0;
     overflow-x: hidden;
     overflow-y: hidden;
     width: auto;
@@ -34,16 +34,27 @@ h2 {
     margin-right: 5%;
     margin-left: 27%;
 }
-.footer{
+
+.footer {
     margin-top: 40px;
 }
-personal-info{
+
+personal-info {
     overflow-x: hidden;
     overflow-y: hidden;
 }
-.btn{
+
+.btn {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 14px;
     background: #36c5ff;
     color: white;
-  }
+}
+
+app-footer {
+    margin-top: 2.5%;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}

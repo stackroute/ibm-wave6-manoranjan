@@ -60,7 +60,7 @@ ptime;
         subscribe(
             data => {
               this.ptime=sessionStorage.getItem('packageTime');
-              this.router.navigateByUrl('/paymentdialog/'+this.ptime+'/'+amount);
+             // this.router.navigateByUrl('/paymentdialog/'+this.ptime+'/'+amount);
               console.log("POST Request is successful ", data)
               const dialogRef = this.dialog.open(PaymentdialogComponent, {
                 width: '350px',
