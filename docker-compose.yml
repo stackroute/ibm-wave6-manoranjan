@@ -154,6 +154,21 @@ services:
     expose:
       - 8071
 
+  recommendation-service:
+    image: recommendation-service:1.0.0
+    build: recommendation-service/
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - kafka
+      - neo4j
+      - eureka-server
+      - zuul-api
+    ports:
+      - 8082:8082
+    expose:
+      - 8082
+
   payment-service:
     image: payment-service:1.0.0
     build: payment-service/
@@ -203,7 +218,7 @@ services:
   prometheus:
     image: prom/prometheus
     ports:
-      - 8086:8086
+      - 9090:9090
     restart: always
     network_mode: host
     hostname: localhost
@@ -213,9 +228,8 @@ services:
   grafana:
     image: grafana/grafana
     ports:
-      - 8087:8087
+      - 3000:3000
     depends_on:
       - prometheus
     network_mode: "host"
     hostname: localhost
-
