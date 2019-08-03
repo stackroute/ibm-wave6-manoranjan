@@ -17,6 +17,9 @@ h6{
 p {
     color: green;
 }
+.episodeAdd{
+    display: flex;
+}
 
 .example-card {
     max-width: 100%;
