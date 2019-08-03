@@ -218,7 +218,7 @@ services:
   prometheus:
     image: prom/prometheus
     ports:
-      - 8086:8086
+      - 9090:9090
     restart: always
     network_mode: host
     hostname: localhost
@@ -228,7 +228,7 @@ services:
   grafana:
     image: grafana/grafana
     ports:
-      - 8087:8087
+      - 3000:3000
     depends_on:
       - prometheus
     network_mode: "host"
