@@ -137,6 +137,21 @@ services:
     expose:
       - 8060
 
+  recommendation-service:
+    image: recommendation-service:1.0.0
+    build: recommendation-service/
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - kafka
+      - neo4j
+      - eureka-server
+      - zuul-api
+    ports:
+      - 8082:8082
+    expose:
+      - 8082
+
   payment-service:
     image: payment-service:1.0.0
     build: payment-service/
@@ -194,4 +209,3 @@ services:
       - prometheus
     network_mode: "host"
     hostname: localhost
-
