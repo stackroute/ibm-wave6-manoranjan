@@ -62,7 +62,12 @@ export class RegistrationComponent implements OnInit {
       'age': this.completeDetails[1].age,
       'gender': this.completeDetails[1].gender,
       'mobileNo': this.completeDetails[1].mobileNo,
-      'genre': this.genre
+      'genre': this.genre,
+      'role':"user",
+      'wishListStandalone':[],
+      'wishListEpisodic':[],
+      'historyStandalone':[],
+      'historyEpisodic':[]
     }
 
     this.temp.name=this.completeDetails[0].name;
@@ -73,7 +78,7 @@ export class RegistrationComponent implements OnInit {
     this.temp.mobileNo=this.completeDetails[1].mobileNo;
     this.temp.genre=this.genre;
 
-    this.userService.saveUser(this.temp).subscribe(data => {
+    this.userService.saveUser(m).subscribe(data => {
       console.log("POST Request is successful ", data);
     },
       error => {

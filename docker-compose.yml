@@ -91,7 +91,7 @@ services:
       MYSQL_USER: root
       MYSQL_ALLOW_EMPTY_PASSWORD: "YES"
     volumes:
-      - $HOME/data/datasql:/var/lib/mysql
+      - "~/data/datasql:/var/lib/mysql"
     network_mode: "host"
     hostname: localhost
     restart: always
@@ -101,7 +101,7 @@ services:
     restart: always
     network_mode: "host"
     volumes:
-      - $HOME/data/datamongo:/data/db
+      - "~/data/datamongo:/data/db"
     ports:
       - 27017:27017
     expose:
@@ -128,7 +128,7 @@ services:
     restart: always
     network_mode: "host"
     volumes:
-      - ~/data/videos:/root/uploads
+      - "~/data/videos:/root/uploads"
     depends_on:
       - kafka
       - mongo
@@ -188,6 +188,8 @@ services:
     image: neo4j:latest
     restart: always
     network_mode: host
+    volumes:
+      - "~/neo4j/data:/data"
     ports:
       - 7474:7474
       - 7687:7687

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Media } from '../media';
 import { StandaloneService } from '../standalone.service';
+import { StandaloneMedia } from '../standalone-media';
 
 @Component({
   selector: 'app-documentary',
@@ -10,7 +10,7 @@ import { StandaloneService } from '../standalone.service';
 export class DocumentaryComponent implements OnInit {
 
   documentaries;
-  documentaries1 = new Array<Media>()
+  documentaries1 = new Array<StandaloneMedia>()
   constructor(private mediaService: StandaloneService) { }
 
   ngOnInit() {

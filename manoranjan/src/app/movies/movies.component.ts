@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Media } from '../media';
 import { UserService } from '../user.service';
 import { StandaloneService } from '../standalone.service';
+import { StandaloneMedia } from '../standalone-media';
 
 @Component({
   selector: 'app-movies',
@@ -15,7 +15,7 @@ export class MoviesComponent implements OnInit {
   title;
   id: any;
   status: string = "false";
-  media1 = new Media()
+  media1 = new StandaloneMedia()
   date = new Date()
 
   constructor(private mediaService: StandaloneService, private activatedRoute: ActivatedRoute, private router: Router,private userService:UserService) {
@@ -55,7 +55,7 @@ export class MoviesComponent implements OnInit {
       }
     }
     else {
-      this.router.navigateByUrl('/play/' + this.media1.mediaTitle + '/' + this.media1.mediaUrl);
+      this.router.navigateByUrl('/play/' + this.media1.mediaTitle + '/' + this.media1.mediaUrl+'/'+"standalone");
     }
 
   }
