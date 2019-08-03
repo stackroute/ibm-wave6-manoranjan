@@ -88,11 +88,11 @@ export class EpisodicComponent implements OnInit {
     });
 
     this.eightFormGroup = this._formBuilder.group({
-      episodeNo: new FormControl('', Validators.compose([Validators.required, Validators.maxLength(20)])),
-      episodeUrl: new FormControl('', Validators.compose([Validators.required])),
-      episodeDescription: new FormControl('', Validators.compose([Validators.required, Validators.maxLength(100)])),
-      episodePosterUrl: new FormControl('', Validators.compose([Validators.required])),
-      episodeReleaseDate: new FormControl('', Validators.compose([Validators.required]))
+      episodeNo: new FormControl('', Validators.compose([Validators.maxLength(20)])),
+      episodeUrl: new FormControl('', Validators.compose([])),
+      episodeDescription: new FormControl('', Validators.compose([Validators.maxLength(100)])),
+      episodePosterUrl: new FormControl('', Validators.compose([])),
+      episodeReleaseDate: new FormControl('', Validators.compose([]))
     });
   }
   // ng oninit closed
@@ -131,7 +131,7 @@ export class EpisodicComponent implements OnInit {
     this.episodePreview.push(
       {
         episodeNo: episodeNumber,
-        episodeUrl: video,
+        episodeUrl: this.episodeName,
         episodeDescription: desc,
         episodePosterUrl: poster,
         episodeReleaseDate: dateRelease

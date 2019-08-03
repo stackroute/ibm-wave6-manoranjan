@@ -198,7 +198,7 @@
                                         <div class="col-4" id="episodeNumber">
                                             <label>Episode Number</label> </div>
                                         <div class="col-7" id="input7">
-                                            <input class="form-control" type="number" #episodeNo name="episodeNo" formControlName="episodeNo" required>
+                                            <input class="form-control" type="number" #episodeNo name="episodeNo" formControlName="episodeNo">
                                         </div>
                                     </div>
                                     <br><br>
@@ -219,7 +219,7 @@
                                             <label>Description</label>
                                         </div>
                                         <div class="col-7" id="input9">
-                                            <input class="form-control" #episodeDescription type="text" name="posterDescription" formControlName="episodeDescription" required>
+                                            <input class="form-control" #episodeDescription type="text" name="posterDescription" formControlName="episodeDescription">
                                         </div>
                                     </div>
                                     <br><br>
@@ -228,7 +228,7 @@
                                             <label>Poster</label>
                                         </div>
                                         <div class="col-7" id="input10">
-                                            <input class="form-control" #episodePosterUrl type="text" name="posterUrl" formControlName="episodePosterUrl" required>
+                                            <input class="form-control" #episodePosterUrl type="text" name="posterUrl" formControlName="episodePosterUrl">
                                             <mat-error *ngFor="let validation of validation_messages.episodePosterUrl">
                                                 <mat-error class="error-message" *ngIf="eightFormGroup.get('episodePosterUrl').hasError(validation.type) && (eightFormGroup.get('episodePosterUrl').dirty || eightFormGroup.get('episodePosterUrl').touched)">
                                                     {{validation.message}}
