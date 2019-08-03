@@ -14,13 +14,7 @@ import { StandaloneService } from '../standalone.service';
   styleUrls: ['./episodic.component.css']
 })
 export class EpisodicComponent implements OnInit {
-  firstFormGroup: FormGroup
-  secondFormGroup: FormGroup
-  thirdFormGroup: FormGroup
-  sixthFormGroup: FormGroup
-  seventhFormGroup: FormGroup
-  eightFormGroup: FormGroup
-
+  
   episodePreview = [];
   episodeNo;
   episodeUrl;
@@ -28,6 +22,15 @@ export class EpisodicComponent implements OnInit {
   episodePosterUrl;
   episodeReleaseDate;
 
+
+  firstFormGroup: FormGroup
+  secondFormGroup: FormGroup
+  thirdFormGroup: FormGroup
+  sixthFormGroup: FormGroup
+  seventhFormGroup: FormGroup
+  eightFormGroup: FormGroup
+
+  
   episodeDetails = []
 
   currentFileUpload: File;
