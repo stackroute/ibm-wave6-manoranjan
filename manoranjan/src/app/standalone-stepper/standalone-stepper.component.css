@@ -13,6 +13,10 @@
       font-size:15px;
     font-family: 'Merriweather', serif;
     }
+h6{
+  font-family: 'Merriweather',serif;
+  font-weight: bold;
+}
 .container{
  height: 368px;
  margin-left: 15px;
@@ -21,6 +25,9 @@
   margin-top: -80px;
   font-family: 'Merriweather', serif;
   color:green;
+}
+app-footer{
+  position: relative;
 }
 
 h3{
@@ -302,7 +309,7 @@ margin-left: -80px;
 section{
   margin-left: 120px;
   margin-right: 120px;
-  height: 90%;
+  width: relative;
 
 }
 mat-horizontal-stepper{

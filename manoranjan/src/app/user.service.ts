@@ -13,32 +13,68 @@ export class UserService {
   constructor(private http:HttpClient) { }
   
   saveUser(user:User){
-  //  return this.http.post<User>("http://13.235.52.81:8083/user-service/user",user);
-   return this.http.post<User>("http://localhost:8083/user-service/user",user);
+   return this.http.post<User>("http://13.235.52.81:8083/user-service/user",user);
+  //  return this.http.post<User>("http://localhost:8083/user-service/user",user);
   }
   getById(emailId):any{
-    // return this.http.get("http://13.235.52.81:8083/user-service/users/"+emailId,{
-      return this.http.get("http://localhost:8083/user-service/users/"+emailId,{
+    return this.http.get("http://13.235.52.81:8083/user-service/users/"+emailId,{
+      // return this.http.get("http://localhost:8083/user-service/users/"+emailId,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
     });
    }
   getAllUsers():any{
-    // return this.http.get("http://13.235.52.81:8083/user-service/users");
-    return this.http.get("http://localhost:8083/user-service/users");
+    return this.http.get("http://13.235.52.81:8083/user-service/users");
+    // return this.http.get("http://localhost:8083/user-service/users");
   }
   updateUser(emailId,user:User):any{
-    // return this.http.put("http://13.235.52.81:8083/user-service/user/"+emailId,user,{
-      return this.http.put("http://localhost:8083/user-service/user/"+emailId,user,{
+    return this.http.put("http://13.235.52.81:8083/user-service/user/"+emailId,user,{
+      // return this.http.put("http://localhost:8083/user-service/user/"+emailId,user,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
     });
   }
 
-  addToWishlist(emailId,title,category){
-    return this.http.post("http://localhost:8083/user-service/user/wish/"+emailId+"/"+title+"/"+category,{});
+  addToStandaloneWishlist(emailId,title){
+    return this.http.patch("http://13.235.52.81:8083/user-service/user/wish/standalone/"+emailId+"/"+title,{});
+    // return this.http.patch("http://localhost:8083/user-service/user/wish/standalone/"+emailId+"/"+title,{});
+  }
+
+  addToEpisodicWishlist(emailId,title){
+    return this.http.patch("http://13.235.52.81:8083/user-service/user/wish/episodic/"+emailId+"/"+title,{});
+    // return this.http.patch("http://localhost:8083/user-service/user/wish/episodic/"+emailId+"/"+title,{});
+  }
+
+  getStandaloneWishlist(emailId){
+    return this.http.get("http://13.235.52.81:8083/user-service/user/wish/standalone/"+emailId,{});
+    // return this.http.get("http://localhost:8083/user-service/user/wish/standalone/"+emailId,{});
+  }
+
+  getEpisodicWishlist(emailId){
+    return this.http.get("http://13.235.52.81:8083/user-service/user/wish/episodic/"+emailId,{});
+    // return this.http.get("http://localhost:8083/user-service/user/wish/episodic/"+emailId,{});
+  }
+
+  addToStandaloneHistory(emailId,title){
+    return this.http.patch("http://13.235.52.81:8083/user-service/user/history/standalone/"+emailId+"/"+title,{});
+    // return this.http.patch("http://localhost:8083/user-service/user/history/standalone/"+emailId+"/"+title,{});
+  }
+
+  addToEpisodicHistory(emailId,title){
+    return this.http.patch("http://13.235.52.81:8083/user-service/user/history/episodic/"+emailId+"/"+title,{});
+    // return this.http.patch("http://localhost:8083/user-service/user/history/episodic/"+emailId+"/"+title,{});
+  }
+
+  getStandaloneHistory(emailId){
+    return this.http.get("http://13.235.52.81:8083/user-service/user/history/standalone/"+emailId,{});
+    // return this.http.get("http://localhost:8083/user-service/user/history/standalone/"+emailId,{});
+  }
+
+  getEpisodicHistory(emailId){
+    return this.http.get("http://13.235.52.81:8083/user-service/user/history/episodic/"+emailId,{});
+    // return this.http.get("http://localhost:8083/user-service/user/history/episodic/"+emailId,{});
   }
   updateProducer(emailId,producer:Producer):any{
     // return this.http.put("http://13.235.52.81:8083/user-service/user/"+emailId,user,{

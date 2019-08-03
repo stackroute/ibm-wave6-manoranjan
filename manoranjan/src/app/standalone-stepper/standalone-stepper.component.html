@@ -150,23 +150,6 @@
     <button type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
     </div> -->
     </form><br>
-    <ul class="table">
-    <li>
-    <table *ngFor="let crew of crewList">
-    <tr>
-    <td width="180px">
-    {{crew.crewName}} 
-    </td>
-    <td width="180px">
-    {{crew.crewRole}} 
-      </td>
-    <!-- <td width="110px">
-    <button (click)="deleteCrew(crew.crewName,crew.crewRole)" id="delete">Delete</button>
-    </td> -->
-    </tr>
-    </table>
-    </li>
-    </ul>
     <div class="row">
     <div class="col-2" id="cast">
     <label>Cast</label>
@@ -197,23 +180,7 @@
   
     </form>
     </div>
-    <ul class="table1">
-    <li>
-    <table *ngFor="let cast of castList">
-    <tr>
-    <td width="180px" style="padding:12px;" >
-    {{cast.realName}}  
-    </td>
-    <td width="180px" style="padding:12px;">
-    {{cast.screenName}} 
-      </td>
-    <!-- <td width="110px">
-    <button (click)="deleteCast(cast.screenName,cast.realName)" id="delete">Delete</button>
-    </td> -->
-    </tr>
-    </table>
-    </li>
-    </ul>
+    
     </mat-card-content>
     <div id="bottomButton">
     <button mat-stroked-button matStepperPrevious >Back</button>&nbsp; &nbsp; 
@@ -221,6 +188,24 @@
   </div>
     </mat-card> 
     </form>
+    <div class="row" style="width:100%;">
+        <div class="col-2" *ngFor="let crew of crewList">
+          <div class="card" style="background-color: black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
+        <h6>{{crew.crewName}} </h6> 
+        <h6>AS&nbsp;{{crew.crewRole}}</h6> 
+        </div>
+        </div>
+        <div class="col-2" *ngFor="let cast of castList">
+          <div class="card" style="background-color:black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
+        <h6>
+        {{cast.realName}}  
+        </h6>
+        <h6>
+        As&nbsp;{{cast.screenName}} 
+        </h6>
+        </div>
+        </div>
+        </div>
     </mat-step>
 <!-- 3rd form is start here -->
 <mat-step [stepControl]="thirdForm">

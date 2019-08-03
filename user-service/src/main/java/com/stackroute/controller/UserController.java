@@ -68,34 +68,64 @@ public class UserController {
     }
 
     //fetchhing the user wishlist details by email
-    @GetMapping("user/wish/{email}")
-    public ResponseEntity<?> getAllWishlist(@PathVariable("email") String emailId) throws UserNotFoundException {
-        return new ResponseEntity<>(userService.getAllWishlist(emailId),HttpStatus.OK);
+    @GetMapping("user/wish/standalone/{email}")
+    public ResponseEntity<?> getStandaloneWishlist(@PathVariable("email") String emailId) throws UserNotFoundException {
+        return new ResponseEntity<>(userService.getStandaloneWishlist(emailId),HttpStatus.OK);
+
+    }
+    //fetchhing the user wishlist details by email
+    @GetMapping("user/wish/episodic/{email}")
+    public ResponseEntity<?> getEpisodicWishlist(@PathVariable("email") String emailId) throws UserNotFoundException {
+        return new ResponseEntity<>(userService.getEpisodicWishlist(emailId),HttpStatus.OK);
 
     }
 
     //fetching user history by email
     @ApiOperation(value = "Get history")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    @GetMapping("user/history/{email}")
-    public ResponseEntity<?> getAllHistory(@PathVariable("email") String emailId) throws UserNotFoundException {
-        return new ResponseEntity<>(userService.getAllHistory(emailId),HttpStatus.OK);
+    @GetMapping("user/history/standalone/{email}")
+    public ResponseEntity<?> getStandaloneHistory(@PathVariable("email") String emailId) throws UserNotFoundException {
+        return new ResponseEntity<>(userService.getStandaloneHistory(emailId),HttpStatus.OK);
+    }
+
+    //fetching user history by email
+    @ApiOperation(value = "Get history")
+    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
+    @GetMapping("user/history/episodic/{email}")
+    public ResponseEntity<?> getEpisodicHistory(@PathVariable("email") String emailId) throws UserNotFoundException {
+        return new ResponseEntity<>(userService.getEpisodicHistory(emailId),HttpStatus.OK);
     }
 
     //add media to wishlist
     @ApiOperation(value = "Add media to wishlist")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    @PostMapping("/user/wish/{email}/{title}/{category}")
-    public ResponseEntity<?> addToWishlish(@PathVariable("email") String emailId,@PathVariable("title") String title,@PathVariable("category") String category) throws UserNotFoundException, DataAlreadyExistException {
-        return new ResponseEntity<>(userService.addToWishlish(emailId, title, category),HttpStatus.OK);
+    @PatchMapping("/user/wish/episodic/{email}/{title}")
+    public ResponseEntity<?> addToEpisodicWishlish(@PathVariable("email") String emailId,@PathVariable("title") String title) throws UserNotFoundException, DataAlreadyExistException {
+        return new ResponseEntity<>(userService.addToEpisodicWishlish(emailId, title),HttpStatus.OK);
+    }
+
+    //add media to wishlist
+    @ApiOperation(value = "Add media to wishlist")
+    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
+    @PatchMapping("/user/wish/standalone/{email}/{title}")
+    public ResponseEntity<?> addToStandaloneWishlish(@PathVariable("email") String emailId,@PathVariable("title") String title) throws UserNotFoundException, DataAlreadyExistException {
+        return new ResponseEntity<>(userService.addToStandaloneWishlish(emailId, title),HttpStatus.OK);
     }
 
     //add media to  history
     @ApiOperation(value = "Add media to history")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    @PostMapping("/user/history/{email}/{title}/{category}")
-    public ResponseEntity<?> addToHistory(@PathVariable("email") String emailId,@PathVariable("title") String title,@PathVariable("category") String category) throws UserNotFoundException {
-        return new ResponseEntity<>(userService.addToHistory(emailId, title, category),HttpStatus.OK);
+    @PatchMapping("/user/history/standalone/{email}/{title}")
+    public ResponseEntity<?> addToStandaloneHistory(@PathVariable("email") String emailId,@PathVariable("title") String title) throws UserNotFoundException, DataAlreadyExistException {
+        return new ResponseEntity<>(userService.addToStandaloneHistory(emailId, title),HttpStatus.OK);
+    }
+
+    //add media to  history
+    @ApiOperation(value = "Add media to history")
+    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
+    @PatchMapping("/user/history/episodic/{email}/{title}")
+    public ResponseEntity<?> addToEpisodicHistory(@PathVariable("email") String emailId,@PathVariable("title") String title) throws UserNotFoundException, DataAlreadyExistException {
+        return new ResponseEntity<>(userService.addToEpisodicHistory(emailId, title),HttpStatus.OK);
     }
 
     //fetching user by emailId

@@ -126,8 +126,6 @@ import { DatacardepisodicComponent } from './datacardepisodic/datacardepisodic.c
 import { NavComponent } from './nav/nav.component';
 import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

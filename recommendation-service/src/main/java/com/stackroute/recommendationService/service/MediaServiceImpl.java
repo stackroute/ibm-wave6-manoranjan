@@ -35,6 +35,12 @@ public class MediaServiceImpl implements MediaService {
     @Autowired
     private GenreRepository genreRepository;
 
+    @Autowired
+    private InterestedInRelationshipRepository interestedInRelationshipRepository;
+
+    @Autowired
+    private InLanguageRelationshipRepository inLanguageRelationshipRepository;
+
     //to handle delay
     public void simulateDelay(){
         try {
@@ -219,4 +225,26 @@ public class MediaServiceImpl implements MediaService {
         }
         return webSeries;
     }
+
+    public Collection<Documentary> getRecInterestDoc(String emailId){
+        return interestedInRelationshipRepository.getRecommendedDocumentary(emailId);
+    }
+
+    public Collection<Movie> getRecInterestMovie(String emilId){
+        return interestedInRelationshipRepository.getRecommendedMovie(emilId);
+    }
+
+    public Collection<Documentary> getRecLangDocumentary(String emailId){
+        return inLanguageRelationshipRepository.getRecommendedDocumentary(emailId);
+    }
+    public Collection<Movie> getRecLangMovie(String emailId){
+        return inLanguageRelationshipRepository.getRecommendedMovie(emailId);
+    }
+    public Collection<TvEpisodes> getRecLangTvEpisodes(String emailId){
+        return inLanguageRelationshipRepository.getRecommendedTvEpisodes(emailId);
+    }
+    public Collection<WebSeries> getRecLangWebSeries(String emailId){
+        return inLanguageRelationshipRepository.getRecommendedWebSeries(emailId);
+    }
+
 }

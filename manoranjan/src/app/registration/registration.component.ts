@@ -15,6 +15,7 @@ export class RegistrationComponent implements OnInit {
   user: User = new User();
   completeDetails = []
   genre = []
+  temp:User=new User();
 
   firstFormGroup: FormGroup
   secondFormGroup: FormGroup
@@ -61,12 +62,18 @@ export class RegistrationComponent implements OnInit {
       'age': this.completeDetails[1].age,
       'gender': this.completeDetails[1].gender,
       'mobileNo': this.completeDetails[1].mobileNo,
-      'genre': this.genre,
-      'wishList':null,
-      'history':null
+      'genre': this.genre
     }
 
-    this.userService.saveUser(m).subscribe(data => {
+    this.temp.name=this.completeDetails[0].name;
+    this.temp.emailId=this.completeDetails[0].emailId;
+    this.temp.password=this.completeDetails[0].password;
+    this.temp.age=this.completeDetails[1].age;
+    this.temp.gender=this.completeDetails[1].gender;
+    this.temp.mobileNo=this.completeDetails[1].mobileNo;
+    this.temp.genre=this.genre;
+
+    this.userService.saveUser(this.temp).subscribe(data => {
       console.log("POST Request is successful ", data);
     },
       error => {

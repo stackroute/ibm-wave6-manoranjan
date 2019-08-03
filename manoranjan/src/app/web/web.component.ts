@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MediaService } from '../media.service';
 import { Episodic } from '../episodic';
 import { Router } from '@angular/router';
+import { EpisodicService } from '../episodic.service';
 
 @Component({
   selector: 'app-web',
@@ -13,7 +13,7 @@ export class WebComponent implements OnInit {
   series;
   series1 = new Array<Episodic>()
 
-  constructor(private mediaService: MediaService, private router: Router) { }
+  constructor(private mediaService: EpisodicService, private router: Router) { }
 
   ngOnInit() {
     this.mediaService.getEpisodic("Web Series").subscribe(data => {
