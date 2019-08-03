@@ -1,15 +1,18 @@
 package com.stackroute.controller;
 
+import com.stackroute.domain.Producer;
 import com.stackroute.domain.UserPayment;
 import com.stackroute.exceptions.DataAlreadyExistException;
 import com.stackroute.exceptions.UserAllReadyExistException;
 import com.stackroute.domain.User;
 import com.stackroute.exceptions.UserNotFoundException;
+import com.stackroute.service.ProducerService;
 import com.stackroute.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -22,11 +25,10 @@ import java.util.List;
 @CrossOrigin(value = "*")
 @RequestMapping(value = "api/v1")
 public class UserController {
+    @Autowired
     private UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    @Autowired
+    private ProducerService producerService;
 
     //posting user details
     @ApiOperation(value = "save user")
@@ -110,7 +112,7 @@ public class UserController {
 
     //deleting user by email
     @ApiOperation(value = "Delete user by email")
-    @ApiResponses(value = {@ApiResponse(code = 201,message = "OK")})
+    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
     @DeleteMapping("/user/{email}")
     public ResponseEntity<?> deleteUser(@PathVariable("email") String emailId) throws UserNotFoundException {
         ResponseEntity responseEntity;
@@ -121,12 +123,36 @@ public class UserController {
 
     //updating user details by email
     @ApiOperation(value = "Update user")
-    @ApiResponses(value = {@ApiResponse(code = 201,message = "OK")})
+    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
     @PutMapping("/user/{email}")
     public ResponseEntity<?> updateUser(@PathVariable("email") String emailId, @RequestBody User user) throws UserNotFoundException {
         ResponseEntity responseEntity;
         userService.updateUser(emailId,user);
         responseEntity = new ResponseEntity<>(user, HttpStatus.OK);
+        return responseEntity;
+    }
+
+    //updating user details by email
+    @ApiOperation(value = "Update producer")
+    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
+    @PutMapping("/producer/{email}")
+    public ResponseEntity<?> updateProducer(@PathVariable("email") String emailId, @RequestBody Producer producer) {
+        ResponseEntity responseEntity;
+        producerService.updateProducer(emailId,producer);
+        responseEntity = new ResponseEntity<>(producer, HttpStatus.OK);
+        return responseEntity;
+    }
+
+
+    //fetching user by emailId
+    @ApiOperation(value = "Get producer by email")
+    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
+    @GetMapping("/producers/{email}")
+    public ResponseEntity<?> getByEmailId(@PathVariable("email") String emailId) {
+        ResponseEntity responseEntity;
+        Producer producer=null;
+        producer=producerService.getByEmailId(emailId);
+        responseEntity=new ResponseEntity<>(producer, HttpStatus.OK);
         return responseEntity;
     }
 

@@ -17,6 +17,11 @@
  height: 368px;
  margin-left: 15px;
 }
+#success{
+  margin-top: -80px;
+  font-family: 'Merriweather', serif;
+  color:green;
+}
 
 h3{
 margin-top: 180px;
@@ -440,6 +445,21 @@ mat-grid-list mat-grid-tile {
   background: #36c5ff;
 } */
 .mat-stroked-button{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 14px;
+  background: #36c5ff;
+  color: white;
+}
+.btn1{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 14px;
+  background: #36c5ff;
+  color: white;
+}
+.container3{
+  margin-top:-100px;
+}
+.mat-raised-button{
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 14px;
   background: #36c5ff;

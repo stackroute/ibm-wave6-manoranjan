@@ -142,10 +142,13 @@
     <option value="music">Music</option>
     </select>
     </div>
-    </div><br>
-    <div class="row" id="submit">
-    <button type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
+    <div class="col-1" style="padding-bottom:8px;padding-top:2px" >
+      <button class="btn1" type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
     </div>
+    </div><br>
+    <!-- <div class="row" id="submit">
+    <button type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
+    </div> -->
     </form><br>
     <ul class="table">
     <li>
@@ -186,10 +189,12 @@
     <div class="col-4" id="input2">
     <input class="form-control" type="text" rows="1" cols="20" #realName formControlName="realName">
     </div>
+    <div class="col-1" style="padding-bottom:8px;padding-top:2px">
+      <button type="submit" class="btn1" (click)="addCast(screenName.value,realName.value)">Add</button>
     </div>
-    <div class="row" id="submit1">
-    <button type="submit" (click)="addCast(screenName.value,realName.value)">Add</button>
+    
     </div>
+  
     </form>
     </div>
     <ul class="table1">
@@ -313,7 +318,7 @@
           <ng-template matStepLabel><span class="headingStyle">Status</span></ng-template>
           <mat-card class="example-card">
               <mat-card-content class="content">
-                  <div class="container3">
+                  <div class="container3" id="success">
                     <h3>Thank you!</h3>
                     <br>
                     <p>Click PUBLISH to successfully upload!</p>
