@@ -39,12 +39,12 @@ export class UserService {
 
   addToStandaloneWishlist(emailId,title){
     // return this.http.patch("http://13.235.52.81:8083/user-service/user/wish/standalone/"+emailId+"/"+title,{});
-    return this.http.patch("http://localhost:8083/user-service/user/wish/standalone/"+emailId+"/"+title,{});
+    return this.http.put("http://localhost:8083/user-service/user/wish/standalone/"+emailId+"/"+title,{});
   }
 
   addToEpisodicWishlist(emailId,title){
     // return this.http.patch("http://13.235.52.81:8083/user-service/user/wish/episodic/"+emailId+"/"+title,{});
-    return this.http.patch("http://localhost:8083/user-service/user/wish/episodic/"+emailId+"/"+title,{});
+    return this.http.put("http://localhost:8083/user-service/user/wish/episodic/"+emailId+"/"+title,{});
   }
 
   getStandaloneWishlist(emailId){
@@ -59,12 +59,12 @@ export class UserService {
 
   addToStandaloneHistory(emailId,title){
     // return this.http.patch("http://13.235.52.81:8083/user-service/user/history/standalone/"+emailId+"/"+title,{});
-    return this.http.patch("http://localhost:8083/user-service/user/history/standalone/"+emailId+"/"+title,{});
+    return this.http.put("http://localhost:8083/user-service/user/history/standalone/"+emailId+"/"+title,{});
   }
 
   addToEpisodicHistory(emailId,title){
     // return this.http.patch("http://13.235.52.81:8083/user-service/user/history/episodic/"+emailId+"/"+title,{});
-    return this.http.patch("http://localhost:8083/user-service/user/history/episodic/"+emailId+"/"+title,{});
+    return this.http.put("http://localhost:8083/user-service/user/history/episodic/"+emailId+"/"+title,{});
   }
 
   getStandaloneHistory(emailId){
