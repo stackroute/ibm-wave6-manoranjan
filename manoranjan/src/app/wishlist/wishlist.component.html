@@ -6,12 +6,22 @@
     <div class="container">
         <h4>Wishlist</h4>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-2" *ngFor="let item of media">
+            <!-- <div class="row" *ngIf={{standalone}}>
+                <h3>Movies And Documentries</h3>
+                <div class="col-2" *ngFor="let item of standalone">
                     <img src="{{item.mediaPosterUrl}}" class="image" *ngIf="item.mediaTitle!=null" routerLink="/movie/{{item.mediaTitle}}">
+                </div>
+            </div>
+            <div class="row" *ngIf={{episodic}}>
+                <h3>Tv Episodes And Web Series</h3>
+                <div class="col-2" *ngFor="let item of episodic">
                     <img src="{{item.episodicPosterUrl}}" class="image" *ngIf="item.episodicTitle!=null" (click)="sendDetails(item)">
                 </div>
             </div>
+            <div class="row" *ngIf={{nomedia}}>
+                <h3>Your Wishlist is empty!!!</h3>
+                <h5>Add items in your wishlist to see here</h5>
+            </div> -->
         </div>
     </div>
     <!-- end of WishList -->

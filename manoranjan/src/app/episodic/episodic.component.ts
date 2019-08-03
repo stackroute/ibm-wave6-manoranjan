@@ -3,10 +3,11 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpResponse, HttpEventType } from '@angular/common/http';
-import { MediaService } from '../media.service';
 import { Crew } from '../crew';
 import { Cast } from '../cast';
 import { Episode } from '../episode';
+import { EpisodicService } from '../episodic.service';
+import { StandaloneService } from '../standalone.service';
 @Component({
   selector: 'app-episodic',
   templateUrl: './episodic.component.html',
@@ -44,13 +45,11 @@ export class EpisodicComponent implements OnInit {
   screenName;
   realName;
 
-  episode: Episode = new Episode();
-  listEpisode: Array<Episode> = new Array<Episode>();
-
   progress: { percentage: number } = { percentage: 0 };
 
   constructor(private _formBuilder: FormBuilder, private router: Router,
-    private mediaService: MediaService, private activatedRoute: ActivatedRoute) { }
+    private mediaService: StandaloneService, private activatedRoute: ActivatedRoute,
+    private episodicService:EpisodicService) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
@@ -232,7 +231,7 @@ export class EpisodicComponent implements OnInit {
       'episodicType': this.episodeDetails[0].episodeType
     };
 
-    this.mediaService.saveSerial(video).subscribe(com => {
+    this.episodicService.saveSerial(video).subscribe(com => {
       console.log("saved");
       console.log(com)
     },

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MediaService } from '../media.service';
 import { Media } from '../media';
+import { StandaloneService } from '../standalone.service';
 
 @Component({
   selector: 'app-biopicmovies',
@@ -11,7 +11,7 @@ export class BiopicmoviesComponent implements OnInit {
 
   movies;
   movies1 = new Array<Media>()
-  constructor(private mediaService: MediaService) { }
+  constructor(private mediaService: StandaloneService) { }
 
   ngOnInit() {
     this.mediaService.getMovieByGenre("biopic").subscribe(data => {

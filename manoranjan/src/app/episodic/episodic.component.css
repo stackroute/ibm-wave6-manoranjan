@@ -9,9 +9,16 @@ h3 {
     margin-top: 250px;
     color: green;
 }
+h6{
+    font-family: 'Merriweather',serif;
+    font-weight: bold;
+  }
 
 p {
     color: green;
+}
+.episodeAdd{
+    display: flex;
 }
 
 .example-card {
@@ -25,8 +32,7 @@ p {
 
 section{
     margin-left: 160px;
-    margin-right: 145px;
-    height: 90%;  
+    margin-right: 145px;  
 }
 mat-horizontal-stepper form{
     margin-left: 16%; 
