@@ -15,6 +15,7 @@ export class MyaccountComponent implements OnInit {
 
   users: User;
   user = new User();
+  private photo:string;
   emailId;
   constructor(private router: Router, private _formBuilder: FormBuilder, private _userService: UserService, private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
@@ -24,6 +25,15 @@ export class MyaccountComponent implements OnInit {
     this.userService.getById(this.user.emailId).subscribe(data => {
       this.users = data;
       console.log("POST Request is successful ", data);
+      console.log("gender:",this.users.gender);
+      if(this.users.gender=='male'|| this.users.gender=='Male')
+      {
+        this.photo='maleDemo.png';
+      }
+      else
+      {
+        this.photo='femaleDemo.png';
+      }
     },
       error => {
         console.log("Error", error);
