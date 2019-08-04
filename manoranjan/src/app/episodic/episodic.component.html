@@ -50,12 +50,12 @@
                                     </div>
                                     <div class="col-7" id="input1">
                                         <select class="form-control" required formControlName="episodeType">
-                      <option value="free">Free</option>
-                      <option value="premium">Premium</option>
-                    </select>
+                                            <option value="free">Free</option>
+                                            <option value="premium">Premium</option>
+                                        </select>
                                         <mat-error>
-                                            <span *ngIf="!firstFormGroup.get('episodeType').valid && firstFormGroup.get('episodeType').touched">Please
-                        select episodeType !!!</span>
+                                            <span *ngIf="!firstFormGroup.get('episodeType').valid && 
+                                            firstFormGroup.get('episodeType').touched">Please select episodeType !!!</span>
                                         </mat-error>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                     <mat-card class="example-card">
                         <mat-card-content class="content">
                             <div class="container">
-                                    <div class="row" id="studioName">
+                                <div class="row" id="studioName">
                                     <div class="col-3" >
                                         <label>Studio Name</label>
                                     </div>
@@ -87,15 +87,15 @@
                                     </div>
                                 </div><br>
                                 <div class="row">
-                                        <div class="col-2">
+                                    <div class="col-2">
                                         <label id="crew">Crew</label>
-                                        </div>
-                                        <div class="col-4" >
+                                    </div>
+                                    <div class="col-4" >
                                         <label id="name">Name</label>
-                                        </div>
-                                        <div class="col-4" >
+                                    </div>
+                                    <div class="col-4" >
                                         <label id="role">Role</label>
-                                        </div>
+                                    </div>
                                 </div>
                                 <form #viewerForm="ngForm" [formGroup]="sixthFormGroup" class="form-horizontal " style="margin-left: 0px; margin-right: 0px; margin-top: -50px">
                                     <div class="row" id="crewInput">
@@ -123,20 +123,20 @@
                                     
                                 </form><br>
                                 <div class="row">
-                                        <div class="col-2" id="cast">
+                                    <div class="col-2" id="cast">
                                         <label>Cast</label>
-                                        </div>
+                                    </div>
                                         <!-- <div class="col-2"></div> -->
-                                        <div class="col-5" id="screenName">
+                                    <div class="col-5" id="screenName">
                                         <label>Screen Name</label>
-                                        </div>
-                                        <div class="col-5" id="realName">
+                                    </div>
+                                    <div class="col-5" id="realName">
                                         <label>Real Name</label>
-                                        </div>
-                                        </div>
+                                    </div>
+                                </div>
                                 <form #viewerForm="ngForm" [formGroup]="seventhFormGroup" class="form-horizontal sixseven" style="margin-left: 0px; margin-right: 0px; margin-top: -50px">
                                     <div class="row" id="castInput">
-                                            <div class="col-3"></div>
+                                        <div class="col-3"></div>
                                         <div class="col-4" >
                                             <!-- <mat-form-field>   -->
                                             <input class="form-control" type="text" rows="1" cols="20" #screenName formControlName="screenName">
@@ -163,29 +163,29 @@
                             </div>
                         </mat-card-content><br>
                         <div id="button2">
-                        <button mat-stroked-button matStepperPrevious>Back</button>&nbsp; &nbsp;
-                        <button mat-stroked-button matStepperNext [disabled]="!secondFormGroup.valid">Next</button>
+                            <button mat-stroked-button matStepperPrevious>Back</button>&nbsp; &nbsp;
+                            <button mat-stroked-button matStepperNext [disabled]="!secondFormGroup.valid">Next</button>
                         </div>
                     </mat-card>
                 </form>
                 <div class="row" style="width:100%;margin-bottom: 10px;">
-                        <div class="col-2" *ngFor="let crew of crewList">
-                          <div class="card" style="background-color: black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
-                        <h6 style="margin-top: 10px">{{crew.crewName}} </h6> 
-                        <h6>AS&nbsp;{{crew.crewRole}}</h6> 
+                    <div class="col-2" *ngFor="let crew of crewList">
+                        <div class="card" style="background-color: black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
+                            <h6 style="margin-top: 10px">{{crew.crewName}} </h6> 
+                            <h6>AS&nbsp;{{crew.crewRole}}</h6> 
                         </div>
+                    </div>
+                    <div class="col-2" *ngFor="let cast of castList">
+                        <div class="card" style="background-color:black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
+                            <h6 style="margin-top: 10px">
+                                {{cast.realName}}  
+                            </h6>
+                            <h6>
+                                As&nbsp;{{cast.screenName}} 
+                            </h6>
                         </div>
-                        <div class="col-2" *ngFor="let cast of castList">
-                          <div class="card" style="background-color:black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
-                        <h6 style="margin-top: 10px">
-                        {{cast.realName}}  
-                        </h6>
-                        <h6>
-                        As&nbsp;{{cast.screenName}} 
-                        </h6>
-                        </div>
-                        </div>
-                        </div>
+                    </div>
+                </div>
             </mat-step>
             <!--end second form group-->
 
@@ -250,28 +250,27 @@
                                                 <mat-datepicker #picker></mat-datepicker>
                                             </mat-form-field>
                                         </div>
-                                        
                                     </div>
                                     <div class="row">
                                         <button  type="submit" class="btn1" (click)="addEpisode(episodeNo.value,episodeUrl.value,episodeDescription.value,episodePosterUrl.value,episodeReleaseDate.value)" class="addButton3">Add</button>
                                     </div>
                                 </form>
-                        </div><br>
+                            </div><br>
                         </mat-card-content>
                         <br><br>
                         <div id="button3" >
-                        <button mat-stroked-button matStepperPrevious>Back</button>&nbsp; &nbsp;
-                        <button mat-stroked-button matStepperNext>Next</button>
-                    </div>
+                            <button mat-stroked-button matStepperPrevious>Back</button>&nbsp; &nbsp;
+                            <button mat-stroked-button matStepperNext>Next</button>
+                        </div>
                     </mat-card>
                 </form>
                 <div class="col-2 episodeAdd" *ngFor="let episode of episodePreview">
-                        <div class="card" style="background-color:black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
-                      <h6 style="margin-top: 10px">
-                         {{episode.episodeNo}} 
-                      </h6>
-                      </div>
-                      </div>
+                    <div class="card" style="background-color:black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
+                        <h6 style="margin-top: 10px">
+                            {{episode.episodeNo}} 
+                        </h6>
+                    </div>
+                </div>
             </mat-step>
             <mat-step [stepControl]="fourthForm">
                 <form #viewerForm="ngForm" class="form-horizontal">
