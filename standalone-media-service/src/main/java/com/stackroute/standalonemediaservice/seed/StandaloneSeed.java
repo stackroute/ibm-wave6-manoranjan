@@ -1,93 +1,84 @@
-/*
 package com.stackroute.standalonemediaservice.seed;
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 import com.stackroute.standalonemediaservice.domain.Cast;
 import com.stackroute.standalonemediaservice.domain.Crew;
 import com.stackroute.standalonemediaservice.domain.StandaloneMedia;
-import com.stackroute.standalonemediaservice.repository.StandaloneRepository;
-import com.stackroute.standalonemediaservice.service.StandaloneServiceImpl;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import com.stackroute.standalonemediaservice.exception.MediaAlreadyExistsException;
+import com.stackroute.standalonemediaservice.service.StandaloneService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
-
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 @Component
 public class StandaloneSeed implements ApplicationListener<ContextRefreshedEvent> {
+    StandaloneService standaloneService;
     @Autowired
-    StandaloneRepository mediaRepository;
-    @Autowired
-    StandaloneServiceImpl mediaService;
-    private Crew crew;
+    public StandaloneSeed(StandaloneService standaloneService) {
+        this.standaloneService = standaloneService;
+    }
     @Override
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+    public void onApplicationEvent(ContextRefreshedEvent event)
+    {
+        File file = new File("./src/main/resources/standalone.csv");
+        System.out.println("File Exists : " + file.exists());
         try {
-            FileInputStream file = new FileInputStream(new File("standalone.xlsx"));
-            XSSFWorkbook workbook = new XSSFWorkbook(file);
-            XSSFSheet sheet = workbook.getSheetAt(0);
-            Iterator<Row> rowIterator = sheet.iterator();
-            // Traversing over each row of XLSX file
-//            rowIterator.next();//Skipping 1st line
-            System.out.println("SEED DATA .............................................");
-            while (rowIterator.hasNext()) {
-                Row row = rowIterator.next();
-                // For each row, iterate through each columns
-                Iterator<Cell> cellIterator = row.cellIterator();
-                for (int i = 1; cellIterator.hasNext(); i++) {
-                    StandaloneMedia media=new StandaloneMedia();
-                    for (int j = 0; j <= sheet.getLeftCol(); j++) {
-                        int count =100;
-                        media.setMediaTitle(workbook.getSheetAt(0).getRow(i).getCell(j + 0).toString());
-                        media.setMediaCategory(workbook.getSheetAt(0).getRow(i).getCell(j + 1).toString());
-                        media.setMediaSynopsis(workbook.getSheetAt(0).getRow(i).getCell(j + 2).toString());
-                        List<String> genres=new ArrayList<>();
-                        genres.add(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
-                        media.setMediaGenre(genres);
-                        media.setMediaLanguage(workbook.getSheetAt(0).getRow(i).getCell(j + 4).toString());
-                        // media.setMediaReleaseDate(timestamp);
-                        String pattern = "yyyy-MM-dd";
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                        Date date = simpleDateFormat.parse(workbook.getSheetAt(0).getRow(i).getCell(j + 5).toString());
-                        media.setMediaReleaseDate(date);
-                        media.setMediaPosterUrl(workbook.getSheetAt(0).getRow(i).getCell(j + 6).toString());
-                        media.setMediaStudioName(workbook.getSheetAt(0).getRow(i).getCell(j + 7).toString());
-                        List<Crew> crews=new ArrayList<>();
-                        Crew crew=new Crew();
-                        crew.setCrewName(workbook.getSheetAt(0).getRow(i).getCell(j + 8).toString());
-                        crew.setCrewRole(workbook.getSheetAt(0).getRow(i).getCell(j + 9).toString());
-                        crews.add(crew);
-                        media.setMediaCrew(crews);
-                        List<Cast> casts=new ArrayList<>();
-                        Cast cast=new Cast();
-                        cast.setScreenName(workbook.getSheetAt(0).getRow(i).getCell(j + 10).toString());
-                        cast.setRealName(workbook.getSheetAt(0).getRow(i).getCell(j + 11).toString());
-                        casts.add(cast);
-                        media.setMediaCast(casts);
-                        media.setMediaUrl(workbook.getSheetAt(0).getRow(i).getCell(j + 12).toString());
-                        media.setMediaTrailerUrl(workbook.getSheetAt(0).getRow(i).getCell(j + 13).toString());
-                        media.setMediaType(workbook.getSheetAt(0).getRow(i).getCell(j + 14).toString());
-                        mediaRepository.save(media);
-                        System.out.println(media);
-                    }
-                }
+            FileReader filereader = new FileReader(file);
+            CSVReader csvReader = new CSVReaderBuilder(filereader)
+                    .withSkipLines(1)
+                    .build();
+            List<String[]> allData = csvReader.readAll();
+            System.out.println("seed data................................................");
+            StandaloneMedia standaloneMedia = new StandaloneMedia();
+            for (String[] row : allData) {
+                System.out.println("values"+ Arrays.toString(row));
+                standaloneMedia.setMediaTitle(row[0]);
+                standaloneMedia.setMediaCategory(row[1]);
+                standaloneMedia.setMediaSynopsis(row[2]);
+                List<String> genres=new ArrayList<>();
+                genres.add(row[3]);
+                standaloneMedia.setMediaGenre(genres);
+                standaloneMedia.setMediaLanguage(row[4]);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = simpleDateFormat.parse(row[5]);
+                standaloneMedia.setMediaReleaseDate(date);
+                standaloneMedia.setMediaPosterUrl(row[6]);
+                standaloneMedia.setMediaStudioName(row[7]);
+                List<Crew> crews=new ArrayList<>();
+                Crew crew=new Crew();
+                crew.setCrewName(row[8]);
+                crew.setCrewRole(row[9]);
+                crews.add(crew);
+                standaloneMedia.setMediaCrew(crews);
+                List<Cast> casts=new ArrayList<>();
+                Cast cast=new Cast();
+                cast.setScreenName(row[10]);
+                cast.setRealName(row[11]);
+                casts.add(cast);
+                standaloneMedia.setMediaCast(casts);
+                standaloneMedia.setMediaUrl(row[12]);
+                standaloneMedia.setMediaTrailerUrl(row[13]);
+                standaloneMedia.setMediaType(row[14]);
+                System.out.println("running"+standaloneMedia);
+                standaloneService.saveMedia(standaloneMedia);
             }
-            file.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException | ParseException | MediaAlreadyExistsException ex) {
+            ex.getMessage();
+            System.out.println("Exception occured");
         }
     }
 }
-*/
+
