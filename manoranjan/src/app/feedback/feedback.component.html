@@ -2,10 +2,33 @@
 <app-nav-norm></app-nav-norm>
 <!--end of nevbar section-->
 <div class=about>
-    <h3>Feedback</h3>
+    <h3><i class="fa fa-comments-o" aria-hidden="true"></i>Feedback</h3>
     <br>
-    <p>We would be glad to receive feedback from you on your experience of using hotstar.com. We welcome your suggestions on how we can improve it in the future.</p>
-    <br>
-    <p>Please feel free to write to us at hello@hotstar.com for any feedback or queries. In case you are a subscribed user please do mention your e-mail and mobile number. It will help us reach out to you quickly.</p>
+    <p>We would be glad to receive your feedback of using Manoranjan. We welcome your suggestions on how we can improve it in the future.</p>
+    <div class="form-group row">
+        <label for="name" class="col-sm-12 col-form-label">Name</label>
+        <div class="col-sm-12">
+            <input type="text" #email class="form-control" name="name" autofocus />
+        </div>
+    </div>
+    <div class="form-group row">
+            <label for="email" class="col-sm-12 col-form-label">Email</label>
+            <div class="col-sm-12">
+                <input type="text" #email class="form-control" name="email" autofocus />
+            </div>
+        </div>
+    <div class="form-group row">
+        <label for="feedback" class="col-sm-12 col-form-label">Your Feedback</label>
+        <div class="col-sm-12">
+            <textarea rows="4" type="text" #email class="form-control" name="feedback" autofocus></textarea>
+            <!-- <textarea type="text" #email class="form-control" name="feedback" autofocus /> -->
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary btn-info" data-toggle="modal" >Submit</button>
+        </div>
+    </div>
 </div>
+
 <app-footer></app-footer>
