@@ -182,19 +182,19 @@ public class MediaController {
     }
 
 
-    @GetMapping("/recommendedInterestDocumentary")
+    @GetMapping("/recommendedInterestDocumentary/{email}")
     public Collection<Documentary> getRecInterestDocumentary(@PathVariable String email) throws MediaNotFoundException {
         return mediaService.getRecInterestDoc(email);
     }
-    @GetMapping("/recommendedInterestMovie")
+    @GetMapping("/recommendedInterestMovie/{email}")
     public Collection<Movie> getRecInterestMovie(@PathVariable String email) throws MediaNotFoundException {
         return mediaService.getRecInterestMovie(email);
     }
-    @GetMapping("/recLangDocumentary")
+    @GetMapping("/recLangDocumentary/{email}")
     public Collection<Documentary> getRecLangDoc(@PathVariable String email){
         return mediaService.getRecLangDocumentary(email);
     }
-    @GetMapping("/recLangMovie")
+    @GetMapping("/recLangMovie/{email}")
     public Collection<Movie> getRecLangMovie(@PathVariable String email){
         return mediaService.getRecLangMovie(email);
     }
@@ -202,7 +202,7 @@ public class MediaController {
     public Collection<TvEpisodes> getRecLangTvEpisodes(@PathVariable String email){
         return mediaService.getRecLangTvEpisodes(email);
     }
-    @GetMapping("/recLangWebSeries")
+    @GetMapping("/recLangWebSeries/{email}")
     public Collection<WebSeries> getRecLangWebSeries(@PathVariable String email){
         return mediaService.getRecLangWebSeries(email);
     }
