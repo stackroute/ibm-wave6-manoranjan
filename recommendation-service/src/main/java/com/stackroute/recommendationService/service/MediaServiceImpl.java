@@ -118,11 +118,11 @@ public class MediaServiceImpl implements MediaService {
 
     //method to get documentary by title
     @Cacheable
-    public Documentary getDocumentaryByTitle(String title) throws MediaNotFoundException {
-        if (documentaryRepository.findDocumentaryByTitle(title) == null) {
+    public Documentary getDocumentaryByTitle(String MediaTitle) throws MediaNotFoundException {
+        if (documentaryRepository.findDocumentaryByMediaTitle(MediaTitle) == null) {
             throw new MediaNotFoundException();
         } else {
-            return documentaryRepository.findDocumentaryByTitle(title);
+            return documentaryRepository.findDocumentaryByMediaTitle(MediaTitle);
         }
     }
 
@@ -159,7 +159,7 @@ public class MediaServiceImpl implements MediaService {
     //method to save Documentary
     @CacheEvict(allEntries = true)
     public Documentary saveDocumentary(Documentary documentary) throws MediaAlreadyExistException{
-        if (documentaryRepository.findDocumentaryByTitle(documentary.getMediaTitle()) == null)
+        if (documentaryRepository.findDocumentaryByMediaTitle(documentary.getMediaTitle()) == null)
         {
             documentaryRepository.createDocumentaryNode(documentary.getMediaTitle());
             documentaryRepository.createLanguageRelation(documentary.getMediaTitle(), documentary.getMediaLanguage());

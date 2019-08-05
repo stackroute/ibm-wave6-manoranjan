@@ -43,3 +43,10 @@ a.navbar-brand {
     border-radius: 14px;
     background: #36c5ff;
 }
+app-footer {
+    margin-top: -100%;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
