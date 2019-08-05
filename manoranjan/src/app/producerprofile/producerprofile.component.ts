@@ -16,6 +16,7 @@ export class ProducerprofileComponent implements OnInit {
   producers:Producer;
   user = new User();
   emailId;
+  private photo:string;
   constructor(private userService: UserService,private router:Router) { }
 
   ngOnInit() {
@@ -24,6 +25,15 @@ export class ProducerprofileComponent implements OnInit {
     this.userService.getByEmailId(this.producer.emailId).subscribe(data => {
       this.producers = data;
       console.log("POST Request is successful ", data);
+      console.log("gender:",this.users.gender);
+      if(this.users.gender=='male'|| this.users.gender=='Male')
+      {
+        this.photo='maleDemo.png';
+      }
+      else
+      {
+        this.photo='femaleDemo.png';
+      }
     },
       error => {
         console.log("Error", error);
@@ -34,5 +44,4 @@ export class ProducerprofileComponent implements OnInit {
   {
      this.router.navigateByUrl('/editpro/'+email);
   }
-
 }

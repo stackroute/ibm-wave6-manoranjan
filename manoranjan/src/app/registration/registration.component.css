@@ -121,11 +121,7 @@ section{
   .mat-button-toggle {
       border: 0;
   }
-  
-  img:hover {
-      opacity: 0.5;
-  
-  }
+ 
   
   .mat-button-toggle-checked {
       border: 2px solid black;
@@ -186,12 +182,7 @@ section{
       width: 60%;
       margin-right: 10px;
   }
-  
-  mat-grid-list mat-grid-tile {
-      height: 100px;
-      width: 100px
-  }
-  
+ 
   #firstImage {
       margin-left: 100px;
   }
