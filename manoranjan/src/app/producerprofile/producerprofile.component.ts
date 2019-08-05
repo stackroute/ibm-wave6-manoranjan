@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
+import { Producer } from '../producer';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 
@@ -11,16 +12,18 @@ import { Router } from '@angular/router';
 export class ProducerprofileComponent implements OnInit {
 
   users: User;
+  producer=new Producer();
+  producers:Producer;
   user = new User();
   emailId;
   private photo:string;
   constructor(private userService: UserService,private router:Router) { }
 
   ngOnInit() {
-    this.user.emailId = sessionStorage.getItem('email');
-    console.log(this.user.emailId);
-    this.userService.getById(this.user.emailId).subscribe(data => {
-      this.users = data;
+    this.producer.emailId = sessionStorage.getItem('email');
+    console.log(this.producer.emailId);
+    this.userService.getByEmailId(this.producer.emailId).subscribe(data => {
+      this.producers = data;
       console.log("POST Request is successful ", data);
       console.log("gender:",this.users.gender);
       if(this.users.gender=='male'|| this.users.gender=='Male')

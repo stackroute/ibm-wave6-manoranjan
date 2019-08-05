@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MediaService } from '../media.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Media } from '../media';
 import { UserService } from '../user.service';
+import { StandaloneService } from '../standalone.service';
+import { StandaloneMedia } from '../standalone-media';
 
 @Component({
   selector: 'app-movies',
@@ -15,10 +15,10 @@ export class MoviesComponent implements OnInit {
   title;
   id: any;
   status: string = "false";
-  media1 = new Media()
+  media1 = new StandaloneMedia()
   date = new Date()
 
-  constructor(private mediaService: MediaService, private activatedRoute: ActivatedRoute, private router: Router,private userService:UserService) {
+  constructor(private mediaService: StandaloneService, private activatedRoute: ActivatedRoute, private router: Router,private userService:UserService) {
   }
 
   ngOnInit() {
@@ -55,20 +55,21 @@ export class MoviesComponent implements OnInit {
       }
     }
     else {
-      this.router.navigateByUrl('/play/' + this.media1.mediaTitle + '/' + this.media1.mediaUrl);
+      this.router.navigateByUrl('/play/' + this.media1.mediaTitle + '/' + this.media1.mediaUrl+'/'+"standalone");
     }
 
   }
 
-  addWishlist(title,category){
-    // this.id = sessionStorage.getItem('email')
-    // if(this.id!==null){
-    //   this.userService.addToWishlist(this.id,title,category).subscribe(data=>{
-    //     console.log(data);
-    //   })
-    // }
-    // else{
-    //   this.router.navigateByUrl('/login');
-    // }
+  addWishlist(title){
+    this.id = sessionStorage.getItem('email')
+    console.log(this.id)
+    if(this.id!==null){
+      this.userService.addToStandaloneWishlist(this.id,title).subscribe(data=>{
+        console.log(data);
+      })
+    }
+    else{
+      this.router.navigateByUrl('/login');
+    }
   }
 }

@@ -9,9 +9,16 @@ h3 {
     margin-top: 250px;
     color: green;
 }
+h6{
+    font-family: 'Merriweather',serif;
+    font-weight: bold;
+  }
 
 p {
     color: green;
+}
+.episodeAdd{
+    display: flex;
 }
 
 .example-card {
@@ -25,8 +32,7 @@ p {
 
 section{
     margin-left: 160px;
-    margin-right: 145px;
-    height: 90%;  
+    margin-right: 145px;  
 }
 mat-horizontal-stepper form{
     margin-left: 16%; 
@@ -80,7 +86,7 @@ mat-toolbar {
     margin-left: 36%;
 }
 #button2{
-margin-top: -70px;
+margin-top: -10px;
 }
 #button3{
     margin-top: 50px;
@@ -318,3 +324,37 @@ mat-form-field input {
 #date {
     margin-left: -58px;
 }
+.btn1{
+    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border-radius: 14px;
+    background: #36c5ff;
+    color: white;
+  }
+  .mat-raised-button{
+    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border-radius: 14px;
+    background: #36c5ff;
+    color: white;
+  }
+  .mat-stroked-button{
+    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border-radius: 14px;
+    background: #36c5ff;
+    color: white;
+    width:20%;
+    padding:3px;
+  }
+  button.addButton{
+    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border-radius: 14px;
+    background: #36c5ff;
+    color: white;
+  }
+  button.addButton3{
+    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border-radius: 14px;
+    background: #36c5ff;
+    color: white;
+    width:15%;
+    padding:3px;
+  }

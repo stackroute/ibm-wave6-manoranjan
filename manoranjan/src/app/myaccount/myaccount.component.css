@@ -99,12 +99,17 @@
     font-size: 18px;
     color: black;
 }
-.btn{
+
+.btn {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 14px;
     background: #36c5ff;
-  }
-  app-footer{
-      position: fixed;
-      width: 100%;
-  }
+
+}
+app-footer {
+    margin-top: -1%;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}

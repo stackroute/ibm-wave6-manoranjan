@@ -91,7 +91,7 @@ services:
       MYSQL_USER: root
       MYSQL_ALLOW_EMPTY_PASSWORD: "YES"
     volumes:
-      - $HOME/data/datasql:/var/lib/mysql
+      - "~/data/datasql:/var/lib/mysql"
     network_mode: "host"
     hostname: localhost
     restart: always
@@ -101,7 +101,7 @@ services:
     restart: always
     network_mode: "host"
     volumes:
-      - $HOME/data/datamongo:/data/db
+      - "~/data/datamongo:/data/db"
     ports:
       - 27017:27017
     expose:
@@ -122,9 +122,26 @@ services:
       expose:
         - 8050
 
-  media-manager-service:
-    image: media-manager-service:1.0.0
-    build: media-manager-service/
+  standalone-media-service:
+    image: standalone-media-service:1.0.0
+    build: standalone-media-service/
+    restart: always
+    network_mode: "host"
+    volumes:
+      - "~/data/videos:/root/uploads"
+    depends_on:
+      - kafka
+      - mongo
+      - eureka-server
+      - zuul-api
+    ports:
+      - 8072:8072
+    expose:
+      - 8072
+
+  episodic-media-service:
+    image: episodic-media-service:1.0.0
+    build: episodic-media-service/
     restart: always
     network_mode: "host"
     depends_on:
@@ -133,9 +150,24 @@ services:
       - eureka-server
       - zuul-api
     ports:
-      - 8060:8060
+      - 8071:8071
     expose:
-      - 8060
+      - 8071
+
+  recommendation-service:
+    image: recommendation-service:1.0.0
+    build: recommendation-service/
+    restart: always
+    network_mode: "host"
+    depends_on:
+      - kafka
+      - neo4j
+      - eureka-server
+      - zuul-api
+    ports:
+      - 8082:8082
+    expose:
+      - 8082
 
   payment-service:
     image: payment-service:1.0.0
@@ -156,6 +188,8 @@ services:
     image: neo4j:latest
     restart: always
     network_mode: host
+    volumes:
+      - "~/neo4j/data:/data"
     ports:
       - 7474:7474
       - 7687:7687
@@ -176,6 +210,13 @@ services:
     environment:
       NG_CLI_ANYALYTICS: ci
 
+  red5:
+    image: mondain/red5
+    restart: always
+    network_mode: "host"
+    volumes:
+      - "~/data/videos:/opt/red5/webapps/vod/streams"
+
   prometheus:
     image: prom/prometheus
     ports:
@@ -189,9 +230,8 @@ services:
   grafana:
     image: grafana/grafana
     ports:
-      - "3000:3000"
+      - 3000:3000
     depends_on:
       - prometheus
     network_mode: "host"
     hostname: localhost
-

@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { UserService } from '../user.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Media } from '../media';
-import { MediaService } from '../media.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Crew } from '../crew';
 import { Cast } from '../cast';
+import { StandaloneService } from '../standalone.service';
+import { StandaloneMedia } from '../standalone-media';
 @Component({
   selector: 'app-standalone-stepper',
   templateUrl: './standalone-stepper.component.html',
@@ -48,7 +47,7 @@ export class StandaloneStepperComponent implements OnInit {
 
   progress: { percentage: number } = { percentage: 0 };
 
-  media: Media = new Media();
+  media: StandaloneMedia = new StandaloneMedia();
   crew: Crew = new Crew();
   cast: Cast = new Cast();
   listCrew: Array<Crew> = new Array<Crew>();
@@ -56,9 +55,8 @@ export class StandaloneStepperComponent implements OnInit {
 
   genres: Array<string> = new Array<string>();
 
-
   constructor(private _formBuilder: FormBuilder, private router: Router,
-    private mediaService: MediaService, private activatedRoute: ActivatedRoute) { }
+    private mediaService: StandaloneService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
 

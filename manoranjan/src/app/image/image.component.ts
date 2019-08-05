@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Episodic } from '../episodic';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-image',
@@ -14,7 +15,7 @@ export class ImageComponent implements OnInit {
   serial;
   serial1 = new Episodic()
   episodeList;
-  constructor(private router: Router) { }
+  constructor(private router: Router,private userService:UserService) { }
   title;
   ngOnInit() {
     this.serial=JSON.parse(sessionStorage.getItem("serial"));
@@ -38,7 +39,20 @@ export class ImageComponent implements OnInit {
       }
     }
     else{
-      this.router.navigateByUrl('/play/'+this.serial.episodicTitle+'/'+this.serial1.episodeList[0].episodeUrl);
+      this.router.navigateByUrl('/play/'+this.serial.episodicTitle+'/'+this.serial1.episodeList[0].episodeUrl+'/'+"episodic");
+    }
+  }
+
+  addWishlist(title){
+    this.id = sessionStorage.getItem('email')
+    console.log(this.id)
+    if(this.id!==null){
+      this.userService.addToEpisodicWishlist(this.id,title).subscribe(data=>{
+        console.log(data);
+      })
+    }
+    else{
+      this.router.navigateByUrl('/login');
     }
   }
 }

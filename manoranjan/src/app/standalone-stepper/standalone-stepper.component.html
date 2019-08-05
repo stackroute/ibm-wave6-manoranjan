@@ -143,28 +143,14 @@
     <option value="music">Music</option>
     </select>
     </div>
-    </div><br>
-    <div class="row" id="submit">
-    <button type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
+    <div class="col-1" style="padding-bottom:8px;padding-top:2px" >
+      <button class="btn1" type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
     </div>
+    </div><br>
+    <!-- <div class="row" id="submit">
+    <button type="submit" (click)="addCrew(crewName.value,crewRole.value)">Add</button>
+    </div> -->
     </form><br>
-    <ul class="table">
-    <li>
-    <table *ngFor="let crew of crewList">
-    <tr>
-    <td width="180px">
-    {{crew.crewName}} 
-    </td>
-    <td width="180px">
-    {{crew.crewRole}} 
-      </td>
-    <!-- <td width="110px">
-    <button (click)="deleteCrew(crew.crewName,crew.crewRole)" id="delete">Delete</button>
-    </td> -->
-    </tr>
-    </table>
-    </li>
-    </ul>
     <div class="row">
     <div class="col-2" id="cast">
     <label>Cast</label>
@@ -187,29 +173,15 @@
     <div class="col-4" id="input2">
     <input class="form-control" type="text" rows="1" cols="20" #realName formControlName="realName">
     </div>
+    <div class="col-1" style="padding-bottom:8px;padding-top:2px">
+      <button type="submit" class="btn1" (click)="addCast(screenName.value,realName.value)">Add</button>
     </div>
-    <div class="row" id="submit1">
-    <button type="submit" (click)="addCast(screenName.value,realName.value)">Add</button>
+    
     </div>
+  
     </form>
     </div>
-    <ul class="table1">
-    <li>
-    <table *ngFor="let cast of castList">
-    <tr>
-    <td width="180px" style="padding:12px;" >
-    {{cast.realName}}  
-    </td>
-    <td width="180px" style="padding:12px;">
-    {{cast.screenName}} 
-      </td>
-    <!-- <td width="110px">
-    <button (click)="deleteCast(cast.screenName,cast.realName)" id="delete">Delete</button>
-    </td> -->
-    </tr>
-    </table>
-    </li>
-    </ul>
+    
     </mat-card-content>
     <div id="bottomButton">
     <button mat-stroked-button matStepperPrevious >Back</button>&nbsp; &nbsp; 
@@ -217,6 +189,24 @@
   </div>
     </mat-card> 
     </form>
+    <div class="row" style="width:100%;">
+        <div class="col-2" *ngFor="let crew of crewList">
+          <div class="card" style="background-color: black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
+        <h6>{{crew.crewName}} </h6> 
+        <h6>AS&nbsp;{{crew.crewRole}}</h6> 
+        </div>
+        </div>
+        <div class="col-2" *ngFor="let cast of castList">
+          <div class="card" style="background-color:black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
+        <h6>
+        {{cast.realName}}  
+        </h6>
+        <h6>
+        As&nbsp;{{cast.screenName}} 
+        </h6>
+        </div>
+        </div>
+        </div>
     </mat-step>
 <!-- 3rd form is start here -->
 <mat-step [stepControl]="thirdForm">
@@ -314,7 +304,7 @@
           <ng-template matStepLabel><span class="headingStyle">Status</span></ng-template>
           <mat-card class="example-card">
               <mat-card-content class="content">
-                  <div class="container3">
+                  <div class="container3" id="success">
                     <h3>Thank you!</h3>
                     <br>
                     <p>Click PUBLISH to successfully upload!</p>

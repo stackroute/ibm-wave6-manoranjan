@@ -13,9 +13,21 @@
       font-size:15px;
     font-family: 'Merriweather', serif;
     }
+h6{
+  font-family: 'Merriweather',serif;
+  font-weight: bold;
+}
 .container{
  height: 368px;
  margin-left: 15px;
+}
+#success{
+  margin-top: -80px;
+  font-family: 'Merriweather', serif;
+  color:green;
+}
+app-footer{
+  position: relative;
 }
 
 h3{
@@ -295,7 +307,7 @@ margin-left: -80px;
 section{
   margin-left: 120px;
   margin-right: 120px;
-  height: 90%;
+  width: relative;
 
 }
 mat-horizontal-stepper{
@@ -438,6 +450,23 @@ mat-grid-list mat-grid-tile {
   background: #36c5ff;
 } */
 .mat-stroked-button{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 14px;
+  background: #36c5ff;
+  color: white;
+  width:20%;
+  padding:5px;
+}
+.btn1{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 14px;
+  background: #36c5ff;
+  color: white;
+}
+.container3{
+  margin-top:-100px;
+}
+.mat-raised-button{
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 14px;
   background: #36c5ff;
