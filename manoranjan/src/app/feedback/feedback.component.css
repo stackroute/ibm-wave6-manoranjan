@@ -1,57 +1,27 @@
 div.about {
-    margin-top: 100px;
-    margin-left: 10px;
+    margin-top: 120px;
+    margin-right: 33%;
+    margin-left: 33%;
     color: white;
+    font-family: 'Merriweather', serif; 
+    overflow: hidden;
+   /* background-image: url("../../assets/feedback.jpg"); */
+   /* margin-bottom: -10px; */
+}
+h3{
+    text-align: center;
     font-family: 'Merriweather', serif;
 }
-
-h3 {
-    color: #36c5ff;
+.btn {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 14px;
+    background: #36c5ff;
+    margin-left: 42%;
+     
 }
-
-
-/* header */
-
-.btn-group i {
-    color: rgb(26, 24, 24);
-}
-
-nav {
-    position: fixed;
-    z-index: -1;
-}
-
-li.menu-item {
-    margin: 0 0 10px 0;
-    transform: translate(15px, -5px);
-    position: absolute;
-    padding-right: 15px;
-}
-
-.nav-item {
-    padding-right: 50px;
-}
-
-.navbar-brand {
-    padding-right: 20px;
-}
-
-.form-inline {
-    padding-left: 200px;
-    padding-right: 20px;
-}
-
-.form-inline i {
-    color: white;
-}
-
-a.navbar-brand {
-    font-family: 'Merriweather', serif;
-    font-size: 2em;
-}
-
 app-footer {
-    margin-top: 410px;
+    /* margin-top: 300px; */
     position: fixed;
     width: 100%;
+    
 }

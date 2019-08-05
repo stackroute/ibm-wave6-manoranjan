@@ -117,7 +117,7 @@
                                             </select>
                                         </div>
                                         <div class="col-1">
-                                            <button class="btn1" type="submit" (click)="addCrew(crewName.value,crewRole.value)" class="addButton">Add</button>
+                                            <button id="btn1" type="submit" (click)="addCrew(crewName.value,crewRole.value)" class="addButton">+</button>
                                         </div>
                                     </div><br>
                                     
@@ -155,7 +155,7 @@
                                             </mat-error>
                                         </div>
                                         <div class="col-1">
-                                            <button class="btn" type="submit" (click)="addCast(screenName.value,realName.value)" class="addButton">Add</button>
+                                            <button id="btn1" type="submit" (click)="addCast(screenName.value,realName.value)" class="addButton">+</button>
                                         </div>
                                     </div><br>
                                    
@@ -252,7 +252,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <button  type="submit" class="btn1" (click)="addEpisode(episodeNo.value,episodeUrl.value,episodeDescription.value,episodePosterUrl.value,episodeReleaseDate.value)" class="addButton3">Add</button>
+                                        <button  type="submit"  (click)="addEpisode(episodeNo.value,episodeUrl.value,episodeDescription.value,episodePosterUrl.value,episodeReleaseDate.value)" class="addButton3">Add</button>
                                     </div>
                                 </form>
                             </div><br>
@@ -274,7 +274,7 @@
             </mat-step>
             <mat-step [stepControl]="fourthForm">
                 <form #viewerForm="ngForm" class="form-horizontal">
-                    <ng-template matStepLabel><span class="headingStyle">Status</span></ng-template>
+                    <ng-template matStepLabel><span class="headingStyle">Submit</span></ng-template>
                     <mat-card class="example-card" id="fourth-card">
                         <mat-card-content class="content"  id="success">
                             <div id="container3">

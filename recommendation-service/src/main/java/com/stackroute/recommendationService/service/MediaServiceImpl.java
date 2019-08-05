@@ -118,11 +118,11 @@ public class MediaServiceImpl implements MediaService {
 
     //method to get documentary by title
     @Cacheable
-    public Documentary getDocumentaryByTitle(String title) throws MediaNotFoundException {
-        if (documentaryRepository.findDocumentaryByMediaTitle(title) == null) {
+    public Documentary getDocumentaryByTitle(String MediaTitle) throws MediaNotFoundException {
+        if (documentaryRepository.findDocumentaryByMediaTitle(MediaTitle) == null) {
             throw new MediaNotFoundException();
         } else {
-            return documentaryRepository.findDocumentaryByMediaTitle(title);
+            return documentaryRepository.findDocumentaryByMediaTitle(MediaTitle);
         }
     }
 
