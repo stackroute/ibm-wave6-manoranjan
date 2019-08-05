@@ -70,7 +70,8 @@ import { EpisodicComponent } from './episodic/episodic.component';
 import { PlayComponent } from './play/play.component';
 import{DatePipe}from '@angular/common';
 import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component';
-
+import{ProducerdialogComponent} from './producerdialog/producerdialog.component';
+import{UserdialogComponent} from './userdialog/userdialog.component';
 
 const routes: Routes = [
   { path: 'terms', component: TermsOfUseComponent },
@@ -135,6 +136,8 @@ const routes: Routes = [
   {path :'package/:email',component:PackageComponent},
   {path :'payment/:time/:amount',component:PaymentComponent},
   {path :'paymentdialog/:time/:amount',component:PaymentdialogComponent},
+  {path :'producerdialog',component:ProducerdialogComponent},
+  {path :'userdialog',component:UserdialogComponent},
   {path:'myaccount',component:MyaccountComponent},
   {path:'edit/:email',component:EditComponent},
   {path:'editpro/:email',component:EditproducerprofileComponent},
@@ -144,7 +147,7 @@ const routes: Routes = [
   {path:'standaloneepisodic',component:StandaloneEpisodicComponent},
   {path:'episodic/:title/:category/:synopsis',component:EpisodicComponent},
   {path:'standalonestepper/:title/:category/:synopsis',component:StandaloneStepperComponent},
-  {path:'play/:title/:url',component:PlayComponent},
+  {path:'play/:title/:url/:category',component:PlayComponent},
   {path: '**', redirectTo: '/navland'},
 ];
 

@@ -26,7 +26,7 @@ export interface DialogData {
   styleUrls: ['./paymentdialog.component.css']
 })
 export class PaymentdialogComponent implements OnInit {
-  randomNumber: number;
+  
 
   constructor(public dialogRef: MatDialogRef<PaymentdialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {

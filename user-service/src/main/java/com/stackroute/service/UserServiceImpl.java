@@ -59,13 +59,10 @@ public class UserServiceImpl implements UserService {
             throw new UserAllReadyExistException();
         }
         User saveUser = userRepository.save(user);
-        if (saveUser == null) {
+        if (saveUser == null)
             throw new UserAllReadyExistException();
 
-        } else {
-            kafkaTemplate.send(topic, user);
-        }
-
+        kafkaTemplate.send(topic, user);
         return saveUser;
     }
 
