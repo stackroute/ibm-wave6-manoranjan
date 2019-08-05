@@ -5,7 +5,7 @@ div.main {
 .section-subtitle{
     margin-bottom: 7px;
     margin-left: 7px;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1;
     text-transform: uppercase;
     border-left: 3px solid #36c5ff;
@@ -13,31 +13,28 @@ div.main {
     font-family: tohama;
 }
 .btn-color-background{
-    -moz-user-select: none;
-    border-radius: 14px;
-    background: #36c5ff;
-    border: 2px solid #052430;
-    color: black;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
+    color: white;
+    cursor: pointer;
     line-height: 2;
-    margin-bottom: 0;
-    padding: 8px 20px;
     text-align: center;
     text-transform: uppercase;
-    transition: all 0.5s ease 0s;
 }
 .btn-color-background:hover{
-    text-decoration: none;
-    color: white;
+    color: #36c5ff;
     font-weight: bold;
     background: transparent;
 }
-app-footer {
-    margin-top: -115px;
-    position: fixed;
-    width: 100%;
-    margin-bottom: 0;
+.card{
+    margin-top: 20px;
+    background-color: #1f3c47;
+    height: 250px;
+}
+.card-title{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.card-text{
+    font-size: 14px;
 }
