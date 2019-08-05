@@ -1,65 +1,40 @@
 div.main {
     background-color: black;
     color: white;
-}
-
-h3 {
-    color: #36c5ff;
-}
-
-span {
-    font-size: 18px;
-    color: #36c5ff;
-}
-
-div.about {
-    margin-top: 100px;
-    margin-left: 10px;
-    font-family: 'Merriweather', serif;
+} 
+.section-subtitle{
+    margin-bottom: 7px;
+    margin-left: 7px;
     font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+    border-left: 3px solid #36c5ff;
+    font-size: 700;
+    font-family: tohama;
 }
-
-
-/* header */
-
-.btn-group i {
-    color: rgb(26, 24, 24);
+.btn-color-background{
+    -moz-user-select: none;
+    border-radius: 14px;
+    background: #36c5ff;
+    border: 2px solid #052430;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 2;
+    margin-bottom: 0;
+    padding: 8px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.5s ease 0s;
 }
-
-nav {
-    position: fixed;
-    z-index: -1;
-}
-
-li.menu-item {
-    margin: 0 0 10px 0;
-    transform: translate(15px, -5px);
-    position: absolute;
-    padding-right: 15px;
-}
-
-.nav-item {
-    padding-right: 50px;
-}
-
-.navbar-brand {
-    padding-right: 20px;
-}
-
-.form-inline {
-    padding-left: 200px;
-    padding-right: 20px;
-}
-
-.form-inline i {
+.btn-color-background:hover{
+    text-decoration: none;
     color: white;
+    font-weight: bold;
+    background: transparent;
 }
-
-a.navbar-brand {
-    font-family: 'Merriweather', serif;
-    font-size: 16px;
-}
-
 app-footer {
     margin-top: -115px;
     position: fixed;

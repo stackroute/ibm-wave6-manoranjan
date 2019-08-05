@@ -16,7 +16,7 @@ public interface WebSeriesRepository extends Neo4jRepository<WebSeries, Long> {
     Collection<WebSeries> getAllWebSeries();
 
     //query to find WebSeries by title
-    WebSeries findWebSeriesByTitle(@Param("episodeTitle") String episodeTitle);
+    WebSeries findWebSeriesByEpisodeTitle(@Param("episodeTitle") String episodeTitle);
 
     //query to create WebSeries node
     @Query("CREATE (w:WebSeries {episodeTitle:{episodeTitle}})")

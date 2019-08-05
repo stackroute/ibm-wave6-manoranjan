@@ -16,7 +16,7 @@ DocumentaryRepository extends Neo4jRepository<Documentary, Long> {
     Collection<Documentary> getAllDocumentary();
 
     //query to find documentary by title
-    Documentary findDocumentaryByTitle(@Param("mediaTitle") String mediaTitle);
+    Documentary findDocumentaryByMediaTitle(@Param("mediaTitle") String mediaTitle);
 
     //query to create documentary node
     @Query("CREATE (d:Documentary {mediaTitle:{mediaTitle}})")
