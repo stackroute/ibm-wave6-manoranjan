@@ -11,7 +11,7 @@ export class UserService {
   route: any;
   headers = new HttpHeaders({'Access-Control-Allow-Origin' : '*'})
   constructor(private http:HttpClient) { }
-  
+
   saveUser(user:User){
   //  return this.http.post<User>("http://13.235.52.81:8083/user-service/user",user);
    return this.http.post<User>("http://localhost:8083/user-service/user",user);
@@ -38,13 +38,13 @@ export class UserService {
   }
 
   addToStandaloneWishlist(emailId,title){
-    return this.http.patch("http://13.235.52.81:8083/user-service/user/wish/standalone/"+emailId+"/"+title,{});
-    // return this.http.patch("http://localhost:8083/user-service/user/wish/standalone/"+emailId+"/"+title,{});
+    return this.http.put("http://13.235.52.81:8083/user-service/user/wish/standalone/"+emailId+"/"+title,{});
+    // return this.http.put("http://localhost:8083/user-service/user/wish/standalone/"+emailId+"/"+title,{});
   }
 
   addToEpisodicWishlist(emailId,title){
-    return this.http.patch("http://13.235.52.81:8083/user-service/user/wish/episodic/"+emailId+"/"+title,{});
-    // return this.http.patch("http://localhost:8083/user-service/user/wish/episodic/"+emailId+"/"+title,{});
+    return this.http.put("http://13.235.52.81:8083/user-service/user/wish/episodic/"+emailId+"/"+title,{});
+    // return this.http.put("http://localhost:8083/user-service/user/wish/episodic/"+emailId+"/"+title,{});
   }
 
   getStandaloneWishlist(emailId){
@@ -58,13 +58,13 @@ export class UserService {
   }
 
   addToStandaloneHistory(emailId,title){
-    return this.http.patch("http://13.235.52.81:8083/user-service/user/history/standalone/"+emailId+"/"+title,{});
-    // return this.http.patch("http://localhost:8083/user-service/user/history/standalone/"+emailId+"/"+title,{});
+    return this.http.put("http://13.235.52.81:8083/user-service/user/history/standalone/"+emailId+"/"+title,{});
+    // return this.http.put("http://localhost:8083/user-service/user/history/standalone/"+emailId+"/"+title,{});
   }
 
   addToEpisodicHistory(emailId,title){
-    return this.http.patch("http://13.235.52.81:8083/user-service/user/history/episodic/"+emailId+"/"+title,{});
-    // return this.http.patch("http://localhost:8083/user-service/user/history/episodic/"+emailId+"/"+title,{});
+    return this.http.put("http://13.235.52.81:8083/user-service/user/history/episodic/"+emailId+"/"+title,{});
+    // return this.http.put("http://localhost:8083/user-service/user/history/episodic/"+emailId+"/"+title,{});
   }
 
   getStandaloneHistory(emailId){
@@ -77,16 +77,16 @@ export class UserService {
     // return this.http.get("http://localhost:8083/user-service/user/history/episodic/"+emailId,{});
   }
   updateProducer(emailId,producer:Producer):any{
-    // return this.http.put("http://13.235.52.81:8083/user-service/user/"+emailId,user,{
-      return this.http.put("http://localhost:8083/user-service/producer/"+emailId,producer,{
+    return this.http.put("http://13.235.52.81:8083/user-service/user/"+emailId,producer,{
+      // return this.http.put("http://localhost:8083/user-service/producer/"+emailId,producer,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
     });
   }
   getByEmailId(emailId):any{
-    // return this.http.get("http://13.235.52.81:8083/user-service/users/"+emailId,{
-      return this.http.get("http://localhost:8083/user-service/producers/"+emailId,{
+    return this.http.get("http://13.235.52.81:8083/user-service/users/"+emailId,{
+      // return this.http.get("http://localhost:8083/user-service/producers/"+emailId,{
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })

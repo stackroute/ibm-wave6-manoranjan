@@ -20,13 +20,13 @@ section{
 
 .tab-content {
     margin-top: -56px;
-  height: 550px;
+  height: 600px;
   margin-bottom: -10px;
   background-color: white;
 }
 
 .row {
-    margin-top: 50px;
+    margin-top: 50px; 
 }
 
 label {
@@ -60,15 +60,23 @@ textarea {
     /* border-color: black; */
 }
 
-.btn-info {
-    margin-left: 5%;
-}
+/* .btn-info {
+    margin-left: 2%;
+} */
 .footer{
     margin-top: -10px;
   margin-bottom: -20px;
 }
-.btn {
+div.btn {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 14px;
     background: #36c5ff;
+    width:20%;
+    padding:7px;
+    align-self: center;
+    
+}
+#saveButton{
+    margin-left:150px;
+
 }

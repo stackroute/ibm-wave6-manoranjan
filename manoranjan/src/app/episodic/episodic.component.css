@@ -7,15 +7,15 @@
 }
 h3 {
     margin-top: 250px;
-    color: green;
+    color: #36c5ff;
 }
 h6{
     font-family: 'Merriweather',serif;
     font-weight: bold;
   }
 
-p {
-    color: green;
+div#success.container3 {
+    color: #36c5ff;
 }
 .episodeAdd{
     display: flex;
@@ -86,7 +86,7 @@ mat-toolbar {
     margin-left: 36%;
 }
 #button2{
-margin-top: -70px;
+margin-top: -10px;
 }
 #button3{
     margin-top: 50px;
@@ -187,10 +187,10 @@ mat-button-toggle {
 #success{
     margin-top: -60px;
     font-family: 'Merriweather', serif;
-    color:green;
+    color:#36c5ff;
   }
 #publish{
-    margin-top: 170px;
+    margin-top: 200px;
   }
   #fourth-card {
     margin-top: -14px;
@@ -300,10 +300,10 @@ mat-form-field input {
 #description {
     margin-left: -16px;
 }
-.container3{
+/* .container3{
     margin-top: 10%;
     margin-left: 28%;
-  }
+  } */
 #input9 {
     margin-left: 16px;
 }
@@ -324,3 +324,39 @@ mat-form-field input {
 #date {
     margin-left: -58px;
 }
+#btn1{
+    border-radius: 8px;
+  background: #36c5ff;
+  padding: 0;
+  color: white;
+  height: 30px;
+  width: 30px;
+  }
+  .mat-raised-button{
+    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border-radius: 14px;
+    background: #36c5ff;
+    color: white;
+  }
+  .mat-stroked-button{
+    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border-radius: 14px;
+    background: #36c5ff;
+    color: white;
+    width:20%;
+    padding:3px;
+  }
+  button.addButton{
+    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border-radius: 14px;
+    background: #36c5ff;
+    color: white;
+  }
+  button.addButton3{
+    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border-radius: 14px;
+    background: #36c5ff;
+    color: white;
+    width:15%;
+    padding:3px;
+  }
