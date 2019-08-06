@@ -14,7 +14,8 @@
                                         <label>Language</label>
                                     </div>
                                     <div class="col-7">
-                                        <select class="selectpicker" class="form-control" #crewRole formControlName="episodeLanguage" width="150px" data-size="5" data-width="fit">
+                                        <select class="selectpicker" class="form-control" #episodeLanguage 
+                                        formControlName="episodeLanguage" width="150px" data-size="5" data-width="fit">
                                             <option value="Hindi">Hindi</option>
                                             <option value="Telugu">Telugu</option>
                                             <option value="Tamil">Tamil</option>
@@ -221,7 +222,7 @@
                                             <label>Description</label>
                                         </div>
                                         <div class="col-7" id="input9">
-                                            <input class="form-control" #episodeDescription type="text" name="posterDescription" formControlName="episodeDescription">
+                                            <input class="form-control" #episodeDescription type="text" name="episodeDescription" formControlName="episodeDescription">
                                         </div>
                                     </div>
                                     <br><br>
@@ -230,12 +231,7 @@
                                             <label>Poster</label>
                                         </div>
                                         <div class="col-7" id="input10">
-                                            <input class="form-control" #episodePosterUrl type="text" name="posterUrl" formControlName="episodePosterUrl">
-                                            <mat-error *ngFor="let validation of validation_messages.episodePosterUrl">
-                                                <mat-error class="error-message" *ngIf="eightFormGroup.get('episodePosterUrl').hasError(validation.type) && (eightFormGroup.get('episodePosterUrl').dirty || eightFormGroup.get('episodePosterUrl').touched)">
-                                                    {{validation.message}}
-                                                </mat-error>
-                                            </mat-error>
+                                            <input class="form-control" #episodePosterUrl type="text" name="episodePosterUrl" formControlName="episodePosterUrl">
                                         </div>
                                     </div>
                                     <br>
@@ -280,7 +276,7 @@
                             <div id="container3">
                                 <h3>Thank you!</h3>
                                 <br>
-                                <p>Successfully uploaded</p>
+                                <p>Click publish to successfully upload!!!</p>
                             </div>
                         </mat-card-content>
                         <button id="publish" type="submit" (click)="saveMedia()" mat-stroked-button matStepperNext>Publish</button>
