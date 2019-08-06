@@ -51,7 +51,7 @@
                             <br>
                         </mat-card-content>
                         <div style="margin-top: 90px">
-                            <button mat-stroked-button matStepperNext [disabled]="!firstFormGroup.valid">Next</button>
+                            <button mat-stroked-button matStepperNext [disabled]="!firstFormGroup.valid" class="btn-color">Next</button>
                         </div>
                     </mat-card>
 
@@ -102,7 +102,7 @@
                                 <!-- mobile row is closed-->
                             </mat-card-content>
                             <div style="margin-top: 115px">
-                                <button mat-stroked-button matStepperPrevious>Back</button>&nbsp;
+                                <button mat-stroked-button matStepperPrevious class="btn-color">Back</button>&nbsp;
                                 <button mat-stroked-button matStepperNext [disabled]="!secondFormGroup.valid" class="nextButton">Next</button>
                             </div>
                         </mat-card>
@@ -166,8 +166,8 @@
      </mat-grid-list> 
   <!-- 3rd row of cards is close -->
       </mat-card-content>
-        <button mat-stroked-button matStepperPrevious  >Back</button>&nbsp;                      
-        <button mat-stroked-button matStepperNext class="nextButton">Next</button>
+        <button mat-stroked-button matStepperPrevious  class="btn-color">Back</button>&nbsp;                      
+        <button mat-stroked-button matStepperNext class="nextButton" class="btn-color">Next</button>
         </mat-card>   
       </form>
 </mat-step>
@@ -187,7 +187,7 @@
                    <br>
                  </mat-card-content>
                  <div id="submit">
-                    <button type="submit" (click)="submitDetails()" mat-stroked-button matStepperNext>Submit</button>
+                    <button type="submit" (click)="submitDetails()" mat-stroked-button matStepperNext class="btn-color">Submit</button>
                </div> 
               </mat-card>  
       </form>
