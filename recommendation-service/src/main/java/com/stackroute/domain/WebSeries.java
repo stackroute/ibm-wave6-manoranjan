@@ -16,7 +16,7 @@ public class WebSeries {
 
     @GraphId
     private Long id;
-    private String episodeTitle;
-    private String episodeCategory;
-    private String episodeLanguage;
+    private String episodicTitle;
+    private String episodicCategory;
+    private String episodicLanguage;
 }

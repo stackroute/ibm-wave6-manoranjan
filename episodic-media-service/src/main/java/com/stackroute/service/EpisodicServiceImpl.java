@@ -51,9 +51,11 @@ public class EpisodicServiceImpl implements EpisodicService {
         if (episodicMediaRepository.existsById(serial.getEpisodicTitle())) {
             throw new EpisodicMediaAlreadyExistsException(mediaAlreadyExist);
         } else {
+            System.out.println("=================="+"kafka");
+            System.out.println("+++++++++++++++++serial is++++++++++++++++++++++++"+serial.toString());
+            kafkaTemplate1.send(topic1, serial);
             media = episodicMediaRepository.save(serial);
         }
-        kafkaTemplate1.send(topic1, serial);
         return media;
     }
 
@@ -147,6 +149,7 @@ public class EpisodicServiceImpl implements EpisodicService {
             episodes.add(episode);
             media.setEpisodeList(episodes);
             episodicMediaRepository.save(media);
+            System.out.println("episode deatils"+episode);
             kafkaTemplate2.send(topic2, episode);
             return episode;
         } else throw new EpisodicMediaNotFoundException(mediaNotFound);

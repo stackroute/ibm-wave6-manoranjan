@@ -11,8 +11,8 @@ import org.springframework.data.annotation.Id;
 public class EpisodicMedia {
 
     @Id
-    private String episodeTitle;
-    private String episodeCategory;
-    private String episodeLanguage;
-    private String episodeType;
+    private String episodicTitle;
+    private String episodicCategory;
+    private String episodicLanguage;
+    private String episodicType;
 }

@@ -45,7 +45,7 @@ a.navbar-brand {
 }
 app-footer {
     margin-top: -100%;
-    position: fixed;
+    position: relative;
     width: 100%;
     height: auto;
     overflow: hidden;

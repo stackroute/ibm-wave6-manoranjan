@@ -18,9 +18,11 @@ public class Producer {
     private String emailId;
     private String name;
     private int age;
+    private String gender;
     private String mobileNo;
     @Transient
     private String password;
-    private List<String> uploadedTitle;
+    private List<String> uploadedStandalone;
+    private List<String> uploadedEpisodic;
     private String role = "producer";
 }

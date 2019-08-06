@@ -2,12 +2,14 @@ package com.stackroute.seed;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
+
 import com.stackroute.domain.Cast;
 import com.stackroute.domain.Crew;
 import com.stackroute.domain.Episode;
 import com.stackroute.domain.EpisodicMedia;
 import com.stackroute.exception.EpisodicMediaAlreadyExistsException;
 import com.stackroute.service.EpisodicService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -22,9 +24,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+
 @Component
 public class EpisodicSeedData implements ApplicationListener<ContextRefreshedEvent> {
-    EpisodicService episodicService;
+
+    private EpisodicService episodicService;
     @Autowired
     public EpisodicSeedData(EpisodicService episodicService) {
         this.episodicService = episodicService;
@@ -44,7 +48,7 @@ public class EpisodicSeedData implements ApplicationListener<ContextRefreshedEve
         System.out.println("count" + seedData.size());
         EpisodicMedia episodicMedia = new EpisodicMedia();
         for (String row[] : seedData) {
-            System.out.println("values"+ Arrays.toString(row));
+           // System.out.println("values"+ Arrays.toString(row));
             episodicMedia.setEpisodicTitle(row[0]);
             episodicMedia.setEpisodicCategory(row[1]);
             episodicMedia.setEpisodicSynopsis(row[2]);

@@ -16,17 +16,17 @@ public interface TvEpisodesRepository extends Neo4jRepository<TvEpisodes, Long> 
     Collection<TvEpisodes> getAllTvEpisodes();
 
     //query to find TvEpisodes by title
-    TvEpisodes findTvEpisodeByEpisodeTitle(@Param("episodeTitle") String episodeTitle);
+    TvEpisodes findTvEpisodeByEpisodicTitle(@Param("episodicTitle") String episodicTitle);
 
     //query to create TvEpisodes node
-    @Query("CREATE (t:TvEpisodes {episodeTitle:{episodeTitle}})")
-    TvEpisodes createTvEpisodesNode(@Param("episodeTitle") String episodeTitle);
+    @Query("CREATE (t:TvEpisodes {episodicTitle:{episodicTitle}})")
+    TvEpisodes createTvEpisodesNode(@Param("episodicTitle") String episodicTitle);
 
     //query to create TvEpisodes and language relation
-    @Query("MATCH (t:TvEpisodes),(l:Language) WHERE t.episodeTitle={episodeTitle} and l.language={language} CREATE (t)-[r:In_Language]->(l) RETURN t, r, l")
-    TvEpisodes createLanguageRelation(@Param("episodeTitle") String episodeTitle, @Param("language") String language);
+    @Query("MATCH (t:TvEpisodes),(l:Language) WHERE t.episodicTitle={episodicTitle} and l.language={language} CREATE (t)-[r:In_Language]->(l) RETURN t, r, l")
+    TvEpisodes createLanguageRelation(@Param("episodicTitle") String episodicTitle, @Param("language") String language);
 
     //query to create TvEpisodes and category relation
-    @Query("MATCH (t:TvEpisodes),(c:Category) WHERE t.episodeTitle={episodeTitle} and c.category={category} CREATE (t)-[r:Of_Category]->(c) RETURN t, r, c")
-    Documentary createCategoryRelation(@Param("episodeTitle") String episodeTitle, @Param("category") String category);
+    @Query("MATCH (t:TvEpisodes),(c:Category) WHERE t.episodicTitle={episodicTitle} and c.category={category} CREATE (t)-[r:Of_Category]->(c) RETURN t, r, c")
+    Documentary createCategoryRelation(@Param("episodicTitle") String episodicTitle, @Param("category") String category);
 }

@@ -33,10 +33,26 @@ export class LoginComponent implements OnInit {
         (data: any) => {
           sessionStorage.setItem("email", this.user.emailId)
           if (data.message === "producer") {
-           this.router.navigateByUrl('/producer');
+
+            this.router.navigateByUrl('/producer');
+           //this.router.navigateByUrl('/producerdialog');
+            // const dialogRef = this.dialog.open(ProducerdialogComponent, {
+            //   width: '350px',
+            
+            //   disableClose: true,
+             
+            // });
           }
           else if (data.message === "user") {
-           this.router.navigateByUrl('/linkprilog');
+            this.router.navigateByUrl('/linkprilog');
+           //this.router.navigateByUrl('/userdialog');
+            // const dialogRef = this.dialog.open(UserdialogComponent, {
+            //   width: '350px',
+            
+            //   disableClose: true,
+             
+            // });
+
           }
 
           console.log("POST Request is successful ", data);

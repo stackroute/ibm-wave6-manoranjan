@@ -17,7 +17,6 @@ export class ComedymoviesComponent implements OnInit {
     this.mediaService.getMovieByGenre("comedy").subscribe(data => {
       this.movies = data
       this.movies1 = this.movies
-      console.log(this.movies1)
     })
   }
 

@@ -16,18 +16,18 @@ public interface WebSeriesRepository extends Neo4jRepository<WebSeries, Long> {
     Collection<WebSeries> getAllWebSeries();
 
     //query to find WebSeries by title
-    WebSeries findWebSeriesByEpisodeTitle(@Param("episodeTitle") String episodeTitle);
+    WebSeries findWebSeriesByEpisodicTitle(@Param("episodicTitle") String episodicTitle);
 
     //query to create WebSeries node
-    @Query("CREATE (w:WebSeries {episodeTitle:{episodeTitle}})")
-    WebSeries createWebSeriesNode(@Param("episodeTitle") String episodeTitle);
+    @Query("CREATE (w:WebSeries {episodicTitle:{episodicTitle}})")
+    WebSeries createWebSeriesNode(@Param("episodicTitle") String episodicTitle);
 
     //query to create WebSeries and language relation
-    @Query("MATCH (w:WebSeries),(l:Language) WHERE w.episodeTitle={episodeTitle} and l.language={language} CREATE (w)-[r:In_Language]->(l) RETURN w, r, l")
-    WebSeries createLanguageRelation(@Param("episodeTitle") String episodeTitle, @Param("language") String language);
+    @Query("MATCH (w:WebSeries),(l:Language) WHERE w.episodicTitle={episodicTitle} and l.language={language} CREATE (w)-[r:In_Language]->(l) RETURN w, r, l")
+    WebSeries createLanguageRelation(@Param("episodicTitle") String episodicTitle, @Param("language") String language);
 
     //query to create WebSeries and category relation
-    @Query("MATCH (w:WebSeries),(c:Category) WHERE w.episodeTitle={episodeTitle} and c.category={category} CREATE (w)-[r:Of_Category]->(c) RETURN w, r, c")
-    Documentary createCategoryRelation(@Param("episodeTitle") String episodeTitle, @Param("category") String category);
+    @Query("MATCH (w:WebSeries),(c:Category) WHERE w.episodicTitle={episodicTitle} and c.category={category} CREATE (w)-[r:Of_Category]->(c) RETURN w, r, c")
+    Documentary createCategoryRelation(@Param("episodicTitle") String episodicTitle, @Param("category") String category);
 
 }
