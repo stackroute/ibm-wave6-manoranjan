@@ -45,7 +45,6 @@ public class StandaloneController {
         StandaloneMedia media1;
         media1=mediaService.saveMedia(media);
         return new ResponseEntity<>(media1, HttpStatus.OK);
-
     }
 
     //getting all the standalone media

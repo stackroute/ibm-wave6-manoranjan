@@ -1,5 +1,6 @@
 package com.stackroute.config;
 
+import com.stackroute.domain.Producer;
 import com.stackroute.domain.User;
 import com.stackroute.domain.UserPayment;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -36,6 +37,25 @@ public class UserConfiguration {
     public KafkaTemplate<User, User> kafkaTemplate()
     {
         return new KafkaTemplate<>(producerFactory());
+    }
+
+    //kafka producer factory configuration for user
+    @Bean
+    public ProducerFactory<Producer, Producer> producerFactory1() {
+        Map<Object, Object> config = new HashMap<>();
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+
+        return new DefaultKafkaProducerFactory(config);
+
+    }
+
+    //kafka template for storing user details
+    @Bean
+    public KafkaTemplate<Producer, Producer> kafkaTemplate1()
+    {
+        return new KafkaTemplate<>(producerFactory1());
     }
 
     //consumer factory for user payment

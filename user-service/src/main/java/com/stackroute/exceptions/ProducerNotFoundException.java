@@ -1,13 +1,13 @@
 package com.stackroute.exceptions;
 
-public class UserAllReadyExistException extends Exception {
+public class ProducerNotFoundException extends Exception {
     private String message;
 
-    public UserAllReadyExistException() {
+    public ProducerNotFoundException() {
     }
 
     //user already exists exception handler method
-    public UserAllReadyExistException(String message) {
+    public ProducerNotFoundException(String message) {
         super(message);
         this.message = message;
 
