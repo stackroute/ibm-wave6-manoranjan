@@ -19,7 +19,6 @@ a {
 }
 
 .list-unstyled i {
-    /* padding-left: 20px; */
     display: inline;
 }
 
@@ -27,21 +26,10 @@ a {
     padding-left: -50px;
 }
 
-.connect .right {
-    /* padding-left: 75px; */
-}
 
 .first {
     float: left;
 }
-
-/* col-3{
- height:auto;
- width:
-}. */
-/* .col-lg-8{
-    margin-top: -80px;
-} */
 
  .second {
     text-align: center;

@@ -96,5 +96,23 @@ export class UserService {
       })
     });
    }
+  getUploadedStandaloneTitle(emailId){
+    //  return this.http.get("http://13.235.52.81:8083/user-service/producer/standalone/"+emailId,{});
+        return this.http.get("http://localhost:8083/user-service/producer/standalone/"+emailId,{});
+  }
+  getUploadedEpisodicTitle(emailId){
+    //    return this.http.get("http://13.235.52.81:8083/user-service/producer/episodic/"+emailId,{});
+          return this.http.get("http://localhost:8083/user-service/producer/episodic/"+emailId,{});
+  }
+
+  updateUploadedStandalone(emailId,title){
+    //    return this.http.get("http://13.235.52.81:8083/user-service/producer/standalone/"+emailId+"/"+title,{});
+    return this.http.get("http://localhost:8083/user-service/producer/standalone/"+emailId+"/"+title,{});
+  }
+
+  updateUploadedEpisodic(emailId,title){
+    //    return this.http.get("http://13.235.52.81:8083/user-service/producer/episodic/"+emailId+"/"+title,{});
+    return this.http.get("http://localhost:8083/user-service/producer/episodic/"+emailId+"/"+title,{});
+  }
 
 }
