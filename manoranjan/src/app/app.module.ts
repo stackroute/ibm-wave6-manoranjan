@@ -127,6 +127,8 @@ import { NavComponent } from './nav/nav.component';
 import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component';
 import { ProducerdialogComponent } from './producerdialog/producerdialog.component';
 import { UserdialogComponent } from './userdialog/userdialog.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 @NgModule({
   declarations: [
@@ -262,7 +264,8 @@ import { UserdialogComponent } from './userdialog/userdialog.component';
     MatButtonToggleModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],

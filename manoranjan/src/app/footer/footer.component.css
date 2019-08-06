@@ -11,8 +11,9 @@ i {
 a {
     color: white;
 }
-.list-unstyled i{
-    padding-top: 30px;
+
+.list-unstyled i {
+    display: inline;
 }
 .list-unstyled i:hover{
     color: #36c5ff;

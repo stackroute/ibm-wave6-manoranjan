@@ -21,6 +21,7 @@ public class Producer {
     private String mobileNo;
     @Transient
     private String password;
-    private List<String> uploadedTitle;
+    private List<String> uploadedStandalone;
+    private List<String> uploadedEpisodic;
     private String role = "producer";
 }

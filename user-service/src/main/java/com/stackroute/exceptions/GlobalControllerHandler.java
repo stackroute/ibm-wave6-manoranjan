@@ -13,10 +13,22 @@ public class GlobalControllerHandler {
         return new ResponseEntity<>("User Already exist", HttpStatus.CONFLICT);
     }
 
+    //producer already exists exception handler
+    @ExceptionHandler(ProducerAllReadyExistException.class)
+    public ResponseEntity<?> handleProducerAllReadyExistException(ProducerAllReadyExistException e) {
+        return new ResponseEntity<>("Producer Already exist", HttpStatus.CONFLICT);
+    }
+
     //user not found exception handler
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<?> handleUserNotFoundException(UserNotFoundException e) {
         return new ResponseEntity<>("User Not Found", HttpStatus.CONFLICT);
+    }
+
+    //user not found exception handler
+    @ExceptionHandler(ProducerNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFoundException(ProducerNotFoundException e) {
+        return new ResponseEntity<>("Producer Not Found", HttpStatus.CONFLICT);
     }
 
     @ExceptionHandler(DataAlreadyExistException.class)
