@@ -61,13 +61,4 @@ public class UserPaymentController {
         }
         return responseEntity;
     }
-
-    //getting the users from the database
-    @ApiOperation("Get all users")
-    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    @GetMapping("users")
-    public ResponseEntity<List<UserPayment>> getAllUsers() {
-        return new ResponseEntity<>(userPackageService.getAllUsers(), HttpStatus.OK);
-    }
-
 }

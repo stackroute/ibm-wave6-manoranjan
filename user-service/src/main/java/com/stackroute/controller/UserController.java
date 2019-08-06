@@ -224,5 +224,4 @@ public class UserController {
     public ResponseEntity<?> updateUploadedEpisodic(@PathVariable("email") String emailId,@PathVariable("title") String title) throws ProducerNotFoundException, DataAlreadyExistException {
         return new ResponseEntity<>(producerService.updateUploadedEpisodic(emailId, title),HttpStatus.OK);
     }
-
 }

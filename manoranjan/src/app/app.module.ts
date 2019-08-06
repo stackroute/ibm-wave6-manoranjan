@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,7 +24,6 @@ import { SecondcardComponent } from './secondcard/secondcard.component';
 import { ThirdcardComponent } from './thirdcard/thirdcard.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
-import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FaqComponent } from './faq/faq.component';
 import { DocumentaryComponent } from './documentary/documentary.component';
@@ -98,7 +96,6 @@ import { TamilserialpriComponent } from './tamilserialpri/tamilserialpri.compone
 import { MarathiserialpriComponent } from './marathiserialpri/marathiserialpri.component';
 import { EnglishserialpriComponent } from './englishserialpri/englishserialpri.component';
 import { HindiserialpriComponent } from './hindiserialpri/hindiserialpri.component';
-
 import { MythologymoviepriComponent } from './mythologymoviepri/mythologymoviepri.component';
 import { MythologymovienormComponent } from './mythologymovienorm/mythologymovienorm.component';
 import { BiopicmoviepriComponent } from './biopicmoviepri/biopicmoviepri.component';
@@ -140,7 +137,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
     ThirdcardComponent,
     FooterComponent,
     AboutComponent,
-    TermsOfUseComponent,
     FeedbackComponent,
     FaqComponent,
     DocumentaryComponent,
