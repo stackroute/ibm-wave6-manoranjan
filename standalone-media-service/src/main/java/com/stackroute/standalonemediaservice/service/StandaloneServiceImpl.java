@@ -110,7 +110,7 @@ public class StandaloneServiceImpl implements StandaloneService{
     }
 
     //seraching standalone media by genre
-    @Cacheable
+//    @Cacheable
     @Override
     public List<StandaloneMedia> getMediaByGenre(String genre) throws MediaNotFoundException {
         List<StandaloneMedia> allMedia = mediaRepository.findAll();
