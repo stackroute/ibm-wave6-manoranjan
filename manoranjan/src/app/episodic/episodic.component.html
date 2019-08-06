@@ -2,11 +2,11 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center" class="section">
     <mat-card fxFlex="1000px" fxFlex.xs="50%"   id="outerMatCard">
             <!-- <mat-toolbar></mat-toolbar> -->
-        <mat-horizontal-stepper labelPosition="bottom" linear   style="height: 100%;margin-left: 100px;margin-right:100px  ">
+        <mat-horizontal-stepper labelPosition="bottom" linear >
             <mat-step [stepControl]="firstForm" >
                 <form #viewerForm="ngForm" [formGroup]="firstFormGroup" class="form-horizontal form1" (ngSubmit)="onFirstSubmit(firstFormGroup.value)">
                     <ng-template matStepLabel ><span class="headingStyle">Series Details</span></ng-template>
-                    <mat-card class="example-card first-card" style="padding-bottom: 20px;">
+                    <mat-card class="example-card first-card" >
                         <mat-card-content class="content">
                             <div id="container2">
                                 <div class="row" id="language">
@@ -97,7 +97,7 @@
                                         <label id="role">Role</label>
                                     </div>
                                 </div>
-                                <form #viewerForm="ngForm" [formGroup]="sixthFormGroup" class="form-horizontal " style="margin-left: 0px; margin-right: 0px; margin-top: -50px">
+                                <form #viewerForm="ngForm" [formGroup]="sixthFormGroup" class="form-horizontal" id="sixseven" >
                                     <div class="row" id="crewInput">
                                         <div class="col-3"></div>
                                         <div class="col-4" >
@@ -134,7 +134,7 @@
                                         <label>Real Name</label>
                                     </div>
                                 </div>
-                                <form #viewerForm="ngForm" [formGroup]="seventhFormGroup" class="form-horizontal sixseven" style="margin-left: 0px; margin-right: 0px; margin-top: -50px">
+                                <form #viewerForm="ngForm" [formGroup]="seventhFormGroup" class="form-horizontal"  id="sixseven" >
                                     <div class="row" id="castInput">
                                         <div class="col-3"></div>
                                         <div class="col-4" >
@@ -168,16 +168,16 @@
                         </div>
                     </mat-card>
                 </form>
-                <div class="row" style="width:100%;margin-bottom: 10px;">
+                <div class="row" id="crewcastList" >
                     <div class="col-2" *ngFor="let crew of crewList">
-                        <div class="card" style="background-color: black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
-                            <h6 style="margin-top: 10px">{{crew.crewName}} </h6> 
+                        <div class="card" >
+                            <h6 >{{crew.crewName}} </h6> 
                             <h6>AS&nbsp;{{crew.crewRole}}</h6> 
                         </div>
                     </div>
                     <div class="col-2" *ngFor="let cast of castList">
-                        <div class="card" style="background-color:black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
-                            <h6 style="margin-top: 10px">
+                        <div class="card">
+                            <h6>
                                 {{cast.realName}}  
                             </h6>
                             <h6>
@@ -195,7 +195,7 @@
                     <mat-card class="example-card">
                         <mat-card-content class="content">
                             <div class="container">
-                                <form #viewerForm="ngForm" [formGroup]="eightFormGroup" class="form-horizontal eight" style="margin-left: 0px; margin-right: 0px; margin-top: -50px">
+                                <form #viewerForm="ngForm" [formGroup]="eightFormGroup" class="form-horizontal eight" id="sixseven" >
                                     <div class="row">
                                         <div class="col-4" id="episodeNumber">
                                             <label>Episode Number</label> </div>
@@ -252,7 +252,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <button  type="submit"  (click)="addEpisode(episodeNo.value,episodeUrl.value,episodeDescription.value,episodePosterUrl.value,episodeReleaseDate.value)" class="addButton3">Add</button>
+                                        <button  type="submit"  (click)="addEpisode(episodeNo.value,episodeUrl.value,episodeDescription.value,episodePosterUrl.value,episodeReleaseDate.value)" class="addButton3">+</button>
                                     </div>
                                 </form>
                             </div><br>
@@ -265,8 +265,9 @@
                     </mat-card>
                 </form>
                 <div class="col-2 episodeAdd" *ngFor="let episode of episodePreview">
-                    <div class="card" style="background-color:black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;">
-                        <h6 style="margin-top: 10px">
+                    <div class="card card2">
+                        
+                        <h6 >
                             {{episode.episodeNo}} 
                         </h6>
                     </div>

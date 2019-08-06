@@ -12,6 +12,7 @@ h3 {
 h6{
     font-family: 'Merriweather',serif;
     font-weight: bold;
+    margin-top: 10px;
   }
 
 div#success.container3 {
@@ -33,6 +34,11 @@ div#success.container3 {
 section{
     margin-left: 160px;
     margin-right: 145px;  
+}
+mat-horizontal-stepper{
+    height: 100%;
+    margin-left: 100px;
+    margin-right:100px; 
 }
 mat-horizontal-stepper form{
     margin-left: 16%; 
@@ -125,6 +131,18 @@ mat-card {
     margin-top: 10px;
     overflow: hidden;
 }
+#sixseven{
+margin-left: 0px; margin-right: 0px; margin-top: -50px;
+}
+#crewcastList{
+    width:100%;margin-bottom: 10px;
+}
+div.card{
+    background-color: black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;
+}
+div.card2
+{
+    background-color:black;color:white;font-family:'Merriweather', serif;font-weight: bold;height:100px;width:150px;margin-bottom: 10px;}
 
 .content1 {
     margin-left: 10px;
@@ -354,9 +372,15 @@ mat-form-field input {
   }
   button.addButton3{
     /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-    border-radius: 14px;
+    /* border-radius: 14px;
     background: #36c5ff;
     color: white;
     width:15%;
-    padding:3px;
+    padding:3px; */
+    border-radius: 8px;
+    background: #36c5ff;
+    padding: 0;
+    color: white;
+    height: 30px;
+    width: 30px;
   }
