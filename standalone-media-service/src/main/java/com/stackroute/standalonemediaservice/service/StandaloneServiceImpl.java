@@ -93,7 +93,7 @@ public class StandaloneServiceImpl implements StandaloneService{
                 throw new MediaAlreadyExistsException(mediaAlreadyExist);
             }
         }
-        kafkaTemplate.send(topic, media1);
+        kafkaTemplate.send(topic, media);
         return media1;
     }
 
