@@ -16,7 +16,7 @@ public interface TvEpisodesRepository extends Neo4jRepository<TvEpisodes, Long> 
     Collection<TvEpisodes> getAllTvEpisodes();
 
     //query to find TvEpisodes by title
-    TvEpisodes findTvEpisodeByTitle(@Param("episodeTitle") String episodeTitle);
+    TvEpisodes findTvEpisodeByEpisodeTitle(@Param("episodeTitle") String episodeTitle);
 
     //query to create TvEpisodes node
     @Query("CREATE (t:TvEpisodes {episodeTitle:{episodeTitle}})")

@@ -16,7 +16,7 @@ public interface MovieRepository extends Neo4jRepository<Movie,Long> {
     Collection<Movie> getAllMovie();
 
     //query to find movie by title
-    Movie findMovieByTitle(@Param("mediaTitle") String mediaTitle);
+    Movie findMovieByMediaTitle(@Param("mediaTitle") String mediaTitle);
 
     //query to create movie node
     @Query("CREATE (m:Movie {mediaTitle:{mediaTitle}})")

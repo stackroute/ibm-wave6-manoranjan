@@ -116,7 +116,7 @@
                 <mat-grid-list cols="3" id="firstgrid">
                     <mat-grid-tile id="firstImage" >
                         <mat-button-toggle class="imageCard"  (change)="onSubmInterest($event.value)" value="biopic">
-                          <img  mat-card-md-image src="../../assets/images/genre_biopic.png" alt="biopic">
+                          <img  id="biopicImage" mat-card-md-image src="../../assets/images/genre_biopic.png" alt="biopic">
                       </mat-button-toggle>
                     </mat-grid-tile>
                     <mat-grid-tile id="secondImage">   
@@ -137,8 +137,8 @@
                   </mat-button-toggle>
                </mat-grid-tile>
               <mat-grid-tile id="fifthImage">
-                    <mat-button-toggle class="imageCard" (change)="onSubmInterest($event.value)" value="mythology">
-                  <img mat-card-md-image src="../../assets/images/genre_mythology.png" alt="mythology">
+                    <mat-button-toggle class="imageCard"(change)="onSubmInterest($event.value)" value="mythology">
+                  <img  id="mythologyImage" mat-card-md-image src="../../assets/images/genre_mythology.png" alt="mythology">
                     </mat-button-toggle>
               </mat-grid-tile>
               <mat-grid-tile id="sixthImage">
@@ -174,7 +174,7 @@
 <!-- form 3rd is closed--> 
  <mat-step [stepControl]="fourthForm">
       <form #viewerForm="ngForm" class="form-horizontal" >
-           <ng-template matStepLabel><span class="headingStyle">Status</span></ng-template>
+           <ng-template matStepLabel><span class="headingStyle">Submit</span></ng-template>
                <mat-card class="example-card" id="fourth-card">
                   <mat-card-content class="content">
                     <div class="container1" id="success">        

@@ -118,48 +118,48 @@ public class MediaServiceImpl implements MediaService {
 
     //method to get documentary by title
     @Cacheable
-    public Documentary getDocumentaryByTitle(String title) throws MediaNotFoundException {
-        if (documentaryRepository.findDocumentaryByTitle(title) == null) {
+    public Documentary getDocumentaryByTitle(String MediaTitle) throws MediaNotFoundException {
+        if (documentaryRepository.findDocumentaryByMediaTitle(MediaTitle) == null) {
             throw new MediaNotFoundException();
         } else {
-            return documentaryRepository.findDocumentaryByTitle(title);
+            return documentaryRepository.findDocumentaryByMediaTitle(MediaTitle);
         }
     }
 
     //method to get movie by title
     @Cacheable
     public Movie getMovieByTitle(String title) throws MediaNotFoundException {
-        if (movieRepository.findMovieByTitle(title) == null) {
+        if (movieRepository.findMovieByMediaTitle(title) == null) {
             throw new MediaNotFoundException();
         } else {
-            return movieRepository.findMovieByTitle(title);
+            return movieRepository.findMovieByMediaTitle(title);
         }
     }
 
     //method to get Tv Episodes by title
     @Cacheable
     public TvEpisodes getTvEpisodesByTitle(String title) throws MediaNotFoundException {
-        if (tvEpisodesRepository.findTvEpisodeByTitle(title) == null) {
+        if (tvEpisodesRepository.findTvEpisodeByEpisodeTitle(title) == null) {
             throw new MediaNotFoundException();
         } else {
-            return tvEpisodesRepository.findTvEpisodeByTitle(title);
+            return tvEpisodesRepository.findTvEpisodeByEpisodeTitle(title);
         }
     }
 
     //method to get Web Series by title
     @Cacheable
     public WebSeries getWebSeriesByTitle(String title) throws MediaNotFoundException {
-        if (webSeriesRepository.findWebSeriesByTitle(title) == null) {
+        if (webSeriesRepository.findWebSeriesByEpisodeTitle(title) == null) {
             throw new MediaNotFoundException();
         } else {
-            return webSeriesRepository.findWebSeriesByTitle(title);
+            return webSeriesRepository.findWebSeriesByEpisodeTitle(title);
         }
     }
 
     //method to save Documentary
     @CacheEvict(allEntries = true)
     public Documentary saveDocumentary(Documentary documentary) throws MediaAlreadyExistException{
-        if (documentaryRepository.findDocumentaryByTitle(documentary.getMediaTitle()) == null)
+        if (documentaryRepository.findDocumentaryByMediaTitle(documentary.getMediaTitle()) == null)
         {
             documentaryRepository.createDocumentaryNode(documentary.getMediaTitle());
             documentaryRepository.createLanguageRelation(documentary.getMediaTitle(), documentary.getMediaLanguage());
@@ -180,7 +180,7 @@ public class MediaServiceImpl implements MediaService {
     //method to save movie
     @CacheEvict(allEntries = true)
     public Movie saveMovie(Movie movie) throws MediaAlreadyExistException{
-        if (movieRepository.findMovieByTitle(movie.getMediaTitle()) == null) {
+        if (movieRepository.findMovieByMediaTitle(movie.getMediaTitle()) == null) {
             movieRepository.createMovieNode(movie.getMediaTitle());
             movieRepository.createLanguageRelation(movie.getMediaTitle(), movie.getMediaLanguage());
             movieRepository.createCategoryRelation(movie.getMediaTitle(), movie.getMediaCategory());
@@ -199,7 +199,7 @@ public class MediaServiceImpl implements MediaService {
     //method to save tv episodes
     @CacheEvict(allEntries = true)
     public TvEpisodes saveTvEpisodes(TvEpisodes tvEpisodes) throws MediaAlreadyExistException{
-        if (tvEpisodesRepository.findTvEpisodeByTitle(tvEpisodes.getEpisodeTitle()) == null) {
+        if (tvEpisodesRepository.findTvEpisodeByEpisodeTitle(tvEpisodes.getEpisodeTitle()) == null) {
 
             tvEpisodesRepository.createTvEpisodesNode(tvEpisodes.getEpisodeTitle());
             tvEpisodesRepository.createLanguageRelation (tvEpisodes.getEpisodeTitle(), tvEpisodes.getEpisodeLanguage());
@@ -215,7 +215,7 @@ public class MediaServiceImpl implements MediaService {
     //method to save web series
     @CacheEvict(allEntries = true)
     public WebSeries saveWebSeries(WebSeries webSeries) throws MediaAlreadyExistException{
-        if (webSeriesRepository.findWebSeriesByTitle(webSeries.getEpisodeTitle()) == null) {
+        if (webSeriesRepository.findWebSeriesByEpisodeTitle(webSeries.getEpisodeTitle()) == null) {
 
             webSeriesRepository.createWebSeriesNode(webSeries.getEpisodeTitle());
             webSeriesRepository.createLanguageRelation(webSeries.getEpisodeTitle(), webSeries.getEpisodeLanguage());
