@@ -3,7 +3,8 @@ body {
 }
 .emp-profile {
     padding: 3%;
-    margin-top: 10%;
+    margin-top: 100px;
+    margin-bottom: 20px;
     border-radius: 0.2rem;
     background: #fff;
     color: black;

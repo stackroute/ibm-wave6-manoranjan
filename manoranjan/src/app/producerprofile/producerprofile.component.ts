@@ -16,6 +16,7 @@ import { EpisodicService } from '../episodic.service';
 export class ProducerprofileComponent implements OnInit {
 
 
+  heading1="Movies and Documentries"
   id;
   media: any;
   standalone:any;
@@ -26,6 +27,7 @@ export class ProducerprofileComponent implements OnInit {
   users: User;
   producer=new Producer();
   producers:Producer;
+  listTitle:Array<string>=new Array();
   user = new User();
   emailId;
   private photo:string;
@@ -54,9 +56,10 @@ export class ProducerprofileComponent implements OnInit {
     );
 
     this.userService.getUploadedStandaloneTitle(this.producer.emailId).subscribe(data=>{
-      // this.producers=data;
-      // console.log(this.producers);
-      this.standaloneService.getWishlist(data).subscribe(list=>{
+      this.producers=data;
+      this.listTitle=data;
+      console.log(this.producers);
+      this.standaloneService.getWishlist(this.listTitle).subscribe(list=>{
         console.log("standalone - "+list);
         this.standalone=list;
         this.standalone1=this.standalone;
