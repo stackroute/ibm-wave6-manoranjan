@@ -1,9 +1,10 @@
 package com.stackroute.episodicmediaservice.exception;
 
-public class MediaAlreadyExistsException extends Exception {
+public class EpisodeNotFoundException extends Exception {
+
     private final String message;
 
-    public MediaAlreadyExistsException(String message) {
+    public EpisodeNotFoundException(String message) {
         super(message);
         this.message = message;
     }
@@ -13,4 +14,3 @@ public class MediaAlreadyExistsException extends Exception {
         return message;
     }
 }
-

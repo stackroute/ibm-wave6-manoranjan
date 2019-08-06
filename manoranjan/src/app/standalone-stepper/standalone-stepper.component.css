@@ -236,7 +236,9 @@ li {
   margin-left: -10px;
 }
 
-
+.btn-color{
+  color:white;
+}
 ul {
 
   color: blue;

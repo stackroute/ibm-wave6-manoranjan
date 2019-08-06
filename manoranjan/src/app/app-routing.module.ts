@@ -2,7 +2,6 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
-import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FaqComponent } from './faq/faq.component';
 import { DocumentaryComponent } from './documentary/documentary.component';
@@ -68,13 +67,12 @@ import { ProducerprofileComponent } from './producerprofile/producerprofile.comp
 import { EditproducerprofileComponent } from './editproducerprofile/editproducerprofile.component';
 import { EpisodicComponent } from './episodic/episodic.component';
 import { PlayComponent } from './play/play.component';
-import{DatePipe}from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component';
-import{ProducerdialogComponent} from './producerdialog/producerdialog.component';
-import{UserdialogComponent} from './userdialog/userdialog.component';
+import { ProducerdialogComponent} from './producerdialog/producerdialog.component';
+import { UserdialogComponent } from './userdialog/userdialog.component';
 
 const routes: Routes = [
-  { path: 'terms', component: TermsOfUseComponent },
   { path: 'feedback', component: FeedbackComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'document', component: LinkDocNorComponent },
@@ -83,10 +81,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'navnorm', component: NavNormComponent },
-  // {path: 'movie',component:MoviesComponent},
   {path: 'movie/:title',component:MoviesComponent},
   {path: 'wish',component:WishlistComponent},
-  {path: 'moviedes',component:LinkMovieNorComponent},
+  {path: 'movie',component:LinkMovieNorComponent},
   {path: 'tv',component:LinkTvNorComponent},
   {path: 'web',component:LinkWebNorComponent},
   {path: 'image',component:ImageComponent},

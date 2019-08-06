@@ -2,8 +2,7 @@ package com.stackroute.episodicmediaservice.service;
 
 import com.stackroute.episodicmediaservice.domain.Episode;
 import com.stackroute.episodicmediaservice.domain.EpisodicMedia;
-import com.stackroute.episodicmediaservice.exception.MediaAlreadyExistsException;
-import com.stackroute.episodicmediaservice.exception.MediaNotFoundException;
+import com.stackroute.episodicmediaservice.exception.*;
 import com.stackroute.episodicmediaservice.repository.EpisodicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -12,8 +11,6 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,15 +46,13 @@ public class EpisodicServiceImpl implements EpisodicService {
     //saving episodic media by sending episodic media object
     @CacheEvict(allEntries = true)
     @Override
-    public EpisodicMedia saveSerial(EpisodicMedia serial) throws MediaAlreadyExistsException {
+    public EpisodicMedia saveEpisodicMedia(EpisodicMedia serial) throws EpisodicMediaAlreadyExistsException {
         EpisodicMedia media;
+
         if (episodicMediaRepository.existsById(serial.getEpisodicTitle())) {
-            throw new MediaAlreadyExistsException(mediaAlreadyExist);
+            throw new EpisodicMediaAlreadyExistsException(mediaAlreadyExist);
         } else {
             media = episodicMediaRepository.save(serial);
-        }
-        if (media == null) {
-            throw new MediaAlreadyExistsException(mediaAlreadyExist);
         }
         kafkaTemplate1.send(topic1, serial);
         return media;
@@ -66,43 +61,43 @@ public class EpisodicServiceImpl implements EpisodicService {
     //displaying all episodic media
     @Cacheable
     @Override
-    public List<EpisodicMedia> getAllSerials() throws MediaNotFoundException {
+    public List<EpisodicMedia> getAllEpisodicMedias() throws NoEpisodicMediaExistException {
         List<EpisodicMedia> episodicMediaList = episodicMediaRepository.findAll();
         if (episodicMediaList == null) {
-            throw new MediaNotFoundException(mediaNotFound);
+            throw new NoEpisodicMediaExistException("No media available");
         } else return episodicMediaList;
     }
 
     //seraching episodic media by episodicTitle
     @Cacheable
     @Override
-    public EpisodicMedia getSerialByTitle(String episodicTitle) throws MediaNotFoundException {
+    public EpisodicMedia getEpisodicMediaByTitle(String episodicTitle) throws EpisodicMediaNotFoundException {
         EpisodicMedia media;
         if (episodicMediaRepository.existsById(episodicTitle)) {
             media = episodicMediaRepository.findById(episodicTitle).get();
             return media;
-        } else throw new MediaNotFoundException(mediaNotFound);
+        } else throw new EpisodicMediaNotFoundException(mediaNotFound);
     }
 
     //deleting episodic media by serialTitle
     @CacheEvict(allEntries = true)
     @Override
-    public EpisodicMedia deleteSerial(String serialTitle) throws MediaNotFoundException {
+    public EpisodicMedia deleteEpisodicMedia(String serialTitle) throws EpisodicMediaNotFoundException {
         EpisodicMedia media;
         if (episodicMediaRepository.existsById(serialTitle)) {
             media = episodicMediaRepository.findById(serialTitle).get();
             episodicMediaRepository.deleteById(serialTitle);
             return media;
-        } else throw new MediaNotFoundException(mediaNotFound);
+        } else throw new EpisodicMediaNotFoundException(mediaNotFound);
     }
 
     //seraching episodic media by category
     @Cacheable
     @Override
-    public List<EpisodicMedia> getSerialByCategory(String category) throws MediaNotFoundException {
+    public List<EpisodicMedia> getEpisodicMediaByCategory(String category) throws EpisodicMediaNotFoundException {
         List<EpisodicMedia> allSerials = episodicMediaRepository.findAll();
         if (allSerials == null) {
-            throw new MediaNotFoundException(mediaNotFound);
+            throw new EpisodicMediaNotFoundException(mediaNotFound);
         } else {
             List<EpisodicMedia> catSerials = new ArrayList<>();
             for (EpisodicMedia serial : allSerials) {
@@ -111,7 +106,7 @@ public class EpisodicServiceImpl implements EpisodicService {
                 }
             }
             if (catSerials == null) {
-                throw new MediaNotFoundException(mediaNotFound);
+                throw new EpisodicMediaNotFoundException(mediaNotFound);
             } else return catSerials;
         }
     }
@@ -119,10 +114,10 @@ public class EpisodicServiceImpl implements EpisodicService {
     //searching episodic media by language
     @Cacheable
     @Override
-    public List<EpisodicMedia> getTvSerialByLanguage(String language) throws MediaNotFoundException {
+    public List<EpisodicMedia> getEpisodicByLanguage(String language) throws EpisodicMediaNotFoundException {
         List<EpisodicMedia> allSerials = episodicMediaRepository.findAll();
         if (allSerials == null) {
-            throw new MediaNotFoundException(mediaNotFound);
+            throw new EpisodicMediaNotFoundException(mediaNotFound);
         } else {
             List<EpisodicMedia> lanSerials = new ArrayList<>();
             for (EpisodicMedia serial : allSerials) {
@@ -133,7 +128,7 @@ public class EpisodicServiceImpl implements EpisodicService {
                 }
             }
             if (lanSerials == null) {
-                throw new MediaNotFoundException(mediaNotFound);
+                throw new EpisodicMediaNotFoundException(mediaNotFound);
             } else return lanSerials;
         }
     }
@@ -141,13 +136,13 @@ public class EpisodicServiceImpl implements EpisodicService {
     //adding episode to episodic media
     @CacheEvict(allEntries = true)
     @Override
-    public Episode addEpisode(String serialTitle, Episode episode) throws MediaAlreadyExistsException, MediaNotFoundException {
+    public Episode addEpisode(String serialTitle, Episode episode) throws EpisodicMediaNotFoundException, EpisodeAlreadyExistsException {
         if (episodicMediaRepository.existsById(serialTitle)) {
             EpisodicMedia media = episodicMediaRepository.findById(serialTitle).get();
             List<Episode> episodes = media.getEpisodeList();
             for (Episode i : episodes) {
                 if (i.getEpisodeNo() == episode.getEpisodeNo()) {
-                    throw new MediaAlreadyExistsException(mediaAlreadyExist);
+                    throw new EpisodeAlreadyExistsException("Episode already exists");
                 }
             }
             episodes.add(episode);
@@ -155,13 +150,13 @@ public class EpisodicServiceImpl implements EpisodicService {
             episodicMediaRepository.save(media);
             kafkaTemplate2.send(topic2, episode);
             return episode;
-        } else throw new MediaNotFoundException(mediaNotFound);
+        } else throw new EpisodicMediaNotFoundException(mediaNotFound);
     }
 
     //deleting episode from episodic media by serialTitle and episodeNumber
     @CacheEvict(allEntries = true)
     @Override
-    public Episode deleteEpisode(String serialTitle, int episodeNumber) throws MediaNotFoundException {
+    public Episode deleteEpisode(String serialTitle, int episodeNumber) throws EpisodicMediaNotFoundException, EpisodeNotFoundException {
         if (episodicMediaRepository.existsById(serialTitle)) {
             EpisodicMedia media = episodicMediaRepository.findById(serialTitle).get();
             List<Episode> episodes = media.getEpisodeList();
@@ -175,20 +170,20 @@ public class EpisodicServiceImpl implements EpisodicService {
                 }
             }
             if (flag == 0) {
-                throw new MediaNotFoundException(mediaNotFound);
+                throw new EpisodeNotFoundException("episode not found");
             } else {
                 episodes.remove(episode);
                 media.setEpisodeList(episodes);
                 episodicMediaRepository.save(media);
                 return episode;
             }
-        } else throw new MediaNotFoundException(mediaNotFound);
+        } else throw new EpisodicMediaNotFoundException(mediaNotFound);
     }
 
     //searching episode by serialTitle and episodeNumber
     @Cacheable
     @Override
-    public Episode getEpisodeById(String serialTitle, int episodeNumber) throws MediaNotFoundException {
+    public Episode getEpisodeByNumber(String serialTitle, int episodeNumber) throws EpisodicMediaNotFoundException, EpisodeNotFoundException {
         if (episodicMediaRepository.existsById(serialTitle)) {
             EpisodicMedia media = episodicMediaRepository.findById(serialTitle).get();
             List<Episode> episodes = media.getEpisodeList();
@@ -203,30 +198,30 @@ public class EpisodicServiceImpl implements EpisodicService {
                 }
             }
             if (flag == 0) {
-                throw new MediaNotFoundException(mediaNotFound);
+                throw new EpisodeNotFoundException("episode not found");
             } else return episode;
-        } else throw new MediaNotFoundException(mediaNotFound);
+        } else throw new EpisodicMediaNotFoundException(mediaNotFound);
     }
 
     //get all episodes
     @Cacheable
     @Override
-    public List<Episode> getAllEpisodes(String serialTitle) throws MediaNotFoundException {
+    public List<Episode> getAllEpisodes(String serialTitle) throws EpisodicMediaNotFoundException, NoEpisodeExistException {
         if (episodicMediaRepository.existsById(serialTitle)) {
             EpisodicMedia media = episodicMediaRepository.findById(serialTitle).get();
             List<Episode> medias = media.getEpisodeList();
             if (medias == null) {
-                throw new MediaNotFoundException(mediaNotFound);
+                throw new NoEpisodeExistException("No episode exist");
             } else return medias;
         } else {
-            throw new MediaNotFoundException(mediaNotFound);
+            throw new EpisodicMediaNotFoundException(mediaNotFound);
         }
     }
 
     //getting all the media in wishList
     @Cacheable
     @Override
-    public List<EpisodicMedia> getWishlist(List<String> titles) throws MediaNotFoundException {
+    public List<EpisodicMedia> getListOfEpisodicMedia(List<String> titles) throws EpisodicMediaNotFoundException {
         List<EpisodicMedia> wishlist=new ArrayList<>();
         for (String title:titles) {
             if(episodicMediaRepository.existsById(title)){
@@ -234,7 +229,7 @@ public class EpisodicServiceImpl implements EpisodicService {
             }
         }
         if(wishlist==null){
-            throw new MediaNotFoundException(mediaNotFound);
+            throw new EpisodicMediaNotFoundException(mediaNotFound);
         }
         return wishlist;
     }

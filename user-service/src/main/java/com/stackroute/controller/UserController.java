@@ -2,10 +2,8 @@ package com.stackroute.controller;
 
 import com.stackroute.domain.Producer;
 import com.stackroute.domain.UserPayment;
-import com.stackroute.exceptions.DataAlreadyExistException;
-import com.stackroute.exceptions.UserAllReadyExistException;
+import com.stackroute.exceptions.*;
 import com.stackroute.domain.User;
-import com.stackroute.exceptions.UserNotFoundException;
 import com.stackroute.service.ProducerService;
 import com.stackroute.service.UserService;
 import io.swagger.annotations.Api;
@@ -37,6 +35,17 @@ public class UserController {
     public ResponseEntity<?> saveUser(@RequestBody User user) throws UserAllReadyExistException {
         ResponseEntity responseEntity;
         userService.saveUser(user);
+        responseEntity=new ResponseEntity<>("Successfully created", HttpStatus.OK);
+        return responseEntity;
+    }
+
+    //posting producer details
+    @ApiOperation(value = "save producer")
+    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
+    @PostMapping("producer")
+    public ResponseEntity<?> saveProducer(@RequestBody Producer producer) throws ProducerAllReadyExistException {
+        ResponseEntity responseEntity;
+        producerService.saveProducer(producer);
         responseEntity=new ResponseEntity<>("Successfully created", HttpStatus.OK);
         return responseEntity;
     }
@@ -162,7 +171,7 @@ public class UserController {
         return responseEntity;
     }
 
-    //updating user details by email
+    //updating producer details by email
     @ApiOperation(value = "Update producer")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
     @PutMapping("/producer/{email}")
@@ -173,8 +182,7 @@ public class UserController {
         return responseEntity;
     }
 
-
-    //fetching user by emailId
+    //fetching producer by emailId
     @ApiOperation(value = "Get producer by email")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
     @GetMapping("/producers/{email}")
@@ -185,5 +193,35 @@ public class UserController {
         responseEntity=new ResponseEntity<>(producer, HttpStatus.OK);
         return responseEntity;
     }
+    //fetching producer standalone title by email
+    @ApiOperation(value = "Get standalone title")
+    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
+    @GetMapping("producer/standalone/{email}")
+    public ResponseEntity<?> getUploadedStandaloneTitle(@PathVariable("email") String emailId) throws ProducerNotFoundException {
+        return new ResponseEntity<>(producerService.getUploadedStandaloneTitle(emailId), HttpStatus.OK);
+    }
 
+    //fetching producer episodic title by email
+    @ApiOperation(value = "Get episodic title")
+    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
+    @GetMapping("producer/episodic/{email}")
+    public ResponseEntity<?> getUploadedEpisodicTitle(@PathVariable("email") String emailId) throws ProducerNotFoundException {
+        return new ResponseEntity<>(producerService.getUploadedEpisodicTitle(emailId), HttpStatus.OK);
+    }
+
+    //add standalone to  standalone title
+    @ApiOperation(value = "Add standalone to stanalone title")
+    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
+    @PutMapping("/producer/standalone/{email}/{title}")
+    public ResponseEntity<?> updateUploadedStandalone(@PathVariable("email") String emailId,@PathVariable("title") String title) throws ProducerNotFoundException, DataAlreadyExistException {
+        return new ResponseEntity<>(producerService.updateUploadedStandalone(emailId, title),HttpStatus.OK);
+    }
+
+    //add episodic to  episodic title
+    @ApiOperation(value = "Add episodic to  episodic title")
+    @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
+    @PutMapping("/producer/episodic/{email}/{title}")
+    public ResponseEntity<?> updateUploadedEpisodic(@PathVariable("email") String emailId,@PathVariable("title") String title) throws ProducerNotFoundException, DataAlreadyExistException {
+        return new ResponseEntity<>(producerService.updateUploadedEpisodic(emailId, title),HttpStatus.OK);
+    }
 }

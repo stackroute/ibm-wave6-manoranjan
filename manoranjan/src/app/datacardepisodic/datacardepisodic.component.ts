@@ -20,7 +20,6 @@ export class DatacardepisodicComponent implements OnInit {
   sendDetails(serial) {
     let x = JSON.stringify(serial)
     sessionStorage.setItem("serial", x);
-    console.log(serial.episodicTitle)
     this.router.navigateByUrl("/image");
   }
 

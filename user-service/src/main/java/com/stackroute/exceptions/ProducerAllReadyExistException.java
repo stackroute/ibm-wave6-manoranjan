@@ -1,13 +1,13 @@
 package com.stackroute.exceptions;
 
-public class UserAllReadyExistException extends Exception {
+public class ProducerAllReadyExistException extends Exception {
     private String message;
 
-    public UserAllReadyExistException() {
+    public ProducerAllReadyExistException() {
     }
 
     //user already exists exception handler method
-    public UserAllReadyExistException(String message) {
+    public ProducerAllReadyExistException(String message) {
         super(message);
         this.message = message;
 
