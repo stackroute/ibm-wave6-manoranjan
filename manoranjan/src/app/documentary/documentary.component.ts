@@ -17,7 +17,6 @@ export class DocumentaryComponent implements OnInit {
     this.mediaService.getStandalone("Documentary").subscribe(data => {
       this.documentaries = data
       this.documentaries1 = this.documentaries
-      console.log(this.documentaries1)
     })
   }
 
