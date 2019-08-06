@@ -21,19 +21,19 @@ a {
    padding-left: -50px;
 }
 .first {
-   float: left;
-   margin-left: 5px;
-   padding-top: 30px;
+    float: left;
+    padding-top: 30px;
+    margin-left: 5px;
 }
-.second {
-   text-align: center;
-   float:left;
-   margin-left: -150px;
-   padding-top: 30px;
-}
-.third {
-   text-align: center;
-   float: left;
-   margin-left:-300px;
-   padding-top: 30px;
+ .second {
+    text-align: center;
+    float:left;
+    margin-left: -150px;  
+    padding-top: 30px;
+} 
+ .third {
+    text-align: center;
+    float: left;
+    margin-left:-300px;
+    padding-top: 30px; 
 }
