@@ -17,6 +17,7 @@ export interface DialogData {
 })
 export class LoginComponent implements OnInit {
   user: Userauthen = new Userauthen();
+  submitted: boolean;
   constructor(private router: Router, private route: ActivatedRoute, private userService: UserauthenService,public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -59,4 +60,20 @@ export class LoginComponent implements OnInit {
 
       );
   }
+  onSubmit() {
+    this.submitted = true;
+
+  
+
+   const dialogRef = this.dialog.open(UserdialogComponent, {
+    width: '350px',
+  
+    disableClose: true,
+   
+  });
+
+  dialogRef.afterClosed().subscribe(() => {
+    console.log('The dialog was closed');
+  });
+}
 }
