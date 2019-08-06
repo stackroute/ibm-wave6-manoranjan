@@ -38,7 +38,6 @@ export class UserService {
   }
 
   addToStandaloneWishlist(emailId,title){
-
     return this.http.put("http://13.235.52.81:8083/user-service/user/wish/standalone/"+emailId+"/"+title,{});
     // return this.http.put("http://localhost:8083/user-service/user/wish/standalone/"+emailId+"/"+title,{});
   }
@@ -54,19 +53,16 @@ export class UserService {
   }
 
   getEpisodicWishlist(emailId){
-
     return this.http.get("http://13.235.52.81:8083/user-service/user/wish/episodic/"+emailId,{});
     // return this.http.get("http://localhost:8083/user-service/user/wish/episodic/"+emailId,{});
   }
 
   addToStandaloneHistory(emailId,title){
-
     return this.http.put("http://13.235.52.81:8083/user-service/user/history/standalone/"+emailId+"/"+title,{});
     // return this.http.put("http://localhost:8083/user-service/user/history/standalone/"+emailId+"/"+title,{});
   }
 
   addToEpisodicHistory(emailId,title){
-
     return this.http.put("http://13.235.52.81:8083/user-service/user/history/episodic/"+emailId+"/"+title,{});
     // return this.http.put("http://localhost:8083/user-service/user/history/episodic/"+emailId+"/"+title,{});
   }

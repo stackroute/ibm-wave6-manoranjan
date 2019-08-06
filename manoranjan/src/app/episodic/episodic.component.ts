@@ -16,12 +16,13 @@ import { StandaloneService } from '../standalone.service';
 export class EpisodicComponent implements OnInit {
   
   episodePreview = [];
-  episodeNo;
+  episodeNo:Number;
   episodeUrl;
   episodeDescription;
   episodePosterUrl;
   episodeReleaseDate;
 
+  episodeData:Episode=new Episode();
 
   firstFormGroup: FormGroup
   secondFormGroup: FormGroup
@@ -48,6 +49,8 @@ export class EpisodicComponent implements OnInit {
   screenName;
   realName;
 
+  listEpisode:Array<Episode>=new Array();
+
   progress: { percentage: number } = { percentage: 0 };
 
   constructor(private _formBuilder: FormBuilder, private router: Router,
@@ -73,11 +76,6 @@ export class EpisodicComponent implements OnInit {
     });
 
     this.thirdFormGroup = this._formBuilder.group({
-      episodeNo: new FormControl('', Validators.compose([Validators.required, Validators.maxLength(20)])),
-      episodeUrl: new FormControl('', Validators.compose([Validators.required])),
-      posterDescription: new FormControl('', Validators.compose([Validators.required, Validators.maxLength(100)])),
-      posterUrl: new FormControl('', Validators.compose([Validators.required])),
-      releaseDate: new FormControl("", Validators.compose([Validators.required]))
     });
 
     this.sixthFormGroup = this._formBuilder.group({
@@ -92,23 +90,14 @@ export class EpisodicComponent implements OnInit {
 
     this.eightFormGroup = this._formBuilder.group({
       episodeNo: new FormControl('', Validators.compose([Validators.maxLength(20)])),
-      episodeUrl: new FormControl('', Validators.compose([])),
+      episodeUrl: new FormControl(),
       episodeDescription: new FormControl('', Validators.compose([Validators.maxLength(100)])),
-      episodePosterUrl: new FormControl('', Validators.compose([])),
-      episodeReleaseDate: new FormControl('', Validators.compose([]))
+      episodePosterUrl: new FormControl(),
+      episodeReleaseDate: new FormControl()
     });
   }
   // ng oninit closed
   validation_messages = {
-    'episodicLanguage': [
-      { type: 'required', message: 'languge required' }
-    ],
-    'episodePoster': [
-      { type: 'required', message: 'episode poster required' }
-    ],
-    'episodeType': [
-      { type: 'required', message: 'languge required' }
-    ],
     'crewName': [
       { type: 'pattern', message: 'Your crewname must contain only characters' },
       { type: 'validUsername', message: 'Your username has already been taken' }
@@ -121,7 +110,7 @@ export class EpisodicComponent implements OnInit {
       { type: 'pattern', message: 'Your screenName must contain only characters' },
       { type: 'validUsername', message: 'Your username has already been taken' }
     ],
-    'episodePosterUrl': [
+    'episodePoster': [
       { type: 'required', message: 'episode poster url is required' }
     ],
     'realName': [
@@ -131,10 +120,17 @@ export class EpisodicComponent implements OnInit {
   }
 
   addEpisode(episodeNumber, video, desc, poster, dateRelease) {
+
+    this.episodeData.episodeNo=episodeNumber;
+    this.episodeData.episodeUrl=video;
+    this.episodeData.episodeDescription=desc;
+    this.episodeData.episodePosterUrl=poster;
+    this.episodeData.episodeReleaseDate=dateRelease;
+    this.listEpisode.push(this.episodeData);
     this.episodePreview.push(
       {
         episodeNo: episodeNumber,
-        episodeUrl: this.episodeName,
+        episodeUrl: video,
         episodeDescription: desc,
         episodePosterUrl: poster,
         episodeReleaseDate: dateRelease
@@ -230,11 +226,12 @@ export class EpisodicComponent implements OnInit {
       'episodicStudioName': this.episodeDetails[1].EpisodeStudioName,
       'episodicCrew': this.crewList,
       'episodicCast': this.castList,
-      'episodeList': this.episodePreview,
+      'episodeList': this.listEpisode,
       'episodicType': this.episodeDetails[0].episodeType
     };
 
-    this.episodicService.saveSerial(video).subscribe(com => {
+    console.log("video "+video)
+    this.episodicService.saveEpisodicMedia(video).subscribe(com => {
       console.log("saved");
       console.log(com)
     },
