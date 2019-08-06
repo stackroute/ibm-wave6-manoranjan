@@ -5,3 +5,6 @@ WORKDIR /root
 RUN mkdir uploads
 WORKDIR /app/user
 ENTRYPOINT ["java","-jar"   ,"standalone-media-service-0.0.1-SNAPSHOT.jar"]
+
+
+

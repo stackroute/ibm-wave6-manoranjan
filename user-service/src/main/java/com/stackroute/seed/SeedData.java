@@ -28,6 +28,7 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
         producer.setEmailId(environment.getProperty("producer.emailId"));
         producer.setName(environment.getProperty("producer.name"));
         producer.setAge(Integer.parseInt(environment.getProperty("producer.age")));
+        producer.setGender(environment.getProperty("producer.gender"));
         producer.setMobileNo(environment.getProperty("producer.mobileNo"));
         producer.setPassword(environment.getProperty("producer.password"));
         producer.setRole(environment.getProperty("producer.role"));
@@ -36,6 +37,7 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
         producer1.setEmailId(environment.getProperty("producer1.emailId"));
         producer1.setName(environment.getProperty("producer1.name"));
         producer1.setAge(Integer.parseInt(environment.getProperty("producer1.age")));
+        producer1.setGender(environment.getProperty("producer1.gender"));
         producer1.setMobileNo(environment.getProperty("producer1.mobileNo"));
         producer1.setPassword(environment.getProperty("producer1.password"));
         producer1.setRole(environment.getProperty("producer1.role"));
@@ -44,6 +46,7 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
         producer2.setEmailId(environment.getProperty("producer2.emailId"));
         producer2.setName(environment.getProperty("producer2.name"));
         producer2.setAge(Integer.parseInt(environment.getProperty("producer2.age")));
+        producer2.setGender(environment.getProperty("producer2.gender"));
         producer2.setMobileNo(environment.getProperty("producer2.mobileNo"));
         producer2.setPassword(environment.getProperty("producer2.password"));
         producer2.setRole(environment.getProperty("producer2.role"));
