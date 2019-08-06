@@ -1,5 +1,4 @@
-div.about {
-    margin-top: 120px;
+.about {
     margin-right: 33%;
     margin-left: 33%;
     color: white;
@@ -7,6 +6,7 @@ div.about {
     overflow: hidden;
 }
 h3{
+    margin-top: 130px;
     text-align: center;
     font-family: 'Merriweather', serif;
 }

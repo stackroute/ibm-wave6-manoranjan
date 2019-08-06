@@ -1,69 +1,29 @@
-div.about {
-    margin-top: 100px;
-    margin-left: 10px;
+.container{
+    margin-top: 120px;
+    margin-bottom: 330px;
     font-family: 'Merriweather', serif;
     color: white;
 }
-
-
-/* header */
-
-.btn-group i {
-    color: rgb(26, 24, 24);
-}
-
 h3 {
     color: #36c5ff;
 }
-
-nav {
-    position: fixed;
-    z-index: -1;
-}
-
 div.dropdown-menu,
 div.dropdown-menu:hover {
     background-color: #343a40;
     color: white;
 }
-
 a.dropdown-item,
 a.dropdown-item:hover {
     color: white;
     background-color: #343a40;
 }
-
-li.menu-item {
-    margin: 0 0 10px 0;
-    transform: translate(15px, -5px);
-    position: absolute;
-    padding-right: 15px;
-}
-
 .nav-item {
     padding-right: 50px;
 }
-
-.navbar-brand {
-    padding-right: 20px;
+.mat-expansion-panel-header{
+    background-color: gray;
 }
-
-.form-inline {
-    padding-left: 200px;
-    padding-right: 20px;
-}
-
-.form-inline i {
-    color: white;
-}
-
-a.navbar-brand {
-    font-family: 'Merriweather', serif;
-    font-size: 2em;
-}
-
 app-footer {
-    margin-top: 498px;
     position: fixed;
     width: 100%;
 }

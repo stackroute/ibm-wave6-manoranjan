@@ -32,9 +32,11 @@ div.main {
     height: 250px;
 }
 .card-title{
+    margin-left: 2px;
     font-size: 18px;
     margin-bottom: 20px;
 }
 .card-text{
+    text-align: justify;
     font-size: 14px;
 }
