@@ -220,7 +220,7 @@ public class UserController {
     //add episodic to  episodic title
     @ApiOperation(value = "Add episodic to  episodic title")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    @PutMapping("/user/episodic/{email}/{title}")
+    @PutMapping("/producer/episodic/{email}/{title}")
     public ResponseEntity<?> updateUploadedEpisodic(@PathVariable("email") String emailId,@PathVariable("title") String title) throws ProducerNotFoundException, DataAlreadyExistException {
         return new ResponseEntity<>(producerService.updateUploadedEpisodic(emailId, title),HttpStatus.OK);
     }

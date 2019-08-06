@@ -18,6 +18,7 @@ public class Producer {
     private String emailId;
     private String name;
     private int age;
+    private String gender;
     private String mobileNo;
     @Transient
     private String password;

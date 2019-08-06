@@ -4,36 +4,35 @@
     font-size: 0.9rem;
     font-family: 'Merriweather', serif;
     font-size: 16px;
-} 
-i {
+ }
+ i {
     padding: 15px;
-}
-a {
+ }
+ a {
     color: white;
-}
-
-.list-unstyled i {
-    display: inline;
-}
-.list-unstyled i:hover{
+ }
+ .list-unstyled i{
+    padding-top: 30px;
+ }
+ .list-unstyled i:hover{
     color: #36c5ff;
-}
-.connect {
+ }
+ .connect {
     padding-left: -50px;
-}
-.first {
+ }
+ .first {
     float: left;
     padding-top: 30px;
-}
+ }
  .second {
     text-align: center;
     float:left;
-    margin-left: -150px;  
+    margin-left: -150px;
     padding-top: 30px;
-} 
+ }
  .third {
     text-align: center;
     float: left;
     margin-left:-300px;
-    padding-top: 30px; 
-}
+    padding-top: 30px;
+ }
