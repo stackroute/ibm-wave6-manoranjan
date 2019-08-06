@@ -7,6 +7,9 @@ import { Crew } from '../crew';
 import { Cast } from '../cast';
 import { StandaloneService } from '../standalone.service';
 import { StandaloneMedia } from '../standalone-media';
+import { UserService } from '../user.service';
+import { Producer } from '../producer';
+
 @Component({
   selector: 'app-standalone-stepper',
   templateUrl: './standalone-stepper.component.html',
@@ -45,6 +48,8 @@ export class StandaloneStepperComponent implements OnInit {
   mediaName;
   trailerName;
 
+  producer = new Producer();
+
   progress: { percentage: number } = { percentage: 0 };
 
   media: StandaloneMedia = new StandaloneMedia();
@@ -56,7 +61,7 @@ export class StandaloneStepperComponent implements OnInit {
   genres: Array<string> = new Array<string>();
 
   constructor(private _formBuilder: FormBuilder, private router: Router,
-    private mediaService: StandaloneService, private activatedRoute: ActivatedRoute) { }
+    private mediaService: StandaloneService, private activatedRoute: ActivatedRoute,private userService: UserService) { }
 
   ngOnInit() {
 
@@ -218,6 +223,17 @@ export class StandaloneStepperComponent implements OnInit {
       error => {
         console.log(error)
       });
+
+    this.producer.emailId = sessionStorage.getItem('email');
+    console.log(this.producer.emailId)
+    console.log(this.title)
+   this.userService.updateUploadedStandalone(this.producer.emailId,this.title).subscribe(com=>{
+     console.log("saved");
+     console.log(com)
+   },
+   error=>{
+     console.log(error)
+   });
   }
   validation_messages = {
     'studio': [

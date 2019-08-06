@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-uploadedvideos',
@@ -10,7 +12,7 @@ export class UploadedvideosComponent implements OnInit {
 
   items: Array<any> = [];
 
-  constructor() {
+  constructor(private userService:UserService) {
     this.items = [
       { name: '../../assets/caro/5.jpg' },
       { name: '../../assets/mov3.webp' },
@@ -30,6 +32,11 @@ export class UploadedvideosComponent implements OnInit {
     ];
   }
   ngOnInit() {
+    // this.userService.getMovieByGenre("action").subscribe(data => {
+    //   this.movies = data
+    //   this.movies1 = this.movies
+    //   console.log(this.movies1)
+    // })
   }
 
 }
