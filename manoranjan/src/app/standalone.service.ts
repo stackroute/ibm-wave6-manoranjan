@@ -71,5 +71,4 @@ export class StandaloneService {
     return this.http.patch('http://13.235.52.81:8083/standalone-media-service/wish',titles);
     // return this.http.patch('http://localhost:8083/standalone-media-service/wish',titles);
   }
-
 }
