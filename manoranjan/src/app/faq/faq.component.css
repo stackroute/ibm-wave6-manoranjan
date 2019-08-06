@@ -1,27 +1,15 @@
 .container{
     margin-top: 120px;
-    margin-bottom: 330px;
+    margin-bottom: 340px;
     font-family: 'Merriweather', serif;
     color: white;
 }
 h3 {
-    color: #36c5ff;
-}
-div.dropdown-menu,
-div.dropdown-menu:hover {
-    background-color: #343a40;
-    color: white;
-}
-a.dropdown-item,
-a.dropdown-item:hover {
-    color: white;
-    background-color: #343a40;
-}
-.nav-item {
-    padding-right: 50px;
+    font-size: 20px;
+    font-weight: bold;
 }
 .mat-expansion-panel-header{
-    background-color: gray;
+    background-color: rgb(168, 158, 158);
 }
 app-footer {
     position: fixed;
