@@ -194,13 +194,13 @@ export class StandaloneStepperComponent implements OnInit {
     this.cast.screenName = this.mediaDetails[1].screenName;
     this.cast.realName = this.mediaDetails[1].realName;
     this.listCast.push(this.cast);
-
+    let newDate = new Date(this.mediaDetails[0].date);
     var video = {
       'mediaTitle': this.title,
       'mediaCategory': this.category,
       'mediaSynopsis': this.synopsis,
       'mediaLanguage': this.mediaDetails[2].language,
-      'mediaReleaseDate': this.mediaDetails[0].date,
+      'mediaReleaseDate': newDate,
       'mediaStudioName': this.mediaDetails[1].studio,
       'mediaCrew': this.crewList,
       'mediaCast': this.castList,

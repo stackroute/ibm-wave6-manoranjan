@@ -48,6 +48,7 @@ public class EpisodicServiceImpl implements EpisodicService {
     @Override
     public EpisodicMedia saveEpisodicMedia(EpisodicMedia serial) throws EpisodicMediaAlreadyExistsException {
         EpisodicMedia media;
+
         if (episodicMediaRepository.existsById(serial.getEpisodicTitle())) {
             throw new EpisodicMediaAlreadyExistsException(mediaAlreadyExist);
         } else {

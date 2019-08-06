@@ -121,20 +121,27 @@ export class EpisodicComponent implements OnInit {
 
   addEpisode(episodeNumber, video, desc, poster, dateRelease) {
 
-    this.episodeData.episodeNo=episodeNumber;
-    this.episodeData.episodeUrl=video;
-    this.episodeData.episodeDescription=desc;
-    this.episodeData.episodePosterUrl=poster;
-    this.episodeData.episodeReleaseDate=dateRelease;
-    this.listEpisode.push(this.episodeData);
+    // this.episodeData.episodeNo=episodeNumber;
+    // this.episodeData.episodeUrl=video;
+    // this.episodeData.episodeDescription=desc;
+    // this.episodeData.episodePosterUrl=poster;
+    // this.episodeData.episodeReleaseDate=dateRelease;
+    // this.listEpisode.push(this.episodeData);
+    console.log("Hello episode",episodeNumber);
+    let n=parseInt(episodeNumber);
+    console.log("Hello episode",n);
+    console.log("Hello",dateRelease);
+    let newDate = new Date(dateRelease);
+    console.log("Hello",newDate);
     this.episodePreview.push(
       {
-        episodeNo: episodeNumber,
-        episodeUrl: video,
+        episodeNo: n,
+        episodeUrl: this.episodeName,
         episodeDescription: desc,
         episodePosterUrl: poster,
-        episodeReleaseDate: dateRelease
+        episodeReleaseDate: newDate
       });
+
     console.log(this.episodePreview);
   }
 
@@ -226,11 +233,11 @@ export class EpisodicComponent implements OnInit {
       'episodicStudioName': this.episodeDetails[1].EpisodeStudioName,
       'episodicCrew': this.crewList,
       'episodicCast': this.castList,
-      'episodeList': this.listEpisode,
+      'episodeList': this.episodePreview,
       'episodicType': this.episodeDetails[0].episodeType
     };
 
-    console.log("video "+video)
+    console.log("video ", JSON.stringify(video, null, 1))
     this.episodicService.saveEpisodicMedia(video).subscribe(com => {
       console.log("saved");
       console.log(com)
