@@ -17,8 +17,6 @@ export class BengaliserialsComponent implements OnInit {
     this.mediaService.getShowsByLanguage("Bengali").subscribe(data => {
       this.serials = data
       this.serials1 = this.serials
-      console.log(this.serials1)
     })
   }
-
 }
