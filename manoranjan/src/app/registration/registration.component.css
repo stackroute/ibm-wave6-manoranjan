@@ -11,7 +11,9 @@ section{
   #error{
     margin-left: 45%;
   }
-  
+  .btn-color{
+    color:white;
+  }
   .example-card{
     font-family: 'Merriweather', serif;
     width:800px;
@@ -224,6 +226,7 @@ section{
   
   #gridimages {
       margin-bottom: -50px;
+      color:white;
   }
   
   mat-button-toggle img {
