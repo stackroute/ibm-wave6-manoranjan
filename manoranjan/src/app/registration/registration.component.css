@@ -155,6 +155,12 @@ section{
     height:100px;
     width:100px
   }
+  #biopicImage{
+    border-radius: 4px;
+  }
+  #mythologyImage{
+    border-radius: 4px;
+  }
     #firstImage{
     margin-left:80px;
   }
@@ -335,7 +341,7 @@ section{
   #success{
     margin-top: -20px;
     font-family: 'Merriweather', serif;
-    color:green;
+    color:#36c5ff;
   }
   #success img{
     height:50px;
@@ -347,9 +353,6 @@ section{
   h3{
     margin-top: 180px;
   
-  }
-  h3 {
-      margin-top: 180px;
   }
   .mat-stroked-button{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

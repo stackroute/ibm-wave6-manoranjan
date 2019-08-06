@@ -2,8 +2,7 @@ package com.stackroute.episodicmediaservice.controller;
 
 import com.stackroute.episodicmediaservice.domain.Episode;
 import com.stackroute.episodicmediaservice.domain.EpisodicMedia;
-import com.stackroute.episodicmediaservice.exception.MediaAlreadyExistsException;
-import com.stackroute.episodicmediaservice.exception.MediaNotFoundException;
+import com.stackroute.episodicmediaservice.exception.*;
 import com.stackroute.episodicmediaservice.service.EpisodicService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,30 +25,30 @@ public class EpisodicController {
     private EpisodicService mediaService;
 
     //posting episodic media
-    @PostMapping("/serial")
-    @ApiOperation("Save serial")
+    @PostMapping("/episodic-media")
+    @ApiOperation("Save episodic media")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK",response = EpisodicMedia.class)})
-    public ResponseEntity<?> saveSerial(@RequestBody EpisodicMedia media) throws MediaAlreadyExistsException {
+    public ResponseEntity<?> saveEpisodicMedia(@RequestBody EpisodicMedia media) throws EpisodicMediaAlreadyExistsException {
         EpisodicMedia media1;
-        media1=mediaService.saveSerial(media);
+        media1=mediaService.saveEpisodicMedia(media);
         return new ResponseEntity<>(media1, HttpStatus.OK);
     }
 
     //posting single episode
-    @PostMapping("/episode/{serial-title}")
+    @PostMapping("/episode/{media-title}")
     @ApiOperation("Save episode")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    public ResponseEntity<?> saveEpisode(@PathVariable("serial-title") String serialTitle, @RequestBody Episode episode) throws MediaNotFoundException, MediaAlreadyExistsException {
+    public ResponseEntity<?> saveEpisode(@PathVariable("media-title") String serialTitle, @RequestBody Episode episode) throws EpisodicMediaNotFoundException, EpisodeAlreadyExistsException {
         return new ResponseEntity<>(mediaService.addEpisode(serialTitle, episode), HttpStatus.OK);
     }
 
     //getting all the episodic media
-    @GetMapping("/serials")
-    @ApiOperation("Get all serials ")
+    @GetMapping("/episodic-medias")
+    @ApiOperation("Get all episodic-medias")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    public ResponseEntity<?> getAllSerials() throws MediaNotFoundException {
+    public ResponseEntity<?> getAllEpisodicMedias() throws NoEpisodicMediaExistException {
         List<EpisodicMedia> episodicMediaList;
-        episodicMediaList=mediaService.getAllSerials();
+        episodicMediaList=mediaService.getAllEpisodicMedias();
         return new ResponseEntity<>(episodicMediaList,HttpStatus.OK);
     }
 
@@ -57,16 +56,16 @@ public class EpisodicController {
     @GetMapping("/episodes/{title}")
     @ApiOperation("Get all episodes ")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    public ResponseEntity<?> getAllEpisodes(@PathVariable("title") String serialTitle) throws MediaNotFoundException {
+    public ResponseEntity<?> getAllEpisodes(@PathVariable("title") String serialTitle) throws EpisodicMediaNotFoundException, NoEpisodeExistException {
         return new ResponseEntity<>(mediaService.getAllEpisodes(serialTitle),HttpStatus.OK);
     }
 
     //searching single episodic media by title
-    @GetMapping("/serial/{title}")
+    @GetMapping("/episodic-media/{title}")
     @ApiOperation("Get serial by id ")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    public ResponseEntity<?> getSerialById(@PathVariable("title") String serialTitle) throws MediaNotFoundException {
-        return new ResponseEntity<>(mediaService.getSerialByTitle(serialTitle),HttpStatus.OK);
+    public ResponseEntity<?> getEpisodicMediaById(@PathVariable("title") String serialTitle) throws EpisodicMediaNotFoundException {
+        return new ResponseEntity<>(mediaService.getEpisodicMediaByTitle(serialTitle),HttpStatus.OK);
     }
 
 
@@ -74,32 +73,32 @@ public class EpisodicController {
     @GetMapping("/episode/{title}/{episode-num}")
     @ApiOperation("Get episode by id ")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    public ResponseEntity<?> getEpisodeById(@PathVariable("title") String serialTitle, @PathVariable("episodeNum") int episodeNum) throws MediaNotFoundException {
-        return new ResponseEntity<>(mediaService.getEpisodeById(serialTitle, episodeNum), HttpStatus.OK);
+    public ResponseEntity<?> getEpisodeById(@PathVariable("title") String serialTitle, @PathVariable("episode-num") int episodeNum) throws EpisodicMediaNotFoundException, EpisodeNotFoundException {
+        return new ResponseEntity<>(mediaService.getEpisodeByNumber(serialTitle, episodeNum), HttpStatus.OK);
     }
 
     //searching the episodic media by language
-    @GetMapping("/series/tv/{language}")
-    @ApiOperation("Get serial by language")
+    @GetMapping("/episodic-media/tv/{language}")
+    @ApiOperation("Get episodic-media by language")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    public ResponseEntity<?> getSerialByLanguage(@PathVariable("language") String language) throws MediaNotFoundException {
-        return new ResponseEntity<>(mediaService.getTvSerialByLanguage(language),HttpStatus.OK);
+    public ResponseEntity<?> getEpisodicMediaByLanguage(@PathVariable("language") String language) throws EpisodicMediaNotFoundException {
+        return new ResponseEntity<>(mediaService.getEpisodicByLanguage(language),HttpStatus.OK);
     }
 
     //searching the episodic media by category
-    @GetMapping("/series/category/{category}")
+    @GetMapping("/episodic-media/category/{category}")
     @ApiOperation("Get episode by category ")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    public ResponseEntity<?> getEpisodicByCategory(@PathVariable("category") String category) throws MediaNotFoundException {
-        return new ResponseEntity<>(mediaService.getSerialByCategory(category),HttpStatus.OK);
+    public ResponseEntity<?> getEpisodicByCategory(@PathVariable("category") String category) throws EpisodicMediaNotFoundException {
+        return new ResponseEntity<>(mediaService.getEpisodicMediaByCategory(category),HttpStatus.OK);
     }
 
     //deleting episodic media by title
-    @DeleteMapping("/serial/{title}")
-    @ApiOperation("Delete serial ")
+    @DeleteMapping("/episodic-media/{title}")
+    @ApiOperation("Delete episodic media")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    public ResponseEntity<?> deleteSerial(@PathVariable("title") String serialTitle) throws MediaNotFoundException {
-        return new ResponseEntity<>(mediaService.deleteSerial(serialTitle),HttpStatus.OK);
+    public ResponseEntity<?> deleteEpisodicMedia(@PathVariable("title") String serialTitle) throws EpisodicMediaNotFoundException {
+        return new ResponseEntity<>(mediaService.deleteEpisodicMedia(serialTitle),HttpStatus.OK);
 
     }
 
@@ -107,7 +106,7 @@ public class EpisodicController {
     @DeleteMapping("/episode/{title}/{episode-num}")
     @ApiOperation("Delete episode")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    public ResponseEntity<?> deleteEpisode(@PathVariable("title") String serialTitle, @PathVariable("episodeNum") int episodeNum) throws MediaNotFoundException {
+    public ResponseEntity<?> deleteEpisode(@PathVariable("title") String serialTitle, @PathVariable("episode-num") int episodeNum) throws EpisodicMediaNotFoundException, EpisodeNotFoundException {
         return new ResponseEntity<>(mediaService.deleteEpisode(serialTitle, episodeNum),HttpStatus.OK);
     }
 
@@ -115,7 +114,7 @@ public class EpisodicController {
     @PatchMapping("/wish")
     @ApiOperation("Get media list ")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "OK")})
-    public ResponseEntity<?> getWishlist(@RequestBody List<String> titles) throws MediaNotFoundException {
-        return new ResponseEntity<>(mediaService.getWishlist(titles),HttpStatus.OK);
+    public ResponseEntity<?> getWishlist(@RequestBody List<String> titles) throws EpisodicMediaNotFoundException {
+        return new ResponseEntity<>(mediaService.getListOfEpisodicMedia(titles),HttpStatus.OK);
     }
 }

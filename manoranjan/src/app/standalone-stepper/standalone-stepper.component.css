@@ -24,7 +24,7 @@ h6{
 #success{
   margin-top: -80px;
   font-family: 'Merriweather', serif;
-  color:green;
+  color:#36c5ff;
 }
 app-footer{
   position: relative;
@@ -32,7 +32,7 @@ app-footer{
 
 h3{
 margin-top: 180px;
-color: green;
+color: #36c5ff;
 }
 
 .container1 {
@@ -40,7 +40,7 @@ color: green;
   margin-left: 50px;
 }
 p {
-  color: green;
+  color: #36c5ff;
 }
 mat-card-content mat-grid-list {
   margin-bottom: -90px;
@@ -81,7 +81,12 @@ img:hover{
   margin-left: 15%; 
   margin-right: 14%;   
 }
-
+#biopicImage{
+  border-radius: 4px;
+}
+#mythologyImage{
+  border-radius: 4px;
+}
  mat-card{
   margin-top:2%;
   width:95%; 
@@ -294,7 +299,7 @@ margin-left: -80px;
 #success{
   margin-top: 100px;
   font-family: 'Merriweather', serif;
-  color:green;
+  color:#36c5ff;
 }  
 .mat-form-field-infix {
   top: -0.25em;
@@ -444,11 +449,7 @@ mat-grid-list mat-grid-tile {
   height: 100px;
   width: 100px
 }
-/* .btn {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 14px;
-  background: #36c5ff;
-} */
+
 .mat-stroked-button{
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 14px;
@@ -458,10 +459,13 @@ mat-grid-list mat-grid-tile {
   padding:5px;
 }
 .btn1{
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 14px;
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  border-radius: 8px;
   background: #36c5ff;
+  padding: 0;
   color: white;
+  height: 30px;
+  width: 30px;
 }
 .container3{
   margin-top:-100px;
