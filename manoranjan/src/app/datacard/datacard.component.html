@@ -12,8 +12,11 @@
     </ng-template>
 
     <ng-template #item let-item let-i="index">
-        <div class="items">
-            <img class="latest" src="{{ item.mediaPosterUrl }}" routerLink="/movie/{{item.mediaTitle}}">
+        <div class="box">
+            <div class="imgbox">
+                <img src="{{item.mediaPosterUrl}}" class="latest" routerLink="/movie/{{item.mediaTitle}}">
+                <span class="close1 badge badge-danger">M</span>
+            </div>
         </div>
     </ng-template>
 </div>

@@ -8,6 +8,8 @@ import { Cast } from '../cast';
 import { Episode } from '../episode';
 import { EpisodicService } from '../episodic.service';
 import { StandaloneService } from '../standalone.service';
+import { Producer } from '../producer';
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-episodic',
   templateUrl: './episodic.component.html',
@@ -15,6 +17,7 @@ import { StandaloneService } from '../standalone.service';
 })
 export class EpisodicComponent implements OnInit {
   
+  producer = new Producer();
   episodePreview = [];
   episodeNo:Number;
   episodeUrl;
@@ -55,7 +58,7 @@ export class EpisodicComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder, private router: Router,
     private mediaService: StandaloneService, private activatedRoute: ActivatedRoute,
-    private episodicService:EpisodicService) { }
+    private episodicService:EpisodicService,private userService:UserService) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
@@ -245,5 +248,17 @@ export class EpisodicComponent implements OnInit {
       error => {
         console.log(error)
       });
+
+
+    this.producer.emailId = sessionStorage.getItem('email');
+    console.log(this.producer.emailId)
+    console.log(this.title)
+   this.userService.updateUploadedEpisodic(this.producer.emailId,this.title).subscribe(com=>{
+     console.log("saved");
+     console.log(com)
+   },
+   error=>{
+     console.log(error)
+   });
   }
 }

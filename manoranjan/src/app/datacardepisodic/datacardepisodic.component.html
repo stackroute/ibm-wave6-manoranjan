@@ -12,8 +12,11 @@
     </ng-template>
 
     <ng-template #item let-item let-i="index">
-        <div class="items">
+        <div class="box">
+            <div class="imgbox">
             <img class="latest" src="{{ item.episodicPosterUrl }}" (click)="sendDetails(item)">
+            <span class="close1 badge badge-danger">M</span>
         </div>
+    </div>
     </ng-template>
 </div>

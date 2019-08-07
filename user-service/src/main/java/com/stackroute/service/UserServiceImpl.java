@@ -99,6 +99,13 @@ public class UserServiceImpl implements UserService {
             user1.setName(user.getName());
             user1.setMobileNo(user.getMobileNo());
             user1.setAge(user.getAge());
+            user1.setGenre(user.getGenre());
+            user1.setHistoryEpisodic(user.getHistoryEpisodic());
+            user1.setGender(user.getGender());
+            user1.setHistoryStandalone(user.getHistoryStandalone());
+            user1.setWishListEpisodic(user.getWishListEpisodic());
+            user1.setWishListStandalone(user.getWishListStandalone());
+            user1.setPassword(user.getPassword());
             userRepository.save(user1);
         }
         else
