@@ -17,6 +17,7 @@ export class ProducerprofileComponent implements OnInit {
 
 
   heading1="Movies and Documentries"
+  heading2="Tv-Shows and Web-Series"
   id;
   media: any;
   standalone:any;
@@ -64,6 +65,19 @@ export class ProducerprofileComponent implements OnInit {
         this.standalone=list;
         this.standalone1=this.standalone;
         console.log(this.standalone1);
+        this.nomedia="false";
+      })
+    })
+
+    this.userService.getUploadedEpisodicTitle(this.producer.emailId).subscribe(data=>{
+      this.producers=data;
+      this.listTitle=data;
+      console.log(this.producers);
+      this.standaloneService.getWishlist(this.listTitle).subscribe(list=>{
+        console.log("episodic"+list);
+        this.episodic=list;
+        this.episodic1=this.episodic;
+        console.log(this.episodic1);
         this.nomedia="false";
       })
     })

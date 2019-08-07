@@ -65,7 +65,11 @@ public class ProducerServiceImpl implements ProducerService {
             producer1.setEmailId(producer.getEmailId());
             producer1.setName(producer.getName());
             producer1.setMobileNo(producer.getMobileNo());
+            producer1.setPassword(producer.getPassword());
             producer1.setAge(producer.getAge());
+            producer1.setGender(producer.getGender());
+            producer1.setUploadedEpisodic(producer.getUploadedEpisodic());
+            producer1.setUploadedStandalone(producer.getUploadedStandalone());
             producerRepository.save(producer1);
         }
         return producerRepository.save(producer1);
