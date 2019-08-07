@@ -14,6 +14,7 @@ import java.util.Collection;
 @RestController
 @Api(value = "RecommendationServiceApi",produces = MediaType.APPLICATION_JSON_VALUE)
 @RequestMapping("/rest/neo4j")
+@CrossOrigin("*")
 public class MediaController {
 
     @Autowired

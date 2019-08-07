@@ -144,7 +144,7 @@ const routes: Routes = [
   {path:'standaloneepisodic',component:StandaloneEpisodicComponent},
   {path:'episodic/:title/:category/:synopsis',component:EpisodicComponent},
   {path:'standalonestepper/:title/:category/:synopsis',component:StandaloneStepperComponent},
-  {path:'play/:title/:url/:category',component:PlayComponent},
+  {path:'play/:title/:url',component:PlayComponent},
   {path: '**', redirectTo: '/navland'},
 ];
 

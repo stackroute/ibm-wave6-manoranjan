@@ -39,7 +39,7 @@ export class ImageComponent implements OnInit {
       }
     }
     else{
-      this.router.navigateByUrl('/play/'+this.serial.episodicTitle+'/'+this.serial1.episodeList[0].episodeUrl+'/'+"episodic");
+      this.router.navigateByUrl('/play/'+this.serial.episodicTitle+'/'+this.serial1.episodeList[0].episodeUrl);
     }
   }
 
