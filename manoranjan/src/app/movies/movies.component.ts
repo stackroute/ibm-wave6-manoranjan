@@ -55,7 +55,7 @@ export class MoviesComponent implements OnInit {
       }
     }
     else {
-      this.router.navigateByUrl('/play/' + this.media1.mediaTitle + '/' + this.media1.mediaUrl+'/'+"standalone");
+      this.router.navigateByUrl('/play/' + this.media1.mediaTitle + '/' + this.media1.mediaUrl);
     }
 
   }

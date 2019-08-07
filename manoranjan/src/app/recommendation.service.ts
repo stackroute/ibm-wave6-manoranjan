@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
+<<<<<<< HEAD
+import { Movie } from './movie';
+import { Documentary } from './documentary';
+=======
 import { Documentary } from './documentary';
 import { Movie } from './movie';
+>>>>>>> 4a30af9d4bd2f9f2bbad8035bfd3f5a5a07934d0
 import { Tvepisodes } from './tvepisodes';
 import { Webseries } from './webseries';
 import { Viewer } from './viewer';
@@ -14,6 +19,28 @@ export class RecommendationService {
   headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' })
 
   constructor(private http: HttpClient) { }
+<<<<<<< HEAD
+  getRecInterestDocumentary(email):any{
+    // return this.http.get("http://13.235.52.81:8083/recommendation-service/recommendedInterestDocumentary/"+email);
+    return this.http.get("http://localhost:8083/recommendation-service/recommendedInterestDocumentary/"+email,{
+        headers:new HttpHeaders({
+          'Access-Control-Allow-Origin' : '*'
+        })
+    });
+  }
+  getRecInterestMovie(email):any{
+    // return this.http.get("http://13.235.52.81:8083/recommendation-service/recommendedInterestMovie/"+email);
+    return this.http.get("http://localhost:8083/recommendation-service/recommendedInterestMovie/"+email,{
+      headers:new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    });
+  }
+
+  getRecLangDoc(email):any{
+    // return this.http.get("http://13.235.52.81:8083/recommendation-service/recLangDocumentary/"+email);
+    return this.http.get("http://localhost:8083/recommendation-service/recLangDocumentary/"+email,{
+=======
   getDocumentary():any{
     // return this.http.get("http://13.235.52.81:8083/recommendation-service/documentaries");
     return this.http.get("http://localhost:8083/recommendation-service/documentaries");
@@ -40,29 +67,62 @@ export class RecommendationService {
   }
 
   getDocumentaryByTitle(title):any{
+<<<<<<< HEAD
     // return this.http.get("http://13.235.52.81:8083/recommendation-service/documentary/"+title,{
     return this.http.get("http://localhost:8083/recommendation-service/documentary/"+title,{
+=======
+    return this.http.get("http://13.235.52.81:8083/recommendation-service/documentary/"+title,{
+    // return this.http.get("http://localhost:8083/recommendation-service/documentary/"+title,{
+>>>>>>> 4a30af9d4bd2f9f2bbad8035bfd3f5a5a07934d0
+>>>>>>> fb19f56cb61b1c543c184710fd52774d8c05b6a0
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
     });
   }
+<<<<<<< HEAD
+  getRecLangMovie(email):any{
+    // return this.http.get("http://13.235.52.81:8083/recommendation-service/recLangMovie/"+email);
+    return this.http.get("http://localhost:8083/recommendation-service/recLangMovie/"+email,{
+=======
   getMovieByTitle(title):any{
+<<<<<<< HEAD
     // return this.http.get("http://13.235.52.81:8083/recommendation-service/movie/"+title,{
     return this.http.get("http://localhost:8083/recommendation-service/movie/"+title,{
+=======
+    return this.http.get("http://13.235.52.81:8083/recommendation-service/movie/"+title,{
+    // return this.http.get("http://localhost:8083/recommendation-service/movie/"+title,{
+>>>>>>> 4a30af9d4bd2f9f2bbad8035bfd3f5a5a07934d0
+>>>>>>> fb19f56cb61b1c543c184710fd52774d8c05b6a0
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
     });
   }
+<<<<<<< HEAD
+  getRecLangTvEpisodes(email):any{
+    // return this.http.get("http://13.235.52.81:8083/recommendation-service/recLangTvEpisodes/"+email);
+    return this.http.get("http://localhost:8083/recommendation-service/recLangTvEpisodes/"+email,{
+=======
   getTvEpisodesByTitle(title):any{
+<<<<<<< HEAD
     // return this.http.get("http://13.235.52.81:8083/recommendation-service/tvEpisodes/"+title,{
     return this.http.get("http://localhost:8083/recommendation-service/tvEpisodes/"+title,{
+=======
+    return this.http.get("http://13.235.52.81:8083/recommendation-service/tvEpisodes/"+title,{
+    // return this.http.get("http://localhost:8083/recommendation-service/tvEpisodes/"+title,{
+>>>>>>> 4a30af9d4bd2f9f2bbad8035bfd3f5a5a07934d0
+>>>>>>> fb19f56cb61b1c543c184710fd52774d8c05b6a0
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
     });
   }
+<<<<<<< HEAD
+  getRecLangWebSeries(email):any{
+    // return this.http.get("http://13.235.52.81:8083/recommendation-service/recLangWebSeries/"+email);
+    return this.http.get("http://localhost:8083/recommendation-service/recLangWebSeries/"+email,{
+=======
   getWebSeriesByTitle(title):any{
     // return this.http.get("http://13.235.52.81:8083/recommendation-service/webSeries/"+title,{
     return this.http.get("http://localhost:8083/recommendation-service/webSeries/"+title,{
@@ -98,12 +158,21 @@ export class RecommendationService {
     return this.http.post<Viewer>("http://localhost:8083/recommendation-service/viewer",viewer);
   }
   getByEmailId(email):any{
+<<<<<<< HEAD
     // return this.http.get("http://13.235.52.81:8083/recommendation-service/viewer/"+email,{
     return this.http.get("http://localhost:8083/recommendation-service/viewer/"+email,{
+=======
+    return this.http.get("http://13.235.52.81:8083/recommendation-service/viewer/"+email,{
+    // return this.http.get("http://localhost:8083/recommendation-service/viewer/"+email,{
+>>>>>>> 4a30af9d4bd2f9f2bbad8035bfd3f5a5a07934d0
+>>>>>>> fb19f56cb61b1c543c184710fd52774d8c05b6a0
       headers:new HttpHeaders({
         'Access-Control-Allow-Origin' : '*'
       })
     });
+<<<<<<< HEAD
+    
+=======
   }
   updateDetails(viewer:Viewer):any{
     // return this.http.put("http://13.235.52.81:8083/user-service/user/"+viewer,{
@@ -144,7 +213,13 @@ export class RecommendationService {
     return this.http.get("http://localhost:8083/recommendation-service/recLangTvEpisodes/"+email);
   }
   getRecLangWebSeries(email):any{
+<<<<<<< HEAD
     // return this.http.get("http://13.235.52.81:8083/recommendation-service/recLangWebSeries/"+email);
     return this.http.get("http://localhost:8083/recommendation-service/recLangWebSeries/"+email);
+=======
+    return this.http.get("http://13.235.52.81:8083/recommendation-service/recLangWebSeries/"+email);
+    // return this.http.get("http://localhost:8083/recommendation-service/recLangWebSeries/"+email);
+>>>>>>> 4a30af9d4bd2f9f2bbad8035bfd3f5a5a07934d0
+>>>>>>> fb19f56cb61b1c543c184710fd52774d8c05b6a0
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecommendationService } from '../recommendation.service';
 
 @Component({
   selector: 'app-thirdcard',
@@ -7,22 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThirdcardComponent implements OnInit {
 
+  id;
   items: Array<any> = [];
-  constructor() {
-    this.items = [
-      { name: '../../assets/tv1.webp' },
-      { name: '../../assets/tv2.webp' },
-      { name: '../../assets/tv3.webp' },
-      { name: '../../assets/tv4.webp' },
-      { name: '../../assets/tv5.webp' },
-      { name: '../../assets/luka-chupi.jpg' },
-      { name: '../../assets/rab-ne-bnad- jodi.jpg' },
-      { name: '../../assets/ddlj.jpg' },
-      { name: '../../assets/chennai-express.jpg' },
-    ];
+  constructor(private recommendation:RecommendationService) {
+
   }
 
   ngOnInit() {
+
+    this.id=sessionStorage.getItem('email');
+    console.log(this.id);
+    this.recommendation.getRecInterestMovie(this.id).subscribe(data=>{
+      this.items=data;
+      console.log(this.items);
+    })
   }
 
 }
