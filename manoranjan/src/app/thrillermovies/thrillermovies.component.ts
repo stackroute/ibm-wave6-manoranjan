@@ -14,7 +14,7 @@ export class ThrillermoviesComponent implements OnInit {
   constructor(private mediaService: StandaloneService) { }
 
   ngOnInit() {
-    this.mediaService.getMovieByGenre("kid").subscribe(data => {
+    this.mediaService.getMovieByGenre("kids").subscribe(data => {
       this.movies = data
       this.movies1 = this.movies
       console.log(this.movies1)

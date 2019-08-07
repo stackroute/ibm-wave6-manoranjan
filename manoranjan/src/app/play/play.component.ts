@@ -37,7 +37,7 @@ export class PlayComponent implements OnInit {
       console.log(this.url);
     });
 
-    this.url=this.sanitizer.bypassSecurityTrustResourceUrl("rtmp://localhost:1935/vod/mp4:"+this.url);
+    this.url=this.sanitizer.bypassSecurityTrustResourceUrl("rtmp://13.235.52.81:1935/vod/mp4:"+this.url);
     if(sessionStorage.getItem('email')!==null){
       this.status="true";
     }

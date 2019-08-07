@@ -1,6 +1,6 @@
 <div id="container">
-    <h4><span>Uploaded Videos</span></h4>
-    <div ng2-carouselamos class="slides-wrapper" [items]="items" [width]="1150" [$prev]="prev" [$next]="next" [$item]="item">
+    <h4><span>{{heading}}</span></h4>
+    <div ng2-carouselamos class="slides-wrapper" [items]="list" [width]="1450" [$prev]="prev" [$next]="next" [$item]="item">
     </div>
 
     <ng-template #prev>
@@ -13,7 +13,7 @@
 
     <ng-template #item let-item let-i="index">
         <div class="items">
-            <img class="latest" src="{{ item.name }}" routerLink="/movie">
+            <img class="latest" src="{{ item.mediaPosterUrl }}" routerLink="/movie/{{item.mediaTitle}}">
         </div>
     </ng-template>
 </div>

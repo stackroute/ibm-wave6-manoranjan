@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
         (data: any) => {
           sessionStorage.setItem("email", this.user.emailId)
           if (data.message === "producer") {
+
             this.router.navigateByUrl('/producer');
            //this.router.navigateByUrl('/producerdialog');
             // const dialogRef = this.dialog.open(ProducerdialogComponent, {
@@ -51,6 +52,7 @@ export class LoginComponent implements OnInit {
             //   disableClose: true,
              
             // });
+
           }
 
           console.log("POST Request is successful ", data);
@@ -62,20 +64,6 @@ export class LoginComponent implements OnInit {
 
       );
   }
-  onSubmit() {
-    this.submitted = true;
-
-    
-
-   const dialogRef = this.dialog.open(ProducerdialogComponent, {
-    width: '350px',
   
-    disableClose: true,
-   
-  });
 
-  dialogRef.afterClosed().subscribe(() => {
-    console.log('The dialog was closed');
-  });
-}
 }

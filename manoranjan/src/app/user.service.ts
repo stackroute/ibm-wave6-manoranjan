@@ -101,9 +101,13 @@ export class UserService {
           })
         });
   }
-  getUploadedEpisodicTitle(emailId){
+  getUploadedEpisodicTitle(emailId):any{
     //    return this.http.get("http://13.235.52.81:8083/user-service/producer/episodic/"+emailId,{});
-          return this.http.get("http://localhost:8083/user-service/producer/episodic/"+emailId,{});
+          return this.http.get("http://localhost:8083/user-service/producer/episodic/"+emailId,{
+            headers:new HttpHeaders({
+              'Access-Control-Allow-Origin' : '*'
+            })
+          });
   }
 
   updateUploadedStandalone(emailId,title){
@@ -116,7 +120,11 @@ export class UserService {
 
   updateUploadedEpisodic(emailId,title){
     //    return this.http.get("http://13.235.52.81:8083/user-service/producer/episodic/"+emailId+"/"+title,{});
-    return this.http.put("http://localhost:8083/user-service/producer/episodic/"+emailId+"/"+title,{});
+    return this.http.put("http://localhost:8083/user-service/producer/episodic/"+emailId+"/"+title,{
+      headers:new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    });
   }
 
 }

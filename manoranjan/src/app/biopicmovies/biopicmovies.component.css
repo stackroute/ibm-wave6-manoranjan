@@ -88,3 +88,14 @@ h4 {
 .box .content .btnD:hover {
     color: white;
 }
+.close1 {
+    position: absolute;
+    top: 0;
+    opacity: none;
+    right: 0;
+    height: 21px;
+    width: 30px;
+    border-radius: 40px;
+    margin-top: 3%;
+    font-family: 'Chewy', cursive;
+}
