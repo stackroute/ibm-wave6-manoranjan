@@ -156,7 +156,6 @@ public class MediaController {
         return viewerService.deleteViewer(viewer.getEmailId());
     }
 
-
     //posting the emailId of viewer and title of documentary
     @ApiOperation("Save episodic media relation")
     @PostMapping("graphDocumentary/{email}/{title}")
@@ -181,7 +180,6 @@ public class MediaController {
     public Viewer saveWebSeriesRelation(@PathVariable String email, @PathVariable String title) throws ViewerNotFoundException {
         return viewerService.saveWebSeriesRelation(email, title);
     }
-
 
     @GetMapping("/recommendedInterestDocumentary/{email}")
     public Collection<Documentary> getRecInterestDocumentary(@PathVariable String email) throws MediaNotFoundException {
