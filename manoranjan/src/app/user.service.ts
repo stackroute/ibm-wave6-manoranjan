@@ -16,6 +16,7 @@ export class UserService {
   //  return this.http.post<User>("http://13.235.52.81:8083/user-service/user",user);
    return this.http.post<User>("http://localhost:8083/user-service/user",user);
   }
+  
   getById(emailId):any{
     // return this.http.get("http://13.235.52.81:8083/user-service/users/"+emailId,{
       return this.http.get("http://localhost:8083/user-service/users/"+emailId,{
