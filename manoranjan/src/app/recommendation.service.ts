@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpRequest, HttpHeaders } from '@angular/common/http';
-import { Movie } from './movie';
 import { Documentary } from './documentary';
+import { Movie } from './movie';
 import { Tvepisodes } from './tvepisodes';
 import { Webseries } from './webseries';
 import { Viewer } from './viewer';
@@ -14,23 +14,15 @@ export class RecommendationService {
   headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' })
 
   constructor(private http: HttpClient) { }
+
   getRecInterestDocumentary(email):any{
     // return this.http.get("http://13.235.52.81:8083/recommendation-service/recommendedInterestDocumentary/"+email);
-    return this.http.get("http://localhost:8083/recommendation-service/recommendedInterestDocumentary/"+email,{
-        headers:new HttpHeaders({
-          'Access-Control-Allow-Origin' : '*'
-        })
-    });
+    return this.http.get("http://localhost:8083/recommendation-service/recommendedInterestDocumentary/"+email);
   }
   getRecInterestMovie(email):any{
     // return this.http.get("http://13.235.52.81:8083/recommendation-service/recommendedInterestMovie/"+email);
-    return this.http.get("http://localhost:8083/recommendation-service/recommendedInterestMovie/"+email,{
-      headers:new HttpHeaders({
-        'Access-Control-Allow-Origin' : '*'
-      })
-    });
+    return this.http.get("http://localhost:8083/recommendation-service/recommendedInterestMovie/"+email);
   }
-
 
   getRecLangDoc(email):any{
     // return this.http.get("http://13.235.52.81:8083/recommendation-service/recLangDocumentary/"+email);
@@ -47,6 +39,5 @@ export class RecommendationService {
   getRecLangWebSeries(email):any{
     // return this.http.get("http://13.235.52.81:8083/recommendation-service/recLangWebSeries/"+email);
     return this.http.get("http://localhost:8083/recommendation-service/recLangWebSeries/"+email);
-
   }
 }
