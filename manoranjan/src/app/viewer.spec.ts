@@ -1,4 +1,4 @@
-import { Viewer } from './viewer';
+import { Viewer } from './user';
 
 describe('Viewer', () => {
   it('should create an instance', () => {

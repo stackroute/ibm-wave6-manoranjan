@@ -4,7 +4,7 @@ import { Documentary } from './documentary';
 import { Movie } from './movie';
 import { Tvepisodes } from './tvepisodes';
 import { Webseries } from './webseries';
-import { Viewer } from './viewer';
+import { Viewer } from './user';
 
 @Injectable({
   providedIn: 'root'
