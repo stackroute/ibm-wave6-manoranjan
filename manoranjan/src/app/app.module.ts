@@ -125,6 +125,7 @@ import { PaymentdialogComponent } from './paymentdialog/paymentdialog.component'
 import { ProducerdialogComponent } from './producerdialog/producerdialog.component';
 import { UserdialogComponent } from './userdialog/userdialog.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { UploadedComponent } from './uploaded/uploaded.component';
 
 
 @NgModule({
@@ -234,7 +235,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     NavComponent,
     PaymentdialogComponent,
     ProducerdialogComponent,
-    UserdialogComponent
+    UserdialogComponent,
+    UploadedComponent
   ],
   imports: [
     BrowserModule,
