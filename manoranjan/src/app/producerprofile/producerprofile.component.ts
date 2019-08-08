@@ -28,7 +28,9 @@ export class ProducerprofileComponent implements OnInit {
   users: User;
   producer=new Producer();
   producers:Producer;
+  producers1:Producer;
   listTitle:Array<string>=new Array();
+  listTitle1:Array<string>=new Array();
   user = new User();
   emailId;
   private photo:string;
@@ -65,17 +67,17 @@ export class ProducerprofileComponent implements OnInit {
         this.standalone=list;
         this.standalone1=this.standalone;
         console.log(this.standalone1);
-        this.nomedia="false";
+         this.nomedia="false";
       })
     })
 
     this.userService.getUploadedEpisodicTitle(this.producer.emailId).subscribe(data=>{
-      this.producers=data;
-      this.listTitle=data;
-      console.log(this.producers);
-      this.standaloneService.getWishlist(this.listTitle).subscribe(list=>{
-        console.log("episodic"+list);
-        this.episodic=list;
+      this.producers1=data;
+      this.listTitle1=data;
+      console.log(this.producers1);
+      this.episodicService.getWishlist(this.listTitle1).subscribe(list1=>{
+        console.log("episodic"+list1);
+        this.episodic=list1;
         this.episodic1=this.episodic;
         console.log(this.episodic1);
         this.nomedia="false";
