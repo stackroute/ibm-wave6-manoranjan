@@ -6,13 +6,13 @@
         <h4>History</h4>
         <div class="container-fluid" *ngIf="nomedia=='false'">
             <div class="row">
-                <h3>Movies And Documentries</h3>
+                <!-- <h3>Movies And Documentries</h3> -->
                 <div class="col-3" *ngFor="let item of standalone1">
                     <img src="{{item.mediaPosterUrl}}" class="image" routerLink="/movie/{{item.mediaTitle}}">
                 </div>
             </div>
             <div class="row">
-                <h3>Tv Episodes And Web Series</h3>
+                <!-- <h3>Tv Episodes And Web Series</h3> -->
                 <div class="col-3" *ngFor="let item of episodic1">
                     <img src="{{item.episodicPosterUrl}}" class="image" (click)="sendDetails(item)">
                 </div>

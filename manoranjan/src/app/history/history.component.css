@@ -21,6 +21,7 @@ h4 {
     font-size: 22px;
     margin-left: 30px;
     margin-top: 20px;
+    margin-bottom: 380px;
 }
 
 .image {
@@ -43,8 +44,8 @@ h4 {
 }
 
 app-footer {
-    margin-top: 23%;
-    position: fixed;
+    /* margin-top: 400px; */
+    /* position: fixed; */
     width: 100%;
     height: auto;
     overflow: hidden;

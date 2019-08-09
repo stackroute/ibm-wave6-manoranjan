@@ -7,7 +7,7 @@
     <h3>
         {{title}}
     </h3>
-    <video
+    <video #videoPlayer 
         id="video"
         class="video-js vjs-default-skin vjs-big-play-centered"
         autoplay
@@ -19,7 +19,6 @@
     >
         <source [src]="url" type="rtmp/mp4">
     </video>
-
 </div>
 <!--footer section-->
 <app-footer></app-footer>
